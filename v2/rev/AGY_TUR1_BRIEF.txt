@@ -1,0 +1,41 @@
+GOREV: "Martı" oyununun v2 surumunde Tur 1 duzeltmelerini uygula.
+
+KAPSAM VE KURALLAR (zorunlu):
+- Calisma klasoru: D:\martı\v2 . Yalniz bu klasorde degisiklik yap.
+- D:\martı kok dizinindeki *.js dosyalari (v1) KESINLIKLE DEGISMEZ, okuma disi.
+- Yedek var: D:\martı\v2_yedek_tur0 (tur 0). Dosya silme. git push yok. ElevenLabs/ses uretme yok.
+- Saf HTML/CSS/JS. Harici kutuphane, CDN, fetch/API yok. index.html file:// ile acilmali.
+- Oyun Canvas 2D ile cizilir (Three.js degil). Skill'lerdeki genel ilkeler (gorsel kalite, UI okunurluk, QA) gecerli, Three.js'e ozgu kisimlari uygulama.
+
+SKILL'LER (ONCE OKU, ADIYLA):
+- threejs-aaa-graphics-builder (yol: C:\Users\Emir\.gemini\antigravity-cli\skills\threejs-aaa-graphics-builder\SKILL.md) — gorsel madde 11-20 icin (yansima, kiyi, koprü, dip, su alti).
+- threejs-game-ui-designer (yol: C:\Users\Emir\.gemini\antigravity-cli\skills\threejs-game-ui-designer\SKILL.md) — tabela kart, menu okunurlugu, martı maskotu, debug kutusu (madde 17-19).
+- threejs-qa-release (yol: C:\Users\Emir\.gemini\antigravity-cli\skills\threejs-qa-release\SKILL.md) — kontrol ve ekran goruntusu/piksel olcumu icin.
+
+ANA GOREV DOSYASI (ZORUNLU, TUMUNU OKU):
+- D:\martı\v2\REVIZE_V2.md — 38 maddelik oncelikli liste. Sirayla uygula: (a) 1-10, (b) 11-20, (c) 21-27, (d) 28-38.
+- Ek baglam (gerekirse): D:\martı\v2\IS_EMRI_V2.md (98 KB; yalniz ilgili bolumleri ara, tamamini okuma), D:\martı\v2\rev\REV_1_KOD.md, REV_2_SORU.md, REV_3_GORSEL.md, REV_4_ISEMRI.md (ayrintili gerekce ve satir numaralari).
+- Satir numaralari tur 0 kodunadir; kayabilir. Fonksiyon adiyla bul.
+- Her madde icin "Kabul" olcutunu kontrol et.
+
+CALISMA SIRASI:
+1. Once D:\martı\v2\tools\check.js ve mevcut dosyalari grep ile incele (buyuk dosyalari tamamen okuma: grep -n, sonra offset/limit).
+2. (a) bolumu: matcher, matchAnswer, escapeHtml, finalize, keydown, gun sinirlari, zamanlayici, ses, store, clipboard. matcher degisikliklerinden sonra check.js'e REVIZE_V2 madde 1 ve 2'nin testlerini ekle (NFC/tipografik 5 vaka, invalid-once-fuzzy vakalari).
+3. (b) bolumu: scene.js ve style.css/index.html. Gorsel degisiklikleri once kucuk parcalar halinde yap.
+4. (c) bolum: bolge adi puandan, instant, dithering, sinematik fade, buyuk harf, DIP listesi, ozet Enter.
+5. (d) bolum: data.js / data\q*.js. Her soru degisikliginden sonra check.js calistir: ALIAS cakisma ve TAKVIM kontrolu gecmeli. Takvim (config.js) degisikligi yapilirsa dikkatli ol.
+
+ZORUNLU KONTROL (bitince, kendin yap):
+- node --check D:\martı\v2\game.js ; node --check ...\scene.js ; ...\matcher.js ; ...\sound.js ; ...\zones.js ; ...\config.js ; ...\data.js  (hepsi temiz olmali)
+- node D:\martı\v2\tools\check.js  -> "Matcher Testleri: 205/205" veya uzeri, SORU 42, TAKVIM ok olmali.
+- Ekran goruntusu: D:\martı\v2\tools\shots.ps1 varsa ve calistirilabiliyorsa calistir (shots klasorunu guncelle). Calistirilamazsa nedenini yaz; uydurma.
+- Hicbir madde "yapildi" sayilmaz kendi kontrolunden gecmeden.
+
+CIKTI (sonda, yalniz bu bicimde, en fazla 60 satir):
+A. Madde tablosu: her madde no | YAPILDI / KISMEN / YAPILMADI | degisen dosya ve fonksiyon | kabul kontrolu (ne gozlendi)
+B. check.js son satiri ve node --check sonucu (ornek cikti)
+C. Degisen dosyalar listesi (tam yol)
+D. Bilinen sorunlar / riskler (durust yaz; gizleme)
+E. Ekran goruntusu durumu (alindi / alinamadi + neden)
+
+Tum degisiklikler bittiginde son satirda: "TUR1 BITTI" yaz.

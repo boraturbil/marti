@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARTI — Türkçe Tahmin Oyunu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="scene" width="384" height="216"></canvas>
+  <div class="crt" aria-hidden="true"></div>
+
+  <div id="ui">
+    <button id="sound-btn" class="hud-btn sound-btn" type="button">SES: AÇIK</button>
+
+    <!-- 1. ANA MENÜ -->
+    <section id="menu" class="screen active" aria-label="Ana Menü">
+      <div class="menu-header">
+        <canvas id="logo" width="144" height="48"></canvas>
+        <p class="menu-subtitle">HERKESİN VERECEĞİ CEVABI BUL</p>
+        <p id="menu-day" class="menu-day"></p>
+      </div>
+      <div id="mode-cards" class="mode-cards"></div>
+      <div id="unlimited-card" class="unlimited-card"></div>
+      <div id="stats-bar" class="stats-bar"></div>
+    </section>
+
+    <!-- 2. GİRİŞ YAZISI -->
+    <div id="intro-text" class="intro-text" aria-live="polite"></div>
+
+    <!-- 3. SORU EKRANI -->
+    <section id="question" class="screen" aria-label="Soru">
+      <div id="zone-badge" class="zone-badge"></div>
+
+      <div id="sign-card" class="sign-card">
+        <div class="sign-meta">
+          <div id="progress-boxes" class="progress-boxes" aria-label="İlerleme"></div>
+          <span id="total-score" class="total-score">0 PUAN</span>
+        </div>
+        <div id="question-counter" class="question-counter"></div>
+        <h2 id="question-text" class="question-text"></h2>
+        <p id="question-hint" class="question-hint"></p>
+        <div class="timer-row">
+          <div id="timer-track" class="timer-track" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="30">
+            <div id="timer-fill" class="timer-fill"></div>
+          </div>
+          <span id="timer-text" class="timer-text">30</span>
+        </div>
+      </div>
+
+      <div id="esc-confirm" class="esc-confirm" hidden>TURU BIRAK? ENTER: EVET · ESC: HAYIR</div>
+
+      <div id="dock" class="dock">
+        <button id="pass-btn" class="pixel-btn btn-pass" type="button">GEÇ</button>
+        <div id="info-bar" class="info-bar" role="alert" aria-live="polite"></div>
+        <div id="tier-strip" class="tier-strip" hidden></div>
+        <div id="input-row" class="input-row">
+          <input
+            id="answer-input"
+            class="answer-input"
+            type="text"
+            placeholder="CEVABIN…"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="64"
+          >
+          <button id="submit-btn" class="pixel-btn btn-primary" type="button">GÖNDER</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SONUÇ PANELİ -->
+    <section id="result" class="screen" aria-label="Sonuç">
+      <aside id="result-panel" class="result-panel" aria-live="polite">
+        <div id="result-header" class="result-header">
+          <div id="result-tier" class="result-tier"></div>
+          <div id="result-points" class="result-points"></div>
+        </div>
+        <p id="result-sentence" class="result-sentence"></p>
+        <div class="other-answers-block">
+          <div id="list-title" class="other-answers-title"></div>
+          <ul id="answers-list" class="answers-list"></ul>
+        </div>
+        <button id="next-btn" class="pixel-btn btn-primary btn-full" type="button">SONRAKİ SORU ⏎</button>
+      </aside>
+    </section>
+
+    <!-- 5. SİNEMATİK BİTİŞ -->
+    <section id="cinematic" class="screen" aria-label="Bölge Özeti">
+      <div id="cine-zone" class="cine-zone"></div>
+      <div id="cine-score" class="cine-score"></div>
+      <div id="cine-badge" class="cine-badge"></div>
+      <div class="cine-prompt">DEVAM İÇİN TIKLA / ENTER</div>
+    </section>
+
+    <!-- 6. ÖZET -->
+    <section id="summary" class="screen" aria-label="Tur Özeti">
+      <div class="summary-panel">
+        <div class="summary-col summary-left">
+          <div id="summary-title" class="summary-kicker"></div>
+          <div id="summary-score" class="summary-score"></div>
+          <div id="summary-streak" class="summary-streak"></div>
+          <ul id="summary-list" class="summary-list"></ul>
+        </div>
+        <div class="summary-col summary-right">
+          <div class="summary-kicker">BUGÜNKÜ MODLAR</div>
+          <div id="summary-modes" class="summary-modes"></div>
+          <div class="summary-actions">
+            <button id="summary-next-btn" class="pixel-btn btn-primary btn-full" type="button"></button>
+            <button id="summary-unlimited-btn" class="pixel-btn btn-secondary btn-full" type="button" hidden>SINIRSIZ OYNA</button>
+            <button id="share-btn" class="pixel-btn btn-secondary btn-full" type="button">PAYLAŞ</button>
+            <button id="menu-btn" class="pixel-btn btn-secondary btn-full" type="button">ANA MENÜ (ESC)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="debug-box" class="debug-box" hidden></div>
+  </div>
+
+  <!-- Klasik script sırası: file:// uyumlu, module YOK -->
+  <script src="config.js"></script>
+  <script src="data/q01_10.js"></script>
+  <script src="data/q11_20.js"></script>
+  <script src="data/q21_31.js"></script>
+  <script src="data/q32_42.js"></script>
+  <script src="matcher.js"></script>
+  <script src="font.js"></script>
+  <script src="zones.js"></script>
+  <script src="scene.js"></script>
+  <script src="sound.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

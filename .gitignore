@@ -1,0 +1,6 @@
+v2_yedek_*/
+*.zip
+*.bak
+node_modules/
+v2/shots/
+analiz/

@@ -1,0 +1,18 @@
+# REV_2_SORU - Soru/alias denetimi (42 soru)
+
+`node tools/check.js`: SORU 42 | GRUP ort 17,1 | ALIAS 4.329 | TEST 205/205 geçti | TAKVİM ok.
+Otomatik tarama: sıralama hatası YOK (share her soruda azalan), soru içi alias çakışması YOK, geçersiz(invalid) alias ile geçerli alias çakışması YOK, kaba/uygunsuz içerik YOK. Share toplamları 99,8-100,4 arası (kritik değil).
+Satır no'lar `v2\data\` altındaki dosyalara göredir.
+
+1. q09 / q01_10.js:398 - Label `Kadayif` aksan hatası (ekranda görünen cevap). Öneri: label `Kadayıf`; alias'a `kadayif` ekle (`kadayıf` zaten var, çıkar/koru).
+2. q41 / q32_42.js:414 - `Metehan` alias'ında `oğuz kağan` yanlış (başka kişi); `onlu sistem` zayıf. Öneri: label `Mete Han` (yazım), alias'tan `oğuz kağan` çıkar; `metehan`, `mete`, `hun kağanı` ekle.
+3. q36 / q32_42.js:201 - `Kuzucuk` alias'ında `tonton` (ayrı karakter) yanlış; `kuzu`, `çiftlik kuzusu` fazla genel ve oyuncunun yazdığı "kuzu"yu yanlışlıkla eşler. Öneri: `tonton`, `kuzu`, `çiftlik kuzusu` çıkar; `kuzucuk çizgi film` bırak.
+4. q31 / q21_31.js:413 - Soru kalıbı diğerlerinden farklı ("...hangi konuyu açar?"), "söyle" yapısı yok. Öneri: "Taksicinin yolda açtığı bir konuyu söyle".
+5. q37 / q32_42.js (text) - "(kahvaltı dışı)" parantezi diğer sorulardan farklı; ayrıca cevaplar arasında `Simit`, `Tost` var (kahvaltıyla çakışır, q01'de de `Simit` var). Öneri: parantezi kaldır ya da `Simit`/`Tost`ı çıkar; metin "Sevilen bir atıştırmalık söyle" olsun.
+6. q05 / q01_10.js:236 - Label `Arkadaşın kuyuya atlasa?` soru işaretli/yarım; diğer labellar düz cümle. Alias `elalem ne der` bu kalıba ait değil (ayrı sık söz), yanlış eşleşme riski. Öneri: label `Arkadaşın kuyuya atlasa sen de atlar mısın`, `elalem ne der`i ayrı cevap yap veya çıkar.
+7. q02 / q01_10.js:130 - Label `Büyüklerin ellerinden` yarım, tek başına anlamsız. Öneri: label `Ellerinden öperim` (ya da `Ellerinden öperim, gözlerinden`); alias'lar ona göre.
+8. Kelime çakışması (aynı label birden çok soruda; aynı oyunda art arda gelirse tekrar hissi): `Çay` 6 soruda (q01,q06,q17,q19,q24,q42), `Çay içmek` (q03,q35), `Kahve içmek` 3 soruda (q27,q33,q35), `Sohbet etmek` 3 soruda (q03,q14,q35), `Müzik dinlemek` 3 soruda (q03,q33,q38), `Baklava` q06/q09/q24, `Börek` q01/q06/q24, q30 ile q32 (Karpuz, Kiraz, Çilek, Vişne). Öneri: takvimde q30-q32 ve q03-q35 aynı gün/art arda gelmesin; jenerik cevapları (`Müzik dinlemek`, `Sohbet etmek`) q33/q38'den çıkar veya özelleştir (`Çalışırken müzik dinlemek`).
+9. Belirsiz/jenerik cevap labelları: q13 `Yemek` ve q40 `Yemek` ve q24 `Ana yemek` ve q34 `Balık` (hamsi/lüfer/orkinos zaten başka cevap). Öneri: q13 `Düğün yemeği`, q40 `Yemek siparişi`, q24 `Ana yemek` aliasında `kebap` çıkar (iftar için zayıf), q34 `Balık` alias'larından `orkinos` ile çakışanları ayır.
+10. q13 / q21_31.js - `Çiğ köfte` düğün için zayıf/tahminle uyumsuz (q22'de de var, orada daha mantıklı). Öneri: q13'ten çıkar, yerine `Pilav` veya `Davetiye` gibi düğün öğesi.
+11. q10 / q01_10.js:434 - `Kilosu on lira` fiyat güncelliğini yitirmiş (enflasyon), alias `iki kilo yirmi` aynı sorun. Öneri: `Kilosu bir tık` / `Kilosu elli lira`, alias'ı güncelle.
+12. Alias eksikleri (İ/ı, çoğul, ek): q01 `Çay` için `çaylar` check.js [stem] ile geçiyor ama alias listesinde yok (gerek yok). Diğer sorularda çoğul varyant (`peynirler`, `zeytinler`) stem mantığıyla çözülüyor; ayrıca q17 label `Ihlamur` (doğru İ/ı), alias'larda `ihlamur` ve `ıhlamur` ikisi de var - sorun yok. Düzeltme gerekmiyor; yalnızca q16 `Müslüm Gürses` için `müslüm baba`, q16 `Barış Manço` için `baris manco` ASCII alias'ı eklenirse iyi olur (matcher normalize ettiği için opsiyonel).

@@ -1,0 +1,5 @@
+Adım 1 (İskelet ve sözleşmeler): config.js, data/q01_10.js..q32_42.js, font.js, zones.js, sound.js iskeletleri ve yeni index.html oluşturuldu.
+Adım 2-4 (İşçi A): matcher.js v2, tools/check.js ve 42 soru (q01-q42) tamamlandı. `node tools/check.js` -> SORU 42 | GRUP ort 17,1 | ALIAS toplam 4.329 | TEST 205/205 | TAKVİM ok.
+Adım 5-6 (İşçi B): font.js, zones.js, scene.js, tools/shots.ps1 tamamlandı. `SELFTEST: ok`, `PixelFont.missing()` boş.
+Adım 7-9 (İşçi C): sound.js, style.css, game.js tamamlandı. Tüm `?auto=*` ve `?nostorage=1` testleri `AUTO OK 7/7 · HATA: 0`.
+Adım 10 (Son kontrol): data.js arşivlendi, README.md güncellendi, 21/21 shot üretildi, tüm §15 kabul kriterleri geçti.

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARTI — Türkçe Tahmin Oyunu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="desktop-stage">
+    <section id="phone-card" class="phone-card" aria-label="Martı Oyunu">
+      <canvas id="game-canvas" width="180" height="320"></canvas>
+      <div class="crt-scanlines" aria-hidden="true"></div>
+
+      <!-- 1. ANA EKRAN -->
+      <div id="start-screen" class="screen screen-start active">
+        <div class="start-badge">
+          <h1 class="game-title">MARTI</h1>
+          <p class="game-subtitle">HERKESİN VERECEĞİ CEVABI BUL</p>
+        </div>
+        <button id="start-btn" class="pixel-btn btn-primary" type="button">BAŞLA</button>
+      </div>
+
+      <!-- 2. SORU EKRANI -->
+      <div id="question-screen" class="screen screen-question">
+        <div class="top-hud">
+          <div class="sign-card">
+            <div class="sign-meta">
+              <div id="progress-boxes" class="progress-boxes" aria-label="İlerleme"></div>
+              <span id="total-score" class="total-score">0 PUAN</span>
+            </div>
+            <div id="question-counter" class="question-counter">SORU 1/4</div>
+            <h2 id="question-text" class="question-text"></h2>
+            <p class="question-hint">HERKESİN VERECEĞİ CEVABI VER.</p>
+          </div>
+          <div class="timer-row">
+            <div id="timer-track" class="timer-track" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="30">
+              <div id="timer-fill" class="timer-fill"></div>
+            </div>
+            <span id="timer-text" class="timer-text">30</span>
+          </div>
+        </div>
+
+        <div class="input-dock">
+          <div id="error-msg" class="error-msg" role="alert" aria-live="polite"></div>
+          <div class="input-row">
+            <input
+              id="answer-input"
+              class="answer-input"
+              type="text"
+              placeholder="CEVABIN…"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="64"
+            >
+            <button id="submit-btn" class="pixel-btn btn-primary" type="button">GÖNDER</button>
+            <button id="pass-btn" class="pixel-btn btn-pass" type="button">GEÇ</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. SONUÇ PANELİ (Alttan kayar) -->
+      <aside id="result-panel" class="result-panel" aria-live="polite">
+        <div id="result-header" class="result-header">
+          <span id="result-icon" class="result-icon"></span>
+          <span id="result-tier" class="result-tier"></span>
+          <span id="result-points" class="result-points"></span>
+        </div>
+        <p id="result-sentence" class="result-sentence"></p>
+        <div class="other-answers-block">
+          <div class="other-answers-title">DİĞER CEVAPLAR</div>
+          <ul id="answers-list" class="answers-list"></ul>
+        </div>
+        <button id="next-btn" class="pixel-btn btn-primary btn-full" type="button">SONRAKİ SORU</button>
+      </aside>
+
+      <!-- 4. BİTİŞ EKRANI -->
+      <div id="end-screen" class="screen screen-end">
+        <div class="end-card">
+          <div class="end-kicker">OYUN BİTTİ</div>
+          <div id="final-score" class="final-score">0 / 400</div>
+          <div id="final-boxes" class="final-boxes"></div>
+          <div class="end-actions">
+            <button id="copy-btn" class="pixel-btn btn-primary btn-full" type="button">SONUCU KOPYALA</button>
+            <div id="copy-feedback" class="copy-feedback" aria-live="polite"></div>
+            <button id="restart-btn" class="pixel-btn btn-secondary btn-full" type="button">TEKRAR OYNA</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Klasik script sırası: file:// uyumlu, module YOK -->
+  <script src="data.js"></script>
+  <script src="matcher.js"></script>
+  <script src="scene.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
