@@ -1,4 +1,4 @@
-/* MARTI v2 — Piksel Sanat Masaüstü Stili */
+/* PUSULLA v2 — Piksel Sanat Masaüstü Stili */
 
 * {
   box-sizing: border-box;
@@ -187,10 +187,10 @@ body.shot #ui {
 }
 
 #logo {
-  width: 600px;
+  width: 750px;
   height: 200px;
   max-width: 90vw;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 15 / 4;
   height: auto;
   image-rendering: pixelated;
   image-rendering: crisp-edges;

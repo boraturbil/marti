@@ -1,5 +1,5 @@
 /**
- * MARTI — Türkçe Normalizasyon ve Toleranslı Eşleştirme Motoru v2 (matcher.js)
+ * PUSULLA — Türkçe Normalizasyon ve Toleranslı Eşleştirme Motoru v2 (matcher.js)
  *
  * Sıra:
  * 1. normalizeTR: tr-TR küçük harf + \u0307 temizliği + noktalama → boşluk + trim

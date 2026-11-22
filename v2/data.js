@@ -1,6 +1,6 @@
 // v1 arşiv — kullanılmıyor
 /**
- * MARTI — Soru ve Cevap Veri Seti (data.js)
+ * PUSULLA — Soru ve Cevap Veri Seti (data.js)
  *
  * Yeni bir soru eklemek için QUESTIONS dizisinin sonuna aynı şemada
  * yeni bir nesne eklemeniz yeterlidir:

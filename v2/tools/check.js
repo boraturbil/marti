@@ -54,14 +54,14 @@ for (var si = 0; si < loadable.length; si++) {
 
 var questions = globalThis.QUESTIONS || [];
 var Matcher = globalThis.Matcher;
-var MARTI_CONFIG = globalThis.MARTI_CONFIG;
-var MARTI_DAILY = globalThis.MARTI_DAILY;
+var PUSULLA_CONFIG = globalThis.PUSULLA_CONFIG;
+var PUSULLA_DAILY = globalThis.PUSULLA_DAILY;
 
 if (!Matcher || typeof Matcher.buildKeys !== 'function') {
   addError('Matcher.buildKeys dışa açılmamış.');
 }
-if (!MARTI_CONFIG || !MARTI_DAILY || typeof MARTI_DAILY.getDailySet !== 'function') {
-  addError('MARTI_CONFIG veya MARTI_DAILY.getDailySet bulunamadı.');
+if (!PUSULLA_CONFIG || !PUSULLA_DAILY || typeof PUSULLA_DAILY.getDailySet !== 'function') {
+  addError('PUSULLA_CONFIG veya PUSULLA_DAILY.getDailySet bulunamadı.');
 }
 
 // 2. Soru ve veri kontrolleri
@@ -412,8 +412,8 @@ if (Matcher && typeof Matcher.matchAnswer === 'function' && questions.length > 0
 
 // 5. 30 günlük takvim kontrolü + 365 günlük yasak çift ardışıklık testi
 var calendarOk = true;
-if (MARTI_DAILY && MARTI_CONFIG && questions.length > 0) {
-  var parts = String(MARTI_CONFIG.EPOCH).split('-');
+if (PUSULLA_DAILY && PUSULLA_CONFIG && questions.length > 0) {
+  var parts = String(PUSULLA_CONFIG.EPOCH).split('-');
   var baseUtc = Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
   var k = Math.max(1, Math.floor(questions.length / 21));
   var cycleSeen = Object.create(null);
@@ -426,7 +426,7 @@ if (MARTI_DAILY && MARTI_CONFIG && questions.length > 0) {
     var dd = String(d.getUTCDate()).padStart(2, '0');
     var dayKey = yyyy + '-' + mm + '-' + dd;
 
-    var set = MARTI_DAILY.getDailySet(dayKey, questions);
+    var set = PUSULLA_DAILY.getDailySet(dayKey, questions);
     var dayIds = Object.create(null);
     var modes = ['zirve', 'dip', 'orta'];
 

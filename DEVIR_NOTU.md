@@ -1,4 +1,4 @@
-# Martı — Devir notu (güncelleme: 2026-11-22, gece)
+# Pusulla — Devir notu (güncelleme: 2026-11-22, gece)
 
 ## Ne bu
 Türkçe, piksel sanat "çoğu insanın vereceği cevabı tahmin et" tarayıcı oyunu. Yalnız PC. Saf HTML/CSS/JS,
@@ -6,12 +6,20 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 (kopyalama yok, tema özgün: İstanbul Boğazı, maskot martı).
 
 ## Sürümler
-- **v1** (kök `D:\martı\*.js`): 4 soru, dikey sahne. DOKUNMA (yedek). Paylaşım: `marti_demo.zip`.
-- **v2** (`D:\martı\v2\`): ana sürüm. Modlar ZİRVE ▲ / DİP ▼ / ORTA KARAR ◆ / SINIRSIZ ∞. 42 soru (data/q*.js),
+- **v1** (kök `D:\pusulla\*.js`): 4 soru, dikey sahne. DOKUNMA (yedek). Paylaşım: `pusulla_demo.zip`.
+- **v2** (`D:\pusulla\v2\`): ana sürüm. Modlar ZİRVE ▲ / DİP ▼ / ORTA KARAR ◆ / SINIRSIZ ∞. 42 soru (data/q*.js),
   384x216 yatay sahne, İstanbul bölgeleri, sinematik bitiş, özet, seri, paylaş, WebAudio ses.
-  - **Paylaşım paketi:** `D:\martı\marti_v2_demo.zip` (12 dosya, 159 KB; index.html'i çift tıkla aç). Tarayıcı dışında bir şey gerekmez.
+  - **Paylaşım paketi:** `D:\pusulla\pusulla_v2_demo.zip` (12 dosya, 159 KB; index.html'i çift tıkla aç). Tarayıcı dışında bir şey gerekmez.
 
-## Bu oturumda yapılanlar (tur 1-5)
+## 2026-11-22 akşam: isim değişikliği MARTI → PUSULLA (dal `bora/pusulla-isim`)
+- Oyunun adı **Pusulla** (çift L, bilerek). Konsept pusula üzerine kurulacak; ayrıntılar henüz konuşulmadı. Karar: `notlar/2026-11-22_isim_pusulla.md`.
+- Değişenler: logo, başlık, menü/paylaş metni (`PUSULLA #N`), `PUSULLA_CONFIG`/`PUSULLA_DAILY`, depolama anahtarı `pusulla.v2` (eski ilerleme sıfırlanır),
+  günlük sıra tohumu `pusulla|` (soru sırası değişti), launch.json adları, `D:\pusulla\` yolları, dokümanlar. Logo tuvali 144→180 px genişledi.
+- Değişmeyenler: kuşun kendisi (maskot/sprite'lar, mod açıklamalarındaki "martı"), cevap/alias verisi (q03 "martıya simit atmak", Edis "Martılar" vb.), v1 kök dosyaları,
+  geçmiş raporlar (`v2/rev/`, `REVIZE_V2*`, `IS_EMRI_V2.md`, `BRIEF.md`) arşiv olarak bırakıldı.
+- Yapılacak (kullanıcı): GitHub'da repo adını `pusulla` yap; yerel klasörü `D:\martı` → `D:\pusulla` yeniden adlandır (shots.ps1 bu yolu kullanır).
+
+## Önceki oturum (tur 1-5)
 - Opus denetimi (kod/soru/görsel/iş emri) → `v2/REVIZE_V2.md` → agy hydrogen düzeltmeleri; ayrıntı raporlar `v2/rev/`, `REVIZE_V2_TUR2/3/4.md`.
 - Güvenlik/akış: escapeHtml, NFC+tırnak, Enter çift tetik, ?date/?reset yalnız yerel/debug, sekme gizlenince süre donar, F5/Esc ile yarım soru süreyle devam (pending), son soruda bölge adı doğru.
 - Görsel: ORTA köprü/kıyı oturuyor, siyah kutular gitti, güneş yansıması, tek başlık, Dip/su altı zenginleşti, kahraman martı, menü okunur.
@@ -31,15 +39,15 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 9. (11-22) Yeni mod tasarımı yazıldı: ZAMAN / en eski icat, `notlar/MOD_ESKI_ICAT_TASARIM.md` (kod yok; tartışmalı tarihler [DOĞRULANMALI], 5 karar §9.5).
 
 ## Çalıştırma
-- v1: `npx serve .` (5173), v2: `npx serve v2` (5174). `.claude/launch.json` içinde `marti` / `marti-v2`. Ya da v2/index.html çift tık.
+- v1: `npx serve .` (5173), v2: `npx serve v2` (5174). `.claude/launch.json` içinde `pusulla` / `pusulla-v2`. Ya da v2/index.html çift tık.
 - Kontrol: `cd v2; node tools/check.js`. Ekran görüntüsü: `v2/tools/shots.ps1` (21 PNG, `v2/shots/`).
 
 ## Yedek/dağınık dosyalar (silinebilir, onay sonrası)
-`D:\martı\v2_yedek_tur0..5`, `v2_yedek_tur2b`, `v2_yedek_tur4b`, `v2_yedek_data_a/b/b2`, `v2_game_pre_tur2_isciA.js.bak`. Güncel yedek: `v2_yedek_tur5`.
+`D:\pusulla\v2_yedek_tur0..5`, `v2_yedek_tur2b`, `v2_yedek_tur4b`, `v2_yedek_data_a/b/b2`, `v2_game_pre_tur2_isciA.js.bak`. Güncel yedek: `v2_yedek_tur5`.
 Çalışma raporları: `v2/rev/`, `v2/REVIZE_V2*.md`, `v2/IS_EMRI_V2.md` (98 KB iş emri).
 
 ## Çalışma düzeni (bu proje)
 Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine göre en çok 3 paralel işçi) → Opus kontrol. DERS: paralel agy işçileri birbirinin dosyasını yedekten geri yüklememeli; brief'te dosya sahipliği ve "geri yükleme yok" yazılmalı, brief dosyaları benzersiz adlı olmalı.
 
 ## Kim ne yapıyor
-- (boş)
+- Bora (+Claude): isim değişikliği bitti, dal `bora/pusulla-isim` (birçok dosyaya dokunuyor; birleşene kadar v2 kodunda paralel çalışma yapmayın). Sıradaki: pusula konsepti tasarımı (`notlar/`).

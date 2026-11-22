@@ -1,10 +1,10 @@
-# MARTI — Türkçe Günlük Tahmin Oyunu Demosu
+# PUSULLA — Türkçe Günlük Tahmin Oyunu Demosu
 
 Masaüstü tarayıcıda çalışan, saf HTML/CSS/Vanilla JS ile geliştirilmiş piksel sanat görünümlü Türkçe tahmin oyunu demosu.
 
 ## Çalıştırma
 
-1. **Doğrudan açma (`file://`):** `D:\martı\index.html` dosyasına çift tıklayarak tarayıcıda açabilirsiniz.
+1. **Doğrudan açma (`file://`):** `D:\pusulla\index.html` dosyasına çift tıklayarak tarayıcıda açabilirsiniz.
 2. **Yerel sunucu ile:** Klasör içinde `npx serve .` çalıştırıp tarayıcıdan açabilirsiniz.
 
 ## Dosya Yapısı

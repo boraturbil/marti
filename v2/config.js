@@ -3,15 +3,15 @@
   var T = function (id, label, points, emoji, color, icon, effect, rule) {
     return { id: id, label: label, points: points, emoji: emoji, color: color, icon: icon, effect: effect, rule: rule };
   };
-  root.MARTI_CONFIG = {
+  root.PUSULLA_CONFIG = {
     ROUND_SECONDS: 30,
     QUESTIONS_PER_ROUND: 7,
     MAX_SCORE: 700,
     SKIP_AFTER_SECONDS: 10,   // GEÇ butonu 10 sn sonra (ya da ilk geçersiz/bulunamadı cevaptan sonra)
     WARN_SECONDS: 5,          // son 5 sn: çubuk kehribar + tik sesi
     REVEAL_MS: 2000,          // kademe şeridi + kamera hareketi süresi, sonra sonuç paneli
-    EPOCH: '2026-11-22',      // Martı #1 günü
-    STORAGE_KEY: 'marti.v2',
+    EPOCH: '2026-11-22',      // Pusulla #1 günü
+    STORAGE_KEY: 'pusulla.v2',
     MODE_ORDER: ['zirve', 'dip', 'orta'],
     MODES: {
       zirve: {
@@ -101,7 +101,7 @@
   }
 
   function dayKeyToEpochDay(dayKey) {
-    var epochMs = parseDayKeyUtcMs(root.MARTI_CONFIG.EPOCH);
+    var epochMs = parseDayKeyUtcMs(root.PUSULLA_CONFIG.EPOCH);
     var dayMs = parseDayKeyUtcMs(dayKey);
     return Math.round((dayMs - epochMs) / 86400000);
   }
@@ -172,7 +172,7 @@
     var k = Math.max(1, Math.floor(n / 21));
     var cycle = Math.floor(epochDay / k);
     var part = ((epochDay % k) + k) % k;
-    var order = shuffle(pool, mulberry32(fnv1a('marti|' + cycle)));
+    var order = shuffle(pool, mulberry32(fnv1a('pusulla|' + cycle)));
 
     var picked;
     if (n < 21) {
@@ -203,7 +203,7 @@
     };
   }
 
-  root.MARTI_DAILY = {
+  root.PUSULLA_DAILY = {
     fnv1a: fnv1a,
     mulberry32: mulberry32,
     shuffle: shuffle,

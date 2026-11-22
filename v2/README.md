@@ -1,4 +1,4 @@
-# MARTI v2 — Türkçe Tahmin Oyunu
+# PUSULLA v2 — Türkçe Tahmin Oyunu
 
 İstanbul Boğazı gün batımı temalı, tek oyunculu piksel sanat tahmin oyunu.
 Saf HTML + CSS + vanilla JS ile yazılmıştır; harici kütüphane, web fontu, API veya medya dosyası yoktur.
@@ -21,7 +21,7 @@ Her tur 7 soru × 30 saniye (maksimum 700 puan) sürer. Günlük set tarih taban
 ## Dosya Yapısı
 
 - `index.html`, `style.css` — Arayüz ve piksel panel stilleri
-- `config.js` — `MARTI_CONFIG` (modlar, kademeler, süreler) ve `MARTI_DAILY` (günlük set)
+- `config.js` — `PUSULLA_CONFIG` (modlar, kademeler, süreler) ve `PUSULLA_DAILY` (günlük set)
 - `data/q01_10.js`, `data/q11_20.js`, `data/q21_31.js`, `data/q32_42.js` — 42 soruluk havuz
 - `matcher.js` — Türkçe normalizasyon, ek temizleme, yardımcı fiil/içerik anahtarı, token ve Levenshtein eşleştirme
 - `font.js` — 5×10 bit eşlem piksel yazı tipi (`PixelFont`)
@@ -73,5 +73,5 @@ powershell -ExecutionPolicy Bypass -File tools/shots.ps1
 - `?date=YYYY-MM-DD` — Günlük set tarihini geçersiz kılar
 - `?shot=<mod>:<bölge>` / `?shot=menu|question|result:zirve:0|cine:zirve|end:zirve` — Ekran görüntüsü kontrol modu
 - `?auto=zirve|dip|orta|sinirsiz` — Otomatik tur test botu
-- `?reset=1` — Test depolama anahtarını (`marti.v2.test`) sıfırlar
+- `?reset=1` — Test depolama anahtarını (`pusulla.v2.test`) sıfırlar
 - `?nostorage=1` — `localStorage` hatasını simüle eder

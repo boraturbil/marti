@@ -32,7 +32,7 @@ Diğer üç mod "çoğunluk ne der?" diye sorar. ZAMAN ise **olgusal** bir soru 
 Bugün `renderMenu()` (`game.js` 442-510), `CFG.MODE_ORDER = ['zirve','dip','orta']` üzerinden 3 kart çizer. SINIRSIZ ayrı bir geniş kart olarak (`#unlimited-card`) altta durur.
 
 **`MODE_ORDER`'a EKLENMEZ.** Gerekçesi şunlar:
-- `MARTI_DAILY.getDailySet()` yalnız zirve/dip/orta döndürür. Kart eklenirse `state.dailySet.icat` boş kalır.
+- `PUSULLA_DAILY.getDailySet()` yalnız zirve/dip/orta döndürür. Kart eklenirse `state.dailySet.icat` boş kalır.
 - `check.js` takvim testi (satır 431) üç modu sabit kodlar.
 - Bu dizi SINIRSIZ mod seçici düğmelerini de üretir.
 
@@ -98,11 +98,11 @@ Bugün `renderMenu()` (`game.js` 442-510), `CFG.MODE_ORDER = ['zirve','dip','ort
 - **GEÇ** mevcut davranışı korur (`handlePass` → `PASS_TIER`). Fark şudur: doğru cevap yine gösterilir, zaman yolculuğu yapılır ve kartlar açılır. Öğrenme ödülü kaybolmaz.
 
 ### 2.5 Seri, istatistik, günlük ve sınırsız
-- **Günlük:** 5 soru/gün, `getDailyIcatSet(dayKey, ICAT_QUESTIONS)` ile seçilir (yeni fonksiyon). Algoritma `getDailySet` ile aynıdır: `fnv1a('marti-icat|'+cycle)` + `mulberry32` karıştırma, döngü başına havuzun `floor(n/5)` günü. Havuz 15 soruyla 3 günde döner. **Günlük yayın için en az 60 soru önerilir** (12 günlük döngü). O sayıya ulaşılana kadar mod yalnız SINIRSIZ'da ve "ÖNİZLEME" etiketiyle açılabilir (karar 2).
+- **Günlük:** 5 soru/gün, `getDailyIcatSet(dayKey, ICAT_QUESTIONS)` ile seçilir (yeni fonksiyon). Algoritma `getDailySet` ile aynıdır: `fnv1a('pusulla-icat|'+cycle)` + `mulberry32` karıştırma, döngü başına havuzun `floor(n/5)` günü. Havuz 15 soruyla 3 günde döner. **Günlük yayın için en az 60 soru önerilir** (12 günlük döngü). O sayıya ulaşılana kadar mod yalnız SINIRSIZ'da ve "ÖNİZLEME" etiketiyle açılabilir (karar 2).
 - **Seri:** `finalizeRound()` (1132-1171) günü moddan bağımsız sayar (`lastPlayedDay`). ZAMAN turu tamamlanınca da gün sayılır, mevcut kod buna göre değişiklik istemez. `st.best.icat` eklenir, `defaultStore().stats.best` ve `loadStore` göçü `icat:0` alır.
 - **Kayıt:** `store.days[dayKey].icat = { done, score, zoneName: <ulaşılan en eski çağ adı>, results }`. Yarım tur ve `pending` mekanizması (F5 ile süreyle devam) aynen çalışır.
 - **Sınırsız:** `stats.unlimitedRounds` artar, seriyi etkilemez (mevcut kural).
-- **Paylaş:** `MARTI #N · ZAMAN ⧗ · tarih`, emoji satırı, `410/500 · en eski: TAŞ DEVRİ`, `🔥 N gün`.
+- **Paylaş:** `PUSULLA #N · ZAMAN ⧗ · tarih`, emoji satırı, `410/500 · en eski: TAŞ DEVRİ`, `🔥 N gün`.
 - **Sinematik bitiş:** `renderCinematic()` içindeki `getZoneInfo()` ZAMAN modunda turda ulaşılan **en eski çağı** döndürür (ör. `{name:'TAŞ DEVRİ', label:'3,3 MİLYON YIL'}`). Sahne o çağda donar, altta 5 duraklı mini zaman şeridi görünür.
 
 ---
@@ -876,7 +876,7 @@ Herhangi bir İCAT hatası `errors` dizisine eklenir, böylece çıkış kodu 1 
 | 1 | `data/icat_esya.js` (yeni) | `ICAT_ERAS`, `icatEraIndex`, `icatFormatYil`, `ICAT_ITEMS` (≈90 eşya) | Orta (içerik ağır) |
 | 2 | `data/icat_sorular.js` (yeni) | 15 soru (bu belge) + `answers` kurucusu | Orta (içerik ağır) |
 | 3 | `tools/check.js` | 7.5'teki bölüm; `checkAliasConflicts` dışa çıkarma | Orta |
-| 4 | `config.js` | `MODES.icat` (tiers, `kind:'icat'`, `questionsPerRound:5`, `roundSeconds:40`, `maxScore:500`); `MARTI_DAILY.getDailyIcatSet` | Kolay |
+| 4 | `config.js` | `MODES.icat` (tiers, `kind:'icat'`, `questionsPerRound:5`, `roundSeconds:40`, `maxScore:500`); `PUSULLA_DAILY.getDailyIcatSet` | Kolay |
 | 5 | `game.js` | Menü kartı ve odak `% 5`; `refreshDailyIfNeeded` ve `init` içinde `state.dailySet.icat`; `startMode` (havuz `ICAT_QUESTIONS`, `roundLen()`); `beginQuestion` (kapsam satırı, `Scene.setEra('gunumuz')`); `handleSubmit` icat dalı → `evalIcatTier`; `none` metni ve `icatMiss`; İPUCU düğmesi; `enterReveal` (`setScore` yerine `Scene.travel`); `showResult` (zaman şeridi + `buildAnswersRows` icat sürümü: yıla göre sıralı aday listesi, "%" yerine yıl); bilgi kartı yöneticisi; `finalizeRound` (`best.icat`, `zoneName` = en eski çağ); `renderCinematic`, `buildShareText`, `renderSummary`; `defaultStore`/`loadStore` göçü; `MAX_SCORE` ve `QUESTIONS_PER_ROUND` kullanımlarını yardımcılarla değiştirme | **Zor** (en çok dokunulan yer) |
 | 6 | `index.html` | `#icat-card`, `#hint-btn`, `#fact-cards`, `#question-scope`, `#era-strip`; script sırası | Kolay |
 | 7 | `style.css` | Sepya kart, kart yığını, çipler, zaman şeridi, `prefers-reduced-motion` | Kolay-orta |
@@ -889,7 +889,7 @@ Herhangi bir İCAT hatası `errors` dizisine eklenir, böylece çıkış kodu 1 
 
 ### 8.2 agy hydrogen iş emri taslağı (dosya sahipliğine göre 3 paralel işçi)
 Ortak üst bilgi (her brief dosyasının başına, brief adları benzersiz: `rev/ICAT_ISCI_A.txt`, `ICAT_ISCI_B.txt`, `ICAT_ISCI_C.txt`):
-> Proje `D:\martı\v2`. Tasarım: `D:\martı\notlar\MOD_ESKI_ICAT_TASARIM.md` (bu belge; ilgili bölümleri oku). **Yalnız sana verilen dosyalara yaz. Başka dosyayı düzenleme, yedekten geri yükleme YAPMA, `git` komutu çalıştırma.** Kökteki v1 dosyalarına dokunma. Klasik script (module yok), harici kütüphane ve ağ yok, `file://` ile çalışmalı. Bitince `node --check <dosya>` çalıştır ve kendi kontrol listeni raporla.
+> Proje `D:\pusulla\v2`. Tasarım: `D:\pusulla\notlar\MOD_ESKI_ICAT_TASARIM.md` (bu belge; ilgili bölümleri oku). **Yalnız sana verilen dosyalara yaz. Başka dosyayı düzenleme, yedekten geri yükleme YAPMA, `git` komutu çalıştırma.** Kökteki v1 dosyalarına dokunma. Klasik script (module yok), harici kütüphane ve ağ yok, `file://` ile çalışmalı. Bitince `node --check <dosya>` çalıştır ve kendi kontrol listeni raporla.
 
 - **İşçi A: oyun akışı ve arayüz.** Sahip olduğu dosyalar: `config.js`, `game.js`, `index.html`, `style.css`.
   - Görev: 8.1'deki 4-7. maddeler. `Scene.travel`, `Scene.setEra` ve `Scene.getEraInfo` yokken de çalışsın (`sceneCall` korumasıyla, yalnız log).

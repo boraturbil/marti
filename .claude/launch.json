@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "marti", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "serve", "-l", "5173", "."], "port": 5173 },
-    { "name": "marti-v2", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "serve", "-l", "5174", "v2"], "port": 5174 }
+    { "name": "pusulla", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "serve", "-l", "5173", "."], "port": 5173 },
+    { "name": "pusulla-v2", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "serve", "-l", "5174", "v2"], "port": 5174 }
   ]
 }

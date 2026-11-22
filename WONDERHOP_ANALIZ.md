@@ -101,7 +101,7 @@ Puan = yükseklik. Her eşik bir **bölge**; yeni bölgeye girişte ekranın üs
 4. **Ritim**: şerit → kamera hareketi → panel; her cevap ~3 sn'lik küçük bir ödül sahnesi.
 5. **Sosyal halka**: seri, sıralama, histogram, paylaş, "yarın hatırlat", modlar arası zincir.
 
-## 9. Martı için çıkarımlar (kopyalamadan, kendi temamızla)
+## 9. Pusulla için çıkarımlar (kopyalamadan, kendi temamızla)
 - **Bölge sistemi** ekle: İstanbul'a özgü kendi katmanlarımız; örnek: Boğaz yüzeyi → Galata hizası → Çamlıca tepesi
   → bulutlar/fırtına → gece İstanbul ışıkları yukarıdan → yıldızlar/ay. Girişte büyük bölge adı + rozet (yükseklik).
 - **Sonuç akışı**: önce kademe şeridi + kamera hareketi, sonra panel (şu an panel hemen açılıyor).

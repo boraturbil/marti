@@ -1,4 +1,4 @@
-# Martı — ortak proje kuralları
+# Pusulla — ortak proje kuralları
 - Türkçe konuş, kısa cevap ver.
 - Oturuma başlarken ÖNCE `git pull`, sonra `DEVIR_NOTU.md` oku.
 - Oturum sonunda: `node v2/tools/check.js` (868/868 olmalı), `DEVIR_NOTU.md` güncelle, `git add` + `git commit` + `git push`.

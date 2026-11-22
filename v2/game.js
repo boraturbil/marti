@@ -3,8 +3,8 @@
 
   root.__ERRORS = root.__ERRORS || [];
 
-  var CFG = root.MARTI_CONFIG;
-  var DAILY = root.MARTI_DAILY;
+  var CFG = root.PUSULLA_CONFIG;
+  var DAILY = root.PUSULLA_DAILY;
 
   var params = new URLSearchParams(root.location ? root.location.search : '');
   var isLocalOrFile = !root.location || root.location.protocol === 'file:' || root.location.hostname === 'localhost' || root.location.hostname === '127.0.0.1';
@@ -16,7 +16,7 @@
   var paramNoStorage = params.get('nostorage') === '1';
   var paramDebug = params.get('debug') === '1' || !!paramAuto || !!paramShot;
 
-  var STORAGE_KEY = (paramShot || paramAuto) ? 'marti.v2.test' : (CFG.STORAGE_KEY || 'marti.v2');
+  var STORAGE_KEY = (paramShot || paramAuto) ? 'pusulla.v2.test' : (CFG.STORAGE_KEY || 'pusulla.v2');
 
   var state = {
     phase: 'menu', // 'menu' | 'intro' | 'question' | 'reveal' | 'result' | 'cinematic' | 'summary'
@@ -381,12 +381,12 @@
     var ctx = dom.logoCanvas.getContext('2d');
     if (!ctx) return;
     ctx.imageSmoothingEnabled = false;
-    ctx.clearRect(0, 0, 144, 48);
+    ctx.clearRect(0, 0, 180, 48);
 
-    var text = 'MARTI';
+    var text = 'PUSULLA';
     var scale = 3;
     var grad = ['#ffe7a8', '#ffe7a8', '#ffc46b', '#ffc46b', '#f2884f', '#f2884f', '#d9603f'];
-    var textX = 56;
+    var textX = 68;
     var textY = 14;
 
     if (root.PixelFont && typeof root.PixelFont.draw === 'function') {
@@ -404,7 +404,7 @@
       ctx.fillText(text, textX, 34);
     }
 
-    drawHeroGull(ctx, 108, 12, state.logoGullFrame);
+    drawHeroGull(ctx, 140, 12, state.logoGullFrame);
   }
 
   function startLogoLoop() {
@@ -447,7 +447,7 @@
     if (root.Scene && typeof root.Scene.setMode === 'function') {
       root.Scene.setMode('menu');
     }
-    dom.menuDay.textContent = 'MARTI #' + state.dailySet.dayNumber + ' · ' + formatDateTR(state.dayKey);
+    dom.menuDay.textContent = 'PUSULLA #' + state.dailySet.dayNumber + ' · ' + formatDateTR(state.dayKey);
 
     var dayRecord = store.days[state.dayKey] || {};
     var cardsHtml = '';
@@ -1215,14 +1215,14 @@
 
     if (state.isUnlimited) {
       return [
-        'MARTI · SINIRSIZ (' + mCfg.name + ' ' + mCfg.icon + ')',
+        'PUSULLA · SINIRSIZ (' + mCfg.name + ' ' + mCfg.icon + ')',
         emojis,
         state.totalScore + '/' + CFG.MAX_SCORE + ' · ' + zoneName
       ].join('\n');
     }
 
     return [
-      'MARTI #' + state.dailySet.dayNumber + ' · ' + mCfg.name + ' ' + mCfg.icon + ' · ' + formatDateTR(state.dayKey),
+      'PUSULLA #' + state.dailySet.dayNumber + ' · ' + mCfg.name + ' ' + mCfg.icon + ' · ' + formatDateTR(state.dayKey),
       emojis,
       state.totalScore + '/' + CFG.MAX_SCORE + ' · ' + zoneName,
       '🔥 ' + (store.stats.streak || 1) + ' gün'
