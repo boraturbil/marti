@@ -10,6 +10,10 @@ Görsel katman (`gorsel` dalı) F1 iskeletine (`c551fe4`) karşı denendi. Motor
 1. `menu:show` için `dailyTiers: {yaygin:['tam','yakin',…], …}` ve `dailyScores: {yaygin:210, …}` alanları. Menüdeki "Bugünün rotası" kareleri şu an yalnız sayıyla doluyor; katman renkleri ve bacak puanı bu alanlarla gösterilir.
 2. `question:show` için `yearKind` (ör. `ilk-genel-surum`) ve `asOf` alanları. Soru altındaki kapsam satırında "ilk genel sürüm yılı" gibi ölçütü yazmak için.
 3. `answer:none` için kapalı/açık ayrımı zaten `question:show.closed`'dan okunuyor; ek alan gerekmez.
+4. **Bildirimlerim için resmi yol.** Sözleşmede bildirim listesi/temizleme yok. Görsel katman şimdilik varsa `PUSULLA.store.readReports()` / `clearReports()` kullanıyor (yoksa yalnız `report:saved.count`). Öneri: `actions.listReports()` → `reports:show {list:[{d,q,t,k}]}` ve `actions.clearReports()` → `report:saved {count:0}`.
+5. **Atıf metni alanı.** "Hakkında" ekranı atıf metnini sırayla `PUSULLA.meta.attribution`, `PUSULLA.data.meta.attribution`, `window.PUSULLA_META.attribution` alanlarında arıyor; bulamazsa plan §4.2 metnini gösteriyor. `_meta.js` yazılırken bu adlardan biri kullanılırsa doğrudan görünür.
+6. **Günlük özet verisi.** `day:complete` yalnız `{score,max,streak,shareText}` veriyor; 4 bacak × 5 kare ve "bugünün en iyi cevapların" listesi görsel katmanda olaylardan (mode:start daily, result:show, round:end) toplanıyor. Öneri (ekleme): `day:complete` içine `legs:{yaygin:{score, tiers:[…]}, …}` ve `best:[{subject,answer,points,tierId}]`.
+7. **İstatistik verisi.** `stats:show` şu an stub özeti (`best, streak, played, reports`) veriyor; görsel katman `store` biçimini de (`stats.playedDays, bestStreak, bestDayScore, modeTotals, modeCounts, tierCounts`) okuyabiliyor. Gerçek motorda `stats:show` bu `stats` nesnesini içerirse mod ortalamaları ve katman dağılımı da çizilir.
 
 ## C. Bilgi
 - `index.html`'de GORSEL bloğu `<head>` içinde, motor betiklerinden önce. Görsel katman buna uyumlu: dosyalar yalnız `PUSULLA.ui` tanımlar, olaylara `mount` içinde abone olur. Sözleşmedeki "SES → GORSEL → ui_stub, game" sırasıyla da çalışır.
