@@ -27,8 +27,8 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 5. (11-22 devam) check.js 868/868 + tarayıcıda ZİRVE'de soru 1→2 elle oynandı (menü, yazma, esnek eşleşme `mayolar`→Mayo, sonuç paneli, sonraki soru, konsol hatası yok): OK. Henüz bakılmayan: DİP/ORTA/SINIRSIZ tam tur, bitiş sinematiği, son Opus kontrolü.
 6. q05 etiketi "Sen de kuyuya atlar mısın", q37 kahvaltılık-invalid grubu yeni; kullanıcı gözüyle bakılmadı.
 7. ORTA'da kıyı silüeti/köprü oturması ve Karanlık Dip dip_4 karesi agy beyanı, bağımsız doğrulanmadı.
-9. (11-22) Yeni mod tasarımı yazıldı: ZAMAN / en eski icat, `notlar/MOD_ESKI_ICAT_TASARIM.md` (kod yok; tartışmalı tarihler [DOĞRULANMALI], 5 karar §9.5).
 8. Kullanıcı isteği (eski): daha çok soru/kelime/mod; 3 mod × 7 soru = günde 21 soru; 5 gün için ~105 soru gerekir.
+9. (11-22) Yeni mod tasarımı yazıldı: ZAMAN / en eski icat, `notlar/MOD_ESKI_ICAT_TASARIM.md` (kod yok; tartışmalı tarihler [DOĞRULANMALI], 5 karar §9.5).
 
 ## Çalıştırma
 - v1: `npx serve .` (5173), v2: `npx serve v2` (5174). `.claude/launch.json` içinde `marti` / `marti-v2`. Ya da v2/index.html çift tık.
