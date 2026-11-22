@@ -168,7 +168,7 @@
     var y = raw ? parseInt(String(raw).slice(0, 4), 10) : NaN;
     return isNaN(y) ? new Date().getFullYear() : y;
   }
-  var prevYear = asOfYear(), walkDir = 1, walk = null, roadOffset = 0, lastWalkTs = 0;
+  var prevYear = asOfYear(), walkDir = 1, walk = null, settle = null, roadOffset = 0, lastWalkTs = 0;
   var MID = { misir: -2500, antik: -300, selcuklu: 1100, fetih: 1453, kesif: 1600, sanayi: 1850, cumhuriyet: 1930, uzay: 1970, dijital: 2000, metropol: 2020 };
 
   function now() { return global.performance ? global.performance.now() : Date.now(); }
@@ -234,7 +234,8 @@
   function finishWalk() {
     if (!walk) return;
     if (fading) finishFade();
-    for (var i = 0; i < layers.length; i++) layers[i].s_off = 0;
+    if (walk.stroll) settle = { from: layers[front].s_off || 0, t0: now() };
+    else { settle = null; for (var i = 0; i < layers.length; i++) layers[i].s_off = 0; }
     if (walk.pan && layers.length) {
       cur = walk.toId;
       layers[front].s = staticFor(walk.toId);
@@ -267,9 +268,15 @@
           mixT = Math.max(0, Math.min(1, (ease(p) - 0.35) / 0.3));
         }
         roadOffset -= walk.dir * 40 * dt;
+        if (walk.stroll) layers[front].s_off = -walk.dir * 0.5 * ease(p);
       }
     } else {
       lastWalkTs = 0;
+      if (settle) {
+        var q = (tMs - settle.t0) / 1400;
+        if (q >= 1) { layers[front].s_off = 0; settle = null; }
+        else layers[front].s_off = settle.from * (1 - ease(q));
+      }
     }
 
     if (walk && walk.pan && walk.fromS && walk.toS) paintPan(layers[front], walk.fromS, walk.toS, ease(p) * G.W, walk.dir, t);
@@ -396,7 +403,9 @@
     var dur = sameTheme ? 0.6 : Math.max(0.8, Math.min(2.4, 0.8 + 0.5 * Math.log10(1 + Math.abs(target - prevYear))));
     if (fading) finishFade();
     walk = { fromId: cur, toId: id, dir: dir, t0: now(), dur: dur, target: target, sameTheme: sameTheme, faded: false, pan: !sameTheme };
-    if (walk.pan) { walk.fromS = layers[front].s || staticFor(cur); walk.toS = staticFor(id); }
+    settle = null;
+    for (var si = 0; si < layers.length; si++) layers[si].s_off = 0;
+    if (walk.pan) { walk.fromS =layers[front].s || staticFor(cur); walk.toS = staticFor(id); }
     lastWalkTs = walk.t0;
     last = 0;
     if (!running && !doc.hidden) start();
@@ -406,7 +415,8 @@
     if (reduced || !layers.length || walk) return;
     var ph = phaseName();
     if (ph !== 'question') return;
-    walk = { fromId: cur, toId: cur, dir: 1, t0: now(), dur: 0.9, target: prevYear, sameTheme: true, faded: false, pan: false };
+    walk = { fromId: cur, toId: cur, dir: 1, t0: now(), dur: 0.9, target: prevYear, sameTheme: true, faded: false, pan: false, stroll: true };
+    settle = null;
     walkDir = 1; lastWalkTs = walk.t0; last = 0;
     if (!running && !doc.hidden) start();
   }
