@@ -42,4 +42,4 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine göre en çok 3 paralel işçi) → Opus kontrol. DERS: paralel agy işçileri birbirinin dosyasını yedekten geri yüklememeli; brief'te dosya sahipliği ve "geri yükleme yok" yazılmalı, brief dosyaları benzersiz adlı olmalı.
 
 ## Kim ne yapıyor
-- (boş)
+- F1 agy (gemini-4-hydrogen-medium, İşçi A + B): tamam. Iskelet/sözleşme v3\ altında, node --check ve daily_sim PASS; tarayıcı (?mock) testi yapılmadı.
