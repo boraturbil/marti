@@ -145,7 +145,9 @@
   }
 
   /* ---------- sonuç ---------- */
-  function eraName(id) {
+  function eraName(id, year) {
+    var sc = global.PUSULLA.scene;
+    if (sc && sc.pick && sc.labels) { var th = sc.pick(id, year); if (sc.labels[th]) return sc.labels[th]; }
     var list = U.cfg().ERAS || [];
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return U.upper(list[i].name);
     return U.upper(String(id).replace(/_/g, ' '));
@@ -165,7 +167,7 @@
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
         timedOut ? 'SÜRE DOLDU' : U.tierLabel(tier)
       ]),
-      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era) }) : null,
+      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era, st.eraYear) }) : null,
       h('div', { class: 'res-pts' }, ['+' + pts, h('small', { text: ' puan' })])
     ]);
     R.appendChild(head);
@@ -414,7 +416,7 @@
         if (btn) { U.clear(btn); btn.appendChild(h('span', { class: 'reported', text: 'Bildirildi' + (n ? ' · toplam ' + n : '') })); }
       },
       'answer:valid': function (d) { st.lastValid = d || null; },
-      'era:change': function (d) { st.era = (d && d.eraId) || null; },
+      'era:change': function (d) { st.era = (d && d.eraId) || null; st.eraYear = d ? d.year : null; },
       'answer:pass': function () { st.tiers[st.index] = 'pas'; renderPips(); },
       'answer:timeout': function () { st.lastTimeout = true; st.tiers[st.index] = 'sure'; renderPips(); },
       'result:show': function (d) {
