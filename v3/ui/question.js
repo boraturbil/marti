@@ -9,7 +9,7 @@
   var els = {}, badge = null;
   var st = {
     modeId: null, daily: false, index: 0, total: 5, tiers: [], closed: false,
-    sub: 'input', passOpen: false, lastValid: null, flyTimer: null, asOf: null
+    sub: 'input', passOpen: false, lastValid: null, flyTimer: null, asOf: null, lastScore: 0
   };
 
   function cfgNum(k, d) { var c = U.cfg(); return (c && typeof c[k] === 'number') ? c[k] : d; }
@@ -44,7 +44,22 @@
   function renderScore() {
     var s = 0;
     try { s = (P.state && P.state.get && P.state.get().score) || 0; } catch (e) { s = 0; }
+    var grew = s > st.lastScore;
+    st.lastScore = s;
     els.score.textContent = String(s);
+    if (grew && !U.reducedMotion()) {
+      els.score.classList.remove('score-pop');
+      void els.score.offsetWidth;
+      els.score.classList.add('score-pop');
+    }
+  }
+
+  function updateEraTag(eraId, year) {
+    if (!els.eraTag) return;
+    if (!eraId || eraId === 'simdi') { els.eraTag.textContent = 'BOĞAZ · ŞİMDİ'; return; }
+    var lbl = eraName(eraId, year);
+    var hasYear = year !== null && year !== undefined && year !== '' && !isNaN(+year);
+    els.eraTag.textContent = hasYear ? (fy(+year) + ' · ' + lbl) : lbl;
   }
 
   /* ---------- soru metni ---------- */
@@ -263,13 +278,14 @@
       els.badgeWrap = h('div', { class: 'mini', 'aria-hidden': 'true' });
       els.modeName = h('b');
       els.modeHint = h('span');
+      els.eraTag = h('div', { class: 'era-tag', text: 'BOĞAZ · ŞİMDİ' });
       els.dailyTag = h('em', { class: 'daily-tag', text: 'GÜNÜN ROTASI', hidden: true });
       els.pips = h('div', { class: 'pips', role: 'list', 'aria-label': 'Tur ilerlemesi' });
       els.qNum = h('span', { text: '1' });
       els.qTot = h('small', { text: ' / 5' });
       els.score = h('b', { text: '0' });
       var top = h('header', { class: 'qtop top' }, [
-        h('div', { class: 'modebadge' }, [els.badgeWrap, h('div', null, [h('div', { class: 'mb-name' }, [els.modeName, els.dailyTag]), els.modeHint])]),
+        h('div', { class: 'modebadge' }, [els.badgeWrap, h('div', null, [h('div', { class: 'mb-name' }, [els.modeName, els.dailyTag]), els.modeHint, els.eraTag])]),
         els.pips,
         h('div', { class: 'qstats' }, [
           h('div', null, [h('span', { class: 'over', text: 'SORU' }), h('b', null, [els.qNum, els.qTot])]),
@@ -344,6 +360,8 @@
         st.total = d.total || cfgNum('QUESTIONS_PER_ROUND', 5);
         st.tiers = [];
         st.index = 0;
+        st.lastScore = 0;
+        updateEraTag('simdi', null);
         renderHead();
         renderPips();
         renderScore();
@@ -416,7 +434,11 @@
         if (btn) { U.clear(btn); btn.appendChild(h('span', { class: 'reported', text: 'Bildirildi' + (n ? ' · toplam ' + n : '') })); }
       },
       'answer:valid': function (d) { st.lastValid = d || null; },
-      'era:change': function (d) { st.era = (d && d.eraId) || null; st.eraYear = d ? d.year : null; },
+      'era:change': function (d) {
+        st.era = (d && d.eraId) || null;
+        st.eraYear = d ? d.year : null;
+        updateEraTag(st.era, st.eraYear);
+      },
       'answer:pass': function () { st.tiers[st.index] = 'pas'; renderPips(); },
       'answer:timeout': function () { st.lastTimeout = true; st.tiers[st.index] = 'sure'; renderPips(); },
       'result:show': function (d) {
