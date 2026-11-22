@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["dunya_sehri_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["İstanbul",16.36],["Londra",12.79],["New York",10.74],["Tokyo",8.18],["Roma",7.16],["Ankara",5.32],["Barselona",4.6],["Amsterdam",4.09],["Dubai",3.58],["Moskova",3.27],["Milano",2.45],["Atina",2.05],["Seul",1.84],["Pekin",1.64],["Prag",1.53],["Şikago",1.23],["Kahire",1.13],["Bakü",1.02],["Sidney",0.97],["Toronto",0.92],["Münih",0.87],["Venedik",0.82],["Bangkok",0.77],["Singapur",0.72],["Hong Kong",0.66],["Rio de Janeiro",0.61],["San Francisco",0.56],["Kopenhag",0.51],["Stockholm",0.46],["Mumbai",0.43],["Şanghay",0.41],["Firenze",0.36],["Frankfurt",0.33],["Edinburgh",0.31],["Köln",0.29],["Napoli",0.26],["Dublin",0.23],["Lyon",0.2],["Cenevre",0.18],["Strazburg",0.15]]};
+})(typeof window !== 'undefined' ? window : globalThis);

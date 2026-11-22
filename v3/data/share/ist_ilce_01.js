@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["ist_ilce_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["Kadıköy",14.07],["Beşiktaş",10.87],["Üsküdar",8.54],["Fatih",7.18],["Şişli",6.7],["Bakırköy",5.63],["Beyoğlu",5.24],["Ümraniye",3.98],["Esenyurt",3.79],["Pendik",3.3],["Maltepe",3.01],["Ataşehir",2.81],["Kartal",2.43],["Sarıyer",2.33],["Bağcılar",2.14],["Bahçelievler",1.94],["Küçükçekmece",1.75],["Avcılar",1.55],["Beylikdüzü",1.46],["Zeytinburnu",1.26],["Eyüpsultan",1.16],["Gaziosmanpaşa",1.07],["Beykoz",0.97],["Başakşehir",0.87],["Kağıthane",0.78],["Tuzla",0.68],["Büyükçekmece",0.58],["Esenler",0.53],["Bayrampaşa",0.49],["Güngören",0.44],["Sultangazi",0.39],["Sancaktepe",0.37],["Çekmeköy",0.34],["Sultanbeyli",0.31],["Silivri",0.29],["Adalar",0.27],["Arnavutköy",0.21],["Şile",0.15],["Çatalca",0.12]]};
+})(typeof window !== 'undefined' ? window : globalThis);

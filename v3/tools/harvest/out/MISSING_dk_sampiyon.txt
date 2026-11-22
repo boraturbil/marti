@@ -1,0 +1,3 @@
+# dk_sampiyon
+expect: 8
+durum: manual (F4'te elle doldurulacak)

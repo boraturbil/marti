@@ -1,0 +1,2132 @@
+[
+  {
+    "label": "Mozilla Firefox",
+    "aliases": [],
+    "year": 2002,
+    "qid": "Q698",
+    "sitelinks": 162,
+    "enLabel": "Mozilla Firefox"
+  },
+  {
+    "label": "Google Chrome",
+    "aliases": [
+      "Chrome"
+    ],
+    "year": 2008,
+    "qid": "Q777",
+    "sitelinks": 127,
+    "enLabel": "Google Chrome"
+  },
+  {
+    "label": "Internet Explorer",
+    "aliases": [
+      "Internet Jumpstart Kit",
+      "MS IE",
+      "Windows IE"
+    ],
+    "year": 1995,
+    "qid": "Q1575",
+    "sitelinks": 99,
+    "enLabel": "Internet Explorer"
+  },
+  {
+    "label": "Opera",
+    "aliases": [
+      "Opera web browser"
+    ],
+    "year": 1994,
+    "qid": "Q41242",
+    "sitelinks": 90,
+    "enLabel": "Opera"
+  },
+  {
+    "label": "Safari",
+    "aliases": [
+      "Apple Safari",
+      "Safari browser",
+      "Safari web browser"
+    ],
+    "year": 2003,
+    "qid": "Q35773",
+    "sitelinks": 80,
+    "enLabel": "Safari"
+  },
+  {
+    "label": "Microsoft Edge",
+    "aliases": [
+      "Edge",
+      "MS Edge"
+    ],
+    "year": 2015,
+    "qid": "Q18698690",
+    "sitelinks": 72,
+    "enLabel": "Microsoft Edge"
+  },
+  {
+    "label": "Chromium",
+    "aliases": [],
+    "year": 2008,
+    "qid": "Q48524",
+    "sitelinks": 56,
+    "enLabel": "Chromium"
+  },
+  {
+    "label": "Brave",
+    "aliases": [
+      "Brave Tarayıcı"
+    ],
+    "year": 2016,
+    "qid": "Q22906900",
+    "sitelinks": 52,
+    "enLabel": "Brave"
+  },
+  {
+    "label": "Netscape Navigator",
+    "aliases": [
+      "Netscape"
+    ],
+    "year": 1994,
+    "qid": "Q235419",
+    "sitelinks": 51,
+    "enLabel": "Netscape Navigator"
+  },
+  {
+    "label": "Konqueror",
+    "aliases": [],
+    "year": 1996,
+    "qid": "Q178565",
+    "sitelinks": 50,
+    "enLabel": "Konqueror"
+  },
+  {
+    "label": "Vikipedi:Huggle",
+    "aliases": [
+      "Huggle"
+    ],
+    "year": null,
+    "qid": "Q4796687",
+    "sitelinks": 47,
+    "enLabel": "Huggle"
+  },
+  {
+    "label": "Lynx",
+    "aliases": [
+      "Lynx web browser"
+    ],
+    "year": 1992,
+    "qid": "Q207872",
+    "sitelinks": 42,
+    "enLabel": "Lynx"
+  },
+  {
+    "label": "Ecosia",
+    "aliases": [],
+    "year": 2009,
+    "qid": "Q1282139",
+    "sitelinks": 41,
+    "enLabel": "Ecosia"
+  },
+  {
+    "label": "Mosaic",
+    "aliases": [],
+    "year": 1993,
+    "qid": "Q381047",
+    "sitelinks": 41,
+    "enLabel": "Mosaic"
+  },
+  {
+    "label": "Vivaldi",
+    "aliases": [
+      "Vivaldi Browser"
+    ],
+    "year": 2015,
+    "qid": "Q18913176",
+    "sitelinks": 41,
+    "enLabel": "Vivaldi"
+  },
+  {
+    "label": "Opera Mini",
+    "aliases": [],
+    "year": 2005,
+    "qid": "Q819079",
+    "sitelinks": 40,
+    "enLabel": "Opera Mini"
+  },
+  {
+    "label": "Maxthon",
+    "aliases": [],
+    "year": 2004,
+    "qid": "Q491674",
+    "sitelinks": 39,
+    "enLabel": null
+  },
+  {
+    "label": "SeaMonkey",
+    "aliases": [],
+    "year": 2006,
+    "qid": "Q156197",
+    "sitelinks": 39,
+    "enLabel": "SeaMonkey"
+  },
+  {
+    "label": "Flock",
+    "aliases": [],
+    "year": 2005,
+    "qid": "Q488886",
+    "sitelinks": 34,
+    "enLabel": "Flock"
+  },
+  {
+    "label": "Web",
+    "aliases": [],
+    "year": 2002,
+    "qid": "Q167784",
+    "sitelinks": 34,
+    "enLabel": null
+  },
+  {
+    "label": "WorldWideWeb",
+    "aliases": [],
+    "year": null,
+    "qid": "Q590890",
+    "sitelinks": 34,
+    "enLabel": "WorldWideWeb"
+  },
+  {
+    "label": "Samsung Internet",
+    "aliases": [
+      "Samsung Browser"
+    ],
+    "year": 2013,
+    "qid": "Q30589050",
+    "sitelinks": 30,
+    "enLabel": "Samsung Browser"
+  },
+  {
+    "label": "Android için Firefox",
+    "aliases": [
+      "Firefox for Android"
+    ],
+    "year": 2010,
+    "qid": "Q550315",
+    "sitelinks": 29,
+    "enLabel": "Firefox for Android"
+  },
+  {
+    "label": "Camino",
+    "aliases": [],
+    "year": 2002,
+    "qid": "Q727089",
+    "sitelinks": 29,
+    "enLabel": "Camino"
+  },
+  {
+    "label": "Yandex.Browser",
+    "aliases": [],
+    "year": 2012,
+    "qid": "Q1662015",
+    "sitelinks": 29,
+    "enLabel": "Yandex Browser"
+  },
+  {
+    "label": "Dillo",
+    "aliases": [],
+    "year": 1999,
+    "qid": "Q754064",
+    "sitelinks": 28,
+    "enLabel": "Dillo"
+  },
+  {
+    "label": "Midori",
+    "aliases": [],
+    "year": 2007,
+    "qid": "Q285512",
+    "sitelinks": 28,
+    "enLabel": "Midori"
+  },
+  {
+    "label": "Qwant",
+    "aliases": [],
+    "year": 2013,
+    "qid": "Q14657870",
+    "sitelinks": 28,
+    "enLabel": "Qwant"
+  },
+  {
+    "label": "GNU IceCat",
+    "aliases": [],
+    "year": 2005,
+    "qid": "Q2009630",
+    "sitelinks": 26,
+    "enLabel": "GNU IceCat"
+  },
+  {
+    "label": "Internet Explorer 8",
+    "aliases": [],
+    "year": null,
+    "qid": "Q841259",
+    "sitelinks": 26,
+    "enLabel": "Windows Internet Explorer 8"
+  },
+  {
+    "label": "Internet Explorer 9",
+    "aliases": [],
+    "year": null,
+    "qid": "Q840644",
+    "sitelinks": 26,
+    "enLabel": "Windows Internet Explorer 9"
+  },
+  {
+    "label": "Pale Moon",
+    "aliases": [],
+    "year": 2009,
+    "qid": "Q4046338",
+    "sitelinks": 26,
+    "enLabel": "Pale Moon"
+  },
+  {
+    "label": "Waterfox",
+    "aliases": [],
+    "year": null,
+    "qid": "Q10834367",
+    "sitelinks": 26,
+    "enLabel": "Waterfox"
+  },
+  {
+    "label": "Links",
+    "aliases": [],
+    "year": 1999,
+    "qid": "Q608910",
+    "sitelinks": 25,
+    "enLabel": "Links"
+  },
+  {
+    "label": "w3m",
+    "aliases": [],
+    "year": 1995,
+    "qid": "Q306669",
+    "sitelinks": 25,
+    "enLabel": "w3m"
+  },
+  {
+    "label": "Internet Explorer 10",
+    "aliases": [],
+    "year": null,
+    "qid": "Q819537",
+    "sitelinks": 24,
+    "enLabel": "Internet Explorer 10"
+  },
+  {
+    "label": "Internet Explorer 7",
+    "aliases": [],
+    "year": null,
+    "qid": "Q865500",
+    "sitelinks": 24,
+    "enLabel": "Windows Internet Explorer 7"
+  },
+  {
+    "label": "Opera Mobile",
+    "aliases": [],
+    "year": null,
+    "qid": "Q868865",
+    "sitelinks": 24,
+    "enLabel": "Opera Mobile"
+  },
+  {
+    "label": "Galeon",
+    "aliases": [],
+    "year": 2001,
+    "qid": "Q174613",
+    "sitelinks": 23,
+    "enLabel": "Galeon"
+  },
+  {
+    "label": "W3C Amaya",
+    "aliases": [],
+    "year": null,
+    "qid": "Q455973",
+    "sitelinks": 23,
+    "enLabel": "W3C Amaya"
+  },
+  {
+    "label": "Avant (Web tarayıcısı)",
+    "aliases": [
+      "Avant",
+      "Avant Browser"
+    ],
+    "year": null,
+    "qid": "Q790181",
+    "sitelinks": 22,
+    "enLabel": "Avant Browser"
+  },
+  {
+    "label": "Firefox Focus",
+    "aliases": [],
+    "year": 2016,
+    "qid": "Q31020870",
+    "sitelinks": 22,
+    "enLabel": "Firefox Focus"
+  },
+  {
+    "label": "Internet Explorer 11",
+    "aliases": [],
+    "year": null,
+    "qid": "Q13733263",
+    "sitelinks": 22,
+    "enLabel": "Internet Explorer 11"
+  },
+  {
+    "label": "Falkon",
+    "aliases": [],
+    "year": 2010,
+    "qid": "Q404293",
+    "sitelinks": 21,
+    "enLabel": null
+  },
+  {
+    "label": "Internet Explorer 6",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1072258",
+    "sitelinks": 21,
+    "enLabel": "Microsoft Internet Explorer 6"
+  },
+  {
+    "label": "Arc",
+    "aliases": [],
+    "year": 2022,
+    "qid": "Q120176610",
+    "sitelinks": 19,
+    "enLabel": "Arc"
+  },
+  {
+    "label": "Dolphin Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1236423",
+    "sitelinks": 19,
+    "enLabel": "Dolphin Browser"
+  },
+  {
+    "label": "Internet Explorer Mobile",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1140503",
+    "sitelinks": 19,
+    "enLabel": "Internet Explorer Mobile"
+  },
+  {
+    "label": "Nintendo DS Browser",
+    "aliases": [],
+    "year": 2006,
+    "qid": "Q1071410",
+    "sitelinks": 19,
+    "enLabel": "Nintendo DS Browser"
+  },
+  {
+    "label": "OmniWeb",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1061519",
+    "sitelinks": 19,
+    "enLabel": "OmniWeb"
+  },
+  {
+    "label": "Arora",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1061800",
+    "sitelinks": 18,
+    "enLabel": "Arora"
+  },
+  {
+    "label": "LibreWolf",
+    "aliases": [],
+    "year": null,
+    "qid": "Q105623664",
+    "sitelinks": 18,
+    "enLabel": null
+  },
+  {
+    "label": "Minimo",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1063062",
+    "sitelinks": 18,
+    "enLabel": "Minimo"
+  },
+  {
+    "label": "ELinks",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1151159",
+    "sitelinks": 17,
+    "enLabel": "ELinks"
+  },
+  {
+    "label": "Rekonq",
+    "aliases": [
+      "rekona"
+    ],
+    "year": null,
+    "qid": "Q284972",
+    "sitelinks": 17,
+    "enLabel": "rekona"
+  },
+  {
+    "label": "Arachne (Web tarayıcısı)",
+    "aliases": [
+      "Arachne"
+    ],
+    "year": 1996,
+    "qid": "Q624553",
+    "sitelinks": 16,
+    "enLabel": "Arachne"
+  },
+  {
+    "label": "Iceweasel",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1324793",
+    "sitelinks": 16,
+    "enLabel": "Iceweasel"
+  },
+  {
+    "label": "Internet Explorer 5",
+    "aliases": [],
+    "year": null,
+    "qid": "Q644560",
+    "sitelinks": 16,
+    "enLabel": "Internet Explorer 5"
+  },
+  {
+    "label": "Lunascape",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1049180",
+    "sitelinks": 16,
+    "enLabel": "Lunascape"
+  },
+  {
+    "label": "Mixi",
+    "aliases": [],
+    "year": 1999,
+    "qid": "Q1051289",
+    "sitelinks": 16,
+    "enLabel": "Mixi"
+  },
+  {
+    "label": "Mozilla Firefox 4",
+    "aliases": [
+      "Firefox 4"
+    ],
+    "year": 2011,
+    "qid": "Q1950119",
+    "sitelinks": 16,
+    "enLabel": "Firefox 4"
+  },
+  {
+    "label": "NetSurf",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1185648",
+    "sitelinks": 16,
+    "enLabel": "NetSurf"
+  },
+  {
+    "label": "Avast Secure Browser",
+    "aliases": [
+      "Avast SafeZone Browser"
+    ],
+    "year": 2016,
+    "qid": "Q25408530",
+    "sitelinks": 15,
+    "enLabel": "Avast Secure Browser"
+  },
+  {
+    "label": "Comodo Dragon",
+    "aliases": [],
+    "year": null,
+    "qid": "Q2312793",
+    "sitelinks": 15,
+    "enLabel": "Comodo Dragon"
+  },
+  {
+    "label": "Internet Explorer 1",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1153060",
+    "sitelinks": 15,
+    "enLabel": "Internet Explorer 1"
+  },
+  {
+    "label": "Internet Explorer 2",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1195006",
+    "sitelinks": 15,
+    "enLabel": "Microsoft Internet Explorer 2"
+  },
+  {
+    "label": "Opera GX",
+    "aliases": [],
+    "year": 2019,
+    "qid": "Q65041106",
+    "sitelinks": 15,
+    "enLabel": null
+  },
+  {
+    "label": "Puffin Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q29096941",
+    "sitelinks": 15,
+    "enLabel": "Puffin Browser"
+  },
+  {
+    "label": "Sleipnir",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1196833",
+    "sitelinks": 15,
+    "enLabel": "Sleipnir"
+  },
+  {
+    "label": "Amazon Silk",
+    "aliases": [],
+    "year": 2011,
+    "qid": "Q431171",
+    "sitelinks": 14,
+    "enLabel": "Amazon Silk"
+  },
+  {
+    "label": "Internet Explorer 3",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1367610",
+    "sitelinks": 14,
+    "enLabel": "Microsoft Internet Explorer 3"
+  },
+  {
+    "label": "Internet Explorer 4",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1367622",
+    "sitelinks": 14,
+    "enLabel": "Microsoft Internet Explorer 4"
+  },
+  {
+    "label": "Mozilla Firefox 3",
+    "aliases": [
+      "Firefox 3"
+    ],
+    "year": null,
+    "qid": "Q1092491",
+    "sitelinks": 14,
+    "enLabel": "Firefox 3"
+  },
+  {
+    "label": "Shiira",
+    "aliases": [],
+    "year": 2004,
+    "qid": "Q1149857",
+    "sitelinks": 14,
+    "enLabel": "Shiira"
+  },
+  {
+    "label": "Kazehakase",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1326035",
+    "sitelinks": 13,
+    "enLabel": "Kazehakase"
+  },
+  {
+    "label": "Mac OS X için Internet Explorer",
+    "aliases": [],
+    "year": 1996,
+    "qid": "Q1373946",
+    "sitelinks": 13,
+    "enLabel": "Internet Explorer for Mac OS X"
+  },
+  {
+    "label": "NetFront",
+    "aliases": [],
+    "year": 1995,
+    "qid": "Q595374",
+    "sitelinks": 13,
+    "enLabel": null
+  },
+  {
+    "label": "Uzbl",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1185067",
+    "sitelinks": 12,
+    "enLabel": "Uzbl"
+  },
+  {
+    "label": "Cello",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1053074",
+    "sitelinks": 11,
+    "enLabel": "Cello"
+  },
+  {
+    "label": "Epic",
+    "aliases": [],
+    "year": null,
+    "qid": "Q3519958",
+    "sitelinks": 11,
+    "enLabel": "Epic"
+  },
+  {
+    "label": "Floorp",
+    "aliases": [],
+    "year": null,
+    "qid": "Q111893936",
+    "sitelinks": 11,
+    "enLabel": "Floorp"
+  },
+  {
+    "label": "Internet Channel",
+    "aliases": [],
+    "year": 2007,
+    "qid": "Q1208345",
+    "sitelinks": 11,
+    "enLabel": "Internet Channel"
+  },
+  {
+    "label": "Ladybird",
+    "aliases": [],
+    "year": 2022,
+    "qid": "Q114127561",
+    "sitelinks": 11,
+    "enLabel": "Ladybird"
+  },
+  {
+    "label": "Naenara",
+    "aliases": [],
+    "year": null,
+    "qid": "Q22907158",
+    "sitelinks": 11,
+    "enLabel": "Naenara"
+  },
+  {
+    "label": "Naver Whale",
+    "aliases": [],
+    "year": null,
+    "qid": "Q28699041",
+    "sitelinks": 11,
+    "enLabel": "Naver Whale"
+  },
+  {
+    "label": "NetPositive",
+    "aliases": [],
+    "year": null,
+    "qid": "Q536949",
+    "sitelinks": 11,
+    "enLabel": "NetPositive"
+  },
+  {
+    "label": "Tor Browser",
+    "aliases": [],
+    "year": 2008,
+    "qid": "Q15397253",
+    "sitelinks": 11,
+    "enLabel": "Tor Browser"
+  },
+  {
+    "label": "Ungoogled Chromium",
+    "aliases": [],
+    "year": null,
+    "qid": "Q91530829",
+    "sitelinks": 11,
+    "enLabel": "Ungoogled Chromium"
+  },
+  {
+    "label": "ViolaWWW",
+    "aliases": [],
+    "year": 1992,
+    "qid": "Q3267753",
+    "sitelinks": 11,
+    "enLabel": "ViolaWWW"
+  },
+  {
+    "label": "Mozilla Firefox 2",
+    "aliases": [
+      "Firefox 2"
+    ],
+    "year": null,
+    "qid": "Q1179644",
+    "sitelinks": 10,
+    "enLabel": "Firefox 2"
+  },
+  {
+    "label": "Slimjet",
+    "aliases": [
+      "SlimBrowser"
+    ],
+    "year": null,
+    "qid": "Q1156978",
+    "sitelinks": 10,
+    "enLabel": "SlimBrowser"
+  },
+  {
+    "label": "Torch browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q7825557",
+    "sitelinks": 10,
+    "enLabel": "Torch browser"
+  },
+  {
+    "label": "Voyager",
+    "aliases": [],
+    "year": null,
+    "qid": "Q631921",
+    "sitelinks": 10,
+    "enLabel": "Voyager"
+  },
+  {
+    "label": "AWeb",
+    "aliases": [],
+    "year": 1996,
+    "qid": "Q300249",
+    "sitelinks": 9,
+    "enLabel": "AWeb"
+  },
+  {
+    "label": "Cốc Cốc",
+    "aliases": [],
+    "year": 2013,
+    "qid": "Q14822068",
+    "sitelinks": 9,
+    "enLabel": "Cốc Cốc"
+  },
+  {
+    "label": "Dooble",
+    "aliases": [],
+    "year": 2009,
+    "qid": "Q2440124",
+    "sitelinks": 9,
+    "enLabel": "Dooble"
+  },
+  {
+    "label": "İOS için Firefox",
+    "aliases": [
+      "Firefox for iOS"
+    ],
+    "year": 2015,
+    "qid": "Q20820972",
+    "sitelinks": 9,
+    "enLabel": "Firefox for iOS"
+  },
+  {
+    "label": "Swiftfox",
+    "aliases": [],
+    "year": null,
+    "qid": "Q2563748",
+    "sitelinks": 9,
+    "enLabel": "Swiftfox"
+  },
+  {
+    "label": "Comet",
+    "aliases": [],
+    "year": null,
+    "qid": "Q135264718",
+    "sitelinks": 8,
+    "enLabel": "Comet"
+  },
+  {
+    "label": "Erwise",
+    "aliases": [],
+    "year": 1992,
+    "qid": "Q4354781",
+    "sitelinks": 8,
+    "enLabel": "Erwise"
+  },
+  {
+    "label": "IBM WebExplorer",
+    "aliases": [],
+    "year": 1994,
+    "qid": "Q867016",
+    "sitelinks": 8,
+    "enLabel": "IBM WebExplorer"
+  },
+  {
+    "label": "IBrowse",
+    "aliases": [],
+    "year": 1996,
+    "qid": "Q1047428",
+    "sitelinks": 8,
+    "enLabel": "IBrowse"
+  },
+  {
+    "label": "Line Mode Browser",
+    "aliases": [],
+    "year": 1990,
+    "qid": "Q1826369",
+    "sitelinks": 8,
+    "enLabel": "Line Mode Browser"
+  },
+  {
+    "label": "Nintendo 3DS Internet Browser",
+    "aliases": [],
+    "year": 2011,
+    "qid": "Q3337268",
+    "sitelinks": 8,
+    "enLabel": "Nintendo 3DS Internet Browser"
+  },
+  {
+    "label": "qutebrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q28405851",
+    "sitelinks": 8,
+    "enLabel": "qutebrowser"
+  },
+  {
+    "label": "Supermium",
+    "aliases": [],
+    "year": 2023,
+    "qid": "Q124960427",
+    "sitelinks": 8,
+    "enLabel": "Supermium"
+  },
+  {
+    "label": "WebPositive",
+    "aliases": [],
+    "year": null,
+    "qid": "Q2562364",
+    "sitelinks": 8,
+    "enLabel": "WebPositive"
+  },
+  {
+    "label": "xB Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q576382",
+    "sitelinks": 8,
+    "enLabel": "xB Browser"
+  },
+  {
+    "label": "Arena",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4788871",
+    "sitelinks": 7,
+    "enLabel": "Arena"
+  },
+  {
+    "label": "Beaker",
+    "aliases": [],
+    "year": null,
+    "qid": "Q54392719",
+    "sitelinks": 7,
+    "enLabel": "Beaker"
+  },
+  {
+    "label": "MacWWW",
+    "aliases": [],
+    "year": null,
+    "qid": "Q838371",
+    "sitelinks": 7,
+    "enLabel": "MacWWW"
+  },
+  {
+    "label": "Nokia Browser",
+    "aliases": [],
+    "year": 2005,
+    "qid": "Q1046944",
+    "sitelinks": 7,
+    "enLabel": "Nokia Browser for Symbian"
+  },
+  {
+    "label": "PirateBrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q14567275",
+    "sitelinks": 7,
+    "enLabel": "PirateBrowser"
+  },
+  {
+    "label": "UNIX için Internet Explorer",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1054591",
+    "sitelinks": 7,
+    "enLabel": "Internet Explorer for UNIX"
+  },
+  {
+    "label": "360 Secure Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4635647",
+    "sitelinks": 6,
+    "enLabel": "360 Secure Browser"
+  },
+  {
+    "label": "CoolNovo",
+    "aliases": [],
+    "year": 2009,
+    "qid": "Q1051547",
+    "sitelinks": 6,
+    "enLabel": "CoolNovo"
+  },
+  {
+    "label": "Firefox 3.5",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1638134",
+    "sitelinks": 6,
+    "enLabel": "Firefox 3.5"
+  },
+  {
+    "label": "Ghostzilla",
+    "aliases": [],
+    "year": null,
+    "qid": "Q1977468",
+    "sitelinks": 6,
+    "enLabel": "Ghostzilla"
+  },
+  {
+    "label": "IEs4Linux",
+    "aliases": [],
+    "year": 2005,
+    "qid": "Q1042941",
+    "sitelinks": 6,
+    "enLabel": "IEs4Linux"
+  },
+  {
+    "label": "PhantomJS",
+    "aliases": [],
+    "year": null,
+    "qid": "Q20712371",
+    "sitelinks": 6,
+    "enLabel": "PhantomJS"
+  },
+  {
+    "label": "Basilisk (internet tarayıcısı)",
+    "aliases": [
+      "Basilisk"
+    ],
+    "year": 2017,
+    "qid": "Q45130783",
+    "sitelinks": 5,
+    "enLabel": "Basilisk"
+  },
+  {
+    "label": "Browsh",
+    "aliases": [],
+    "year": 2016,
+    "qid": "Q55449289",
+    "sitelinks": 5,
+    "enLabel": "Browsh"
+  },
+  {
+    "label": "Cheetah Security Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q15904677",
+    "sitelinks": 5,
+    "enLabel": "Cheetah Security Browser"
+  },
+  {
+    "label": "Comodo IceDragon",
+    "aliases": [],
+    "year": null,
+    "qid": "Q16959020",
+    "sitelinks": 5,
+    "enLabel": "Comodo IceDragon"
+  },
+  {
+    "label": "DuckDuckGo",
+    "aliases": [],
+    "year": 2018,
+    "qid": "Q125101985",
+    "sitelinks": 5,
+    "enLabel": "DuckDuckGo Private Browser"
+  },
+  {
+    "label": "Emacs Web Wowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q18508820",
+    "sitelinks": 5,
+    "enLabel": "Emacs Web Wowser"
+  },
+  {
+    "label": "Opera Coast",
+    "aliases": [],
+    "year": 2015,
+    "qid": "Q17051048",
+    "sitelinks": 5,
+    "enLabel": "Opera Coast"
+  },
+  {
+    "label": "QQ browser",
+    "aliases": [],
+    "year": 2000,
+    "qid": "Q6862273",
+    "sitelinks": 5,
+    "enLabel": "QQ browser"
+  },
+  {
+    "label": "Firefox 5",
+    "aliases": [],
+    "year": 2011,
+    "qid": "Q3306823",
+    "sitelinks": 4,
+    "enLabel": "Firefox 5"
+  },
+  {
+    "label": "Firefox Lite",
+    "aliases": [],
+    "year": null,
+    "qid": "Q104853343",
+    "sitelinks": 4,
+    "enLabel": "Firefox Lite"
+  },
+  {
+    "label": "Oracle PowerBrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4047293",
+    "sitelinks": 4,
+    "enLabel": "Oracle PowerBrowser"
+  },
+  {
+    "label": "Oregano",
+    "aliases": [],
+    "year": 2000,
+    "qid": "Q2376040",
+    "sitelinks": 4,
+    "enLabel": "Oregano"
+  },
+  {
+    "label": "Swift",
+    "aliases": [],
+    "year": null,
+    "qid": "Q3490125",
+    "sitelinks": 4,
+    "enLabel": "Swift"
+  },
+  {
+    "label": "AirMosaic",
+    "aliases": [],
+    "year": 1994,
+    "qid": "Q4697675",
+    "sitelinks": 3,
+    "enLabel": "AirMosaic"
+  },
+  {
+    "label": "Android için Google Chrome",
+    "aliases": [],
+    "year": null,
+    "qid": "Q125769150",
+    "sitelinks": 3,
+    "enLabel": "Google Chrome for Android"
+  },
+  {
+    "label": "AT&T Pogo",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4654547",
+    "sitelinks": 3,
+    "enLabel": "AT&T Pogo"
+  },
+  {
+    "label": "Blazer",
+    "aliases": [],
+    "year": null,
+    "qid": "Q883206",
+    "sitelinks": 3,
+    "enLabel": "Blazer"
+  },
+  {
+    "label": "Charon",
+    "aliases": [],
+    "year": null,
+    "qid": "Q863525",
+    "sitelinks": 3,
+    "enLabel": "Charon"
+  },
+  {
+    "label": "Cliqz",
+    "aliases": [],
+    "year": 2015,
+    "qid": "Q26819127",
+    "sitelinks": 3,
+    "enLabel": "Cliqz"
+  },
+  {
+    "label": "emacs-w3m",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4305684",
+    "sitelinks": 3,
+    "enLabel": "emacs-w3m"
+  },
+  {
+    "label": "Emacs/W3",
+    "aliases": [],
+    "year": null,
+    "qid": "Q3723813",
+    "sitelinks": 3,
+    "enLabel": "Emacs/W3"
+  },
+  {
+    "label": "Iridium",
+    "aliases": [],
+    "year": null,
+    "qid": "Q21806435",
+    "sitelinks": 3,
+    "enLabel": "Iridium"
+  },
+  {
+    "label": "Kinza browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q104057687",
+    "sitelinks": 3,
+    "enLabel": "Kinza browser"
+  },
+  {
+    "label": "Links2",
+    "aliases": [],
+    "year": null,
+    "qid": "Q923395",
+    "sitelinks": 3,
+    "enLabel": "Links2"
+  },
+  {
+    "label": "Microsoft Edge",
+    "aliases": [],
+    "year": null,
+    "qid": "Q131598139",
+    "sitelinks": 3,
+    "enLabel": "Microsoft Edge"
+  },
+  {
+    "label": "OperaTor",
+    "aliases": [],
+    "year": 2010,
+    "qid": "Q1064663",
+    "sitelinks": 3,
+    "enLabel": "OperaTor"
+  },
+  {
+    "label": "SlipKnot",
+    "aliases": [],
+    "year": null,
+    "qid": "Q2497674",
+    "sitelinks": 3,
+    "enLabel": "SlipKnot"
+  },
+  {
+    "label": "360 Web Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q16971114",
+    "sitelinks": 2,
+    "enLabel": "360 Web Browser"
+  },
+  {
+    "label": "abaco",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4663164",
+    "sitelinks": 2,
+    "enLabel": "abaco"
+  },
+  {
+    "label": "Abrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q130758525",
+    "sitelinks": 2,
+    "enLabel": "Abrowser"
+  },
+  {
+    "label": "AMSD Ariadna",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4652719",
+    "sitelinks": 2,
+    "enLabel": "AMSD Ariadna"
+  },
+  {
+    "label": "Android Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q112161600",
+    "sitelinks": 2,
+    "enLabel": "Android Browser"
+  },
+  {
+    "label": "BathyScaphe",
+    "aliases": [],
+    "year": null,
+    "qid": "Q11192054",
+    "sitelinks": 2,
+    "enLabel": "BathyScaphe"
+  },
+  {
+    "label": "Boat Browser",
+    "aliases": [],
+    "year": 2011,
+    "qid": "Q15789097",
+    "sitelinks": 2,
+    "enLabel": "Boat Browser"
+  },
+  {
+    "label": "Bobcat",
+    "aliases": [],
+    "year": null,
+    "qid": "Q5730900",
+    "sitelinks": 2,
+    "enLabel": "Bobcat"
+  },
+  {
+    "label": "CCleaner Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q65596392",
+    "sitelinks": 2,
+    "enLabel": "CCleaner Browser"
+  },
+  {
+    "label": "Cent Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q60963901",
+    "sitelinks": 2,
+    "enLabel": "Cent Browser"
+  },
+  {
+    "label": "Google Chrome Canary",
+    "aliases": [],
+    "year": null,
+    "qid": "Q19973241",
+    "sitelinks": 2,
+    "enLabel": "Google Chrome Canary"
+  },
+  {
+    "label": "Iberpix",
+    "aliases": [],
+    "year": null,
+    "qid": "Q119141596",
+    "sitelinks": 2,
+    "enLabel": "Iberpix"
+  },
+  {
+    "label": "Light",
+    "aliases": [],
+    "year": null,
+    "qid": "Q26869204",
+    "sitelinks": 2,
+    "enLabel": "Light"
+  },
+  {
+    "label": "Lobo",
+    "aliases": [],
+    "year": 2005,
+    "qid": "Q6828668",
+    "sitelinks": 2,
+    "enLabel": "Lobo"
+  },
+  {
+    "label": "Mullvad Browser",
+    "aliases": [],
+    "year": 2023,
+    "qid": "Q125401073",
+    "sitelinks": 2,
+    "enLabel": "Mullvad Browser"
+  },
+  {
+    "label": "Neeva",
+    "aliases": [],
+    "year": null,
+    "qid": "Q115328909",
+    "sitelinks": 2,
+    "enLabel": "Neeva"
+  },
+  {
+    "label": "Nintendo DSi Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q3342044",
+    "sitelinks": 2,
+    "enLabel": "Nintendo DSi Browser"
+  },
+  {
+    "label": "Nokia Xpress",
+    "aliases": [],
+    "year": null,
+    "qid": "Q14623421",
+    "sitelinks": 2,
+    "enLabel": "Nokia Xpress"
+  },
+  {
+    "label": "Obigo Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4045628",
+    "sitelinks": 2,
+    "enLabel": "Obigo Browser"
+  },
+  {
+    "label": "Onion Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q16529493",
+    "sitelinks": 2,
+    "enLabel": "Onion Browser"
+  },
+  {
+    "label": "OpenAI Operator",
+    "aliases": [],
+    "year": null,
+    "qid": "Q133504045",
+    "sitelinks": 2,
+    "enLabel": "OpenAI Operator"
+  },
+  {
+    "label": "Opera Air",
+    "aliases": [],
+    "year": null,
+    "qid": "Q133879822",
+    "sitelinks": 2,
+    "enLabel": "Opera Air"
+  },
+  {
+    "label": "Orion",
+    "aliases": [],
+    "year": null,
+    "qid": "Q112200564",
+    "sitelinks": 2,
+    "enLabel": "Orion"
+  },
+  {
+    "label": "Redcore",
+    "aliases": [],
+    "year": 2018,
+    "qid": "Q56121075",
+    "sitelinks": 2,
+    "enLabel": "Redcore"
+  },
+  {
+    "label": "Tuber",
+    "aliases": [],
+    "year": null,
+    "qid": "Q100269193",
+    "sitelinks": 2,
+    "enLabel": "Tuber"
+  },
+  {
+    "label": "UR Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q61082550",
+    "sitelinks": 2,
+    "enLabel": "UR Browser"
+  },
+  {
+    "label": "YapBrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q8049087",
+    "sitelinks": 2,
+    "enLabel": "YapBrowser"
+  },
+  {
+    "label": "ZAC Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q17048774",
+    "sitelinks": 2,
+    "enLabel": "ZAC Browser"
+  },
+  {
+    "label": "Aloha Browser",
+    "aliases": [],
+    "year": 2016,
+    "qid": "Q71339540",
+    "sitelinks": 1,
+    "enLabel": "Aloha Browser"
+  },
+  {
+    "label": "Amigo",
+    "aliases": [],
+    "year": null,
+    "qid": "Q19613173",
+    "sitelinks": 1,
+    "enLabel": "Amigo"
+  },
+  {
+    "label": "Argo",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4789621",
+    "sitelinks": 1,
+    "enLabel": "Argo"
+  },
+  {
+    "label": "Bagel",
+    "aliases": [],
+    "year": null,
+    "qid": "Q11191999",
+    "sitelinks": 1,
+    "enLabel": "Bagel"
+  },
+  {
+    "label": "Blisk",
+    "aliases": [],
+    "year": 2016,
+    "qid": "Q25345861",
+    "sitelinks": 1,
+    "enLabel": "Blisk"
+  },
+  {
+    "label": "Bromite",
+    "aliases": [],
+    "year": null,
+    "qid": "Q104766325",
+    "sitelinks": 1,
+    "enLabel": "Bromite"
+  },
+  {
+    "label": "Cromite",
+    "aliases": [],
+    "year": null,
+    "qid": "Q138463924",
+    "sitelinks": 1,
+    "enLabel": "Cromite"
+  },
+  {
+    "label": "Dezor",
+    "aliases": [],
+    "year": 2022,
+    "qid": "Q116950395",
+    "sitelinks": 1,
+    "enLabel": "Dezor"
+  },
+  {
+    "label": "Dolfin",
+    "aliases": [],
+    "year": null,
+    "qid": "Q12481800",
+    "sitelinks": 1,
+    "enLabel": "Dolfin"
+  },
+  {
+    "label": "Espial HTML5 Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q56354276",
+    "sitelinks": 1,
+    "enLabel": "Espial HTML5 Browser"
+  },
+  {
+    "label": "FreeBrowser",
+    "aliases": [],
+    "year": 2015,
+    "qid": "Q24833992",
+    "sitelinks": 1,
+    "enLabel": "FreeBrowser"
+  },
+  {
+    "label": "Gikonavi",
+    "aliases": [],
+    "year": null,
+    "qid": "Q11298090",
+    "sitelinks": 1,
+    "enLabel": "Gikonavi"
+  },
+  {
+    "label": "Huawei Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q109976298",
+    "sitelinks": 1,
+    "enLabel": "Huawei Browser"
+  },
+  {
+    "label": "IbisBrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q5984087",
+    "sitelinks": 1,
+    "enLabel": "IbisBrowser"
+  },
+  {
+    "label": "Iceweasel-UXP",
+    "aliases": [],
+    "year": 2018,
+    "qid": "Q95720756",
+    "sitelinks": 1,
+    "enLabel": "Iceweasel-UXP"
+  },
+  {
+    "label": "Jane",
+    "aliases": [],
+    "year": null,
+    "qid": "Q11226836",
+    "sitelinks": 1,
+    "enLabel": "Jane"
+  },
+  {
+    "label": "JIG browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q11226922",
+    "sitelinks": 1,
+    "enLabel": "JIG browser"
+  },
+  {
+    "label": "JioSphere",
+    "aliases": [],
+    "year": null,
+    "qid": "Q137942223",
+    "sitelinks": 1,
+    "enLabel": "JioSphere"
+  },
+  {
+    "label": "Luakit",
+    "aliases": [],
+    "year": null,
+    "qid": "Q4043235",
+    "sitelinks": 1,
+    "enLabel": "Luakit"
+  },
+  {
+    "label": "Meta Quest Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q124759106",
+    "sitelinks": 1,
+    "enLabel": "Meta Quest Browser"
+  },
+  {
+    "label": "Microsoft Edge Chromium",
+    "aliases": [],
+    "year": 2020,
+    "qid": "Q133247080",
+    "sitelinks": 1,
+    "enLabel": "Microsoft Edge Chromium"
+  },
+  {
+    "label": "MultiWeb Internet Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q6934539",
+    "sitelinks": 1,
+    "enLabel": "MultiWeb Internet Browser"
+  },
+  {
+    "label": "Opera Neon",
+    "aliases": [],
+    "year": null,
+    "qid": "Q137485955",
+    "sitelinks": 1,
+    "enLabel": "Opera Neon"
+  },
+  {
+    "label": "Orbitum",
+    "aliases": [],
+    "year": null,
+    "qid": "Q21654575",
+    "sitelinks": 1,
+    "enLabel": "Orbitum"
+  },
+  {
+    "label": "Picsel Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q11331426",
+    "sitelinks": 1,
+    "enLabel": "Picsel Browser"
+  },
+  {
+    "label": "r3dfox",
+    "aliases": [],
+    "year": null,
+    "qid": "Q136322310",
+    "sitelinks": 1,
+    "enLabel": "r3dfox"
+  },
+  {
+    "label": "Seznam.cz browser",
+    "aliases": [],
+    "year": 2014,
+    "qid": "Q21598538",
+    "sitelinks": 1,
+    "enLabel": "Seznam.cz browser"
+  },
+  {
+    "label": "SkipStone",
+    "aliases": [],
+    "year": null,
+    "qid": "Q12054442",
+    "sitelinks": 1,
+    "enLabel": "SkipStone"
+  },
+  {
+    "label": "Steel",
+    "aliases": [],
+    "year": null,
+    "qid": "Q7605624",
+    "sitelinks": 1,
+    "enLabel": "Steel"
+  },
+  {
+    "label": "Surebo Browselorer",
+    "aliases": [],
+    "year": null,
+    "qid": "Q12217243",
+    "sitelinks": 1,
+    "enLabel": "Surebo Browselorer"
+  },
+  {
+    "label": "UdiWWW",
+    "aliases": [],
+    "year": null,
+    "qid": "Q7877217",
+    "sitelinks": 1,
+    "enLabel": "UdiWWW"
+  },
+  {
+    "label": "Via Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q61722278",
+    "sitelinks": 1,
+    "enLabel": "Via Browser"
+  },
+  {
+    "label": "vimb",
+    "aliases": [],
+    "year": null,
+    "qid": "Q55637132",
+    "sitelinks": 1,
+    "enLabel": "vimb"
+  },
+  {
+    "label": "Yaani",
+    "aliases": [],
+    "year": 2017,
+    "qid": "Q42530772",
+    "sitelinks": 1,
+    "enLabel": "yaani"
+  },
+  {
+    "label": "AiPlix",
+    "aliases": [],
+    "year": null,
+    "qid": "Q118601563",
+    "sitelinks": 0,
+    "enLabel": "AiPlix"
+  },
+  {
+    "label": "AWFL",
+    "aliases": [],
+    "year": 2026,
+    "qid": "Q142142987",
+    "sitelinks": 0,
+    "enLabel": "AWFL"
+  },
+  {
+    "label": "badwolf",
+    "aliases": [],
+    "year": 2019,
+    "qid": "Q88502785",
+    "sitelinks": 0,
+    "enLabel": "badwolf"
+  },
+  {
+    "label": "BeastBrowser",
+    "aliases": [],
+    "year": 2025,
+    "qid": "Q141822596",
+    "sitelinks": 0,
+    "enLabel": "BeastBrowser"
+  },
+  {
+    "label": "ChitBase",
+    "aliases": [],
+    "year": 2026,
+    "qid": "Q139971152",
+    "sitelinks": 0,
+    "enLabel": "ChitBase"
+  },
+  {
+    "label": "ChMate",
+    "aliases": [],
+    "year": 2011,
+    "qid": "Q114694582",
+    "sitelinks": 0,
+    "enLabel": "ChMate"
+  },
+  {
+    "label": "Chrome Beta",
+    "aliases": [],
+    "year": null,
+    "qid": "Q125760634",
+    "sitelinks": 0,
+    "enLabel": "Chrome Beta"
+  },
+  {
+    "label": "CometBird",
+    "aliases": [],
+    "year": null,
+    "qid": "Q5778974",
+    "sitelinks": 0,
+    "enLabel": "CometBird"
+  },
+  {
+    "label": "Dia",
+    "aliases": [],
+    "year": 2025,
+    "qid": "Q136558642",
+    "sitelinks": 0,
+    "enLabel": "Dia"
+  },
+  {
+    "label": "DuckDuckGo Private Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q107639007",
+    "sitelinks": 0,
+    "enLabel": "DuckDuckGo Private Browser"
+  },
+  {
+    "label": "Firefox Beta",
+    "aliases": [],
+    "year": null,
+    "qid": "Q107559160",
+    "sitelinks": 0,
+    "enLabel": "Firefox Beta"
+  },
+  {
+    "label": "Firefox Extended Support Release",
+    "aliases": [],
+    "year": null,
+    "qid": "Q121675936",
+    "sitelinks": 0,
+    "enLabel": "Firefox Extended Support Release"
+  },
+  {
+    "label": "Firefox Reality",
+    "aliases": [],
+    "year": null,
+    "qid": "Q65007962",
+    "sitelinks": 0,
+    "enLabel": "Firefox Reality"
+  },
+  {
+    "label": "Gallery",
+    "aliases": [],
+    "year": null,
+    "qid": "Q125760877",
+    "sitelinks": 0,
+    "enLabel": "Gallery"
+  },
+  {
+    "label": "Google Chrome",
+    "aliases": [],
+    "year": null,
+    "qid": "Q5583814",
+    "sitelinks": 0,
+    "enLabel": "Google Chrome"
+  },
+  {
+    "label": "HootArk",
+    "aliases": [],
+    "year": null,
+    "qid": "Q139972596",
+    "sitelinks": 0,
+    "enLabel": "HootArk"
+  },
+  {
+    "label": "IronFox",
+    "aliases": [],
+    "year": null,
+    "qid": "Q137808133",
+    "sitelinks": 0,
+    "enLabel": "IronFox"
+  },
+  {
+    "label": "JD",
+    "aliases": [],
+    "year": null,
+    "qid": "Q111676072",
+    "sitelinks": 0,
+    "enLabel": "JD"
+  },
+  {
+    "label": "JDim",
+    "aliases": [],
+    "year": null,
+    "qid": "Q111676392",
+    "sitelinks": 0,
+    "enLabel": "JDim"
+  },
+  {
+    "label": "Komby Capsule",
+    "aliases": [],
+    "year": null,
+    "qid": "Q140987778",
+    "sitelinks": 0,
+    "enLabel": "Komby Capsule"
+  },
+  {
+    "label": "LastBrowser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q141748793",
+    "sitelinks": 0,
+    "enLabel": "LastBrowser"
+  },
+  {
+    "label": "Lucid browser",
+    "aliases": [],
+    "year": 2014,
+    "qid": "Q117199435",
+    "sitelinks": 0,
+    "enLabel": "Lucid browser"
+  },
+  {
+    "label": "Luwak",
+    "aliases": [],
+    "year": 2022,
+    "qid": "Q115453201",
+    "sitelinks": 0,
+    "enLabel": "Luwak"
+  },
+  {
+    "label": "Microsoft Edge",
+    "aliases": [],
+    "year": null,
+    "qid": "Q106975875",
+    "sitelinks": 0,
+    "enLabel": "Microsoft Edge"
+  },
+  {
+    "label": "MicroWeb",
+    "aliases": [],
+    "year": 2021,
+    "qid": "Q122859225",
+    "sitelinks": 0,
+    "enLabel": "MicroWeb"
+  },
+  {
+    "label": "monyhar",
+    "aliases": [],
+    "year": null,
+    "qid": "Q107303268",
+    "sitelinks": 0,
+    "enLabel": "monyhar"
+  },
+  {
+    "label": "Mothra 2001 (GMK)",
+    "aliases": [],
+    "year": null,
+    "qid": "Q23199377",
+    "sitelinks": 0,
+    "enLabel": "Mothra 2001 (GMK)"
+  },
+  {
+    "label": "Nav0",
+    "aliases": [],
+    "year": 2026,
+    "qid": "Q140392259",
+    "sitelinks": 0,
+    "enLabel": "Nav0"
+  },
+  {
+    "label": "Netscape Communicator 4.7",
+    "aliases": [],
+    "year": 1999,
+    "qid": "Q142141213",
+    "sitelinks": 0,
+    "enLabel": "Netscape Communicator 4.7"
+  },
+  {
+    "label": "Netscape Navigator 4.05",
+    "aliases": [],
+    "year": 1998,
+    "qid": "Q114266272",
+    "sitelinks": 0,
+    "enLabel": "Netscape Navigator 4.05"
+  },
+  {
+    "label": "Nyxt",
+    "aliases": [],
+    "year": null,
+    "qid": "Q67991546",
+    "sitelinks": 0,
+    "enLabel": "Nyxt"
+  },
+  {
+    "label": "offpunk",
+    "aliases": [],
+    "year": null,
+    "qid": "Q132783192",
+    "sitelinks": 0,
+    "enLabel": "offpunk"
+  },
+  {
+    "label": "Opera Crypto Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q111653161",
+    "sitelinks": 0,
+    "enLabel": "Opera Crypto Browser"
+  },
+  {
+    "label": "Opera One",
+    "aliases": [],
+    "year": null,
+    "qid": "Q118117091",
+    "sitelinks": 0,
+    "enLabel": "Opera One"
+  },
+  {
+    "label": "Opera Touch",
+    "aliases": [],
+    "year": null,
+    "qid": "Q104623795",
+    "sitelinks": 0,
+    "enLabel": "Opera Touch"
+  },
+  {
+    "label": "Roccat Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q21043346",
+    "sitelinks": 0,
+    "enLabel": "Roccat Browser"
+  },
+  {
+    "label": "SaaS Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q137733101",
+    "sitelinks": 0,
+    "enLabel": "SaaS Browser"
+  },
+  {
+    "label": "Safari",
+    "aliases": [],
+    "year": null,
+    "qid": "Q70060004",
+    "sitelinks": 0,
+    "enLabel": "Safari"
+  },
+  {
+    "label": "Safari",
+    "aliases": [],
+    "year": null,
+    "qid": "Q70060354",
+    "sitelinks": 0,
+    "enLabel": "Safari"
+  },
+  {
+    "label": "Sanad Al Haramain Browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q141908529",
+    "sitelinks": 0,
+    "enLabel": "Sanad Al Haramain Browser"
+  },
+  {
+    "label": "SigmaOS",
+    "aliases": [],
+    "year": null,
+    "qid": "Q130278775",
+    "sitelinks": 0,
+    "enLabel": "SigmaOS"
+  },
+  {
+    "label": "Steam web browser",
+    "aliases": [],
+    "year": null,
+    "qid": "Q136765061",
+    "sitelinks": 0,
+    "enLabel": "Steam web browser"
+  },
+  {
+    "label": "Strawberry Browser",
+    "aliases": [],
+    "year": 2025,
+    "qid": "Q141985825",
+    "sitelinks": 0,
+    "enLabel": "Strawberry Browser"
+  },
+  {
+    "label": "Supermium Portable",
+    "aliases": [],
+    "year": null,
+    "qid": "Q138168094",
+    "sitelinks": 0,
+    "enLabel": "Supermium Portable"
+  },
+  {
+    "label": "Tabbit Browser",
+    "aliases": [],
+    "year": 2026,
+    "qid": "Q140909733",
+    "sitelinks": 0,
+    "enLabel": "Tabbit Browser"
+  },
+  {
+    "label": "TaffyGo",
+    "aliases": [],
+    "year": null,
+    "qid": "Q141597502",
+    "sitelinks": 0,
+    "enLabel": "TaffyGo"
+  },
+  {
+    "label": "The Web Stalker",
+    "aliases": [],
+    "year": 1997,
+    "qid": "Q29351168",
+    "sitelinks": 0,
+    "enLabel": "The Web Stalker"
+  },
+  {
+    "label": "Trivalent",
+    "aliases": [],
+    "year": null,
+    "qid": "Q131841384",
+    "sitelinks": 0,
+    "enLabel": "Trivalent"
+  },
+  {
+    "label": "TUSK",
+    "aliases": [],
+    "year": null,
+    "qid": "Q111953350",
+    "sitelinks": 0,
+    "enLabel": "TUSK"
+  },
+  {
+    "label": "WWW/LX",
+    "aliases": [],
+    "year": 1995,
+    "qid": "Q121672425",
+    "sitelinks": 0,
+    "enLabel": "WWW/LX"
+  },
+  {
+    "label": "WWWBrowser",
+    "aliases": [],
+    "year": 1994,
+    "qid": "Q109773009",
+    "sitelinks": 0,
+    "enLabel": "WWWBrowser"
+  }
+]

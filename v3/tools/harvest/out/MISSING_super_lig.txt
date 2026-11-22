@@ -1,0 +1,3 @@
+# super_lig
+expect: 18, aday: 458, diff: 440
+not: kesin 18 takım F4 manual'de belirlenir

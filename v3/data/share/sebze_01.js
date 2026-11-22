@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["sebze_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["Domates",15.73],["Patates",13.31],["Salatalık",10.35],["Biber",8.38],["Soğan",7.39],["Patlıcan",6.41],["Havuç",5.72],["Brokoli",4.44],["Marul",3.45],["Karnabahar",2.96],["Pırasa",2.56],["Lahana",2.37],["Sarımsak",1.97],["Fasulye",1.77],["Bezelye",1.58],["Enginar",1.38],["Turp",1.18],["Pancar",0.99],["Brüksel lahanası",0.89],["Kırmızı lahana",0.79],["Karalahana",0.69],["Dolma biber",0.64],["Acı biber",0.59],["Barbunya",0.54],["Nohut",0.49],["Bakla",0.44],["Pazı",0.39],["Roka",0.34],["Mısır",0.32],["Yeşil fasulye",0.3],["Şeker pancarı",0.28],["Tatlı patates",0.25],["Yeşil soğan",0.22],["Kereviz kökü",0.2],["Beyaz turp",0.18],["Su teresi",0.15],["Şalgam",0.14],["Börülce",0.12],["Alabaş",0.1]]};
+})(typeof window !== 'undefined' ? window : globalThis);

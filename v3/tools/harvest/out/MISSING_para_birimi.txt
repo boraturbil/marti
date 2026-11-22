@@ -1,0 +1,3 @@
+# para_birimi
+expect: probe sonrası, got: 251
+tr etiketi olmayan QID sayısı: 758

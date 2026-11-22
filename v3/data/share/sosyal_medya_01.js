@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["sosyal_medya_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["YouTube",23.01],["TikTok",18.21],["X",15.34],["Facebook",12.94],["LinkedIn",6.23],["Snapchat",5.27],["Reddit",4.31],["Threads",2.4],["Spotify",1.92],["Ekşi Sözlük",1.53],["GitHub",0.96],["Bluesky",0.77],["Tinder",0.67],["WeChat",0.62],["Vimeo",0.53],["Quora",0.48],["Medium",0.43],["SoundCloud",0.4],["Myspace",0.38],["Vine",0.36],["Dailymotion",0.34],["Flickr",0.31],["Vkontakte",0.29],["Blogger",0.27],["9GAG",0.24],["Letterboxd",0.21],["Goodreads",0.19],["Bumble",0.17],["Truth Social",0.15],["Sina Weibo",0.14],["Line",0.13],["Viber",0.12],["ICQ",0.12],["Behance",0.11],["Hacker News",0.1],["ResearchGate",0.09],["YouTube Shorts",0.08],["Brainly",0.07],["Xiaohongshu",0.06],["Orkut",0.05]]};
+})(typeof window !== 'undefined' ? window : globalThis);

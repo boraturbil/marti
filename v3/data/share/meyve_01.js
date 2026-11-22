@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["meyve_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["Amasya elması",12.36],["Muz",11.85],["Karpuz",9.79],["Kiraz",6.7],["Üzüm",6.18],["Şeftali",5.36],["Kavun",4.95],["Armut",4.64],["Mandalina",4.33],["Kayısı",3.92],["Erik",3.61],["İncir",3.09],["Kivi",2.68],["Ananas",2.27],["Limon",2.06],["Vişne",1.86],["Ayva",1.55],["Avokado",1.34],["Mango",1.13],["Böğürtlen",0.93],["Ahududu",0.88],["Yaban mersini",0.82],["Greyfurt",0.77],["Hurma",0.72],["Trabzon hurması",0.67],["Karadut",0.62],["Kan portakalı",0.57],["Yeşil erik",0.52],["Hindistan cevizi",0.46],["Kızılcık",0.41],["Muşmula",0.36],["Malta eriği",0.31],["Pitaya",0.26],["Papaya",0.23],["Liçi",0.21],["İğde",0.19],["Misket limonu",0.15],["Kuru kayısı",0.12],["Pomelo",0.1],["Fragaria",1.03]]};
+})(typeof window !== 'undefined' ? window : globalThis);

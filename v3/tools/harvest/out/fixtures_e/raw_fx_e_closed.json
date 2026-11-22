@@ -1,0 +1,14 @@
+{
+  "pool": "fx_e_closed",
+  "mode": "k",
+  "expect": 5,
+  "yearKind": "kurulus",
+  "source": ["wikidata"],
+  "rows": [
+    { "label": "Kadıköy", "aliases": ["Kadıköy ilçesi", "Q12345", "Çok uzun şüpheli bir takma ad"], "year": 1930, "approx": false, "src": "Q101", "sl": 48 },
+    { "label": "Beşiktaş", "aliases": ["Beşiktaş (İstanbul)"], "year": 1930, "approx": false, "src": "Q102", "sl": 45 },
+    { "label": "Üsküdar", "aliases": ["Üsküdar, İstanbul"], "year": 1926, "approx": false, "src": "Q103", "sl": 41 },
+    { "label": "Şişli", "aliases": [], "year": 1954, "approx": false, "src": "Q104", "sl": 36 },
+    { "label": "Fatih", "aliases": ["Sur İçi"], "year": 1926, "approx": false, "src": "Q105", "sl": 42 }
+  ]
+}

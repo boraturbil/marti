@@ -1,0 +1,1563 @@
+{
+  "ist_ilce": {
+    "no": 1,
+    "ad": "İSTANBUL İLÇESİ",
+    "mod": "k",
+    "eksen": "P",
+    "beklenen": 39,
+    "selectedClass": {
+      "qid": "Q1147395",
+      "label": "ilçe",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q459495",
+      "Q932886",
+      "Q326339",
+      "Q752528"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q3957",
+        "label": "kasaba",
+        "count": 4
+      },
+      {
+        "qid": "Q2460358",
+        "label": "belediye türü (Türkiye)",
+        "count": 4
+      },
+      {
+        "qid": "Q515",
+        "label": "şehir",
+        "count": 3
+      },
+      {
+        "qid": "Q1147395",
+        "label": "ilçe",
+        "count": 3
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": -39
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "tr_il": {
+    "no": 2,
+    "ad": "TÜRKİYE İLİ",
+    "mod": "k",
+    "eksen": "P",
+    "beklenen": 81,
+    "selectedClass": {
+      "qid": "Q48336",
+      "label": "il",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q534799",
+      "Q40249",
+      "Q2297724",
+      "Q344490"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q48336",
+        "label": "il",
+        "count": 4
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": -81
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "ulke": {
+    "no": 3,
+    "ad": "ÜLKE (BM üyesi + gözlemci)",
+    "mod": "k",
+    "eksen": "P",
+    "beklenen": 195,
+    "selectedClass": {
+      "qid": "Q3624078",
+      "label": "egemen devlet",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q43",
+      "Q142",
+      "Q17",
+      "Q155"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q6256",
+        "label": "ülke",
+        "count": 4
+      },
+      {
+        "qid": "Q3624078",
+        "label": "egemen devlet",
+        "count": 4
+      },
+      {
+        "qid": "Q859563",
+        "label": "seküler devlet",
+        "count": 2
+      },
+      {
+        "qid": "Q112099",
+        "label": "ada ülkesi",
+        "count": 1
+      },
+      {
+        "qid": "Q339834",
+        "label": "bölgesel güç",
+        "count": 1
+      },
+      {
+        "qid": "Q619610",
+        "label": "sosyal devlet",
+        "count": 1
+      },
+      {
+        "qid": "Q1323642",
+        "label": "kıtalararası ülkeler",
+        "count": 1
+      },
+      {
+        "qid": "Q51576574",
+        "label": "Akdeniz ülkesi",
+        "count": 1
+      },
+      {
+        "qid": "Q127693126",
+        "label": "halef devlet",
+        "count": 1
+      },
+      {
+        "qid": "Q7270",
+        "label": "cumhuriyet",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": -195
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "baskent": {
+    "no": 4,
+    "ad": "BAŞKENT",
+    "mod": "k",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q200250",
+      "label": "Metropol",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q1490",
+      "Q90",
+      "Q64",
+      "Q3640"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q200250",
+        "label": "Metropol",
+        "count": 3
+      },
+      {
+        "qid": "Q51929311",
+        "label": "en büyük kent",
+        "count": 3
+      },
+      {
+        "qid": "Q174844",
+        "label": "megakent",
+        "count": 2
+      },
+      {
+        "qid": "Q208511",
+        "label": "küresel kent",
+        "count": 2
+      },
+      {
+        "qid": "Q133442",
+        "label": "şehir-devlet",
+        "count": 1
+      },
+      {
+        "qid": "Q257391",
+        "label": "federal başkent",
+        "count": 1
+      },
+      {
+        "qid": "Q707813",
+        "label": "Hansa kenti",
+        "count": 1
+      },
+      {
+        "qid": "Q1221156",
+        "label": "eyalet",
+        "count": 1
+      },
+      {
+        "qid": "Q1901835",
+        "label": "hükûmet merkezi",
+        "count": 1
+      },
+      {
+        "qid": "Q15974307",
+        "label": "Einheitsgemeinde",
+        "count": 1
+      },
+      {
+        "qid": "Q42744322",
+        "label": "Almanya'da şehir",
+        "count": 1
+      },
+      {
+        "qid": "Q67123843",
+        "label": "sınırla bölünmüş şehir",
+        "count": 1
+      },
+      {
+        "qid": "Q114401982",
+        "label": "independent city in Berlin",
+        "count": 1
+      },
+      {
+        "qid": "Q22923920",
+        "label": "territorial collectivity of France with special status",
+        "count": 1
+      },
+      {
+        "qid": "Q108178728",
+        "label": "ulusal başkent",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 204,
+      "trLabelPct": 99,
+      "trAliasPct": 27,
+      "yearPct": 72,
+      "trwikiPct": 100,
+      "diff": null
+    },
+    "statusNote": "özel sorgu"
+  },
+  "dunya_sehri": {
+    "no": 5,
+    "ad": "DÜNYA ŞEHRİ",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q174844",
+      "label": "megakent",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q1490",
+      "Q84",
+      "Q406",
+      "Q60"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q174844",
+        "label": "megakent",
+        "count": 4
+      },
+      {
+        "qid": "Q51929311",
+        "label": "en büyük kent",
+        "count": 4
+      },
+      {
+        "qid": "Q200250",
+        "label": "Metropol",
+        "count": 3
+      },
+      {
+        "qid": "Q208511",
+        "label": "küresel kent",
+        "count": 3
+      },
+      {
+        "qid": "Q1549591",
+        "label": "büyük şehir (100+)",
+        "count": 3
+      },
+      {
+        "qid": "Q515",
+        "label": "şehir",
+        "count": 2
+      },
+      {
+        "qid": "Q2264924",
+        "label": "liman şehri",
+        "count": 2
+      },
+      {
+        "qid": "Q1066984",
+        "label": "finans merkezi",
+        "count": 2
+      },
+      {
+        "qid": "Q1093829",
+        "label": "kent (Amerika Birleşik Devletler)",
+        "count": 1
+      },
+      {
+        "qid": "Q15063611",
+        "label": "kent (New York)",
+        "count": 1
+      },
+      {
+        "qid": "Q1048835",
+        "label": "devletin yönetim biçimi",
+        "count": 1
+      },
+      {
+        "qid": "Q108178728",
+        "label": "ulusal başkent",
+        "count": 1
+      },
+      {
+        "qid": "Q2716259",
+        "label": "Türkiye'de büyükşehir belediyeleri",
+        "count": 1
+      },
+      {
+        "qid": "Q27554677",
+        "label": "eski başkent",
+        "count": 1
+      },
+      {
+        "qid": "Q50337",
+        "label": "Japonya'nın prefektörlükleri",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "corba": {
+    "no": 6,
+    "ad": "ÇORBA",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q41415",
+      "label": "(doğrulanmış)",
+      "votes": 0
+    },
+    "seedQids": [
+      "Q16045177",
+      "Q1827035"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q746549",
+        "label": "yemek",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "kahvaltilik": {
+    "no": 7,
+    "ad": "KAHVALTILIK",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q2095",
+      "label": "yiyecek",
+      "votes": 1
+    },
+    "seedQids": [
+      "Q8196212",
+      "Q1920415",
+      "Q903997",
+      "Q20129"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q2095",
+        "label": "yiyecek",
+        "count": 1
+      },
+      {
+        "qid": "Q746549",
+        "label": "yemek",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "elle/trwiki ağırlıklı"
+  },
+  "tatli": {
+    "no": 8,
+    "ad": "TATLI",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q717040",
+      "label": "Noel gelenekleri",
+      "votes": 1
+    },
+    "seedQids": [
+      "Q187495",
+      "Q19029",
+      "Q131582",
+      "Q219123"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q717040",
+        "label": "Noel gelenekleri",
+        "count": 1
+      },
+      {
+        "qid": "Q746549",
+        "label": "yemek",
+        "count": 1
+      },
+      {
+        "qid": "Q2095",
+        "label": "yiyecek",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "meyve": {
+    "no": 9,
+    "ad": "MEYVE",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q140646522",
+      "label": "type of fruit",
+      "votes": 2
+    },
+    "seedQids": [
+      "Q503",
+      "Q434",
+      "Q13158",
+      "Q89"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q140646522",
+        "label": "type of fruit",
+        "count": 2
+      },
+      {
+        "qid": "Q16521",
+        "label": "takson",
+        "count": 2
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "sebze": {
+    "no": 10,
+    "ad": "SEBZE",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q16521",
+      "label": "takson",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q23501",
+      "Q7540",
+      "Q81464",
+      "Q81"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q16521",
+        "label": "takson",
+        "count": 3
+      },
+      {
+        "qid": "Q31839438",
+        "label": "food crop",
+        "count": 2
+      },
+      {
+        "qid": "Q140358161",
+        "label": "type of vegetable",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "hayvan": {
+    "no": 11,
+    "ad": "HAYVAN",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q16521",
+      "label": "takson",
+      "votes": 2
+    },
+    "seedQids": [
+      "Q2092297",
+      "Q140",
+      "Q18498",
+      "Q401304"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q16521",
+        "label": "takson",
+        "count": 2
+      },
+      {
+        "qid": "Q19067",
+        "label": "süper avcı",
+        "count": 1
+      },
+      {
+        "qid": "Q4167410",
+        "label": "Wikimedia anlam ayrımı sayfası",
+        "count": 1
+      },
+      {
+        "qid": "Q5113",
+        "label": "kuş",
+        "count": 1
+      },
+      {
+        "qid": "Q55983715",
+        "label": "belirli bir ortak adla bilinen organizmalar grubu",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "meslek": {
+    "no": 12,
+    "ad": "MESLEK",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q4164871",
+      "label": "makam",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q40348",
+      "Q39631",
+      "Q37226",
+      "Q81096"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q4164871",
+        "label": "makam",
+        "count": 3
+      },
+      {
+        "qid": "Q28640",
+        "label": "meslek",
+        "count": 2
+      },
+      {
+        "qid": "Q12737077",
+        "label": "uğraş",
+        "count": 2
+      },
+      {
+        "qid": "Q3922583",
+        "label": "sağlık mesleği",
+        "count": 1
+      },
+      {
+        "qid": "Q66811410",
+        "label": "medical profession",
+        "count": 1
+      },
+      {
+        "qid": "Q108300140",
+        "label": "ISCO-08'e göre meslek grubu",
+        "count": 1
+      },
+      {
+        "qid": "Q122754124",
+        "label": "ambiguous Wikidata item",
+        "count": 1
+      },
+      {
+        "qid": "Q15987302",
+        "label": "hukukçu",
+        "count": 1
+      },
+      {
+        "qid": "Q189533",
+        "label": "akademik derece",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "spor_dali": {
+    "no": 13,
+    "ad": "SPOR DALI",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q31629",
+      "label": "spor dalı",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q2736",
+      "Q5372",
+      "Q31920",
+      "Q847"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q31629",
+        "label": "spor dalı",
+        "count": 4
+      },
+      {
+        "qid": "Q47728",
+        "label": "hobi",
+        "count": 3
+      },
+      {
+        "qid": "Q212434",
+        "label": "olimpik sporlar",
+        "count": 2
+      },
+      {
+        "qid": "Q216048",
+        "label": "takım sporu",
+        "count": 1
+      },
+      {
+        "qid": "Q4356073",
+        "label": "gösteri sporu",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "turk_markasi": {
+    "no": 14,
+    "ad": "TÜRK MARKASI",
+    "mod": "a",
+    "eksen": "P",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q431289",
+      "label": "(doğrulanmış)",
+      "votes": 0
+    },
+    "seedQids": [
+      "Q640497",
+      "Q2191408",
+      "Q334762",
+      "Q4548"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q891723",
+        "label": "halka açık şirket",
+        "count": 2
+      },
+      {
+        "qid": "Q4830453",
+        "label": "işletme",
+        "count": 2
+      },
+      {
+        "qid": "Q6881511",
+        "label": "ticari işletme",
+        "count": 2
+      },
+      {
+        "qid": "Q46970",
+        "label": "havayolu",
+        "count": 1
+      },
+      {
+        "qid": "Q4167410",
+        "label": "Wikimedia anlam ayrımı sayfası",
+        "count": 1
+      },
+      {
+        "qid": "Q726870",
+        "label": "perakende mağaza",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "tarayici": {
+    "no": 15,
+    "ad": "TARAYICI",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q6368",
+      "label": "Web tarayıcısı",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q698",
+      "Q777",
+      "Q41242",
+      "Q35773",
+      "Q18698690"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q6368",
+        "label": "Web tarayıcısı",
+        "count": 4
+      },
+      {
+        "qid": "Q166142",
+        "label": "bilgisayar uygulaması",
+        "count": 1
+      },
+      {
+        "qid": "Q218616",
+        "label": "kapalı kaynak",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 260,
+      "trLabelPct": 28,
+      "trAliasPct": 6,
+      "yearPct": 38,
+      "trwikiPct": 31,
+      "diff": null
+    },
+    "statusNote": ""
+  },
+  "isletim_sistemi": {
+    "no": 16,
+    "ad": "İŞLETİM SİSTEMİ",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q241317",
+      "label": "bilgisayar platformu",
+      "votes": 2
+    },
+    "seedQids": [
+      "Q388",
+      "Q1406",
+      "Q14116",
+      "Q94"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q241317",
+        "label": "bilgisayar platformu",
+        "count": 2
+      },
+      {
+        "qid": "Q137396449",
+        "label": "proprietary operating system",
+        "count": 2
+      },
+      {
+        "qid": "Q920890",
+        "label": "Mobil işletim sistemi",
+        "count": 1
+      },
+      {
+        "qid": "Q1130645",
+        "label": "açık kaynaklı yazılım",
+        "count": 1
+      },
+      {
+        "qid": "Q7397",
+        "label": "yazılım",
+        "count": 1
+      },
+      {
+        "qid": "Q11368",
+        "label": "UNIX",
+        "count": 1
+      },
+      {
+        "qid": "Q43627",
+        "label": "Mac işletim sistemleri",
+        "count": 1
+      },
+      {
+        "qid": "Q811701",
+        "label": "model serisi",
+        "count": 1
+      },
+      {
+        "qid": "Q105989562",
+        "label": "UNIX 03",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "oyun_konsolu": {
+    "no": 17,
+    "ad": "OYUN KONSOLU",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q10929058",
+      "label": "ürün modeli",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q10680",
+      "Q19610114",
+      "Q63184502",
+      "Q98973368"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q10929058",
+        "label": "ürün modeli",
+        "count": 3
+      },
+      {
+        "qid": "Q56682555",
+        "label": "video game console model",
+        "count": 2
+      },
+      {
+        "qid": "Q241317",
+        "label": "bilgisayar platformu",
+        "count": 1
+      },
+      {
+        "qid": "Q811701",
+        "label": "model serisi",
+        "count": 1
+      },
+      {
+        "qid": "Q21484471",
+        "label": "birden çok konuyu kapsayan Vikipedi makalesi",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "programlama_dili": {
+    "no": 18,
+    "ad": "PROGRAMLAMA DİLİ",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q9143",
+      "label": "programlama dili",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q15777",
+      "Q2005",
+      "Q251",
+      "Q28865"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q9143",
+        "label": "programlama dili",
+        "count": 3
+      },
+      {
+        "qid": "Q12772052",
+        "label": "çoklu paradigma programlama dili",
+        "count": 3
+      },
+      {
+        "qid": "Q21562092",
+        "label": "zorunlu programlama dili",
+        "count": 2
+      },
+      {
+        "qid": "Q7397",
+        "label": "yazılım",
+        "count": 1
+      },
+      {
+        "qid": "Q56062429",
+        "label": "JVM language",
+        "count": 1
+      },
+      {
+        "qid": "Q30267",
+        "label": "Cephe yönelimli programlama",
+        "count": 1
+      },
+      {
+        "qid": "Q180868",
+        "label": "Prototip tabanlı programlama",
+        "count": 1
+      },
+      {
+        "qid": "Q187432",
+        "label": "Betik dili",
+        "count": 1
+      },
+      {
+        "qid": "Q193076",
+        "label": "fonksiyonel programlama",
+        "count": 1
+      },
+      {
+        "qid": "Q211496",
+        "label": "yüksek seviye programlama dili",
+        "count": 1
+      },
+      {
+        "qid": "Q241317",
+        "label": "bilgisayar platformu",
+        "count": 1
+      },
+      {
+        "qid": "Q275596",
+        "label": "zorunlu programlama",
+        "count": 1
+      },
+      {
+        "qid": "Q1051282",
+        "label": "generic programming",
+        "count": 1
+      },
+      {
+        "qid": "Q1135914",
+        "label": "olaya dayalı programlama",
+        "count": 1
+      },
+      {
+        "qid": "Q1993334",
+        "label": "yorumlanan programlama dili",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "sosyal_medya": {
+    "no": 19,
+    "ad": "SOSYAL MEDYA PLATFORMU",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q6576792",
+      "label": "çevrimiçi topluluk",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q866",
+      "Q918",
+      "Q209330",
+      "Q48938223"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q6576792",
+        "label": "çevrimiçi topluluk",
+        "count": 3
+      },
+      {
+        "qid": "Q3220391",
+        "label": "sosyal ağ hizmeti",
+        "count": 3
+      },
+      {
+        "qid": "Q559856",
+        "label": "video barındırma",
+        "count": 2
+      },
+      {
+        "qid": "Q122759350",
+        "label": "user-generated content platform",
+        "count": 2
+      },
+      {
+        "qid": "Q118140435",
+        "label": "very large online platform",
+        "count": 2
+      },
+      {
+        "qid": "Q35127",
+        "label": "internet sitesi",
+        "count": 1
+      },
+      {
+        "qid": "Q59152282",
+        "label": "video akışı servisi",
+        "count": 1
+      },
+      {
+        "qid": "Q102336293",
+        "label": "live streaming service",
+        "count": 1
+      },
+      {
+        "qid": "Q92438",
+        "label": "Mikroblog",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "video_oyunu": {
+    "no": 20,
+    "ad": "VİDEO OYUNU",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q7889",
+      "label": "video oyunu",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q71910",
+      "Q49740",
+      "Q17452",
+      "Q4267401"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q7889",
+        "label": "video oyunu",
+        "count": 4
+      },
+      {
+        "qid": "Q112144412",
+        "label": "e-spor disiplini",
+        "count": 2
+      },
+      {
+        "qid": "Q192851",
+        "label": "arcade",
+        "count": 1
+      },
+      {
+        "qid": "Q7058673",
+        "label": "oyun serisi",
+        "count": 1
+      },
+      {
+        "qid": "Q21055677",
+        "label": "NP-complete game",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "telefon_markasi": {
+    "no": 21,
+    "ad": "TELEFON MARKASI",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q4830453",
+      "label": "işletme",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q312",
+      "Q1418",
+      "Q20716",
+      "Q1636958"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q4830453",
+        "label": "işletme",
+        "count": 3
+      },
+      {
+        "qid": "Q167037",
+        "label": "şirket",
+        "count": 2
+      },
+      {
+        "qid": "Q891723",
+        "label": "halka açık şirket",
+        "count": 2
+      },
+      {
+        "qid": "Q6881511",
+        "label": "ticari işletme",
+        "count": 1
+      },
+      {
+        "qid": "Q18388277",
+        "label": "teknoloji şirketi",
+        "count": 1
+      },
+      {
+        "qid": "Q778575",
+        "label": "Konglomerat",
+        "count": 1
+      },
+      {
+        "qid": "Q482517",
+        "label": "Chaebol",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "otomobil_markasi": {
+    "no": 22,
+    "ad": "OTOMOBİL MARKASI",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q786820",
+      "label": "otomobil üreticisi",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q44294",
+      "Q53268",
+      "Q26678",
+      "Q6039733"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q786820",
+        "label": "otomobil üreticisi",
+        "count": 4
+      },
+      {
+        "qid": "Q891723",
+        "label": "halka açık şirket",
+        "count": 3
+      },
+      {
+        "qid": "Q4830453",
+        "label": "işletme",
+        "count": 2
+      },
+      {
+        "qid": "Q6881511",
+        "label": "ticari işletme",
+        "count": 1
+      },
+      {
+        "qid": "Q15081030",
+        "label": "motosiklet üreticisi",
+        "count": 1
+      },
+      {
+        "qid": "Q43229",
+        "label": "kuruluş",
+        "count": 1
+      },
+      {
+        "qid": "Q219577",
+        "label": "holding şirketi",
+        "count": 1
+      },
+      {
+        "qid": "Q10429667",
+        "label": "otomobil markası",
+        "count": 1
+      },
+      {
+        "qid": "Q783794",
+        "label": "şirket",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "havayolu": {
+    "no": 23,
+    "ad": "HAVAYOLU ŞİRKETİ",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q46970",
+      "label": "havayolu",
+      "votes": 4
+    },
+    "seedQids": [
+      "Q180432",
+      "Q1100424",
+      "Q9325",
+      "Q4548"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q46970",
+        "label": "havayolu",
+        "count": 4
+      },
+      {
+        "qid": "Q891723",
+        "label": "halka açık şirket",
+        "count": 2
+      },
+      {
+        "qid": "Q4830453",
+        "label": "işletme",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "turk_filmi": {
+    "no": 24,
+    "ad": "TÜRK FİLMİ",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q11424",
+      "label": "film",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q1218009",
+      "Q797577",
+      "Q159408",
+      "Q624599"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q11424",
+        "label": "film",
+        "count": 3
+      },
+      {
+        "qid": "Q2996394",
+        "label": "biyolojik süreç",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "film": {
+    "no": 25,
+    "ad": "FİLM",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q11424",
+      "label": "film",
+      "votes": 2
+    },
+    "seedQids": [
+      "Q190069",
+      "Q47703",
+      "Q172241"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q11424",
+        "label": "film",
+        "count": 2
+      },
+      {
+        "qid": "Q4167410",
+        "label": "Wikimedia anlam ayrımı sayfası",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "turk_dizisi": {
+    "no": 26,
+    "ad": "TÜRK DİZİSİ",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q5398426",
+      "label": "televizyon dizisi",
+      "votes": 3
+    },
+    "seedQids": [
+      "Q794784",
+      "Q840657",
+      "Q176615",
+      "Q182383"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q5398426",
+        "label": "televizyon dizisi",
+        "count": 3
+      },
+      {
+        "qid": "Q196600",
+        "label": "medya serisi",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  },
+  "sarki": {
+    "no": 27,
+    "ad": "ŞARKI",
+    "mod": "a",
+    "eksen": "B",
+    "beklenen": null,
+    "selectedClass": {
+      "qid": "Q105543609",
+      "label": "beste",
+      "votes": 2
+    },
+    "seedQids": [
+      "Q485771",
+      "Q187745",
+      "Q225777",
+      "Q28132505"
+    ],
+    "p31Distribution": [
+      {
+        "qid": "Q105543609",
+        "label": "beste",
+        "count": 2
+      },
+      {
+        "qid": "Q4167410",
+        "label": "Wikimedia anlam ayrımı sayfası",
+        "count": 1
+      },
+      {
+        "qid": "Q5",
+        "label": "insan",
+        "count": 1
+      },
+      {
+        "qid": "Q134556",
+        "label": "single",
+        "count": 1
+      }
+    ],
+    "stats": {
+      "count": 0,
+      "trLabelPct": 0,
+      "trAliasPct": 0,
+      "yearPct": 0,
+      "trwikiPct": 0,
+      "diff": null
+    },
+    "statusNote": "HATA: 60sn zaman aşımı"
+  }
+}

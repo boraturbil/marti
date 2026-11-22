@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["otomobil_markasi_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["BMW",10.92],["Mercedes",10.46],["Audi",8.08],["Volkswagen",7.6],["Renault",7.13],["Fiat",6.65],["Toyota",6.18],["Ford Motor Company",5.23],["Opel",4.28],["Togg",3.99],["Hyundai Motor Company",3.61],["Honda",3.33],["Ferrari",2.85],["Porsche",2.38],["Dacia",1.9],["Kia",1.71],["Volvo Cars",1.52],["Skoda",1.33],["Nissan",1.14],["Peugeot Sport",0.95],["Citroën",0.86],["SEAT",0.76],["Chery",0.71],["BYD Auto",0.67],["Lamborghini",0.62],["Mazda",0.57],["Chevrolet",0.52],["Jeep",0.48],["Land Rover",0.43],["Alfa Romeo",0.4],["Suzuki Motor Corporation",0.38],["Mitsubishi Motors",0.36],["Subaru",0.33],["Maserati",0.3],["Jaguar Cars",0.29],["Aston Martin",0.27],["Rolls-Royce Motor Cars",0.24],["Bentley",0.21],["Lexus",0.19],["Bugatti",0.17]]};
+})(typeof window !== 'undefined' ? window : globalThis);

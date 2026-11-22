@@ -5,3 +5,7 @@ node_modules/
 v2/shots/
 analiz/
 v3/_agy/
+v3/tools/harvest/out/cache/
+v3/tools/harvest/out/raw_*.json
+v3/tools/harvest/out/merged_*.json
+v3/tools/harvest/out/trwiki_*.json

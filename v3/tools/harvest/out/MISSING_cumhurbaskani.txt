@@ -1,0 +1,17 @@
+# cumhurbaskani
+expect: 12, got: 15, diff: 3
+Süleyman Demirel (1993, Q151729)
+Celâl Bayar (1950, Q151735)
+Cevdet Sunay (1966, Q158500)
+Cemal Gürsel (1961, Q159161)
+Ahmet Necdet Sezer (2000, Q165487)
+Turgut Özal (1989, Q180280)
+İsmet İnönü (1938, Q183297)
+Kenan Evren (1980, Q216983)
+Fahri Korutürk (1973, Q313357)
+İhsan Sabri Çağlayangil (1980, Q343514)
+Tekin Arıburun (1973, Q4544707)
+İbrahim Şevki Atasagun (1966, Q12812897)
+Mustafa Kemal Atatürk (1923, Q5152)
+Recep Tayyip Erdoğan (2014, Q39259)
+Abdullah Gül (2007, Q42852)

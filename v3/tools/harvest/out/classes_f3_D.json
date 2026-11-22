@@ -1,0 +1,80 @@
+{
+  "tarayici": {
+    "no": 15,
+    "qid": "Q6368",
+    "label": "Web tarayıcısı",
+    "count": 217
+  },
+  "isletim_sistemi": {
+    "no": 16,
+    "qid": "Q7397",
+    "label": "yazılım",
+    "count": 1102
+  },
+  "oyun_konsolu": {
+    "no": 17,
+    "qid": "Q56682555",
+    "label": "video game console model",
+    "count": 313
+  },
+  "prog_dili": {
+    "no": 18,
+    "qid": "Q9143",
+    "label": "programlama dili",
+    "count": 1355
+  },
+  "sosyal_medya": {
+    "no": 19,
+    "qid": "Q3220391",
+    "label": "sosyal ağ hizmeti",
+    "count": 201
+  },
+  "video_oyunu": {
+    "no": 20,
+    "qid": "Q7889",
+    "label": "video oyunu",
+    "count": 4829
+  },
+  "film": {
+    "no": 25,
+    "qid": "Q11424",
+    "label": "film",
+    "count": 5000
+  },
+  "turk_filmi": {
+    "no": 24,
+    "qid": "Q11424",
+    "label": "film",
+    "count": 759
+  },
+  "turk_dizisi": {
+    "no": 26,
+    "qid": "Q5398426",
+    "label": "televizyon dizisi",
+    "count": 1194
+  },
+  "sarki": {
+    "no": 27,
+    "qid": "Q4167410",
+    "label": "Wikimedia anlam ayrımı sayfası",
+    "count": 935
+  },
+  "havayolu": {
+    "no": 23,
+    "qid": "Q46970",
+    "label": "havayolu",
+    "count": 1309
+  },
+  "otomobil_markasi": {
+    "no": 22,
+    "qid": "Q786820",
+    "label": "otomobil üreticisi",
+    "count": 1018
+  },
+  "telefon_markasi": {
+    "no": 21,
+    "qid": "Q43229",
+    "label": "kuruluş",
+    "count": 58
+  }
+}

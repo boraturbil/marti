@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["pixar_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["Oyuncak Hikâyesi",14.9],["Kayıp Balık Nemo",12.44],["Arabalar",10.95],["Ters Yüz",9.45],["Yukarı Bak",8.46],["Ratatuy",7.46],["VOL-İ",6.47],["Coco",5.47],["Sevimli Canavarlar",4.48],["İnanılmaz Aile",3.98],["Oyuncak Hikâyesi 2",2.49],["Oyuncak Hikâyesi 3",2.19],["Soul",1.79],["Ters Yüz 2",1.59],["Kayıp Balık Dory",1.29],["Cesur",1.09],["Arabalar 2",0.9],["Oyuncak Hikâyesi 4",0.8],["İnanılmaz Aile 2",0.7],["Sevimli Canavarlar Üniversitesi",0.6],["Luka",0.5],["Kırmızı",0.4],["Bir Böceğin Yaşamı",0.35],["Arabalar 3",0.3],["Elemental: Doğanın Güçleri",0.25],["İyi Bir Dinozor",0.2],["Hadi Gidelim",0.18],["Işıkyılı",0.15],["Elio (film)",0.1],["Hoplayanlar",0.07]]};
+})(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,3 @@
+# universite
+expect: YÖK ~208, got: 232
+tr etiketi olmayan QID sayısı: 1

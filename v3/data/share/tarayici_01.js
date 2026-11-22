@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["tarayici_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["Google Chrome",30.99],["Safari",14.54],["Mozilla Firefox",13.09],["Microsoft Edge",10.67],["Opera",9.21],["Brave",4.36],["Internet Explorer",3.88],["Yandex.Browser",3.1],["Tor Browser",1.75],["Vivaldi",1.16],["DuckDuckGo",0.97],["Samsung Internet",0.87],["Chromium",0.78],["Arc",0.58],["Netscape Navigator",0.48],["Ecosia",0.44],["Mosaic",0.39],["Lynx",0.34],["WorldWideWeb",0.29],["SeaMonkey",0.24],["Konqueror",0.21],["Pale Moon",0.19],["Avast Secure Browser",0.16],["Comodo Dragon",0.15],["Midori",0.14],["Flock",0.13],["Dolphin Browser",0.12],["Puffin Browser",0.11],["GNU IceCat",0.1],["Floorp",0.08],["Ladybird",0.08],["Camino",0.07],["Qwant",0.07],["Links",0.06],["w3m",0.06],["Dillo",0.05],["Iceweasel",0.05],["Avant",0.04]]};
+})(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,30 @@
+(function(r){ (r.PUSULLA_POOLS = r.PUSULLA_POOLS || {})["super_lig"] = {
+  id: "super_lig",
+  asOf: "2026-11",
+  closed: true,
+  expect: 18,
+  yearKind: "kurulus",
+  sources: ["wikidata","manual"],
+  license: ["CC0"],
+  cols: ["label","aliases","year","src","sl","f"],
+  rows: [
+    ["Beşiktaş",["B.Jimnastik","Beşiktaş Futbol Takımı","Beşiktaş J.K","Besiktas Jimnastik Kulubu","Beşiktaş Kulübü","BeşiktaşJK","BJK","Karakartal"],1903,"Q172567",86,4],
+    ["Eyüpspor",[],1919,"Q118919",24,4],
+    ["Trabzonspor",["Trabzon Spor","Trabzonspor Futbol Takımı","Trabzonspor Kulübü"],1967,"Q192641",62,4],
+    ["Galatasaray",["Galatasaray Profosyonel Takımı","Galatasaray 1905","Galatasaray S.K."],1905,"Q495299",92,4],
+    ["Kocaelispor",[],1966,"Q513237",30,4],
+    ["Konyaspor",["Atiker Konyaspor","İttifak Holding Konyaspor","Torku Konyaspor","Tümosan Konyaspor"],1922,"Q513840",48,4],
+    ["Çaykur Rizespor",["Atmacalar","Ç.Rizespor","Çaykur Rize","Rizespor"],1953,"Q272712",41,4],
+    ["Samsunspor",["Reeder Samsunspor","Samsunspor Futbol Kulübü","Yılport Samsunspor"],1965,"Q430107",42,4],
+    ["Kayserispor",[],1966,"Q608122",45,4],
+    ["Gaziantep FK",["Gaziantep Futbol Kulübü","Gaziantep"],1988,"Q824850",40,4],
+    ["Alanyaspor",[],1948,"Q1636019",39,4],
+    ["Fenerbahçe",["Fenerbahçe Futbol"],1907,"Q6601875",92,4],
+    ["Antalyaspor",["Akrepler"],1966,"Q43710",44,4],
+    ["Kasımpaşa",[],1921,"Q138230",0,6],
+    ["Fatih Karagümrük",["Karagümrük"],1926,"Q1398111",0,6],
+    ["Göztepe",[],1925,"Q1423118",0,6],
+    ["Gençlerbirliği",[],1923,"Q641373",0,6],
+    ["İstanbul Başakşehir",["Başakşehir"],2014,"Q857938",0,6]
+  ]
+}; })(typeof window!=='undefined'?window:globalThis);

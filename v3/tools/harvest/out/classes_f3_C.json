@@ -1,0 +1,80 @@
+{
+  "ist_ilce": {
+    "no": 1,
+    "q": "Q1147395",
+    "label": "ilçe (P131=Q534799)",
+    "count": 36
+  },
+  "tr_il": {
+    "no": 2,
+    "q": "Q48336",
+    "label": "Türkiye ili",
+    "count": 81
+  },
+  "ulke": {
+    "no": 3,
+    "q": "Q3624078",
+    "label": "egemen devlet (BM+2 gözlemci)",
+    "count": 196
+  },
+  "baskent": {
+    "no": 4,
+    "q": "P36",
+    "label": "ulke P36 başkentleri",
+    "count": 207
+  },
+  "super_lig": {
+    "no": 28,
+    "q": "Q476028",
+    "label": "futbol kulübü (P17=Q43 adayları)",
+    "count": 458
+  },
+  "para_birimi": {
+    "no": 29,
+    "q": "Q8142",
+    "label": "para birimi (P576 yok)",
+    "count": 251
+  },
+  "pixar": {
+    "no": 30,
+    "q": "Q11424/Q202866+P272=Q127552",
+    "label": "Pixar filmi",
+    "count": 43
+  },
+  "element": {
+    "no": 31,
+    "q": "Q11344",
+    "label": "kimyasal element",
+    "count": 122
+  },
+  "osmanli_padisahi": {
+    "no": 33,
+    "q": "P39=Q15315411",
+    "label": "Osmanlı padişahı",
+    "count": 45
+  },
+  "cumhurbaskani": {
+    "no": 34,
+    "q": "P39=Q1922067",
+    "label": "Türkiye cumhurbaşkanı",
+    "count": 15
+  },
+  "universite": {
+    "no": 35,
+    "q": "Q3918/Q875538/Q902104/Q1371037/Q15936437+P17=Q43",
+    "label": "Türkiye üniversitesi",
+    "count": 232
+  },
+  "olimpiyat_sehri": {
+    "no": 37,
+    "q": "Q135976384->P276",
+    "label": "Yaz Olimpiyatları ev sahibi şehir",
+    "count": 29
+  },
+  "dunya_sehri": {
+    "no": 5,
+    "q": "Q515+Q1549591",
+    "label": "şehir/büyük şehir (sl>=20)",
+    "count": 2987
+  }
+}

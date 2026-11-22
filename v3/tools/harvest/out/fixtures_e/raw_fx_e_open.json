@@ -1,0 +1,15 @@
+{
+  "pool": "fx_e_open",
+  "mode": "a",
+  "expect": null,
+  "yearKind": "ilk-genel-surum",
+  "source": ["wikidata", "trwiki"],
+  "rows": [
+    { "label": "Firefox", "aliases": ["Mozilla Firefox"], "year": 2002, "approx": false, "src": "Q698", "sl": 120 },
+    { "label": "Firefox", "aliases": ["Phoenix"], "year": 2002, "approx": false, "src": "Q698", "sl": 120 },
+    { "label": "Google Chrome", "aliases": ["Chrome"], "year": 2008, "approx": false, "src": "Q777", "sl": 150 },
+    { "label": "Opera", "aliases": [], "year": 1995, "approx": false, "src": "Q41242", "sl": 90 },
+    { "label": "Safari", "aliases": [], "year": 2003, "approx": false, "src": "Q35773", "sl": 85 },
+    { "label": "Lynx", "aliases": [], "year": 1992, "approx": true, "src": "Q327885", "sl": 55 }
+  ]
+}

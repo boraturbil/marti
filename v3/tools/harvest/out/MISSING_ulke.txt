@@ -1,0 +1,5 @@
+# ulke
+expect: 195, rows: 196, excluded: 1
+
+## fazla (excluded):
+fazla: Kosova (Q1246)

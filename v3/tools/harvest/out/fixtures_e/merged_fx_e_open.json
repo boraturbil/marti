@@ -1,0 +1,76 @@
+{
+  "pool": "fx_e_open",
+  "asOf": "2026-11",
+  "mode": "a",
+  "closed": false,
+  "expect": null,
+  "yearKind": "ilk-genel-surum",
+  "sources": [
+    "wikidata",
+    "trwiki"
+  ],
+  "license": [
+    "CC0",
+    "CC BY-SA 4.0"
+  ],
+  "stats": {
+    "rawRows": 6,
+    "mergedRows": 5,
+    "curatedCount": 0,
+    "suspiciousAliasCount": 0,
+    "collisionCount": 0
+  },
+  "collisions": [],
+  "rows": [
+    {
+      "label": "Firefox",
+      "aliases": [
+        "Mozilla Firefox",
+        "Phoenix"
+      ],
+      "year": 2002,
+      "approx": false,
+      "src": "Q698",
+      "sl": 120,
+      "f": 0
+    },
+    {
+      "label": "Google Chrome",
+      "aliases": [
+        "Chrome"
+      ],
+      "year": 2008,
+      "approx": false,
+      "src": "Q777",
+      "sl": 150,
+      "f": 0
+    },
+    {
+      "label": "Opera",
+      "aliases": [],
+      "year": 1995,
+      "approx": false,
+      "src": "Q41242",
+      "sl": 90,
+      "f": 0
+    },
+    {
+      "label": "Safari",
+      "aliases": [],
+      "year": 2003,
+      "approx": false,
+      "src": "Q35773",
+      "sl": 85,
+      "f": 0
+    },
+    {
+      "label": "Lynx",
+      "aliases": [],
+      "year": 1992,
+      "approx": true,
+      "src": "Q327885",
+      "sl": 55,
+      "f": 1
+    }
+  ]
+}

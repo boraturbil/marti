@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["prog_dili_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["Python 3",16.94],["JavaScript",15.05],["Java",11.76],["C",10.35],["SQL",6.11],["TypeScript",5.17],["Go",3.95],["Rust",3.29],["Swift",3.01],["Ruby",2.63],["CSS",2.45],["MATLAB",2.07],["R",1.88],["assembly dili",1.69],["Scratch",1.41],["Lua",1.22],["Perl",1.03],["FORTRAN",0.94],["Delphi",0.85],["COBOL",0.8],["Scala",0.75],["Haskell",0.71],["Classic Visual Basic",0.66],["Objective-C",0.61],["Turbo Pascal",0.56],["Ada",0.52],["Prolog",0.47],["Elixir",0.42],["Erlang",0.38],["Clojure",0.33],["Common Lisp",0.3],["F Sharp",0.28],["Solidity",0.26],["Zig",0.24],["ActionScript",0.21],["PL/SQL",0.19],["Logo",0.17],["Brainfuck",0.14],["D",0.11],["Smalltalk",0.09]]};
+})(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["kahvaltilik_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["peynir",13.8],["zeytin",11.83],["yumurta",10.35],["çay",8.38],["domates",6.41],["salatalık",5.42],["bal",4.73],["tereyağı",4.14],["ekmek",3.94],["simit",3.45],["menemen",3.15],["beyaz peynir",2.76],["sucuk",2.46],["reçel",2.27],["kaşar peyniri",1.97],["kaymak",1.68],["omlet",1.48],["börek",1.28],["poğaça",1.18],["sucuklu yumurta",1.08],["siyah zeytin",0.89],["yeşil zeytin",0.79],["tahin-pekmez",0.69],["patates kızartması",0.64],["pastırma",0.59],["sahanda yumurta",0.54],["tost",0.49],["gözleme",0.44],["açma",0.39],["mıhlama",0.37],["bal-kaymak",0.35],["labne",0.32],["biber",0.3],["salam",0.28],["sosis",0.25],["pişi",0.22],["helva",0.2],["tahin",0.18],["pekmez",0.16],["pankek",0.15]]};
+})(typeof window !== 'undefined' ? window : globalThis);
