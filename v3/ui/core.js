@@ -93,6 +93,8 @@
     if (e.defaultPrevented) return;
     if (e.ctrlKey || e.altKey || e.metaKey) return;
     if (e.code === 'KeyM') return; // M tuşu sesin
+    var ov = ui.parts.overlay;
+    if (ov && ov.isOpen && ov.isOpen()) { ov.onKey(e); return; }
     var part = ui.parts[ui.screen];
     if (part && typeof part.onKey === 'function') part.onKey(e);
   }
@@ -113,6 +115,8 @@
       rootEl.appendChild(sec);
       part.init(sec);
     });
+
+    if (ui.parts.overlay) ui.parts.overlay.init(rootEl);
 
     var ev = P.events || P.bus;
     if (ev && typeof ev.on === 'function') {

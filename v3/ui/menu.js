@@ -145,7 +145,9 @@
         h('div'),
         h('nav', { class: 'nav' }, [
           els.streak = h('span', { class: 'streak', text: 'Seri 0' }),
-          h('button', { class: 'lnk', type: 'button', text: 'İstatistik', onclick: function () { U.act('showStats'); } })
+          h('button', { class: 'lnk', type: 'button', text: 'Nasıl oynanır', onclick: function () { if (ui.parts.overlay) ui.parts.overlay.open('help'); } }),
+          h('button', { class: 'lnk', type: 'button', text: 'İstatistik', onclick: function () { U.act('showStats'); } }),
+          h('button', { class: 'lnk', type: 'button', text: 'Hakkında', onclick: function () { if (ui.parts.overlay) ui.parts.overlay.open('about'); } })
         ])
       ]);
       els.info = h('section', { class: 'mi panel', 'aria-live': 'polite' });

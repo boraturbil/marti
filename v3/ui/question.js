@@ -102,6 +102,7 @@
       var w = pf.measure(l, 1).w;
       pf.draw(c, l, 1 + Math.round((lw - w) / 2), i * 11, { color: '#fff1d6', outline: '#1a1128', shadow: '#5a2a5e' });
     });
+    cv.setAttribute('data-scale', String(scale));
     cv.style.width = (cv.width * scale) + 'px';
     cv.style.height = (cv.height * scale) + 'px';
     wrap.appendChild(cv);
@@ -144,6 +145,17 @@
   }
 
   /* ---------- sonuç ---------- */
+  function eraName(id, year) {
+    var sc = global.PUSULLA.scene;
+    if (sc && sc.pick && sc.labels) { var th = sc.pick(id, year); if (sc.labels[th]) return sc.labels[th]; }
+    var list = U.cfg().ERAS || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return U.upper(list[i].name);
+    return U.upper(String(id).replace(/_/g, ' '));
+  }
+  function fy(y, approx) {
+    var c = ui.parts.charts;
+    return c && c._fmtYear ? c._fmtYear(y, approx) : String(y);
+  }
   function renderResult(d) {
     var R = U.clear(els.result);
     var tier = d.tierId || 'zayif';
@@ -155,6 +167,7 @@
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
         timedOut ? 'SÜRE DOLDU' : U.tierLabel(tier)
       ]),
+      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era, st.eraYear) }) : null,
       h('div', { class: 'res-pts' }, ['+' + pts, h('small', { text: ' puan' })])
     ]);
     R.appendChild(head);
@@ -165,7 +178,7 @@
     } else {
       line.appendChild(h('span', { class: 'res-ans', text: player.label }));
       var meta = [];
-      if (player.year !== null && player.year !== undefined) meta.push(String(player.year));
+      if (player.year !== null && player.year !== undefined) meta.push(fy(player.year, player.approx));
       if (player.share !== null && player.share !== undefined) meta.push('%' + player.share + ' tahmini pay');
       else if (d.kind === 'pop' && d.modeId === 'nadir') meta.push('listede yok: çok nadir');
       if (meta.length) line.appendChild(h('span', { class: 'res-meta', text: meta.join(' · ') }));
@@ -177,7 +190,14 @@
     }
     var best = (d.best && d.best[0]) || null;
     if (best && best.label && best.label !== player.label) {
-      R.appendChild(h('p', { class: 'res-note' }, ['Hedefteki cevap: ', h('b', { text: best.label }), best.year !== null && best.year !== undefined ? ' (' + best.year + ')' : '']));
+      R.appendChild(h('p', { class: 'res-note' }, ['Hedefteki cevap: ', h('b', { text: best.label }), best.year !== null && best.year !== undefined ? ' (' + fy(best.year, best.approx) + ')' : '']));
+    }
+    // sonuçta grafiğe yer aç: konu yazısını en çok 3 kata indir
+    var scv = els.qline.querySelector('.subj-cv');
+    if (scv) {
+      var k = Math.min(3, +scv.getAttribute('data-scale') || 3);
+      scv.style.width = (scv.width * k) + 'px';
+      scv.style.height = (scv.height * k) + 'px';
     }
     els.chart = h('div', { class: 'res-chart', 'data-kind': d.kind || '' });
     R.appendChild(els.chart);
@@ -337,6 +357,7 @@
         st.passOpen = false;
         st.lastValid = null;
         st.lastTimeout = false;
+        st.era = null;
         els.pass.disabled = true;
         els.passNote.textContent = cfgNum('SKIP_AFTER', 10) + ' sn sonra açılır';
         U.clear(els.fbs);
@@ -395,6 +416,7 @@
         if (btn) { U.clear(btn); btn.appendChild(h('span', { class: 'reported', text: 'Bildirildi' + (n ? ' · toplam ' + n : '') })); }
       },
       'answer:valid': function (d) { st.lastValid = d || null; },
+      'era:change': function (d) { st.era = (d && d.eraId) || null; st.eraYear = d ? d.year : null; },
       'answer:pass': function () { st.tiers[st.index] = 'pas'; renderPips(); },
       'answer:timeout': function () { st.lastTimeout = true; st.tiers[st.index] = 'sure'; renderPips(); },
       'result:show': function (d) {
