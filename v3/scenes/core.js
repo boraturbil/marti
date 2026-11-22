@@ -284,6 +284,7 @@
   function resize() {
     if (!layers.length) return;
     var vw = global.innerWidth, vh = global.innerHeight;
+    if (!(vw > 0 && vh > 0)) return; // gizli/boyutsuz pencere: 0x0 tuval çizimi çökertmesin
     G.S = Math.max(2, Math.round(vh / 250));
     G.W = Math.ceil(vw / G.S); G.H = Math.ceil(vh / G.S);
     PAD = Math.ceil(G.W * 0.08);
@@ -405,7 +406,7 @@
     start();
     var tm = null;
     global.addEventListener('resize', function () { if (tm) global.clearTimeout(tm); tm = global.setTimeout(resize, 120); });
-    doc.addEventListener('visibilitychange', function () { if (doc.hidden) stop(); else start(); });
+    doc.addEventListener('visibilitychange', function () { if (doc.hidden) stop(); else { if (!G.W) resize(); start(); } });
   }
 
   P.scene = {
