@@ -145,6 +145,11 @@
   }
 
   /* ---------- sonuç ---------- */
+  function eraName(id) {
+    var list = U.cfg().ERAS || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return U.upper(list[i].name);
+    return U.upper(String(id).replace(/_/g, ' '));
+  }
   function fy(y, approx) {
     var c = ui.parts.charts;
     return c && c._fmtYear ? c._fmtYear(y, approx) : String(y);
@@ -160,6 +165,7 @@
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
         timedOut ? 'SÜRE DOLDU' : U.tierLabel(tier)
       ]),
+      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era) }) : null,
       h('div', { class: 'res-pts' }, ['+' + pts, h('small', { text: ' puan' })])
     ]);
     R.appendChild(head);
@@ -349,6 +355,7 @@
         st.passOpen = false;
         st.lastValid = null;
         st.lastTimeout = false;
+        st.era = null;
         els.pass.disabled = true;
         els.passNote.textContent = cfgNum('SKIP_AFTER', 10) + ' sn sonra açılır';
         U.clear(els.fbs);
@@ -407,6 +414,7 @@
         if (btn) { U.clear(btn); btn.appendChild(h('span', { class: 'reported', text: 'Bildirildi' + (n ? ' · toplam ' + n : '') })); }
       },
       'answer:valid': function (d) { st.lastValid = d || null; },
+      'era:change': function (d) { st.era = (d && d.eraId) || null; },
       'answer:pass': function () { st.tiers[st.index] = 'pas'; renderPips(); },
       'answer:timeout': function () { st.lastTimeout = true; st.tiers[st.index] = 'sure'; renderPips(); },
       'result:show': function (d) {

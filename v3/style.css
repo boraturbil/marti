@@ -64,6 +64,7 @@ button, input { font-family: inherit; }
 .pu-scene {
   position: fixed; left: 0; top: 0; z-index: 0; pointer-events: none;
   image-rendering: pixelated; image-rendering: crisp-edges;
+  transition: opacity .5s ease;
 }
 .scr { position: relative; z-index: 1; height: 100vh; display: grid; grid-template-rows: 52px minmax(0, 1fr) 46px; }
 
@@ -279,6 +280,7 @@ kbd {
 .res-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 10px; border-bottom: 2px dashed var(--line); }
 .res-tier { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 700; letter-spacing: .08em; text-shadow: var(--outline-sm); }
 .res-dot { width: 14px; height: 14px; display: inline-block; box-shadow: 2px 2px 0 var(--ink); }
+.era-chip { margin-left: auto; margin-right: 18px; padding: 2px 8px; font-size: 11px; font-weight: 700; letter-spacing: .14em; color: var(--ink); background: var(--cream); box-shadow: 2px 2px 0 var(--ink); }
 .res-pts { font-size: 30px; font-weight: 700; color: var(--cream-hi); text-shadow: var(--outline); }
 .res-pts small { font-size: 12px; color: var(--dim); text-shadow: none; }
 .res-line { display: flex; align-items: baseline; gap: 12px; margin: 12px 0 4px; font-size: 14px; color: var(--muted); }
@@ -353,6 +355,7 @@ kbd {
 .ax-break { position: absolute; top: -7px; font-size: 14px; font-weight: 700; color: var(--gold); text-shadow: var(--outline-sm); }
 .tk { position: absolute; bottom: -18px; font-size: 11px; font-weight: 700; color: var(--muted); white-space: nowrap; }
 .tk--r { transform: translateX(-100%); }
+.tk--c { transform: translateX(-50%); }
 .flag { position: absolute; padding: 1px 5px; font-size: 10.5px; font-weight: 700; color: var(--ink); white-space: nowrap; box-shadow: 2px 2px 0 var(--ink); z-index: 2; }
 .flag--you { background: var(--accent); }
 .flag--best { background: var(--gold); }
@@ -482,7 +485,7 @@ kbd {
 
 /* ============ hareket azaltma ============ */
 @media (prefers-reduced-motion: reduce) {
-  .fill, .btn { transition: none; }
+  .fill, .btn, .pu-scene { transition: none; }
   .qmain.enter .qbody, .fb, .result, .dot, .ax-seg, .pop-row, .pr-bar i, .ov-win { animation: none; }
   .dot:hover { scale: 1; }
   .rose-fly { display: none; }

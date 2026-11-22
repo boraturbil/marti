@@ -166,19 +166,22 @@
 
     var stage = h('div', { class: 'ch ch-time', style: 'width:' + W + 'px' });
     var AXB = 4, lastTickR = -999;
-    function tickLabel(x, txt, right) {
-      var w = txt.length * 7 + 4, l = right ? x - w : x;
+    function tickLabel(x, txt, mode) {
+      var w = txt.length * 7 + 4, l = mode === 'c' ? x - w / 2 : (mode ? x - w : x);
       if (l < lastTickR + 8) return;
       lastTickR = l + w;
-      stage.appendChild(h('span', { class: 'tk' + (right ? ' tk--r' : ''), style: 'left:' + x + 'px', text: txt }));
+      stage.appendChild(h('span', { class: 'tk' + (mode === 'c' ? ' tk--c' : (mode ? ' tk--r' : '')), style: 'left:' + x + 'px', text: txt }));
     }
     var axis = h('div', { class: 'ax' });
     segs.forEach(function (sg, k) {
       axis.appendChild(h('i', { class: 'ax-seg', style: 'left:' + sg.x0 + 'px;width:' + Math.max(2, sg.w) + 'px;animation-delay:' + (k * 120) + 'ms' }));
       if (k > 0) axis.appendChild(h('span', { class: 'ax-break', style: 'left:' + (sg.x0 - BREAK / 2 - 7) + 'px', text: '//' }));
       // uç etiketleri (çakışan etiket atlanır)
-      tickLabel(sg.x0, fmtYear(sg.a), false);
-      if (sg.b !== sg.a && sg.w > 40) tickLabel(sg.x0 + sg.w, fmtYear(sg.b), true);
+      if (sg.b === sg.a) tickLabel(sg.x0 + sg.w / 2, fmtYear(sg.a), 'c');
+      else {
+        tickLabel(sg.x0, fmtYear(sg.a), false);
+        if (sg.w > 40) tickLabel(sg.x0 + sg.w, fmtYear(sg.b), true);
+      }
     });
     stage.appendChild(axis);
 
