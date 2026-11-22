@@ -183,7 +183,7 @@
     return (cache[id] = { cv: cv, st: st, th: th, id: id });
   }
   function paint(L, t) {
-    if (!L || !L.ctx || !L.s || !L.offCtx) return;
+    if (!L || !L.ctx || !L.s || !L.offCtx || !L.s.cv.width || !L.s.cv.height) return;
     L.offCtx.drawImage(L.s.cv, 0, 0);
     if (L.s.th.frame) { try { L.s.th.frame(L.offCtx, G2, t, L.s.st, util); } catch (e) { /* tek kare hatası oyunu durdurmaz */ } }
     var sOff = L.s_off || 0;
@@ -206,8 +206,28 @@
     renderTo(L.offCtx, A, t); renderTo(L.off2Ctx, B, t);
     var dx = Math.max(0, Math.min(G.W, Math.round(shift)));
     var ax = dir > 0 ? -dx : dx, bx = dir > 0 ? G.W - dx : -(G.W - dx);
-    L.ctx.drawImage(L.off, PAD, 0, G.W, G.H, ax, 0, G.W, G.H);
-    L.ctx.drawImage(L.off2, PAD, 0, G.W, G.H, bx, 0, G.W, G.H);
+    var c2 = L.ctx, half = Math.max(4, PAD - 2), n = half * 2, k, e;
+    // A, kenar payıyla birlikte tam çizilir; B dikişte renk yumuşatmasıyla (alfa rampası) biner
+    c2.globalAlpha = 1;
+    c2.drawImage(L.off, 0, 0, G2.W, G2.H, ax - PAD, 0, G2.W, G2.H);
+    if (dir > 0) {
+      e = bx;
+      for (k = -half; k < half; k++) {
+        c2.globalAlpha = (k + half + 0.5) / n;
+        c2.drawImage(L.off2, PAD + k, 0, 1, G.H, e + k, 0, 1, G.H);
+      }
+      c2.globalAlpha = 1;
+      c2.drawImage(L.off2, PAD + half, 0, G.W - half, G.H, e + half, 0, G.W - half, G.H);
+    } else {
+      e = bx + G.W;
+      for (k = -half; k < half; k++) {
+        c2.globalAlpha = 1 - (k + half + 0.5) / n;
+        c2.drawImage(L.off2, PAD + G.W + k, 0, 1, G.H, e + k, 0, 1, G.H);
+      }
+      c2.globalAlpha = 1;
+      c2.drawImage(L.off2, PAD, 0, G.W - half, G.H, bx, 0, G.W - half, G.H);
+    }
+    c2.globalAlpha = 1;
   }
   function ease(x) { x = x < 0 ? 0 : x > 1 ? 1 : x; return x * x * (3 - 2 * x); }
   function phaseName() { return (doc.body && doc.body.dataset && doc.body.dataset.phase) || ''; }
@@ -382,6 +402,14 @@
     if (!running && !doc.hidden) start();
   }
 
+  function stroll() {
+    if (reduced || !layers.length || walk) return;
+    var ph = phaseName();
+    if (ph !== 'question') return;
+    walk = { fromId: cur, toId: cur, dir: 1, t0: now(), dur: 0.9, target: prevYear, sameTheme: true, faded: false, pan: false };
+    walkDir = 1; lastWalkTs = walk.t0; last = 0;
+    if (!running && !doc.hidden) start();
+  }
   function walkTo(year) {
     var y = +year;
     var eras = (P.config && P.config.ERAS) || [];
@@ -418,6 +446,14 @@
     } catch (e) { reduced = false; }
     resize();
     start();
+    (function bindStroll() {
+      var tries = 0;
+      (function tryBind() {
+        var ev = P.events;
+        if (ev && ev.on) { ev.on('question:show', function () { global.setTimeout(stroll, 60); }); return; }
+        if (++tries < 50) global.setTimeout(tryBind, 100);
+      })();
+    })();
     var tm = null;
     global.addEventListener('resize', function () { if (tm) global.clearTimeout(tm); tm = global.setTimeout(resize, 120); });
     doc.addEventListener('visibilitychange', function () { if (doc.hidden) stop(); else { if (!G.W) resize(); start(); } });

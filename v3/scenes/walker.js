@@ -17,7 +17,9 @@
     c: '#d83b4a', // atkı
     j: '#3a5a8c', // ceket
     g: '#ffd27a', // pusula altını
-    p: '#2e1e4a'  // pantolon
+    p: '#2e1e4a', // pantolon
+    n: '#e8453c', // pusula iğnesi (kırmızı)
+    w: '#fff4d8'  // pusula kadranı
   };
 
   // Üst gövde (satır 0..16, sağa bakan)
@@ -35,10 +37,10 @@
     '.kHHhkjjjjjjk...',
     '.kHhhkjjjjjjk...',
     '.kHhhkjjjcjjk...',
-    '.khhhkjjjjjjkk..',
-    '.kkkkkjjjjjssgk.',
-    '....kjjjjjjkkk..',
-    '....kHHggHHk....'
+    '.khhhkjjjjjjkggk',
+    '.kkkkkjjjjjsgwng',
+    '....kjjjjjjkgnwg',
+    '....kHHggHHkkggk'
   ];
 
   // Alt gövde (satır 17..23) kareye göre
