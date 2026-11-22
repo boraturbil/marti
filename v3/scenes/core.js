@@ -196,12 +196,30 @@
       L.ctx.drawImage(L.off, sx, by, G.W, bh, 0, by, G.W, bh);
     }
   }
+  function renderTo(oc, sc, t) {
+    oc.drawImage(sc.cv, 0, 0);
+    if (sc.th.frame) { try { sc.th.frame(oc, G2, t, sc.st, util); } catch (e) { /* tek kare hatası */ } }
+  }
+  // Kesintisiz panorama: eski sahne bir ekran genişliği kayar, yeni sahne karşıdan girer.
+  function paintPan(L, A, B, shift, dir, t) {
+    if (!L || !L.ctx || !L.offCtx || !L.off2Ctx || !A || !B) return;
+    renderTo(L.offCtx, A, t); renderTo(L.off2Ctx, B, t);
+    var dx = Math.max(0, Math.min(G.W, Math.round(shift)));
+    var ax = dir > 0 ? -dx : dx, bx = dir > 0 ? G.W - dx : -(G.W - dx);
+    L.ctx.drawImage(L.off, PAD, 0, G.W, G.H, ax, 0, G.W, G.H);
+    L.ctx.drawImage(L.off2, PAD, 0, G.W, G.H, bx, 0, G.W, G.H);
+  }
   function ease(x) { x = x < 0 ? 0 : x > 1 ? 1 : x; return x * x * (3 - 2 * x); }
   function phaseName() { return (doc.body && doc.body.dataset && doc.body.dataset.phase) || ''; }
   function finishWalk() {
     if (!walk) return;
     if (fading) finishFade();
     for (var i = 0; i < layers.length; i++) layers[i].s_off = 0;
+    if (walk.pan && layers.length) {
+      cur = walk.toId;
+      layers[front].s = staticFor(walk.toId);
+      layers.forEach(function (L) { L.cv.setAttribute('data-scene', walk.toId); });
+    }
     prevYear = walk.target;
     walk = null;
     lastWalkTs = 0;
@@ -223,22 +241,10 @@
         finishWalk();
       } else {
         moving = !reduced;
-        if (!walk.sameTheme) {
-          var f = 0.52 / walk.dur;
-          if (p >= 0.40 && !walk.faded) { walk.faded = true; show(walk.toId); }
-          var oldS = -walk.dir * ease(p / (0.4 + f));
-          var newS = walk.dir * (1 - ease((p - 0.4) / 0.6));
-          if (!walk.faded) {
-            layers[front].s_off = oldS;
-          } else if (fading) {
-            layers[front].s_off = oldS;
-            layers[1 - front].s_off = newS;
-          } else {
-            layers[front].s_off = newS;
-          }
+        if (walk.pan) {
           mixFrom = walk.fromId;
           mixTo = walk.toId;
-          mixT = Math.max(0, Math.min(1, (p - 0.4) / 0.4));
+          mixT = Math.max(0, Math.min(1, (ease(p) - 0.35) / 0.3));
         }
         roadOffset -= walk.dir * 40 * dt;
       }
@@ -246,8 +252,11 @@
       lastWalkTs = 0;
     }
 
-    paint(layers[front], t);
-    if (fading) paint(layers[1 - front], t);
+    if (walk && walk.pan && walk.fromS && walk.toS) paintPan(layers[front], walk.fromS, walk.toS, ease(p) * G.W, walk.dir, t);
+    else {
+      paint(layers[front], t);
+      if (fading) paint(layers[1 - front], t);
+    }
 
     if (walkerCtx) {
       walkerCtx.clearRect(0, 0, G.W, G.H);
@@ -297,6 +306,9 @@
       if (!L.off) L.off = doc.createElement('canvas');
       L.off.width = G2.W; L.off.height = G2.H;
       L.offCtx = L.off.getContext('2d'); L.offCtx.imageSmoothingEnabled = false;
+      if (!L.off2) L.off2 = doc.createElement('canvas');
+      L.off2.width = G2.W; L.off2.height = G2.H;
+      L.off2Ctx = L.off2.getContext('2d'); L.off2Ctx.imageSmoothingEnabled = false;
       if (L.s) L.s = staticFor(L.s.id);
     });
     if (walkerCv) {
@@ -362,7 +374,9 @@
     walkDir = dir;
     var sameTheme = (id === cur);
     var dur = sameTheme ? 0.6 : Math.max(0.8, Math.min(2.4, 0.8 + 0.5 * Math.log10(1 + Math.abs(target - prevYear))));
-    walk = { fromId: cur, toId: id, dir: dir, t0: now(), dur: dur, target: target, sameTheme: sameTheme, faded: false };
+    if (fading) finishFade();
+    walk = { fromId: cur, toId: id, dir: dir, t0: now(), dur: dur, target: target, sameTheme: sameTheme, faded: false, pan: !sameTheme };
+    if (walk.pan) { walk.fromS = layers[front].s || staticFor(cur); walk.toS = staticFor(id); }
     lastWalkTs = walk.t0;
     last = 0;
     if (!running && !doc.hidden) start();
