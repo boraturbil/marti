@@ -103,7 +103,7 @@
     rootEl.classList.add('pu');
     ui.keymap = (cfg().KEYMAP) || null;
 
-    if (ui.parts.bg) ui.parts.bg.init(rootEl);
+    if (P.scene && typeof P.scene.mount === 'function') P.scene.mount(rootEl);
 
     ['menu', 'question', 'summary', 'stats'].forEach(function (name) {
       var part = ui.parts[name];

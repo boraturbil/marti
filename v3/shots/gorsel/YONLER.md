@@ -1,6 +1,8 @@
 # PUSULLA — Aşama 1: görsel yön taslakları
 
-> **SEÇİM (2026-11-22): Yön A — Gece seyir aleti.** Aşama 2 bu yönle, `main`'e `v3/SOZLESME.md` + `v3/index.html` (`?mock`) gelince başlar.
+> **GÜNCEL KARAR (2026-11-22, kullanıcı): Yön C — piksel sanat Boğaz akşamı.** Yön A beğenilmedi ("çok karanlık"); v1/v2 Martı görsel dili esas alındı: piksel sahne (gün batımı, köprü, camiler, vapur, martılar), krem çerçeveli piksel paneller, v2 piksel yazı tipi, gradyanlı PUSULLA logosu + atkılı martı. v2'ye göre daha aydınlık palet. Aşağıdaki A/B taslakları yalnız arşivdir.
+>
+> ~~SEÇİM: Yön A — Gece seyir aleti.~~
 
 Statik taslaklar (oyun kodu değil). Kaynak: `taslak/yon_a.html`, `taslak/yon_b.html` (`#menu` / `#soru`), ortak `taslak/rose.js` (pusula gülü SVG) ve `taslak/bg.js` (tek canvas doku). Görüntüler 1366×768, menüler ayrıca 1920×1080.
 

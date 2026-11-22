@@ -48,7 +48,7 @@
 
     U.append(box, [
       h('div', { class: 'over', text: over }),
-      h('h1', { class: 'mi-title', style: 'color:' + color, text: title }),
+      h('h2', { class: 'mi-title', style: 'color:' + color, text: title }),
       h('div', { class: 'mi-goal', text: info.hint || '' }),
       h('p', { class: 'mi-desc', text: DESC[mix ? 'karma' : id] || '' })
     ]);
@@ -141,17 +141,18 @@
   ui.parts.menu = {
     init: function (sec) {
       var top = h('header', { class: 'top' }, [
-        h('div', { class: 'brand' }, [brandGlyph(), 'PUSULLA']),
         h('div', { class: 'date', text: todayText() }),
+        h('div'),
         h('nav', { class: 'nav' }, [
           els.streak = h('span', { class: 'streak', text: 'Seri 0' }),
           h('button', { class: 'lnk', type: 'button', text: 'İstatistik', onclick: function () { U.act('showStats'); } })
         ])
       ]);
-      els.info = h('section', { class: 'mi', 'aria-live': 'polite' });
+      els.info = h('section', { class: 'mi panel', 'aria-live': 'polite' });
       els.roseWrap = h('div', { class: 'rose-wrap' });
-      els.log = h('aside', { class: 'log' });
-      var main = h('main', { class: 'menu' }, [els.info, els.roseWrap, els.log]);
+      els.logoWrap = h('h1', { class: 'logo-wrap' });
+      els.log = h('aside', { class: 'log panel' });
+      var main = h('main', { class: 'menu' }, [els.info, h('div', { class: 'center-col' }, [els.logoWrap, els.roseWrap]), els.log]);
       var foot = h('footer', { class: 'keys' }, [
         h('span', null, [U.kbd('↑'), U.kbd('↓'), U.kbd('←'), U.kbd('→'), 'yön seç']),
         h('span', { text: 'iki ok birlikte: çapraz' }),
@@ -160,6 +161,7 @@
       ]);
       U.append(sec, [top, main, foot]);
 
+      if (ui.parts.logo) ui.parts.logo.create(els.logoWrap);
       rose = ui.parts.rose.create(els.roseWrap);
       var hits = rose.el.querySelectorAll('.hit');
       for (var i = 0; i < hits.length; i++) {
@@ -176,7 +178,10 @@
       renderLog();
     },
     onShow: function () {
-      if (rose) rose.focusEl(rose.current() || 'rota');
+      if (!rose) return;
+      if (rose.fit) rose.fit();
+      if (rose.resume) rose.resume();
+      rose.focusEl(rose.current() || 'rota');
     },
     onKey: function (e) {
       if (e.repeat && !(ui.keymap && ui.keymap.arrows && ui.keymap.arrows[e.code])) return;
@@ -197,7 +202,7 @@
         start(rose.current());
       }
     },
-    roseEl: function () { return rose && rose.el; },
+    roseEl: function () { return rose && (rose.canvas || rose.el); },
     events: {
       'menu:show': function (d) {
         d = d || {};

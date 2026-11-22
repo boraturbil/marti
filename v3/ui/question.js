@@ -57,10 +57,10 @@
     if (at >= 0) {
       var pre = text.slice(0, at).trim(), post = text.slice(at + len).trim();
       if (pre) els.qline.appendChild(h('span', { class: 'q-pre', text: pre }));
-      els.qline.appendChild(h('span', { class: 'subj', text: subj }));
+      els.qline.appendChild(subjectNode(subj));
       if (post) els.qline.appendChild(h('span', { class: 'q-post', text: post }));
     } else {
-      els.qline.appendChild(h('span', { class: 'subj', text: text || subj }));
+      els.qline.appendChild(subjectNode(text || subj));
     }
     var bits = [];
     bits.push(d.closed ? 'Kapalı küme' : 'Açık küme');
@@ -71,6 +71,41 @@
       els.scope.appendChild(h('i', { class: 'sep', text: '·' }));
       els.scope.appendChild(h('span', null, ['havuzda ', h('b', { text: String(d.poolSize) }), ' aday']));
     }
+  }
+
+  // konu: piksel yazı (canvas, aria-hidden) + ekran okuyucu için gizli metin; eksik glif varsa düz metin
+  function subjectNode(str) {
+    var pf = ui.parts.pixfont;
+    var wrap = h('span', { class: 'subj' }, [h('span', { class: 'sr', text: str })]);
+    if (!pf || pf.missing(str).length) { wrap.appendChild(h('span', { class: 'subj-txt', 'aria-hidden': 'true', text: str })); return wrap; }
+    var MAXW = 760, words = String(str).split(/\s+/), lines = [str];
+    var w1 = pf.measure(str, 1).w;
+    if (w1 * 4 > MAXW && words.length > 1) {
+      var best = null;
+      for (var i = 1; i < words.length; i++) {
+        var a = words.slice(0, i).join(' '), b = words.slice(i).join(' ');
+        var m = Math.max(pf.measure(a, 1).w, pf.measure(b, 1).w);
+        if (!best || m < best.m) best = { m: m, l: [a, b] };
+      }
+      lines = best.l;
+    }
+    var lw = 0;
+    lines.forEach(function (l) { lw = Math.max(lw, pf.measure(l, 1).w); });
+    var scale = Math.max(2, Math.min(6, Math.floor(MAXW / (lw + 2))));
+    var cv = global.document.createElement('canvas');
+    cv.width = lw + 3; cv.height = lines.length * 11 + 2;
+    cv.className = 'subj-cv';
+    cv.setAttribute('aria-hidden', 'true');
+    var c = cv.getContext('2d');
+    c.imageSmoothingEnabled = false;
+    lines.forEach(function (l, i) {
+      var w = pf.measure(l, 1).w;
+      pf.draw(c, l, 1 + Math.round((lw - w) / 2), i * 11, { color: '#fff1d6', outline: '#1a1128', shadow: '#5a2a5e' });
+    });
+    cv.style.width = (cv.width * scale) + 'px';
+    cv.style.height = (cv.height * scale) + 'px';
+    wrap.appendChild(cv);
+    return wrap;
   }
 
   /* ---------- geri bildirim ---------- */
@@ -163,17 +198,23 @@
     if (!menu || U.reducedMotion()) return;
     var from = menu.getBoundingClientRect(), to = els.badgeWrap.getBoundingClientRect();
     if (!from.width || !to.width) return;
-    var clone = menu.cloneNode(true);
-    clone.removeAttribute('role');
+    var clone;
+    if (menu.tagName === 'CANVAS') {
+      clone = global.document.createElement('canvas');
+      clone.width = menu.width; clone.height = menu.height;
+      var cc = clone.getContext('2d');
+      cc.imageSmoothingEnabled = false;
+      cc.drawImage(menu, 0, 0);
+    } else {
+      clone = menu.cloneNode(true);
+    }
     clone.setAttribute('aria-hidden', 'true');
-    var hits = clone.querySelectorAll('.hit');
-    for (var i = 0; i < hits.length; i++) hits[i].parentNode.removeChild(hits[i]);
     clone.classList.add('rose-fly');
     clone.style.left = from.left + 'px'; clone.style.top = from.top + 'px';
     clone.style.width = from.width + 'px'; clone.style.height = from.height + 'px';
     ui.root.appendChild(clone);
     els.badgeWrap.style.opacity = '0';
-    var s = (to.width / 500) / (from.width / 664);
+    var s = menu.tagName === 'CANVAS' ? to.width / (from.width * 152 / menu.width) : (to.width / 500) / (from.width / 664);
     var dx = (to.left + to.width / 2) - (from.left + from.width / 2);
     var dy = (to.top + to.height / 2) - (from.top + from.height / 2);
     global.requestAnimationFrame(function () {
