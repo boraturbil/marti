@@ -248,16 +248,36 @@
   }
 
   // --- Dinamik Veri & Havuz Yukleyici ---
+  function hydrateQuestionAxes(list) {
+    if (!Array.isArray(list)) return list;
+    for (var i = 0; i < list.length; i++) {
+      var q = list[i];
+      if (!q || q.axis) continue;
+      if (P.engine && typeof P.engine.axesOf === 'function') {
+        try {
+          var pool = typeof q.pool === 'string' ? getRawPool(q.pool) : q.pool;
+          var axInfo = P.engine.axesOf(q, pool);
+          if (axInfo && axInfo.axis) {
+            q.axis = axInfo.axis;
+            q.hasTime = Boolean(axInfo.time);
+            q.hasPop = Boolean(axInfo.pop);
+          }
+        } catch (e) { /* ignore */ }
+      }
+    }
+    return list;
+  }
+
   function getLoadedQuestions() {
     if (hasQueryFlag('mock')) return MOCK_QUESTIONS.slice();
     if (P.data && Array.isArray(P.data.questions) && P.data.questions.length) {
-      return P.data.questions;
+      return hydrateQuestionAxes(P.data.questions);
     }
     if (Array.isArray(P.data) && P.data.length) {
-      return P.data;
+      return hydrateQuestionAxes(P.data);
     }
     if (Array.isArray(global.PUSULLA_QUESTIONS) && global.PUSULLA_QUESTIONS.length) {
-      return global.PUSULLA_QUESTIONS;
+      return hydrateQuestionAxes(global.PUSULLA_QUESTIONS);
     }
     return MOCK_QUESTIONS.slice();
   }
@@ -561,7 +581,10 @@
   function getAxesOf(q) {
     if (P.engine && typeof P.engine.axesOf === 'function') {
       try {
-        return P.engine.axesOf(q);
+        var pool = typeof q.pool === 'string' ? getRawPool(q.pool) : q.pool;
+        var res = P.engine.axesOf(q, pool);
+        if (res && typeof res === 'object') return res.axis || null;
+        if (typeof res === 'string') return res;
       } catch (e) { /* fallback */ }
     }
     if (P.daily && typeof P.daily.axisOf === 'function') {
@@ -643,18 +666,30 @@
   // --- Eslestirme & Puanlama (engine.js / matcher.js ile veya fallback) ---
   function matchAnswer(q, raw) {
     var items = normalizePoolItems(q);
+    var rawPool = typeof q.pool === 'string' ? getRawPool(q.pool) : q.pool;
 
-    // Worker B matcher.js entegrasyonu
-    if (P.matcher && typeof P.matcher.match === 'function') {
+    // matcher.js entegrasyonu (createIndex + matchAnswer)
+    if (P.matcher && typeof P.matcher.matchAnswer === 'function') {
       try {
         var idxKey = q.id + '|' + (typeof q.pool === 'string' ? q.pool : 'inline');
         var idx = poolIndexCache[idxKey];
-        if (!idx && typeof P.matcher.buildIndex === 'function') {
-          idx = P.matcher.buildIndex(items, q);
+        if (!idx && typeof P.matcher.createIndex === 'function') {
+          idx = P.matcher.createIndex(rawPool || items, q);
           poolIndexCache[idxKey] = idx;
         }
-        var mRes = P.matcher.match(idx || items, raw, q);
-        if (mRes) return mRes;
+        var mRes = idx
+          ? P.matcher.matchAnswer(raw, idx, {
+              poolId: typeof q.pool === 'string' ? q.pool : (q.pool && q.pool.id),
+              subject: q.subject
+            })
+          : null;
+        if (mRes) {
+          if (typeof mRes.rowIndex === 'number' && mRes.rowIndex >= 0 && items[mRes.rowIndex]) {
+            var matchedItem = Object.assign({}, items[mRes.rowIndex], { _rowIndex: mRes.rowIndex });
+            mRes.row = matchedItem;
+          }
+          return mRes;
+        }
       } catch (e) {
         // fallback matcher'a dus
       }
@@ -700,11 +735,18 @@
 
   function scoreAnswer(modeId, item, q) {
     var items = normalizePoolItems(q);
+    var rawPool = typeof q.pool === 'string' ? getRawPool(q.pool) : q.pool;
 
-    // Worker B engine.js entegrasyonu
-    if (P.engine && typeof P.engine.score === 'function') {
+    // engine.js entegrasyonu (scoreAnswer)
+    if (P.engine && typeof P.engine.scoreAnswer === 'function') {
       try {
-        var eRes = P.engine.score(modeId, item, items, q);
+        var eRes = P.engine.scoreAnswer({
+          modeId: modeId,
+          question: q,
+          pool: rawPool || items,
+          rowIndex: item && typeof item._rowIndex === 'number' ? item._rowIndex : -1,
+          row: item
+        });
         if (eRes && typeof eRes.points === 'number') {
           return eRes;
         }
@@ -893,7 +935,23 @@
     showQuestion();
   }
 
-  function buildResultPayload(item, points, tierId, q, effectiveModeId) {
+  function buildResultPayload(item, points, tierId, q, effectiveModeId, scored) {
+    if (scored && Array.isArray(scored.dots) && scored.player) {
+      return {
+        kind: scored.kind || ((effectiveModeId === 'eski' || effectiveModeId === 'yeni')
+          ? 'time'
+          : ((effectiveModeId === 'yaygin' || effectiveModeId === 'nadir') ? 'pop' : 'combo')),
+        modeId: state.modeId,
+        subModeId: effectiveModeId,
+        tierId: tierId,
+        points: points,
+        player: scored.player,
+        best: Array.isArray(scored.best) ? scored.best : [],
+        dots: scored.dots,
+        poolSize: scored.poolSize || q.poolSize || scored.dots.length || 0
+      };
+    }
+
     var items = normalizePoolItems(q);
     var dots = [];
     var limit = Math.min(items.length, 60);
@@ -987,7 +1045,7 @@
     bus.emit('era:change', { eraId: eraId, year: item.year !== undefined ? item.year : null });
     safeSetScene(eraId, { year: item.year !== undefined ? item.year : null, modeId: state.modeId });
 
-    var resultPayload = buildResultPayload(item, points, tierId, q, effectiveModeId);
+    var resultPayload = buildResultPayload(item, points, tierId, q, effectiveModeId, scored);
     state.phase = 'result';
     state.lastResult = resultPayload;
     state.locked = false;

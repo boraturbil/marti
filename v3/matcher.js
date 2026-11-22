@@ -50,6 +50,85 @@
     'gelin', 'kuruyemis', 'suleymaniye', 'kolonya', 'otobus', 'safari', 'opera', 'vivaldi'
   ];
 
+  var GENERAL_SUBJECT_SUFFIXES = [
+    'milli takimi', 'milli takim',
+    'cuce gezegeni', 'cuce gezegen',
+    'isletim sistemi', 'programlama dili', 'sosyal medyasi', 'sosyal medya platformu',
+    'oyun konsolu', 'spor dali', 'para birimi', 'uzay sondasi', 'sinan yapisi',
+    'telefon markasi', 'otomobil markasi', 'turk markasi', 'havayolu sirketi',
+    'turk filmi', 'turk dizisi', 'dunya sehri', 'super lig takimi',
+    'gezegeni', 'gezegen', 'sehri', 'sehir', 'ilcesi', 'ilce', 'ili', 'il',
+    'elementi', 'element', 'corbasi', 'corba', 'filmi', 'film', 'dizisi', 'dizi',
+    'takimi', 'takim', 'tarayicisi', 'tarayici', 'oyunu', 'oyun', 'markasi', 'marka',
+    'sirketi', 'sirket', 'dili', 'dil', 'konsolu', 'konsol', 'sarkisi', 'sarki',
+    'padisahi', 'padisah', 'baskenti', 'baskent', 'ulkesi', 'ulke', 'sondasi', 'sonda',
+    'uydusu', 'uydu', 'muzesi', 'muze', 'yapisi', 'yapi', 'meyvesi', 'meyve',
+    'sebzesi', 'sebze', 'tatlisi', 'tatli', 'hayvani', 'hayvan', 'meslegi', 'meslek',
+    'icadi', 'icat', 'belediyesi', 'belediye', 'kahvaltiligi', 'kahvaltilik',
+    'cumhurbaskani', 'genel sekreteri'
+  ];
+
+  var POOL_SUFFIXES = {
+    gezegen: ['cuce gezegeni', 'cuce gezegen', 'gezegeni', 'gezegen'],
+    baskent: ['baskenti', 'baskent', 'sehri', 'sehir'],
+    dunya_sehri: ['dunya sehri', 'sehri', 'sehir'],
+    olimpiyat_sehri: ['olimpiyat sehri', 'sehri', 'sehir'],
+    ist_ilce: ['ilcesi', 'ilce', 'belediyesi', 'belediye'],
+    tr_il: ['ili', 'il', 'sehri', 'sehir'],
+    ulke: ['ulkesi', 'ulke', 'devleti', 'devlet'],
+    element: ['elementi', 'element', 'atomu'],
+    corba: ['corbasi', 'corba'],
+    film: ['filmi', 'film'],
+    turk_filmi: ['turk filmi', 'filmi', 'film'],
+    pixar: ['pixar filmi', 'filmi', 'film'],
+    turk_dizisi: ['turk dizisi', 'dizisi', 'dizi'],
+    dk_sampiyon: ['milli takimi', 'milli takim', 'takimi', 'takim'],
+    super_lig: ['futbol takimi', 'spor kulubu', 'takimi', 'takim', 'kulubu'],
+    tarayici: ['web tarayicisi', 'tarayicisi', 'tarayici'],
+    video_oyunu: ['video oyunu', 'oyunu', 'oyun'],
+    turk_markasi: ['turk markasi', 'markasi', 'marka', 'sirketi'],
+    telefon_markasi: ['telefon markasi', 'markasi', 'marka'],
+    otomobil_markasi: ['otomobil markasi', 'araba markasi', 'markasi', 'marka'],
+    havayolu: ['havayolu sirketi', 'havayollari', 'havayolu', 'sirketi'],
+    sosyal_medya: ['sosyal medya platformu', 'sosyal medyasi', 'platformu', 'uygulamasi'],
+    prog_dili: ['programlama dili', 'yazilim dili', 'dili', 'dil'],
+    isletim_sistemi: ['isletim sistemi', 'sistemi'],
+    oyun_konsolu: ['oyun konsolu', 'konsolu', 'konsol'],
+    sarki: ['sarkisi', 'sarki', 'parcasi'],
+    osmanli_padisahi: ['osmanli padisahi', 'padisahi', 'padisah', 'sultani'],
+    cumhurbaskani: ['cumhurbaskani'],
+    bm_genel_sekreter: ['genel sekreteri', 'bm genel sekreteri'],
+    uzay_sondasi: ['uzay sondasi', 'uzay araci', 'sondasi', 'sonda'],
+    gunes_uydu: ['uydusu', 'uydu'],
+    ist_muze: ['muzesi', 'muze'],
+    sinan_yapisi: ['sinan yapisi', 'yapisi', 'eseri'],
+    meyve: ['meyvesi', 'meyve'],
+    sebze: ['sebzesi', 'sebze'],
+    tatli: ['tatlisi', 'tatli'],
+    hayvan: ['hayvani', 'hayvan'],
+    meslek: ['meslegi', 'meslek'],
+    spor_dali: ['spor dali', 'sporu', 'dali'],
+    para_birimi: ['para birimi', 'birimi'],
+    icat: ['icadi', 'icat'],
+    kahvaltilik: ['kahvaltiligi', 'kahvaltilik']
+  };
+
+  var POOL_PREFIXES = {
+    ist_ilce: ['istanbul ilcesi', 'istanbul'],
+    ist_muze: ['istanbul muzesi', 'istanbul'],
+    tr_il: ['turkiye ili', 'turkiye'],
+    gezegen: ['gunes sistemi', 'gezegen'],
+    dk_sampiyon: ['dunya kupasi', 'milli takim'],
+    super_lig: ['super lig'],
+    sinan_yapisi: ['mimar sinan'],
+    osmanli_padisahi: ['osmanli padisahi', 'osmanli'],
+    cumhurbaskani: ['turkiye cumhurbaskani', 'turkiye'],
+    pixar: ['pixar'],
+    turk_markasi: ['turk markasi'],
+    turk_filmi: ['turk filmi'],
+    turk_dizisi: ['turk dizisi']
+  };
+
   function normalize(input) {
     if (input === null || input === undefined) return '';
     return String(input)
@@ -295,8 +374,134 @@
       exactMap: exactMap,
       invalidMap: invalidMap,
       buckets: buckets,
-      size: rows.length
+      size: rows.length,
+      poolId: (question && question.pool) || (!Array.isArray(pool) && pool && pool.id) || '',
+      subject: (question && question.subject) || ''
     };
+  }
+
+  function hasEnoughLetters(str) {
+    var comp = compact(str);
+    return comp.length >= 2 && /[a-z0-9]{2,}/.test(comp);
+  }
+
+  function getActiveSuffixes(poolId, subjectFold) {
+    if (poolId && POOL_SUFFIXES[poolId]) return POOL_SUFFIXES[poolId];
+    if (subjectFold) {
+      var keys = Object.keys(POOL_SUFFIXES);
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i];
+        if (subjectFold.indexOf(k.replace(/_/g, ' ')) !== -1) {
+          return POOL_SUFFIXES[k];
+        }
+      }
+      var kwMap = [
+        ['ilce', 'ist_ilce'],
+        ['baskent', 'baskent'],
+        ['sehir', 'dunya_sehri'],
+        ['sehri', 'dunya_sehri'],
+        ['gezegen', 'gezegen'],
+        ['element', 'element'],
+        ['corba', 'corba'],
+        ['tarayici', 'tarayici'],
+        ['dizi', 'turk_dizisi'],
+        ['film', 'film'],
+        ['sampiyon', 'dk_sampiyon'],
+        ['takim', 'super_lig'],
+        ['ulke', 'ulke'],
+        ['sarki', 'sarki'],
+        ['padisah', 'osmanli_padisahi'],
+        ['oyun', 'video_oyunu'],
+        ['konsol', 'oyun_konsolu'],
+        ['isletim', 'isletim_sistemi'],
+        ['marka', 'turk_markasi'],
+        ['havayolu', 'havayolu'],
+        ['meyve', 'meyve'],
+        ['sebze', 'sebze'],
+        ['tatli', 'tatli'],
+        ['hayvan', 'hayvan'],
+        ['meslek', 'meslek'],
+        ['spor', 'spor_dali'],
+        ['para', 'para_birimi']
+      ];
+      for (var ki = 0; ki < kwMap.length; ki++) {
+        if (subjectFold.indexOf(kwMap[ki][0]) !== -1) {
+          return POOL_SUFFIXES[kwMap[ki][1]];
+        }
+      }
+    }
+    return GENERAL_SUBJECT_SUFFIXES;
+  }
+
+  function getActivePrefixes(poolId, subjectFold) {
+    var list = [];
+    if (subjectFold) {
+      list.push(subjectFold);
+      var sp = subjectFold.split(' ');
+      if (sp.length > 1 && sp[0].length >= 3) list.push(sp[0]);
+    }
+    if (poolId && POOL_PREFIXES[poolId]) {
+      var pp = POOL_PREFIXES[poolId];
+      for (var i = 0; i < pp.length; i++) {
+        if (list.indexOf(pp[i]) === -1) list.push(pp[i]);
+      }
+    }
+    return list;
+  }
+
+  function buildStrippedCandidates(rawInput, qFold, poolId, subject) {
+    var out = [];
+    function pushCand(c) {
+      if (!c || c === qFold) return;
+      if (!hasEnoughLetters(c)) return;
+      if (GENERIC_WORDS.indexOf(c) !== -1) return;
+      if (out.indexOf(c) === -1) out.push(c);
+    }
+
+    var baseList = [qFold];
+    var rawStr = rawInput === null || rawInput === undefined ? '' : String(rawInput);
+    if (rawStr.indexOf('(') !== -1 && rawStr.indexOf(')') !== -1) {
+      var noParen = normFold(rawStr.replace(/\([^)]*\)/g, ' '));
+      if (noParen && noParen !== qFold) {
+        pushCand(noParen);
+        baseList.push(noParen);
+      }
+    }
+
+    var subjectFold = subject ? normFold(subject) : '';
+    var suffixes = getActiveSuffixes(poolId, subjectFold);
+    var prefixes = getActivePrefixes(poolId, subjectFold);
+
+    for (var bi = 0; bi < baseList.length; bi++) {
+      var base = baseList[bi];
+      var afterSuffix = null;
+
+      for (var si = 0; si < suffixes.length; si++) {
+        var sfx = suffixes[si];
+        var needle = ' ' + sfx;
+        if (base.length > needle.length && base.slice(-needle.length) === needle) {
+          var cand = base.slice(0, -needle.length).trim();
+          if (hasEnoughLetters(cand)) {
+            pushCand(cand);
+            if (!afterSuffix) afterSuffix = cand;
+          }
+          break;
+        }
+      }
+
+      for (var pi = 0; pi < prefixes.length; pi++) {
+        var pfx = prefixes[pi];
+        var pNeedle = pfx + ' ';
+        if (base.length > pNeedle.length && base.slice(0, pNeedle.length) === pNeedle) {
+          pushCand(base.slice(pNeedle.length).trim());
+        }
+        if (afterSuffix && afterSuffix.length > pNeedle.length && afterSuffix.slice(0, pNeedle.length) === pNeedle) {
+          pushCand(afterSuffix.slice(pNeedle.length).trim());
+        }
+      }
+    }
+
+    return out;
   }
 
   function pickHomonym(indices, rows, qFold) {
@@ -317,20 +522,15 @@
     return { index: bestIdx, homonyms: indices.length };
   }
 
-  function matchAnswer(input, index) {
-    var qNorm = normalize(input);
-    var qFold = fold(qNorm);
-    if (!qFold) {
-      return { status: 'yok', type: 'none', canReport: false };
-    }
-    var qComp = compact(qFold);
+  function tryExactInvalidStem(key, index, viaTag) {
+    var comp = compact(key);
 
     // 1. Tam anahtar (boşluklu / boşluksuz)
-    var exactHits = index.exactMap.get(qFold) || (qComp !== qFold ? index.exactMap.get(qComp) : null);
+    var exactHits = index.exactMap.get(key) || (comp !== key ? index.exactMap.get(comp) : null);
     if (exactHits && exactHits.length > 0) {
-      var picked = pickHomonym(exactHits, index.rows, qFold);
+      var picked = pickHomonym(exactHits, index.rows, key);
       var row = index.rows[picked.index];
-      return {
+      var res = {
         status: 'eslesti',
         type: 'valid',
         row: row,
@@ -339,10 +539,12 @@
         fuzzy: false,
         homonyms: picked.homonyms
       };
+      if (viaTag) res.via = viaTag;
+      return res;
     }
 
     // 2. Invalid tam anahtar
-    var invReason = index.invalidMap.get(qFold) || (qComp !== qFold ? index.invalidMap.get(qComp) : null);
+    var invReason = index.invalidMap.get(key) || (comp !== key ? index.invalidMap.get(comp) : null);
     if (invReason) {
       return {
         status: 'gecersiz',
@@ -352,7 +554,7 @@
     }
 
     // 3. Ek soyma (en çok 2 katman, kök >= 3, ünsüz yumuşaması geri alma)
-    var stems = getStemVariants(qFold);
+    var stems = getStemVariants(key);
     for (var s = 0; s < stems.length; s++) {
       var st = stems[s];
       var stComp = compact(st);
@@ -367,7 +569,7 @@
           rowIndex: sPicked.index,
           label: sRow.label,
           fuzzy: false,
-          via: 'stem',
+          via: viaTag ? (viaTag + '+stem') : 'stem',
           homonyms: sPicked.homonyms
         };
       }
@@ -377,74 +579,108 @@
       }
     }
 
-    // 4. Sınırlı bulanık eşleşme (§5.2) -> "onay iste" (otomatik kabul YOK)
+    return null;
+  }
+
+  function tryFuzzy(qFold, index) {
     var len = qFold.length;
     var maxDist = 0;
     if (len >= 5 && len <= 7) maxDist = 1;
     else if (len >= 8) maxDist = index.size > 2000 ? 1 : 2;
+    if (maxDist <= 0) return null;
 
-    if (maxDist > 0) {
-      var qMask = charMask(qFold);
-      var maxBitDiff = maxDist * 2;
-      var bestDist = maxDist + 1;
-      var secondDist = maxDist + 2;
-      var bestRowIdx = -1;
-      var tieOnBest = false;
+    var qMask = charMask(qFold);
+    var maxBitDiff = maxDist * 2;
+    var bestDist = maxDist + 1;
+    var secondDist = maxDist + 2;
+    var bestRowIdx = -1;
+    var tieOnBest = false;
 
-      for (var l = len - maxDist; l <= len + maxDist; l++) {
-        var bucket = index.buckets.get(l);
-        if (!bucket) continue;
-        for (var bi = 0; bi < bucket.length; bi++) {
-          var cand = bucket[bi];
-          if (popcount32(qMask ^ cand.mask) > maxBitDiff) continue;
-          var dist = boundedLevenshtein(qFold, cand.key, maxDist);
-          if (dist > maxDist) continue;
+    for (var l = len - maxDist; l <= len + maxDist; l++) {
+      var bucket = index.buckets.get(l);
+      if (!bucket) continue;
+      for (var bi = 0; bi < bucket.length; bi++) {
+        var cand = bucket[bi];
+        if (popcount32(qMask ^ cand.mask) > maxBitDiff) continue;
+        var dist = boundedLevenshtein(qFold, cand.key, maxDist);
+        if (dist > maxDist) continue;
 
-          var candRows = index.exactMap.get(cand.key);
-          var candRowIdx = candRows && candRows.length > 0 ? candRows[0] : -1;
-          if (candRowIdx < 0) continue;
+        var candRows = index.exactMap.get(cand.key);
+        var candRowIdx = candRows && candRows.length > 0 ? candRows[0] : -1;
+        if (candRowIdx < 0) continue;
 
-          if (dist < bestDist) {
-            secondDist = bestDist;
-            bestDist = dist;
-            bestRowIdx = candRowIdx;
-            tieOnBest = false;
-          } else if (dist === bestDist) {
-            if (candRowIdx !== bestRowIdx) {
-              tieOnBest = true;
-              secondDist = dist;
-            }
-          } else if (dist < secondDist) {
+        if (dist < bestDist) {
+          secondDist = bestDist;
+          bestDist = dist;
+          bestRowIdx = candRowIdx;
+          tieOnBest = false;
+        } else if (dist === bestDist) {
+          if (candRowIdx !== bestRowIdx) {
+            tieOnBest = true;
             secondDist = dist;
           }
+        } else if (dist < secondDist) {
+          secondDist = dist;
         }
       }
+    }
 
-      if (bestRowIdx >= 0 && !tieOnBest && secondDist >= bestDist + 1) {
-        // En iyi aday bir invalid anahtarına da aynı yakınlıktaysa -> yok
-        var invConflict = false;
-        index.invalidMap.forEach(function (_, invKey) {
-          if (invConflict) return;
-          if (Math.abs(invKey.length - len) <= bestDist) {
-            if (boundedLevenshtein(qFold, invKey, bestDist) <= bestDist) {
-              invConflict = true;
-            }
+    if (bestRowIdx >= 0 && !tieOnBest && secondDist >= bestDist + 1) {
+      var invConflict = false;
+      index.invalidMap.forEach(function (_, invKey) {
+        if (invConflict) return;
+        if (Math.abs(invKey.length - len) <= bestDist) {
+          if (boundedLevenshtein(qFold, invKey, bestDist) <= bestDist) {
+            invConflict = true;
           }
-        });
-
-        if (!invConflict) {
-          var fRow = index.rows[bestRowIdx];
-          return {
-            status: 'onay_iste',
-            type: 'confirm',
-            row: fRow,
-            rowIndex: bestRowIdx,
-            suggestion: fRow.label,
-            label: fRow.label,
-            fuzzy: true,
-            distance: bestDist
-          };
         }
+      });
+
+      if (!invConflict) {
+        var fRow = index.rows[bestRowIdx];
+        return {
+          status: 'onay_iste',
+          type: 'confirm',
+          row: fRow,
+          rowIndex: bestRowIdx,
+          suggestion: fRow.label,
+          label: fRow.label,
+          fuzzy: true,
+          distance: bestDist
+        };
+      }
+    }
+    return null;
+  }
+
+  function matchAnswer(input, index, opts) {
+    var qNorm = normalize(input);
+    var qFold = fold(qNorm);
+    if (!qFold) {
+      return { status: 'yok', type: 'none', canReport: false };
+    }
+
+    // 1-3. Tam, invalid, ek soyma
+    var direct = tryExactInvalidStem(qFold, index, null);
+    if (direct) return direct;
+
+    // 3b. Parantez + konu eki/oneki soyma
+    var poolId = (opts && opts.poolId) || index.poolId || '';
+    var subject = (opts && opts.subject) || index.subject || '';
+    var strippedList = buildStrippedCandidates(input, qFold, poolId, subject);
+    for (var ci = 0; ci < strippedList.length; ci++) {
+      var subRes = tryExactInvalidStem(strippedList[ci], index, 'subject');
+      if (subRes) return subRes;
+    }
+
+    // 4. Sınırlı bulanık eşleşme (§5.2) -> "onay iste" (otomatik kabul YOK)
+    var fuzzyDirect = tryFuzzy(qFold, index);
+    if (fuzzyDirect) return fuzzyDirect;
+
+    for (var fi = 0; fi < strippedList.length; fi++) {
+      if (strippedList[fi].length >= 5) {
+        var fuzzySub = tryFuzzy(strippedList[fi], index);
+        if (fuzzySub) return fuzzySub;
       }
     }
 
