@@ -19,6 +19,28 @@
     return fallback;
   }
 
+  // Geliştirici modu: yerelde (localhost/file) varsayılan AÇIK; ?dev=0 kapatır, ?dev=1 açar (localStorage'a yazılır).
+  var devCache = null;
+  function isDevMode() {
+    if (devCache !== null) return devCache;
+    var v = null;
+    try {
+      var m = /[?&]dev=([01])/.exec(String(global.location && global.location.search || ''));
+      if (m) { v = m[1] === '1'; try { global.localStorage.setItem('pusulla.v3.dev', m[1]); } catch (e) {} }
+      else { var ls = global.localStorage.getItem('pusulla.v3.dev'); if (ls === '1') v = true; else if (ls === '0') v = false; }
+    } catch (e) {}
+    if (v === null) {
+      var h = String(global.location && global.location.hostname || '');
+      var pr = String(global.location && global.location.protocol || '');
+      v = (h === 'localhost' || h === '127.0.0.1' || pr === 'file:');
+    }
+    devCache = v;
+    return v;
+  }
+  function randomDayKey() {
+    var d = new Date(Date.UTC(2026, 0, 1) + Math.floor(Math.random() * 3650) * 86400000);
+    return d.getUTCFullYear() + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0');
+  }
   function getTodayKey() {
     if (P.daily && typeof P.daily.getTodayKey === 'function') {
       return P.daily.getTodayKey();
@@ -645,6 +667,15 @@
     }
 
     var picked = [];
+    if (isDevMode()) {
+      // Serbest oyun her açılışta farklı sorular versin (Fisher-Yates)
+      [fresh, fallback].forEach(function (arr) {
+        for (var si = arr.length - 1; si > 0; si--) {
+          var sj = Math.floor(Math.random() * (si + 1));
+          var tmp = arr[si]; arr[si] = arr[sj]; arr[sj] = tmp;
+        }
+      });
+    }
     var pool = fresh.concat(fallback);
     for (var k = 0; k < count && pool.length > 0; k++) {
       picked.push(pool[k % pool.length]);
@@ -654,7 +685,7 @@
 
   function selectDailyQuestions(legModeId) {
     var all = getLoadedQuestions();
-    var todayKey = getTodayKey();
+    var todayKey = isDevMode() ? randomDayKey() : getTodayKey();
     if (P.daily && typeof P.daily.getDailySet === 'function') {
       var dSet = P.daily.getDailySet(todayKey, all);
       if (dSet && Array.isArray(dSet[legModeId]) && dSet[legModeId].length) {
@@ -1298,6 +1329,7 @@
     startDaily: function () {
       var s = readStore();
       var todayKey = getTodayKey();
+      if (isDevMode() && s.days && s.days[todayKey]) { delete s.days[todayKey]; writeStore(s); s = readStore(); }
       var dayRec = (s.days && s.days[todayKey]) || { legs: {}, totalScore: 0 };
       var startIdx = 0;
       for (var i = 0; i < state.dailyLegs.length; i++) {
