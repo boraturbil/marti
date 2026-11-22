@@ -86,12 +86,17 @@
       music(wanted);
     }
     try { document.body && (document.body.dataset.sound = cfg.on ? 'on' : 'off'); } catch (e) {}
+    try {
+      var bs = document.querySelectorAll('[data-snd]');
+      for (var i = 0; i < bs.length; i++) bs[i].textContent = cfg.on ? 'Ses: açık' : 'Ses: kapalı';
+    } catch (e) {}
   }
   P.sound = {
     setEnabled: function (b) { cfg.on = !!b; save(); applyEnabled(); },
     isEnabled: function () { return cfg.on; },
     setVolume: function (v) { cfg.vol = Math.min(1, Math.max(0, +v || 0)); save(); if (cur) cur.volume = cfg.vol * MUSIC_VOL * (cur._lv == null ? 1 : cur._lv); },
-    getVolume: function () { return cfg.vol; }
+    getVolume: function () { return cfg.vol; },
+    refresh: applyEnabled
   };
 
   /* ---- Kilit açma (ilk etkileşim) ---- */

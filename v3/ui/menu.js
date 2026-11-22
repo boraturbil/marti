@@ -147,9 +147,13 @@
           els.streak = h('span', { class: 'streak', text: 'Seri 0' }),
           h('button', { class: 'lnk', type: 'button', text: 'Nasıl oynanır', onclick: function () { if (ui.parts.overlay) ui.parts.overlay.open('help'); } }),
           h('button', { class: 'lnk', type: 'button', text: 'İstatistik', onclick: function () { U.act('showStats'); } }),
-          h('button', { class: 'lnk', type: 'button', text: 'Hakkında', onclick: function () { if (ui.parts.overlay) ui.parts.overlay.open('about'); } })
+          h('button', { class: 'lnk', type: 'button', text: 'Hakkında', onclick: function () { if (ui.parts.overlay) ui.parts.overlay.open('about'); } }),
+          els.snd = h('button', { class: 'lnk', type: 'button', 'data-snd': '1', text: 'Ses: açık', title: 'Sesi aç/kapat (M)', onclick: function () {
+            var s = window.PUSULLA && window.PUSULLA.sound; if (s) s.setEnabled(!s.isEnabled());
+          } })
         ])
       ]);
+      if (window.PUSULLA && window.PUSULLA.sound && window.PUSULLA.sound.isEnabled && !window.PUSULLA.sound.isEnabled()) els.snd.textContent = 'Ses: kapalı';
       els.info = h('section', { class: 'mi panel', 'aria-live': 'polite' });
       els.roseWrap = h('div', { class: 'rose-wrap' });
       els.logoWrap = h('h1', { class: 'logo-wrap' });
