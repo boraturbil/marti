@@ -1,4 +1,4 @@
-﻿# Martı — Devir notu (güncelleme: 2026-11-22, gece)
+﻿# Martı — Devir notu (güncelleme: 2026-11-23, akşam)
 
 ## Ne bu
 Türkçe, piksel sanat "çoğu insanın vereceği cevabı tahmin et" tarayıcı oyunu. Yalnız PC. Saf HTML/CSS/JS,
@@ -48,3 +48,12 @@ Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine 
 - F5 agy (gemini-4-hydrogen-medium): matcher soyma (match_test 19/19), index.html 42 havuz + _meta + q_demo bagli, score 8/8, bench 38 ms/1000 sorgu, duman testi PASS; tarayici testi yapilmadi.
 - F2 agy (gemini-4-hydrogen-medium, İşçi A akış/UI + B motor/fikstür): tamam; score 8/8, match 8/8, bench indeks 48 ms (hedef 40), smoke A+B PASS; tarayıcı testi yapılmadı.
 - (2026-11-23) v3 tarayıcı duman testi YAPILDI: menü → Rotaya başla → soru "Çorba" → `mercimek` → TAM İSABET +100, pay sıralaması, konsol hatası yok. match 19/19, score 8/8, check --demo 0 HATA. Ses (v3/sound.js, v3/sound/*.mp3) + matcher soyma + game/index.html entegrasyonu commit edildi. Henüz bakılmayan: ses çalma (kulakla), 5 soruluk tam tur, bitiş/paylaş ekranı, diğer 3 mod.
+
+## 2026-11-23 akşam — v3 (Pusulla) oturum özeti
+- **Dal:** `entegrasyon` (push'lu, son: geliştirici modu). main'de v3 son işleri yok.
+- **Sorular:** 72 soru (42 `q_demo.js` + 30 `q_demo2.js`), 72 havuz, ~25,5 bin cevap satırı. Raporlar: `v3/rev/DEMO_SORULAR.md`, `v3/rev/YENI_SORULAR.md`. Pay/yıl değerleri AI tahmini, `[DOĞRULANMALI]` notlu; yıl doğrulaması (Haiku) YAPILMADI.
+- **Ses:** `v3/sound.js` + `v3/sound/*.mp3` (17 efekt, 3 müzik), menüde "Ses: açık/kapalı" düğmesi, M tuşu. Kulakla dinlenmedi.
+- **Yürüyen gezgin (eraly.io esinli, özgün):** ortada sabit yandan görünen sprite (eline pusula), yıla göre sağa/sola yürür; dönem değişiminde kesintisiz panorama kayması + yumuşatılmış renk dikişi; her soruda kısa yürüyüş + paralaks. Plan: `notlar/PLAN_YURUYEN_KARAKTER.md`, rapor `v3/rev/YURUYEN_KARAKTER.md`. Kod: `v3/scenes/core.js`, `walker.js`, HUD `ui/question.js`.
+- **Hata düzeltmeleri:** çift Enter/aynı cevap 700 ms içinde yok sayılır (game.js `triedInputs`); boyutsuz pencerede 0x0 tuval çökmesi korundu.
+- **Geliştirici modu:** yerelde (localhost/file) varsayılan AÇIK → rota ve serbest oyun her açılışta rastgele soru verir, bugünün rotası sıfırlanıp tekrar oynanır. `?dev=0` kapatır, `?dev=1` açar. Yayında tarihe bağlı günlük rota (herkes için aynı) geçerli.
+- **Açık işler:** gerçek tam tur/diğer modlar elle oynanmadı; aynı dönem içinde sürekli kayan arka plan yok (sahneler döngüsel değil); yıl doğrulaması; yeni 30 sorunun gerçek doğruluk kontrolü; ekranda geliştirici etiketi yok; `launch.json` 5175 portu başka süreçte (sunucu rastgele porta düşüyor).
