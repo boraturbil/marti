@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["baharat"]={id:"baharat",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Karabiber",["Kara biber"],null,"m",99,2],
+["Pul biber",["Kırmızı pul biber","Acı pul biber"],null,"m",98,2],
+["Kimyon",["Toz kimyon"],null,"m",96,2],
+["Kekik",["Dağ kekiği"],null,"m",95,2],
+["Nane",["Kuru nane"],null,"m",94,2],
+["Tarçın",["Tarcin","Çubuk tarçın"],null,"m",93,2],
+["Sumak",["Ekşi sumak"],null,"m",91,2],
+["İsot",["Isot","Urfa biberi"],null,"m",90,2],
+["Zerdeçal",["Zerdecal","Hint safranı"],null,"m",89,2],
+["Zencefil",["Toz zencefil"],null,"m",88,2],
+["Köri",["Kori","Curry"],null,"m",87,2],
+["Kırmızı toz biber",["Toz biber","Tatlı toz biber"],null,"m",86,2],
+["Çörek otu",["Corek otu","Çörekotu"],null,"m",85,2],
+["Susam",["Susam tohumu"],null,"m",84,2],
+["Karanfil",["Karanfil baharatı"],null,"m",82,2],
+["Safran",["İran safranı"],null,"m",81,2],
+["Yenibahar",["Yeni bahar"],null,"m",79,2],
+["Biberiye",["Rozmari"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["antik_kent_tr"]={id:"antik_kent_tr",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Efes",["Efes Antik Kenti","Ephesos","Ephesus"],null,"m",98,2],
+["Göbeklitepe",["Gobeklitepe","Göbekli Tepe"],null,"m",96,2],
+["Troya",["Truva","Troya Antik Kenti","Truva Antik Kenti"],null,"m",94,2],
+["Bergama",["Pergamon","Bergama Antik Kenti"],null,"m",90,2],
+["Hierapolis",["Pamukkale Hierapolis","Hierapolis Antik Kenti"],null,"m",88,2],
+["Aspendos",["Aspendos Antik Kenti","Aspendos Tiyatrosu"],null,"m",86,2],
+["Hattuşa",["Hattuşaş","Hattusa","Boğazköy"],null,"m",85,2],
+["Afrodisias",["Aphrodisias","Afrodisyas"],null,"m",84,2],
+["Perge",["Perge Antik Kenti"],null,"m",82,2],
+["Side",["Side Antik Kenti"],null,"m",81,2],
+["Zeugma",["Zeugma Antik Kenti","Belkıs"],null,"m",80,2],
+["Çatalhöyük",["Catalhoyuk","Çatal Höyük"],null,"m",79,2],
+["Assos",["Behramkale","Assos Antik Kenti"],null,"m",78,2],
+["Sagalassos",["Sagalassos Antik Kenti"],null,"m",77,2],
+["Olympos",["Olimpos","Olimpos Antik Kenti"],null,"m",76,2],
+["Patara",["Patara Antik Kenti"],null,"m",75,2],
+["Milet",["Miletos","Milet Antik Kenti"],null,"m",74,2],
+["Knidos",["Cnidus","Knidos Antik Kenti"],null,"m",72,2]
+]};})(typeof window!=='undefined'?window:globalThis);

@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["muzik_turu"]={id:"muzik_turu",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Pop",["Pop müzik","Popüler müzik"],null,"m",99,2],
+["Rock",["Rock müzik","Rok"],null,"m",98,2],
+["Rap",["Hip hop","Hiphop","Rap müzik"],null,"m",97,2],
+["Arabesk",["Arabesk müzik"],null,"m",95,2],
+["Caz",["Jazz","Caz müziği"],null,"m",94,2],
+["Klasik müzik",["Batı klasik müziği"],null,"m",93,2],
+["Türk halk müziği",["THM","Halk müziği","Türkü"],null,"m",92,2],
+["Türk sanat müziği",["TSM","Sanat müziği","Klasik Türk müziği"],null,"m",91,2],
+["Metal",["Heavy metal","Metal müzik"],null,"m",89,2],
+["Anadolu rock",["Türkçe rock"],null,"m",88,2],
+["Elektronik müzik",["EDM","Elektronik"],null,"m",87,2],
+["Blues",["Bluz"],null,"m",85,2],
+["R&B",["RnB","Rhythm and blues"],null,"m",84,2],
+["Reggae",["Regi"],null,"m",82,2],
+["Punk",["Punk rock"],null,"m",81,2],
+["Techno",["Tekno","Tekno müzik"],null,"m",80,2],
+["House",["House müzik"],null,"m",79,2],
+["K-Pop",["Kore pop"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

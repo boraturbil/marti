@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["bilim_insani"]={id:"bilim_insani",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Albert Einstein",["Einstein","Aynştayn"],null,"m",99,2],
+["Isaac Newton",["Newton","İshak Newton"],null,"m",98,2],
+["Nikola Tesla",["Tesla"],null,"m",97,2],
+["Marie Curie",["Madam Curie","Maria Skłodowska"],null,"m",96,2],
+["Aziz Sancar",["Prof Aziz Sancar"],null,"m",95,2],
+["Galileo Galilei",["Galileo","Galile"],null,"m",94,2],
+["Stephen Hawking",["Hawking"],null,"m",93,2],
+["Charles Darwin",["Darwin"],null,"m",92,2],
+["Thomas Edison",["Edison","Thomas Alva Edison"],null,"m",91,2],
+["İbn-i Sina",["İbni Sina","Ibni Sina","Avicenna"],null,"m",90,2],
+["Cahit Arf",["Ord Prof Cahit Arf"],null,"m",89,2],
+["Arşimet",["Archimedes","Arsimet"],null,"m",88,2],
+["Louis Pasteur",["Pasteur","Pastör"],null,"m",87,2],
+["Pisagor",["Pythagoras"],null,"m",86,2],
+["Alexander Fleming",["Fleming"],null,"m",85,2],
+["Alan Turing",["Turing"],null,"m",84,2],
+["Harezmi",["El Harezmi","Al-Khwarizmi"],null,"m",83,2],
+["Ali Kuşçu",["Ali Kuscu"],null,"m",82,2]
+]};})(typeof window!=='undefined'?window:globalThis);

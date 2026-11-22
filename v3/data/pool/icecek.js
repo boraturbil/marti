@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["icecek"]={id:"icecek",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Çay",["Cay","Siyah çay","Demleme çay"],null,"m",99,2],
+["Türk kahvesi",["Kahve","Turk kahvesi"],null,"m",98,2],
+["Ayran",["Yayık ayranı"],null,"m",97,2],
+["Su",["İçme suyu"],null,"m",96,2],
+["Kola",["Cola"],null,"m",94,2],
+["Limonata",["Ev yapımı limonata"],null,"m",93,2],
+["Maden suyu",["Soda"],null,"m",91,2],
+["Portakal suyu",["Taze portakal suyu"],null,"m",90,2],
+["Şalgam suyu",["Şalgam","Salgam"],null,"m",89,2],
+["Süt",["Sut"],null,"m",88,2],
+["Gazoz",["Meyveli gazoz","Sade gazoz"],null,"m",87,2],
+["Salep",["Sahlep"],null,"m",86,2],
+["Boza",["Vefa bozası"],null,"m",85,2],
+["Filtre kahve",["Americano"],null,"m",84,2],
+["Kefir",["Meyveli kefir"],null,"m",83,2],
+["Soğuk çay",["Ice tea","Buzlu çay"],null,"m",82,2],
+["Espresso",["Espreso"],null,"m",80,2],
+["Latte",["Caffe latte"],null,"m",79,2]
+]};})(typeof window!=='undefined'?window:globalThis);

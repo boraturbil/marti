@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["dunya_harikasi"]={id:"dunya_harikasi",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Keops Piramidi",["Mısır Piramitleri","Gize Piramitleri","Piramitler"],null,"m",99,2],
+["Çin Seddi",["Cin Seddi"],null,"m",98,2],
+["Tac Mahal",["Taj Mahal"],null,"m",97,2],
+["Eyfel Kulesi",["Eiffel Kulesi","Eyfel"],null,"m",96,2],
+["Kolezyum",["Colosseum","Roma Kolezyumu"],null,"m",95,2],
+["Özgürlük Heykeli",["Ozgurluk Heykeli","Özgürlük Anıtı"],null,"m",94,2],
+["Artemis Tapınağı",["Efes Artemis Tapınağı","Artemis Tapinagi"],null,"m",92,2],
+["Halikarnas Mozolesi",["Halikarnas","Kral Mausolos Mezarı"],null,"m",91,2],
+["Ayasofya",["Ayasofya Camii"],null,"m",90,2],
+["Anıtkabir",["Anitkabir"],null,"m",89,2],
+["Babil Asma Bahçeleri",["Asma Bahçeleri","Babil Bahçeleri"],null,"m",88,2],
+["İskenderiye Feneri",["Iskenderiye Feneri"],null,"m",87,2],
+["Rodos Heykeli",["Rodos Kolossusu"],null,"m",86,2],
+["Zeus Heykeli",["Olimpiya Zeus Heykeli"],null,"m",85,2],
+["Machu Picchu",["Maçu Piçu"],null,"m",84,2],
+["Petra Antik Kenti",["Petra"],null,"m",83,2],
+["Kurtarıcı İsa Heykeli",["Kurtarici Isa Heykeli","Cristo Redentor"],null,"m",82,2],
+["Chichen Itza",["Çiçen İtza"],null,"m",81,2]
+]};})(typeof window!=='undefined'?window:globalThis);

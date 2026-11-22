@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["peynir_cesidi"]={id:"peynir_cesidi",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Beyaz peynir",["Edirne peyniri","Tam yağlı beyaz peynir"],null,"m",99,2],
+["Kaşar peyniri",["Kaşar","Kasar","Eski kaşar","Taze kaşar"],null,"m",98,2],
+["Ezine peyniri",["Ezine"],null,"m",96,2],
+["Tulum peyniri",["Erzincan tulumu","İzmir tulumu","Tulum"],null,"m",95,2],
+["Mozzarella",["Mozarella"],null,"m",93,2],
+["Çedar",["Cheddar","Çedar peyniri"],null,"m",92,2],
+["Hellim",["Hellim peyniri","Kıbrıs hellimi"],null,"m",91,2],
+["Lor peyniri",["Lor"],null,"m",90,2],
+["Labne",["Labne peyniri"],null,"m",88,2],
+["Parmesan",["Parmigiano"],null,"m",87,2],
+["Çeçil peyniri",["Çeçil","Cecil","Tel peynir"],null,"m",86,2],
+["Van otlu peyniri",["Otlu peynir"],null,"m",85,2],
+["Dil peyniri",["Dil"],null,"m",84,2],
+["Örgü peyniri",["Örgü","Orgu peyniri","Diyarbakır örgü peyniri"],null,"m",83,2],
+["Kars gravyeri",["Gravyer","Gravyer peyniri"],null,"m",82,2],
+["Krem peynir",["Sürülebilir peynir"],null,"m",81,2],
+["Mihaliç peyniri",["Mihaliç","Manyas peyniri","Kelle peyniri"],null,"m",79,2],
+["Gouda",["Guda peyniri"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

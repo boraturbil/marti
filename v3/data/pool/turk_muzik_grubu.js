@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["turk_muzik_grubu"]={id:"turk_muzik_grubu",asOf:"2026-11",closed:false,expect:null,yearKind:"kurulus",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Duman",["Duman Grubu"],1999,"m",99,6],
+["Mor ve Ötesi",["Mor ve Otesi","MVÖ"],1995,"m",98,6],
+["maNga",["Manga"],2001,"m",97,6],
+["MFÖ",["MFO","Mazhar Fuat Özkan"],1971,"m",96,7],
+["Athena",["Athena Grubu"],1987,"m",95,6],
+["Moğollar",["Mogollar"],1967,"m",93,6],
+["Yüksek Sadakat",["Yuksek Sadakat"],1997,"m",91,6],
+["Pinhani",["Pinhâni"],2004,"m",90,6],
+["Gripin",["Gripin Grubu"],1999,"m",89,6],
+["Seksendört",["Grup 84","Seksendort"],1999,"m",88,6],
+["Adamlar",["Adamlar Grubu"],2014,"m",87,6],
+["Yüzyüzeyken Konuşuruz",["Yuzyuzeyken Konusuruz"],2011,"m",86,6],
+["Dolu Kadehi Ters Tut",["DKTT"],2014,"m",85,6],
+["Model",["Model Grubu"],2005,"m",84,6],
+["Pentagram",["Mezarkabul"],1987,"m",83,6],
+["Kurban",["Kurban Grubu"],1995,"m",82,6],
+["Yeni Türkü",["Yeni Turku"],1977,"m",81,6],
+["Ezginin Günlüğü",["Ezginin Gunlugu"],1981,"m",80,6]
+]};})(typeof window!=='undefined'?window:globalThis);

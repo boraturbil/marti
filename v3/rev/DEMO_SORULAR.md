@@ -10,7 +10,7 @@ Toplam soru: **42**
 | 2 | `tr_il_01` | Bir tane TÜRKİYE İLİ söyle. | P | Kapalı | 81 | %8.6 | 0 | 0 | ✅ |
 | 3 | `ulke_01` | Bir tane ÜLKE söyle. | P | Kapalı | 195 | %100.0 | 0 | 0 | ✅ |
 | 4 | `baskent_01` | Bir tane BAŞKENT söyle. | P | Kapalı | 195 | %72.3 | 1 | 0 | ✅ |
-| 5 | `dunya_sehri_01` | Bir tane DÜNYA ŞEHRİ söyle. | P | Açık | 3602 | %54.1 | 652 | 18 | ✅ |
+| 5 | `dunya_sehri_01` | Bir tane DÜNYA ŞEHRİ söyle. | P | Açık | 3602 | %54.1 | 652 | 17 | ✅ |
 | 6 | `corba_01` | Bir tane ÇORBA söyle. | P | Açık | 142 | %0.0 | 15 | 0 | ✅ |
 | 7 | `kahvaltilik_01` | Bir tane KAHVALTILIK söyle. | P | Açık | 65 | %0.0 | 65 | 1 | ✅ |
 | 8 | `tatli_01` | Bir tane TATLI söyle. | P | Açık | 717 | %0.0 | 8 | 1 | ✅ |
@@ -21,7 +21,7 @@ Toplam soru: **42**
 | 13 | `spor_dali_01` | Bir tane SPOR DALI söyle. | P | Açık | 282 | %0.4 | 2 | 1 | ✅ |
 | 14 | `turk_markasi_01` | Bir tane TÜRK MARKASI söyle. | P | Açık | 116 | %96.6 | 18 | 0 | ✅ |
 | 15 | `tarayici_01` | Bir tane TARAYICI söyle. | B | Açık | 100 | %95.0 | 8 | 0 | ✅ |
-| 16 | `isletim_sistemi_01` | Bir tane İŞLETİM SİSTEMİ söyle. | B | Açık | 407 | %91.2 | 24 | 4 | ✅ |
+| 16 | `isletim_sistemi_01` | Bir tane İŞLETİM SİSTEMİ söyle. | B | Açık | 407 | %91.2 | 24 | 0 | ✅ |
 | 17 | `oyun_konsolu_01` | Bir tane OYUN KONSOLU söyle. | B | Açık | 250 | %91.6 | 20 | 0 | ✅ |
 | 18 | `prog_dili_01` | Bir tane PROGRAMLAMA DİLİ söyle. | B | Açık | 776 | %91.2 | 5 | 0 | ✅ |
 | 19 | `sosyal_medya_01` | Bir tane SOSYAL MEDYA PLATFORMU söyle. | B | Açık | 205 | %91.2 | 11 | 0 | ✅ |
@@ -34,7 +34,7 @@ Toplam soru: **42**
 | 26 | `turk_dizisi_01` | Bir tane TÜRK DİZİSİ söyle. | B | Açık | 540 | %91.9 | 3 | 0 | ✅ |
 | 27 | `sarki_01` | Bir tane ŞARKI söyle. | B | Açık | 927 | %99.0 | 27 | 0 | ✅ |
 | 28 | `super_lig_01` | Bir tane SÜPER LİG TAKIMI söyle. | B | Kapalı | 18 | %100.0 | 5 | 0 | ✅ |
-| 29 | `para_birimi_01` | Bir tane PARA BİRİMİ söyle. | B | Kapalı | 158 | %100.0 | 0 | 0 | ⚠️ |
+| 29 | `para_birimi_01` | Bir tane PARA BİRİMİ söyle. | B | Kapalı | 158 | %100.0 | 0 | 0 | ✅ |
 | 30 | `pixar_01` | Bir tane PIXAR FİLMİ söyle. | B | Kapalı | 30 | %100.0 | 1 | 0 | ✅ |
 | 31 | `element_01` | Bir tane ELEMENT söyle. | T | Kapalı | 118 | %100.0 | 0 | 0 | ✅ |
 | 32 | `gezegen_01` | Bir tane GEZEGEN veya CÜCE GEZEGEN söyle. | T | Kapalı | 13 | %100.0 | 13 | 0 | ✅ |
@@ -47,7 +47,7 @@ Toplam soru: **42**
 | 39 | `gunes_uydu_01` | Bir tane GÜNEŞ SİSTEMİ UYDUSU söyle. | T | Açık | 141 | %92.2 | 16 | 0 | ✅ |
 | 40 | `icat_01` | Bir tane İCAT söyle. | T | Açık | 123 | %100.0 | 123 | 1 | ✅ |
 | 41 | `sinan_yapisi_01` | Bir tane MİMAR SİNAN YAPISI söyle. | B | Açık | 74 | %100.0 | 13 | 0 | ✅ |
-| 42 | `ist_muze_01` | Bir tane İSTANBUL MÜZESİ söyle. | B | Açık | 81 | %100.0 | 19 | 1 | ✅ |
+| 42 | `ist_muze_01` | Bir tane İSTANBUL MÜZESİ söyle. | B | Açık | 81 | %100.0 | 19 | 0 | ✅ |
 
 ## Soru Detayları
 
@@ -106,7 +106,7 @@ Toplam soru: **42**
 - **Eksen:** `P`
 - **Küme Türü:** Kapalı | **expect:** 81 | **authority:** İçişleri Bakanlığı / TÜİK | **scope:** Türkiye'nin 81 ili (2026-11)
 - **Havuz:** `tr_il` (81 satır) | **Yıl kapsamı:** 7/81 (%8.6) | **Alias'lı satır:** 21/81 (%25.9)
-- **Kalite sayaçları:** Curated (`f&2`): **0** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **28**
+- **Kalite sayaçları:** Curated (`f&2`): **0** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **29**
 - **Kapalı küme tutarlılığı:** Evet (81 === 81)
 - **Invalid grupları:**
   - Örnek: Kadıköy, Çankaya — *Bu bir ilçedir, il değildir.*
@@ -200,8 +200,8 @@ Toplam soru: **42**
 - **Kategori:** `cografya` (Coğrafya)
 - **Eksen:** `P`
 - **Küme Türü:** Kapalı | **expect:** 195 | **authority:** BM / Vikiveri P36 | **scope:** 195 egemen ülkenin başkenti (2026-11)
-- **Havuz:** `baskent` (195 satır) | **Yıl kapsamı:** 141/195 (%72.3) | **Alias'lı satır:** 52/195 (%26.7)
-- **Kalite sayaçları:** Curated (`f&2`): **1** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **80**
+- **Havuz:** `baskent` (195 satır) | **Yıl kapsamı:** 141/195 (%72.3) | **Alias'lı satır:** 51/195 (%26.2)
+- **Kalite sayaçları:** Curated (`f&2`): **1** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **79**
 - **Kapalı küme tutarlılığı:** Evet (195 === 195)
 - **Invalid grupları:**
   - Örnek: İstanbul, New York — *Büyük bir şehir olsa da ülkesinin başkenti değildir.*
@@ -247,8 +247,8 @@ Toplam soru: **42**
 - **Kategori:** `cografya` (Coğrafya)
 - **Eksen:** `P`
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
-- **Havuz:** `dunya_sehri` (3602 satır) | **Yıl kapsamı:** 1949/3602 (%54.1) | **Alias'lı satır:** 929/3602 (%25.8)
-- **Kalite sayaçları:** Curated (`f&2`): **652** | Şüpheli alias (`f&8`): **18** satır | Toplam alias: **1355**
+- **Havuz:** `dunya_sehri` (3602 satır) | **Yıl kapsamı:** 1949/3602 (%54.1) | **Alias'lı satır:** 924/3602 (%25.7)
+- **Kalite sayaçları:** Curated (`f&2`): **652** | Şüpheli alias (`f&8`): **17** satır | Toplam alias: **1346**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Türkiye, Fransa — *Bu bir ülke adıdır, şehir değildir.*
@@ -295,7 +295,7 @@ Toplam soru: **42**
 - **Eksen:** `P`
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `corba` (142 satır) | **Yıl kapsamı:** 0/142 (%0.0) | **Alias'lı satır:** 39/142 (%27.5)
-- **Kalite sayaçları:** Curated (`f&2`): **15** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **58**
+- **Kalite sayaçları:** Curated (`f&2`): **15** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **57**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Pilav, Makarna — *Bu bir ana yemek veya hamur işidir, çorba değildir.*
@@ -478,8 +478,8 @@ Toplam soru: **42**
 - **Kategori:** `mutfak` (Mutfak)
 - **Eksen:** `P`
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
-- **Havuz:** `sebze` (389 satır) | **Yıl kapsamı:** 0/389 (%0.0) | **Alias'lı satır:** 134/389 (%34.4)
-- **Kalite sayaçları:** Curated (`f&2`): **6** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **268**
+- **Havuz:** `sebze` (389 satır) | **Yıl kapsamı:** 0/389 (%0.0) | **Alias'lı satır:** 133/389 (%34.2)
+- **Kalite sayaçları:** Curated (`f&2`): **6** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **267**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Elma, Muz — *Bu bir meyvedir, sebze değildir.*
@@ -758,7 +758,7 @@ Toplam soru: **42**
 - **Eksen:** `B` (yearKind: `ilk-genel-surum`)
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `isletim_sistemi` (407 satır) | **Yıl kapsamı:** 371/407 (%91.2) | **Alias'lı satır:** 180/407 (%44.2)
-- **Kalite sayaçları:** Curated (`f&2`): **24** | Şüpheli alias (`f&8`): **4** satır | Toplam alias: **358**
+- **Kalite sayaçları:** Curated (`f&2`): **24** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **356**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Chrome, Firefox — *Bu bir web tarayıcısıdır, işletim sistemi değildir.*
@@ -852,13 +852,13 @@ Toplam soru: **42**
 - **Eksen:** `B` (yearKind: `ilk-yayin`)
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `prog_dili` (776 satır) | **Yıl kapsamı:** 708/776 (%91.2) | **Alias'lı satır:** 223/776 (%28.7)
-- **Kalite sayaçları:** Curated (`f&2`): **5** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **337**
+- **Kalite sayaçları:** Curated (`f&2`): **5** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **336**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: İngilizce, Türkçe — *Bu bir doğal insan dilidir, programlama dili değildir.*
   - Örnek: Windows, Linux — *Bu bir işletim sistemi veya geliştirme aracıdır, programlama dili değildir.*
 - **Pay Top-10 (AI tahmini, agy-persona-2026-11):**
-  1. Python 3 (%16.94)
+  1. Python (%16.94)
   2. JavaScript (%15.05)
   3. Java (%11.76)
   4. C (%10.35)
@@ -946,7 +946,7 @@ Toplam soru: **42**
 - **Eksen:** `B` (yearKind: `ilk-yayin`)
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `video_oyunu` (4781 satır) | **Yıl kapsamı:** 4761/4781 (%99.6) | **Alias'lı satır:** 164/4781 (%3.4)
-- **Kalite sayaçları:** Curated (`f&2`): **7** | Şüpheli alias (`f&8`): **2** satır | Toplam alias: **205**
+- **Kalite sayaçları:** Curated (`f&2`): **7** | Şüpheli alias (`f&8`): **2** satır | Toplam alias: **203**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: PlayStation, Xbox — *Bu bir oyun konsoludur, video oyunu değildir.*
@@ -999,7 +999,7 @@ Toplam soru: **42**
   - Örnek: iPhone 15, Galaxy S24 — *Bu bir telefon modelidir, marka değildir.*
   - Örnek: Turkcell, Vodafone — *Bu bir GSM operatörüdür, telefon üreticisi değildir.*
 - **Pay Top-10 (AI tahmini, agy-persona-2026-11):**
-  1. Samsung Group (%34.93)
+  1. Samsung (%34.93)
   2. Honor (%17.96)
   3. Motorola (%13.97)
   4. BlackBerry (%9.98)
@@ -1040,7 +1040,7 @@ Toplam soru: **42**
 - **Eksen:** `B` (yearKind: `kurulus`)
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `otomobil_markasi` (1017 satır) | **Yıl kapsamı:** 960/1017 (%94.4) | **Alias'lı satır:** 373/1017 (%36.7)
-- **Kalite sayaçları:** Curated (`f&2`): **2** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **589**
+- **Kalite sayaçları:** Curated (`f&2`): **2** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **588**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Clio, Corolla — *Bu bir otomobil modelidir, marka değildir.*
@@ -1087,7 +1087,7 @@ Toplam soru: **42**
 - **Eksen:** `B` (yearKind: `kurulus`)
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `havayolu` (1305 satır) | **Yıl kapsamı:** 1205/1305 (%92.3) | **Alias'lı satır:** 572/1305 (%43.8)
-- **Kalite sayaçları:** Curated (`f&2`): **2** | Şüpheli alias (`f&8`): **1** satır | Toplam alias: **1149**
+- **Kalite sayaçları:** Curated (`f&2`): **2** | Şüpheli alias (`f&8`): **1** satır | Toplam alias: **1148**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Boeing, Airbus — *Bu bir uçak üreticisidir, havayolu şirketi değildir.*
@@ -1366,11 +1366,11 @@ Toplam soru: **42**
 - **Metin:** Bir tane PARA BİRİMİ söyle.
 - **Konu:** PARA BİRİMİ
 - **Kategori:** `marka` (Marka & Ekonomi)
-- **Eksen:** `B` (yearKind: `ilk-yayin`) — MISSING.md: beklenen 159, mevcut 158 (-1)
+- **Eksen:** `B` (yearKind: `ilk-yayin`)
 - **Küme Türü:** Kapalı | **expect:** 158 | **authority:** ISO 4217 / Vikiveri | **scope:** Bugün dünyada kullanılan resmi para birimleri (158)
-- **Havuz:** `para_birimi` (158 satır) | **Yıl kapsamı:** 158/158 (%100.0) | **Alias'lı satır:** 46/158 (%29.1)
-- **Kalite sayaçları:** Curated (`f&2`): **0** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **70**
-- **Kapalı küme tutarlılığı:** Evet (158 === 158) | MISSING.md: beklenen 159, mevcut 158, fark -1
+- **Havuz:** `para_birimi` (158 satır) | **Yıl kapsamı:** 158/158 (%100.0) | **Alias'lı satır:** 45/158 (%28.5)
+- **Kalite sayaçları:** Curated (`f&2`): **0** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **66**
+- **Kapalı küme tutarlılığı:** Evet (158 === 158)
 - **Invalid grupları:**
   - Örnek: Bitcoin, Ethereum — *Kripto para veya emtiadır, resmi ülke para birimi değildir.*
   - Örnek: Osmanlı lirası, Fransız frangı — *Artık tedavülde olmayan eski para birimidir.*
@@ -1872,7 +1872,7 @@ Toplam soru: **42**
 - **Eksen:** `B` (yearKind: `kurulus`)
 - **Küme Türü:** Açık | **expect:** yok | **authority:** yok | **scope:** yok
 - **Havuz:** `ist_muze` (81 satır) | **Yıl kapsamı:** 81/81 (%100.0) | **Alias'lı satır:** 30/81 (%37.0)
-- **Kalite sayaçları:** Curated (`f&2`): **19** | Şüpheli alias (`f&8`): **1** satır | Toplam alias: **69**
+- **Kalite sayaçları:** Curated (`f&2`): **19** | Şüpheli alias (`f&8`): **0** satır | Toplam alias: **69**
 - **Kapalı küme tutarlılığı:** Açık küme (uygulanmaz)
 - **Invalid grupları:**
   - Örnek: Anıtkabir, Anadolu Medeniyetleri Müzesi — *Bu müze İstanbul dışında bir ildedir.*
@@ -1917,6 +1917,4 @@ Toplam: **42** havuz, **24978** satır, **1323.33 KB** ham, **452.92 KB** gzip (
 
 ## Kapalı Kümelerdeki Eksik / Fazla Listesi (MISSING.md)
 
-| Havuz | Beklenen | Mevcut | Fark |
-|---|---:|---:|---:|
-| para_birimi | 159 | 158 | -1 |
+MISSING.md içinde eksik veya fazla bildirilen kapalı küme yok.

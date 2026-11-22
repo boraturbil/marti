@@ -136,7 +136,7 @@
     ["Yayla çorbası",["Yoğurt Çorbası","Yayla","Yoğurt"],null,"tr:Yayla çorbası",0,0],
     ["Hazır erişte",[],null,"tr:Hazır erişte",0,0],
     ["Domates çorbası",["Domates"],null,"m",0,2],
-    ["Tavuk suyu çorbası",["Tavuk suyu","Tavuk çorbası"],null,"m",0,2],
+    ["Tavuk suyu çorbası",["Tavuk suyu"],null,"m",0,2],
     ["Kelle paça çorbası",["Kelle paça"],null,"m",0,2],
     ["Şehriye çorbası",["Şehriye"],null,"m",0,2],
     ["Mantar çorbası",["Mantar"],null,"m",0,2],

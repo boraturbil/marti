@@ -174,6 +174,7 @@
     lastResult: null,
     pendingConfirm: null,
     lastRawInput: '',
+    triedInputs: Object.create(null),
     lastReportKind: 'none',
     hasNoneThisQuestion: false,
     eraId: 'simdi',
@@ -872,6 +873,7 @@
     state.question = q;
     state.pendingConfirm = null;
     state.lastRawInput = '';
+    state.triedInputs = Object.create(null);
     state.hasNoneThisQuestion = false;
     state.locked = false;
 
@@ -1324,8 +1326,13 @@
       bus.emit('menu:focus', { modeId: modeId });
     },
     submit: function (text) {
-      if (state.phase !== 'question' || state.locked) return;
+      if (state.phase !== 'question' || state.locked || state.pendingConfirm) return;
       var raw = String(text || '').trim();
+      var tryKey = normText(raw) || raw.toLocaleLowerCase('tr-TR');
+      if (!tryKey) return;
+      var nowT = Date.now();
+      if (state.triedInputs && state.triedInputs[tryKey] && nowT - state.triedInputs[tryKey] < 700) return; // çift tetik
+      if (state.triedInputs) state.triedInputs[tryKey] = nowT;
       state.lastRawInput = raw;
       if (raw.length < 2) {
         bus.emit('answer:invalid', { raw: raw, reason: 'En az 2 karakter yaz.' });

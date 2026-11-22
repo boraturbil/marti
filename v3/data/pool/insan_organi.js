@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["insan_organi"]={id:"insan_organi",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Kalp",["Yürek"],null,"m",99,2],
+["Beyin",["Cerebrum"],null,"m",98,2],
+["Akciğer",["Akciger"],null,"m",96,2],
+["Karaciğer",["Karaciger"],null,"m",95,2],
+["Böbrek",["Bobrek","Böbrekler"],null,"m",94,2],
+["Mide",["Karın"],null,"m",93,2],
+["Göz",["Goz","Gözler"],null,"m",91,2],
+["Deri",["Cilt","Ten"],null,"m",89,2],
+["İnce bağırsak",["Bağırsak","Bagirsak"],null,"m",88,2],
+["Kalın bağırsak",["Kolon"],null,"m",86,2],
+["Kulak",["Kulaklar"],null,"m",85,2],
+["Pankreas",["Pankreas bezi"],null,"m",84,2],
+["Dalak",["Dalak organı"],null,"m",82,2],
+["Dil",["Dil organı"],null,"m",80,2],
+["Burun",["Koklama organı"],null,"m",79,2],
+["Safra kesesi",["Öd kesesi"],null,"m",77,2],
+["Mesane",["İdrar kesesi","Idrar kesesi"],null,"m",75,2],
+["Tiroid bezi",["Tiroid","Tiroit"],null,"m",74,2]
+]};})(typeof window!=='undefined'?window:globalThis);

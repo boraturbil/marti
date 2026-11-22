@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["dag"]={id:"dag",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Everest",["Everest Dağı","Chomolungma"],null,"m",99,2],
+["Ağrı Dağı",["Ağrı","Agri Dagi","Büyük Ağrı"],null,"m",98,2],
+["Uludağ",["Uludag","Keşiş Dağı"],null,"m",97,2],
+["Erciyes Dağı",["Erciyes"],null,"m",96,2],
+["Kaçkar Dağı",["Kaçkarlar","Kaçkar","Kackar Dagi"],null,"m",94,2],
+["Süphan Dağı",["Süphan","Suphan Dagi"],null,"m",92,2],
+["Nemrut Dağı",["Nemrut"],null,"m",91,2],
+["Palandöken",["Palandöken Dağı","Palandoken"],null,"m",90,2],
+["Hasan Dağı",["Hasandağı","Hasan Dagi"],null,"m",88,2],
+["Kazdağı",["Kaz Dağları","İda Dağı","Kazdagi"],null,"m",87,2],
+["Ilgaz Dağı",["Ilgaz"],null,"m",86,2],
+["K2",["Godwin-Austen","K2 Dağı"],null,"m",85,2],
+["Kilimanjaro",["Kilimanjaro Dağı"],null,"m",84,2],
+["Fuji Dağı",["Fuji","Fujiyama"],null,"m",83,2],
+["Toros Dağları",["Toroslar"],null,"m",82,2],
+["Mont Blanc",["Mont Blanc Dağı"],null,"m",80,2],
+["Cilo Dağı",["Cilo","Buzul Dağı"],null,"m",79,2],
+["Olimpos Dağı",["Olympos","Olimpos"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

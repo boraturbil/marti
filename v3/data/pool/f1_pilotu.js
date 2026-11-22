@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["f1_pilotu"]={id:"f1_pilotu",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Michael Schumacher",["Schumacher","Schumi"],null,"m",99,2],
+["Lewis Hamilton",["Hamilton"],null,"m",98,2],
+["Max Verstappen",["Verstappen"],null,"m",97,2],
+["Ayrton Senna",["Senna"],null,"m",96,2],
+["Fernando Alonso",["Alonso"],null,"m",95,2],
+["Sebastian Vettel",["Vettel"],null,"m",94,2],
+["Charles Leclerc",["Leclerc"],null,"m",92,2],
+["Kimi Räikkönen",["Raikkonen","Kimi Raikkonen","Räikkönen"],null,"m",91,2],
+["Niki Lauda",["Lauda"],null,"m",90,2],
+["Alain Prost",["Prost"],null,"m",89,2],
+["Lando Norris",["Norris"],null,"m",88,2],
+["Mika Häkkinen",["Hakkinen","Mika Hakkinen","Häkkinen"],null,"m",87,2],
+["Nico Rosberg",["Rosberg"],null,"m",85,2],
+["Carlos Sainz",["Sainz"],null,"m",84,2],
+["George Russell",["Russell"],null,"m",83,2],
+["Sergio Pérez",["Sergio Perez","Perez","Checo Perez"],null,"m",82,2],
+["Jenson Button",["Button"],null,"m",81,2],
+["Juan Manuel Fangio",["Fangio"],null,"m",80,2]
+]};})(typeof window!=='undefined'?window:globalThis);

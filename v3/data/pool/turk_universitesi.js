@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["turk_universitesi"]={id:"turk_universitesi",asOf:"2026-11",closed:false,expect:null,yearKind:"kurulus",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Orta Doğu Teknik Üniversitesi",["ODTÜ","ODTU","METU"],1956,"m",98,6],
+["Boğaziçi Üniversitesi",["Boğaziçi","Bogazici","BOÜN"],1971,"m",96,6],
+["İstanbul Teknik Üniversitesi",["İTÜ","ITU","Teknik Üniversite"],1773,"m",95,7],
+["İstanbul Üniversitesi",["İÜ","Darülfünun"],1933,"m",94,6],
+["Hacettepe Üniversitesi",["Hacettepe"],1967,"m",92,6],
+["Ankara Üniversitesi",["AÜ","Ankara Üni"],1946,"m",90,6],
+["Bilkent Üniversitesi",["Bilkent","İhsan Doğramacı Bilkent"],1984,"m",89,6],
+["Koç Üniversitesi",["Koç Üni","Koc Universitesi"],1993,"m",88,6],
+["Ege Üniversitesi",["Ege Üni"],1955,"m",87,6],
+["Gazi Üniversitesi",["Gazi Üni"],1926,"m",86,6],
+["Marmara Üniversitesi",["Marmara Üni"],1982,"m",85,6],
+["Yıldız Teknik Üniversitesi",["YTÜ","YTU","Yıldız Teknik"],1911,"m",84,6],
+["Sabancı Üniversitesi",["Sabancı Üni","Sabanci Universitesi"],1999,"m",83,6],
+["Galatasaray Üniversitesi",["GSÜ","GSU","Galatasaray Üni"],1992,"m",82,6],
+["Anadolu Üniversitesi",["Anadolu Üni","AÖF"],1958,"m",81,6],
+["Dokuz Eylül Üniversitesi",["DEÜ","DEU","Dokuz Eylül"],1982,"m",80,6],
+["Atatürk Üniversitesi",["Atatürk Üni","Ataturk Universitesi"],1957,"m",78,6],
+["Karadeniz Teknik Üniversitesi",["KTÜ","KTU","Karadeniz Teknik"],1955,"m",77,6]
+]};})(typeof window!=='undefined'?window:globalThis);

@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["bilgisayar_donanimi"]={id:"bilgisayar_donanimi",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["İşlemci",["CPU","Islemci","Merkezi işlem birimi"],null,"m",99,2],
+["Ekran kartı",["GPU","Ekran karti","Grafik kartı"],null,"m",98,2],
+["Anakart",["Mainboard","Motherboard","Ana kart"],null,"m",97,2],
+["RAM",["Bellek","Rastgele erişimli bellek"],null,"m",96,2],
+["SSD",["Katı hal sürücüsü"],null,"m",95,2],
+["Sabit disk",["Hard disk","HDD","Harddisk"],null,"m",94,2],
+["Klavye",["Keyboard"],null,"m",93,2],
+["Fare",["Mouse","Bilgisayar faresi"],null,"m",92,2],
+["Monitör",["Monitor","Bilgisayar ekranı","Ekran"],null,"m",91,2],
+["Güç kaynağı",["PSU","Guc kaynagi","Power supply"],null,"m",90,2],
+["Bilgisayar kasası",["Kasa","PC kasası"],null,"m",88,2],
+["Soğutucu fan",["Fan","İşlemci soğutucu","Sıvı soğutma"],null,"m",87,2],
+["Ses kartı",["Ses karti"],null,"m",85,2],
+["Ağ kartı",["Ethernet kartı","Wi-Fi kartı","Ag karti"],null,"m",84,2],
+["Kulaklık",["Kulaklik","Headset"],null,"m",83,2],
+["Hoparlör",["Hoparlor","Speaker"],null,"m",82,2],
+["USB bellek",["Flash bellek","Flaş bellek"],null,"m",81,2],
+["Yazıcı",["Yazici","Printer"],null,"m",80,2]
+]};})(typeof window!=='undefined'?window:globalThis);

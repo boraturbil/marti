@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["antik_uygarlik"]={id:"antik_uygarlik",asOf:"2026-11",closed:false,expect:null,yearKind:"kurulus",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Osmanlı İmparatorluğu",["Osmanlı","Osmanli","Osmanlı Devleti"],1299,"m",99,6],
+["Roma İmparatorluğu",["Roma","Antik Roma"],-27,"m",98,6],
+["Sümerler",["Sümer","Sumerler"],-4000,"m",97,7],
+["Hititler",["Hitit İmparatorluğu","Hitit"],-1600,"m",96,7],
+["Bizans İmparatorluğu",["Bizans","Doğu Roma"],395,"m",95,6],
+["Büyük Selçuklu Devleti",["Selçuklu","Selçuklular","Büyük Selçuklu"],1037,"m",94,6],
+["Göktürk Kağanlığı",["Göktürkler","Gokturkler","Köktürkler"],552,"m",93,6],
+["Antik Mısır",["Mısır Uygarlığı","Eski Mısır"],-3100,"m",92,7],
+["Büyük Hun İmparatorluğu",["Asya Hun Devleti","Hunlar"],-220,"m",91,7],
+["Moğol İmparatorluğu",["Moğollar","Mogol Imparatorlugu"],1206,"m",90,6],
+["Anadolu Selçuklu Devleti",["Türkiye Selçuklu Devleti","Anadolu Selçuklu"],1077,"m",89,6],
+["Antik Yunan",["Yunan Uygarlığı","Eski Yunan"],-800,"m",88,7],
+["Babiller",["Babil","Babil İmparatorluğu"],-1894,"m",87,7],
+["Urartular",["Urartu"],-860,"m",86,7],
+["Frigler",["Frigya","Frig"],-750,"m",85,7],
+["Lidyalılar",["Lidya"],-680,"m",84,7],
+["Pers İmparatorluğu",["Persler","Ahameniş İmparatorluğu"],-550,"m",83,7],
+["Asurlular",["Asur","Asur İmparatorluğu"],-2025,"m",82,7]
+]};})(typeof window!=='undefined'?window:globalThis);

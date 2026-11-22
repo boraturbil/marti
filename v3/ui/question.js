@@ -333,7 +333,7 @@
         if (tag === 'BUTTON' && e.target.closest && !e.target.closest('.res-acts')) return;
         e.preventDefault(); U.act('next'); return;
       }
-      if (st.sub === 'input' && enter && tag !== 'BUTTON') { e.preventDefault(); submit(); }
+      if (st.sub === 'input' && enter && !e.repeat && tag !== 'BUTTON') { e.preventDefault(); submit(); }
     },
     events: {
       'app:ready': function (d) { st.asOf = d && d.asOf; },

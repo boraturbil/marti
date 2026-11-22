@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["spor_ekipmani"]={id:"spor_ekipmani",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Futbol topu",["Top","Meşin yuvarlak"],null,"m",98,2],
+["Tenis raketi",["Raket"],null,"m",96,2],
+["Dambıl",["Dambil","Dumbbell","El ağırlığı"],null,"m",94,2],
+["Basketbol topu",["Basket topu"],null,"m",92,2],
+["Boks eldiveni",["Eldiven"],null,"m",90,2],
+["Krampon",["Futbol ayakkabısı"],null,"m",89,2],
+["Halter",["Halter barı","Ağırlık barı"],null,"m",87,2],
+["Atlama ipi",["İp","Kardiyo ipi"],null,"m",86,2],
+["Koşu bandı",["Kosu bandi"],null,"m",85,2],
+["Voleybol topu",["Voleybol filesi","File"],null,"m",84,2],
+["Masa tenisi raketi",["Pinpon raketi","Ping pong raketi"],null,"m",82,2],
+["Kayak takımı",["Kayak","Kar kayağı"],null,"m",80,2],
+["Buz pateni",["Paten","Tekerlekli paten"],null,"m",79,2],
+["Sörf tahtası",["Sorf tahtasi"],null,"m",78,2],
+["Golf sopası",["Golf kulübü"],null,"m",76,2],
+["Ok ve yay",["Yay","Okçuluk yayı"],null,"m",75,2],
+["Beyzbol sopası",["Beyzbol eldiveni"],null,"m",74,2],
+["Yüzücü gözlüğü",["Deniz gözlüğü","Bone"],null,"m",73,2]
+]};})(typeof window!=='undefined'?window:globalThis);

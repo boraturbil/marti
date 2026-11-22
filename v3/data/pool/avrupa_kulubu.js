@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["avrupa_kulubu"]={id:"avrupa_kulubu",asOf:"2026-11",closed:false,expect:null,yearKind:"kurulus",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Real Madrid",["Real Madrid CF"],1902,"m",99,6],
+["Barcelona",["FC Barcelona","Barça","Barca"],1899,"m",98,6],
+["Manchester United",["Man United","Man Utd"],1878,"m",97,6],
+["Liverpool",["Liverpool FC"],1892,"m",96,6],
+["Bayern Münih",["Bayern Munich","FC Bayern","Bayern"],1900,"m",95,6],
+["Manchester City",["Man City"],1880,"m",94,6],
+["Galatasaray",["Galatasaray SK","Cimbom"],1905,"m",93,6],
+["Fenerbahçe",["Fenerbahce","Fenerbahçe SK"],1907,"m",92,6],
+["Juventus",["Juve","Juventus FC"],1897,"m",91,6],
+["Milan",["AC Milan"],1899,"m",90,6],
+["Arsenal",["Arsenal FC"],1886,"m",89,6],
+["Chelsea",["Chelsea FC"],1905,"m",88,6],
+["Inter",["Inter Milan","Internazionale"],1908,"m",87,6],
+["Paris Saint-Germain",["PSG","Paris SG"],1970,"m",86,6],
+["Beşiktaş",["Besiktas","Beşiktaş JK"],1903,"m",85,6],
+["Borussia Dortmund",["Dortmund","BVB"],1909,"m",84,6],
+["Atlético Madrid",["Atletico Madrid","Atletico"],1903,"m",83,6],
+["Ajax",["AFC Ajax","Amsterdam Ajax"],1900,"m",82,6]
+]};})(typeof window!=='undefined'?window:globalThis);

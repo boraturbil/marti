@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["muzik_aleti"]={id:"muzik_aleti",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Gitar",["Akustik gitar","Elektro gitar","Klasik gitar"],null,"m",99,2],
+["Piyano",["Kuyruklu piyano"],null,"m",98,2],
+["Keman",["Violin"],null,"m",97,2],
+["Bağlama",["Saz","Baglama","Çöğür"],null,"m",96,2],
+["Bateri",["Davul seti"],null,"m",94,2],
+["Flüt",["Flut","Yan flüt","Blokflüt"],null,"m",93,2],
+["Ney",["Ney çalgısı"],null,"m",92,2],
+["Klarnet",["Gırnata"],null,"m",91,2],
+["Ud",["Ut"],null,"m",90,2],
+["Kanun",["Kanun çalgısı"],null,"m",89,2],
+["Çello",["Viyolonsel","Cello"],null,"m",88,2],
+["Darbuka",["Dümbelek"],null,"m",87,2],
+["Saksafon",["Saksofon"],null,"m",86,2],
+["Kemençe",["Kemence","Karadeniz kemençesi"],null,"m",85,2],
+["Trompet",["Borazan"],null,"m",84,2],
+["Davul",["Asma davul"],null,"m",83,2],
+["Zurna",["Kaba zurna"],null,"m",82,2],
+["Akordeon",["Akordiyon"],null,"m",81,2]
+]};})(typeof window!=='undefined'?window:globalThis);

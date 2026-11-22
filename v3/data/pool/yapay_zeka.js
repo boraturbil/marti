@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["yapay_zeka"]={id:"yapay_zeka",asOf:"2026-11",closed:false,expect:null,yearKind:"ilk-yayin",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["ChatGPT",["GPT-4","GPT","OpenAI ChatGPT"],2022,"m",99,6],
+["Gemini",["Google Gemini","Bard"],2023,"m",97,6],
+["Claude",["Anthropic Claude"],2023,"m",95,6],
+["Copilot",["Microsoft Copilot","GitHub Copilot"],2021,"m",93,6],
+["Midjourney",["Midjourney AI"],2022,"m",92,6],
+["DeepSeek",["DeepSeek R1"],2023,"m",91,6],
+["DALL-E",["DALLE","DALL-E 3"],2021,"m",90,6],
+["Siri",["Apple Siri"],2011,"m",89,6],
+["Grok",["xAI Grok"],2023,"m",88,6],
+["Perplexity",["Perplexity AI"],2022,"m",87,6],
+["Sora",["OpenAI Sora"],2024,"m",86,6],
+["Stable Diffusion",["Stability AI"],2022,"m",85,6],
+["LLaMA",["Meta LLaMA","Llama 3"],2023,"m",84,6],
+["Alexa",["Amazon Alexa"],2014,"m",82,6],
+["Google Asistan",["Google Assistant"],2016,"m",81,6],
+["Mistral",["Mistral AI"],2023,"m",80,6],
+["Suno",["Suno AI"],2023,"m",79,6],
+["Cursor",["Cursor AI"],2023,"m",78,6]
+]};})(typeof window!=='undefined'?window:globalThis);

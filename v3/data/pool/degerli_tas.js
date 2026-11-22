@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["degerli_tas"]={id:"degerli_tas",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Elmas",["Pırlanta","Pirlanta"],null,"m",99,2],
+["Zümrüt",["Zumrut"],null,"m",97,2],
+["Yakut",["Ruby"],null,"m",96,2],
+["Safir",["Gök yakut"],null,"m",95,2],
+["Ametist",["Mor kuvars"],null,"m",92,2],
+["Kuvars",["Kristal kuvars","Pembe kuvars"],null,"m",90,2],
+["Kehribar",["Amber"],null,"m",89,2],
+["İnci",["Inci"],null,"m",88,2],
+["Turkuaz",["Firuze","Türk taşı"],null,"m",87,2],
+["Akik",["Agat"],null,"m",85,2],
+["Opal",["Opal taşı"],null,"m",84,2],
+["Topaz",["Topaz taşı"],null,"m",82,2],
+["Obsidyen",["Obsidiyen","Volkan camı"],null,"m",81,2],
+["Yeşim",["Yesim","Yeşim taşı","Jade"],null,"m",80,2],
+["Oltutaşı",["Oltu taşı","Oltu tasi"],null,"m",79,2],
+["Lületaşı",["Lüle taşı","Lule tasi"],null,"m",78,2],
+["Lapis lazuli",["Lacivert taşı"],null,"m",76,2],
+["Akuamarin",["Aquamarine"],null,"m",75,2]
+]};})(typeof window!=='undefined'?window:globalThis);

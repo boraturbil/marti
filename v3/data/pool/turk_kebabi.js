@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["turk_kebabi"]={id:"turk_kebabi",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Adana kebabı",["Adana kebap","Adana"],null,"m",99,2],
+["İskender kebap",["İskender","Iskender","Bursa kebabı"],null,"m",98,2],
+["Döner",["Et döner","Yaprak döner","Doner"],null,"m",97,2],
+["Urfa kebabı",["Urfa kebap","Urfa"],null,"m",95,2],
+["Beyti",["Beyti kebabı","Beyti sarma"],null,"m",93,2],
+["Cağ kebabı",["Cag kebabi","Erzurum cağ kebabı"],null,"m",92,2],
+["İnegöl köfte",["İnegöl köftesi","Inegol kofte"],null,"m",90,2],
+["Ali Nazik kebabı",["Ali Nazik","Alinazik"],null,"m",89,2],
+["Şiş kebap",["Kuzu şiş","Çöp şiş","Sis kebap"],null,"m",88,2],
+["Çökertme kebabı",["Çökertme","Cokertme","Bodrum kebabı"],null,"m",87,2],
+["Tantuni",["Mersin tantuni"],null,"m",86,2],
+["Hünkarbeğendi",["Hünkar beğendi","Hunkarbegendi"],null,"m",85,2],
+["Patlıcanlı kebap",["Patlıcan kebabı","Patlican kebabi"],null,"m",84,2],
+["Ciğer kebabı",["Ciğer şiş","Ciger kebabi","Cartlak kebabı"],null,"m",82,2],
+["Testi kebabı",["Çömlek kebabı"],null,"m",81,2],
+["Kokoreç",["Kokorec"],null,"m",80,2],
+["Kuzu tandır",["Tandır kebabı","Tandir"],null,"m",79,2],
+["Sac kavurma",["Çoban kavurma","Kavurma"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

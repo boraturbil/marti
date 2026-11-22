@@ -11,7 +11,7 @@
     ["Ayasofya",["Aya Sofya","Ayasofya Bazilikası","Ayasofya Camii","Ayasofya Katedrali","Ayasofya Kilisesi","Ayasofya Müzesi","Ayasofya-i Kebir Camii","Azize Sofya Kilisesi","Büyük Ayasofya Camii","Kalın Minareler","Kutsal Bilgelik Kilisesi"],532,"Q12506",152,5],
     ["Topkapı Sarayı",["Saray-ı Cedide-i Amire","Saray-ı Hümayun","Topkapı Müzesi","Topkapı Sarayı Müzesi"],1460,"Q170495",79,4],
     ["Galata Kulesi",[],1349,"Q91274",58,4],
-    ["Kariye Camii",["Hora Kilisesi","Hora Manastırı","Kariye Kilisesi","Khora Kilisesi"],1001,"Q849489",45,12],
+    ["Kariye Camii",["Hora Kilisesi","Hora Manastırı","Kariye Kilisesi","Khora Kilisesi"],1001,"Q849489",45,4],
     ["Rumeli Hisarı",["Boğazkesen Hisarı","Kulle-i Cedide","Yenice Hisar"],1451,"Q90801",35,4],
     ["Anadolu Hisarı",["Yenihisar","Akçahisar","Yenicehisar","Anadolu Hisarı Kalesi","Gözlücehisar","Güzelce Hisar"],1393,"Q81650",33,4],
     ["Fethiye Camii",["Fethiye Müzesi","Fethiye Cami","Fethiye Camisi","Pammakaristos Kilisesi","Pammakaristos Manastırı"],1100,"Q1420984",31,4],

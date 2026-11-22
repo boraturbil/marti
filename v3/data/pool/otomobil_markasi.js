@@ -380,7 +380,7 @@
     ["Mosler Automotive",[],1985,"Q1806804",12,4],
     ["Oyak-Renault",[],1969,"Q1854061",12,4],
     ["Singer Motors",["Singer"],1875,"Q2001596",12,4],
-    ["Peugeot Sport",["Marlboro Peugeot Total","Peugeot Talbot Sport","Peugeot"],1981,"Q2055791",12,4],
+    ["Peugeot Sport",["Marlboro Peugeot Total","Peugeot Talbot Sport"],1981,"Q2055791",12,4],
     ["FAW Tianjin",[],1997,"Q2285090",12,4],
     ["Mercedes",["Mercedes brand"],1902,"Q2372729",12,4],
     ["Magyar Suzuki",["Magyar Suzuki Corporation"],1991,"Q262381",12,4],

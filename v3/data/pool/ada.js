@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["ada"]={id:"ada",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Kıbrıs",["Kibris","Kıbrıs Adası"],null,"m",99,2],
+["Büyükada",["Buyukada"],null,"m",97,2],
+["Gökçeada",["Gokceada","İmroz"],null,"m",96,2],
+["Bozcaada",["Tenedos"],null,"m",95,2],
+["Girit",["Girit Adası","Crete"],null,"m",93,2],
+["Grönland",["Gronland","Greenland"],null,"m",92,2],
+["Heybeliada",["Heybeli"],null,"m",91,2],
+["Rodos",["Rodos Adası"],null,"m",90,2],
+["Madagaskar",["Madagaskar Adası"],null,"m",89,2],
+["Sicilya",["Sicilya Adası"],null,"m",88,2],
+["İzlanda",["Izlanda","İzlanda Adası"],null,"m",86,2],
+["Küba",["Kuba","Küba Adası"],null,"m",85,2],
+["Burgazada",["Burgaz Adası"],null,"m",84,2],
+["Kınalıada",["Kinaliada"],null,"m",83,2],
+["Büyük Britanya",["Britanya Adası"],null,"m",82,2],
+["Bali",["Bali Adası"],null,"m",81,2],
+["Korsika",["Korsika Adası"],null,"m",79,2],
+["Sardinya",["Sardunya"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

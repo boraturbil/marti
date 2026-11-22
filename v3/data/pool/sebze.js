@@ -165,7 +165,7 @@
     ["Hasır otu",["Phragamines","Typha","Hasırotu"],null,"tr:Hasır otu",0,0],
     ["Havuç",[],null,"tr:Havuç",0,0],
     ["Hedysarum alpinum",[],null,"tr:Hedysarum alpinum",0,0],
-    ["Kereviz kökü",["Kereviz"],null,"tr:Kereviz kökü",0,0],
+    ["Kereviz kökü",[],null,"tr:Kereviz kökü",0,0],
     ["Manyok",["Manihot esculenta","Cassava"],null,"tr:Manyok",0,0],
     ["Melocan",[],null,"tr:Melocan",0,0],
     ["Patates",["Solanum tuberosum","çisil"],null,"tr:Patates",0,0],

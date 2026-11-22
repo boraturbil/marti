@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["nehir"]={id:"nehir",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Nil",["Nil Nehri"],null,"m",99,2],
+["Amazon",["Amazon Nehri"],null,"m",98,2],
+["Fırat",["Fırat Nehri","Firat"],null,"m",97,2],
+["Dicle",["Dicle Nehri"],null,"m",96,2],
+["Kızılırmak",["Kızılırmak Nehri","Kizilirmak"],null,"m",95,2],
+["Yeşilırmak",["Yeşilırmak Nehri","Yesilirmak"],null,"m",93,2],
+["Sakarya Nehri",["Sakarya Irmağı","Sakarya"],null,"m",92,2],
+["Tuna",["Tuna Nehri","Danube"],null,"m",91,2],
+["Meriç",["Meriç Nehri","Meric"],null,"m",89,2],
+["Mississippi",["Mississippi Nehri"],null,"m",88,2],
+["Ganj",["Ganj Nehri","Ganges"],null,"m",87,2],
+["Ren",["Ren Nehri","Rhine"],null,"m",86,2],
+["Volga",["Volga Nehri","İdil Nehri"],null,"m",85,2],
+["Seyhan",["Seyhan Nehri"],null,"m",84,2],
+["Ceyhan",["Ceyhan Nehri"],null,"m",83,2],
+["Büyük Menderes",["Buyuk Menderes","Menderes Nehri"],null,"m",82,2],
+["Gediz",["Gediz Nehri"],null,"m",81,2],
+["Çoruh",["Çoruh Nehri","Coruh"],null,"m",80,2]
+]};})(typeof window!=='undefined'?window:globalThis);

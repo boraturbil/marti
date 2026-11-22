@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["deniz_okyanus"]={id:"deniz_okyanus",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Akdeniz",["Mediterranean"],null,"m",99,2],
+["Karadeniz",["Black Sea"],null,"m",98,2],
+["Ege Denizi",["Ege","Adalar Denizi"],null,"m",97,2],
+["Marmara Denizi",["Marmara"],null,"m",96,2],
+["Büyük Okyanus",["Pasifik Okyanusu","Pasifik","Buyuk Okyanus"],null,"m",95,2],
+["Atlas Okyanusu",["Atlantik Okyanusu","Atlantik"],null,"m",94,2],
+["Hint Okyanusu",["Hint Denizi"],null,"m",92,2],
+["Kızıldeniz",["Kizildeniz","Kızıl Deniz"],null,"m",90,2],
+["Hazar Denizi",["Hazar"],null,"m",88,2],
+["Kuzey Buz Denizi",["Arktik Okyanusu","Kuzey Okyanusu"],null,"m",87,2],
+["Baltık Denizi",["Baltık","Baltik Denizi"],null,"m",85,2],
+["Kuzey Denizi",["North Sea"],null,"m",84,2],
+["Adriyatik Denizi",["Adriyatik"],null,"m",83,2],
+["Karayip Denizi",["Karayipler Denizi"],null,"m",82,2],
+["Güney Okyanusu",["Antarktika Okyanusu","Guney Okyanusu"],null,"m",80,2],
+["Umman Denizi",["Arap Denizi"],null,"m",79,2],
+["Japon Denizi",["Doğu Denizi"],null,"m",78,2],
+["Manş Denizi",["Manş","Mans Denizi"],null,"m",77,2]
+]};})(typeof window!=='undefined'?window:globalThis);

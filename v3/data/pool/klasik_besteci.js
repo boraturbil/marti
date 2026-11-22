@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["klasik_besteci"]={id:"klasik_besteci",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Wolfgang Amadeus Mozart",["Mozart"],null,"m",99,2],
+["Ludwig van Beethoven",["Beethoven","Bethoven"],null,"m",98,2],
+["Johann Sebastian Bach",["Bach"],null,"m",97,2],
+["Frédéric Chopin",["Chopin","Şopen","Frederic Chopin"],null,"m",95,2],
+["Antonio Vivaldi",["Vivaldi"],null,"m",94,2],
+["Pyotr İliç Çaykovski",["Çaykovski","Caykovski","Tchaikovsky"],null,"m",93,2],
+["Fazıl Say",["Fazil Say"],null,"m",91,2],
+["Franz Schubert",["Schubert","Şubert"],null,"m",89,2],
+["Johannes Brahms",["Brahms"],null,"m",88,2],
+["Richard Wagner",["Wagner"],null,"m",87,2],
+["Giuseppe Verdi",["Verdi"],null,"m",86,2],
+["Franz Liszt",["Liszt"],null,"m",85,2],
+["Claude Debussy",["Debussy"],null,"m",84,2],
+["Georg Friedrich Händel",["Handel","Händel"],null,"m",82,2],
+["Joseph Haydn",["Haydn"],null,"m",81,2],
+["Sergei Rahmaninov",["Rahmaninov","Rachmaninoff"],null,"m",80,2],
+["Robert Schumann",["Schumann"],null,"m",79,2],
+["Gustav Mahler",["Mahler"],null,"m",78,2]
+]};})(typeof window!=='undefined'?window:globalThis);

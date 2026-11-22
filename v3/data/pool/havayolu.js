@@ -302,7 +302,7 @@
     ["Sunclass Airlines",["VKG"],2008,"Q1190358",22,4],
     ["Wamos Air",["Air pullmantur","Wamos","Wamos Air Spain","Wamos Airline","Wamos Airlines"],2003,"Q1199911",22,4],
     ["Emirates SkyCargo",[],1985,"Q1317487",22,4],
-    ["ASL Airlines France",["ASL France","Europe Airpost","FPO","Intercargo Service","InterCiel Services","L'Aeropostale"],2015,"Q1376268",22,4],
+    ["ASL Airlines France",["ASL France","Europe Airpost","FPO","Intercargo Service","InterCiel Services"],2015,"Q1376268",22,4],
     ["Chengdu Airlines",[],2004,"Q1587837",22,4],
     ["Iberia Express",[],2011,"Q1655820",22,4],
     ["US-Bangla Airlines",[],2013,"Q17071713",22,4],

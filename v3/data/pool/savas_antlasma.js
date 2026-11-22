@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["savas_antlasma"]={id:"savas_antlasma",asOf:"2026-11",closed:false,expect:null,yearKind:"ilk-yayin",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Lozan Antlaşması",["Lozan","Lozan Barış Antlaşması"],1923,"m",99,6],
+["Sevr Antlaşması",["Sevr"],1920,"m",97,6],
+["Mondros Ateşkes Antlaşması",["Mondros","Mondros Mütarekesi"],1918,"m",96,6],
+["Karlofça Antlaşması",["Karlofça","Karlofca"],1699,"m",95,6],
+["Kadeş Antlaşması",["Kadeş","Kades Antlasmasi"],-1259,"m",94,7],
+["Küçük Kaynarca Antlaşması",["Küçük Kaynarca","Kucuk Kaynarca"],1774,"m",93,6],
+["Montrö Boğazlar Sözleşmesi",["Montrö","Montro","Montrö Sözleşmesi"],1936,"m",92,6],
+["Mudanya Ateşkes Antlaşması",["Mudanya","Mudanya Mütarekesi"],1922,"m",91,6],
+["Versay Antlaşması",["Versailles Antlaşması","Versay"],1919,"m",90,6],
+["Ankara Antlaşması",["1921 Ankara Antlaşması"],1921,"m",88,6],
+["Gümrü Antlaşması",["Gümrü","Gumru Antlasmasi"],1920,"m",87,6],
+["Moskova Antlaşması",["Moskova"],1921,"m",86,6],
+["Kars Antlaşması",["Kars"],1921,"m",85,6],
+["Pasarofça Antlaşması",["Pasarofça","Pasarofca"],1718,"m",84,6],
+["Berlin Antlaşması",["1878 Berlin Antlaşması"],1878,"m",83,6],
+["Ayastefanos Antlaşması",["Ayastefanos","Yeşilköy Antlaşması"],1878,"m",82,6],
+["Uşi Antlaşması",["Uşi","Usi Antlasmasi","Ouchy Antlaşması"],1912,"m",81,6],
+["Yaş Antlaşması",["Yaş","Yas Antlasmasi"],1792,"m",80,6]
+]};})(typeof window!=='undefined'?window:globalThis);

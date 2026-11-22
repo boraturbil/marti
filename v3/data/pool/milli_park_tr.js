@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["milli_park_tr"]={id:"milli_park_tr",asOf:"2026-11",closed:false,expect:null,yearKind:"kurulus",sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Uludağ Milli Parkı",["Uludağ","Uludag"],1961,"m",96,6],
+["Yedigöller Milli Parkı",["Yedigöller","Yedigoller"],1965,"m",95,6],
+["Kazdağı Milli Parkı",["Kazdağları","Kazdağı","Kazdagi"],1994,"m",92,6],
+["Kaçkar Dağları Milli Parkı",["Kaçkar Dağları","Kaçkar","Kackar"],1994,"m",90,6],
+["Dilek Yarımadası Milli Parkı",["Dilek Yarımadası","Güzelçamlı Milli Parkı"],1966,"m",88,6],
+["Munzur Vadisi Milli Parkı",["Munzur Vadisi","Munzur"],1971,"m",87,6],
+["Köprülü Kanyon Milli Parkı",["Köprülü Kanyon","Koprulu Kanyon"],1973,"m",86,6],
+["Kuşcenneti Milli Parkı",["Manyas Kuşcenneti","Kuşcenneti","Kuscenneti"],1959,"m",85,6],
+["Abant Gölü Milli Parkı",["Abant Gölü","Abant"],2022,"m",84,6],
+["Nemrut Dağı Milli Parkı",["Nemrut Dağı","Nemrut"],1988,"m",83,6],
+["Beydağları Sahil Milli Parkı",["Olimpos Beydağları","Beydağları"],1972,"m",82,6],
+["Ilgaz Dağı Milli Parkı",["Ilgaz Dağı","Ilgaz"],1976,"m",80,6],
+["Saklıkent Milli Parkı",["Saklıkent","Saklikent","Saklıkent Kanyonu"],1996,"m",79,6],
+["Altındere Vadisi Milli Parkı",["Altındere Vadisi","Altındere","Sümela"],1987,"m",78,6],
+["İğneada Longoz Ormanları Milli Parkı",["İğneada","Igneada","İğneada Longozu"],2007,"m",77,6],
+["Spil Dağı Milli Parkı",["Spil Dağı","Spil"],1968,"m",76,6],
+["Küre Dağları Milli Parkı",["Küre Dağları","Kure Daglari"],2000,"m",75,6],
+["Yozgat Çamlığı Milli Parkı",["Yozgat Çamlığı","Yozgat Camligi"],1958,"m",74,6]
+]};})(typeof window!=='undefined'?window:globalThis);

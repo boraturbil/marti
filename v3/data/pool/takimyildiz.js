@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["takimyildiz"]={id:"takimyildiz",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["Büyük Ayı",["Buyuk Ayi","Ursa Major"],null,"m",99,2],
+["Küçük Ayı",["Kucuk Ayi","Ursa Minor"],null,"m",97,2],
+["Avcı",["Orion","Avci"],null,"m",95,2],
+["Akrep",["Scorpius"],null,"m",92,2],
+["Aslan",["Leo"],null,"m",91,2],
+["Boğa",["Boga","Taurus"],null,"m",90,2],
+["İkizler",["Ikizler","Gemini"],null,"m",88,2],
+["Andromeda",["Andromeda Takımyıldızı"],null,"m",87,2],
+["Kanatlı At",["Pegasus"],null,"m",85,2],
+["Kraliçe",["Kralice","Cassiopeia","Kasyopya"],null,"m",84,2],
+["Yay",["Sagittarius"],null,"m",83,2],
+["Başak",["Basak","Virgo"],null,"m",82,2],
+["Terazi",["Libra"],null,"m",81,2],
+["Koç",["Koc","Aries"],null,"m",80,2],
+["Yengeç",["Yengec","Cancer"],null,"m",79,2],
+["Oğlak",["Oglak","Capricornus"],null,"m",78,2],
+["Kova",["Aquarius"],null,"m",77,2],
+["Balıklar",["Balık","Balik","Pisces"],null,"m",76,2]
+]};})(typeof window!=='undefined'?window:globalThis);

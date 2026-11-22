@@ -1,0 +1,20 @@
+(function(r){(r.PUSULLA_POOLS=r.PUSULLA_POOLS||{})["dosya_uzantisi"]={id:"dosya_uzantisi",asOf:"2026-11",closed:false,expect:null,yearKind:null,sources:["manual"],license:["CC0"],cols:["label","aliases","year","src","sl","f"],rows:[
+["PDF",["Portable Document Format"],null,"m",99,2],
+["MP3",["MPEG Audio Layer 3"],null,"m",98,2],
+["MP4",["MPEG-4"],null,"m",97,2],
+["JPG",["JPEG"],null,"m",96,2],
+["PNG",["Portable Network Graphics"],null,"m",95,2],
+["ZIP",["ZIP arşivi"],null,"m",94,2],
+["EXE",["Executable"],null,"m",93,2],
+["TXT",["Metin dosyası"],null,"m",92,2],
+["GIF",["Graphics Interchange Format"],null,"m",91,2],
+["RAR",["WinRAR arşivi"],null,"m",90,2],
+["DOCX",["DOC","Word dosyası"],null,"m",89,2],
+["XLSX",["XLS","Excel dosyası"],null,"m",88,2],
+["PPTX",["PPT","PowerPoint dosyası"],null,"m",87,2],
+["HTML",["HTM"],null,"m",86,2],
+["JSON",["JavaScript Object Notation"],null,"m",85,2],
+["APK",["Android paketi"],null,"m",84,2],
+["CSV",["Virgülle ayrılmış değerler"],null,"m",83,2],
+["SVG",["Vektör grafiği"],null,"m",82,2]
+]};})(typeof window!=='undefined'?window:globalThis);
