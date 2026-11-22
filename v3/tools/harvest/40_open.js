@@ -290,8 +290,8 @@ const WD_SPECS = {
   hayvan: {
     seeds: ['Aslan', 'Kurt', 'Kartal', 'Yunus'],
     defaultClass: 'Q16521',
-    where: '?i wdt:P31 wd:Q16521 ; wdt:P105 wd:Q7432 . ?w schema:about ?i ; schema:isPartOf <https://tr.wikipedia.org/> .',
-    minSl: 10,
+    where: '?i wdt:P1843 ?_cn . FILTER(LANG(?_cn)="tr") . ?i wdt:P31 wd:Q16521 .',
+    minSl: 0,
     yearProps: [],
     latinFallback: false,
     includeEnAliases: false,

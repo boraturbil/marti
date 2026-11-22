@@ -17,7 +17,7 @@
     ["İsmet İnönü",["İnönü","İsmet Paşa","Millî Şef","Mustafa İsmet İnönü","Sağır İsmet"],1938,"Q183297",86,4],
     ["Kenan Evren",["Ahmet Kenan Evren","Evren"],1980,"Q216983",73,4],
     ["Fahri Korutürk",["Fahri Sabit Korutürk","Korutürk"],1973,"Q313357",66,4],
-    ["Mustafa Kemal Atatürk",["Gazi","Gazi Mustafa Kemal","Gazi Paşa","Mustafa Kemal Paşa","Kemal Paşa","Gazi Kemal","Gazi M. Kemal","K. Atatürk","Kamâl Atatürk","M. K. Atatürk","M. Kemal","M. Kemal Atatürk","M. Kemal Paşa","MKA","Mustafa K. Atatürk","Atatürk"],1923,"Q5152",253,4],
+    ["Mustafa Kemal Atatürk",["Gazi","Gazi Mustafa Kemal","Gazi Paşa","Mustafa Kemal Paşa","Kemal Paşa","Gazi Kemal","Gazi M. Kemal","K. Atatürk","Kamâl Atatürk","M. K. Atatürk","M. Kemal","M. Kemal Atatürk","M. Kemal Paşa","MKA","Mustafa K. Atatürk","Atatürk","Mustafa Kemal"],1923,"Q5152",253,4],
     ["Recep Tayyip Erdoğan",["RTE","Tayyip Erdoğan","Uzun Adam","Başkan Erdoğan","Cumhurbaşkanı Erdoğan","Milletin Adamı","Recep Erdoğan","Tayyip","Erdoğan","Reis","Recep"],2014,"Q39259",186,4],
     ["Abdullah Gül",["Gül"],2007,"Q42852",115,4]
   ]

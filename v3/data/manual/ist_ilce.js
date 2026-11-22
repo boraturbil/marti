@@ -30,7 +30,7 @@
       "aliases": [
         "Beylikdüzü (ilçe)"
       ],
-      "year": null,
+      "year": 2008,
       "approx": false,
       "src": "Q49101303",
       "note": "Vikiveri Q49101303 (parantezsiz etiket)"
@@ -40,7 +40,7 @@
       "aliases": [
         "Sancaktepe (ilçe)"
       ],
-      "year": null,
+      "year": 2008,
       "approx": false,
       "src": "Q49108520",
       "note": "Vikiveri Q49108520 (parantezsiz etiket)"
@@ -50,7 +50,7 @@
       "aliases": [
         "Üsküdar (ilçe)"
       ],
-      "year": null,
+      "year": 1926,
       "approx": false,
       "src": "Q49110521",
       "note": "Vikiveri Q49110521 (parantezsiz etiket)"
@@ -70,7 +70,7 @@
       "aliases": [
         "Çatalca (ilçe)"
       ],
-      "year": null,
+      "year": 1926,
       "approx": false,
       "src": "Q1968049",
       "note": "Vikiveri Q1968049 (parantezsiz etiket)"
@@ -78,7 +78,7 @@
     {
       "label": "Çekmeköy",
       "aliases": [],
-      "year": null,
+      "year": 2008,
       "approx": false,
       "note": "genel bilgi - Vikipedi Istanbul ilceleri ile dogrulanacak"
     },
@@ -87,27 +87,113 @@
       "aliases": [
         "Eyüp"
       ],
-      "year": null,
+      "year": 1936,
       "approx": false,
       "note": "genel bilgi - Vikipedi Istanbul ilceleri ile dogrulanacak"
     },
     {
       "label": "Gaziosmanpaşa",
       "aliases": [],
-      "year": null,
+      "year": 1963,
       "approx": false,
       "note": "genel bilgi - Vikipedi Istanbul ilceleri ile dogrulanacak"
     },
     {
       "label": "Şile",
       "aliases": [],
-      "year": null,
+      "year": 1926,
       "approx": false,
       "note": "genel bilgi - Vikipedi Istanbul ilceleri ile dogrulanacak"
     }
   ],
   "alias": {},
-  "year": {}
+  "year": {
+    "Beylikdüzü": {
+      "year": 2008,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Sancaktepe": {
+      "year": 2008,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Üsküdar": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Çatalca": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Çekmeköy": {
+      "year": 2008,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Eyüpsultan": {
+      "year": 1936,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Gaziosmanpaşa": {
+      "year": 1963,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Şile": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Adalar": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Kadıköy": {
+      "year": 1928,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Beşiktaş": {
+      "year": 1930,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Bakırköy": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Beyoğlu": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Fatih": {
+      "year": 1928,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Sarıyer": {
+      "year": 1930,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Kartal": {
+      "year": 1926,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    },
+    "Beykoz": {
+      "year": 1930,
+      "approx": false,
+      "note": "genel bilgi - Vikipedi ile dogrulanacak"
+    }
+  }
 };
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = root.PUSULLA_MANUAL;

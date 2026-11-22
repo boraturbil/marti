@@ -1,4 +1,4 @@
-# Martı — Devir notu (güncelleme: 2026-11-22, gece)
+﻿# Martı — Devir notu (güncelleme: 2026-11-22, gece)
 
 ## Ne bu
 Türkçe, piksel sanat "çoğu insanın vereceği cevabı tahmin et" tarayıcı oyunu. Yalnız PC. Saf HTML/CSS/JS,
@@ -43,4 +43,7 @@ Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine 
 
 ## Kim ne yapıyor
 - F1 agy (gemini-4-hydrogen-medium, İşçi A + B): tamam. Iskelet/sözleşme v3\ altında, node --check ve daily_sim PASS; tarayıcı (?mock) testi yapılmadı.
+- F2 agy (gemini-4-hydrogen-medium, İşçi A akış/UI + B motor/fikstür): tamam; score 8/8, match 8/8, bench indeks 48 ms (hedef 40), smoke A+B PASS; tarayıcı testi yapılmadı.
+- F3/F4 veri hattı (ana oturum + agy C/D/E/G/H): bitti (2026-11-23 00:30); 42 havuz (24978 satır, 1,32 MB ham), q_demo.js 42 soru, check --demo 0 HATA/0 UYARI, kör test %96,7 (kalanı matcher eki/yazım hatası). Yıllar/paylar AI tahmini ve "genel bilgi" notlu; Haiku yıl doğrulaması (rev/YIL_DOGRULAMA.md) YAPILMADI. Üniversite sorusu BM Genel Sekreteri ile değişti. Rapor: v3/rev/DEMO_SORULAR.md.
+- F5 agy (gemini-4-hydrogen-medium): matcher soyma (match_test 19/19), index.html 42 havuz + _meta + q_demo bagli, score 8/8, bench 38 ms/1000 sorgu, duman testi PASS; tarayici testi yapilmadi.
 - F2 agy (gemini-4-hydrogen-medium, İşçi A akış/UI + B motor/fikstür): tamam; score 8/8, match 8/8, bench indeks 48 ms (hedef 40), smoke A+B PASS; tarayıcı testi yapılmadı.

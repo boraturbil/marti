@@ -76,5 +76,53 @@
     "qid": "Q43229",
     "label": "kuruluş",
     "count": 58
+  },
+  "meslek": {
+    "no": 12,
+    "qid": "Q28640",
+    "label": "meslek",
+    "count": 918
+  },
+  "spor_dali": {
+    "no": 13,
+    "qid": "Q31629",
+    "label": "spor dalı",
+    "count": 283
+  },
+  "turk_markasi": {
+    "no": 14,
+    "qid": "Q726870",
+    "label": "perakende mağaza",
+    "count": 98
+  },
+  "uzay_sondasi": {
+    "no": 38,
+    "qid": "Q26529",
+    "label": "uzay sondası",
+    "count": 152
+  },
+  "gunes_uydu": {
+    "no": 39,
+    "qid": "Q1972",
+    "label": "Satürn'ün doğal uyduları",
+    "count": 170
+  },
+  "sinan_yapisi": {
+    "no": 41,
+    "qid": "Q32815",
+    "label": "cami",
+    "count": 91
+  },
+  "ist_muze": {
+    "no": 42,
+    "qid": "Q33506",
+    "label": "müze",
+    "count": 156
+  },
+  "hayvan": {
+    "no": 11,
+    "qid": "Q16521",
+    "label": "takson",
+    "count": 1261
   }
 }

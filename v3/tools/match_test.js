@@ -153,6 +153,96 @@ test('Eşsesli satırlarda tam label veya yüksek sl kazanır', function () {
   assert.strictEqual(res.homonyms, 2);
 });
 
+// 9. Konu eki soyma: 6 ana bulgu örneği
+test('Konu eki soyma: Mars gezegeni, Brezilya Milli Takımı, Ankara şehri, demir elementi, Domates Çorbası, Matrix filmi', function () {
+  var idxGezegen = matcher.createIndex({
+    rows: [['Mars', [], -2000, 'Q111', 200, 0], ['Plüton', [], 1930, 'Q339', 150, 0]]
+  }, { pool: 'gezegen', subject: 'GEZEGEN', closed: true });
+  assert.strictEqual(matcher.matchAnswer('Mars gezegeni', idxGezegen).label, 'Mars');
+
+  var idxDk = matcher.createIndex({
+    rows: [['Brezilya', ['Brazil'], 1958, 'Q83459', 120, 0]]
+  }, { pool: 'dk_sampiyon', subject: 'DÜNYA KUPASI ŞAMPİYONU', closed: true });
+  assert.strictEqual(matcher.matchAnswer('Brezilya Milli Takımı', idxDk).label, 'Brezilya');
+
+  var idxBaskent = matcher.createIndex({
+    rows: [['Ankara', [], 1923, 'Q3640', 180, 0]]
+  }, { pool: 'baskent', subject: 'BAŞKENT', closed: true });
+  assert.strictEqual(matcher.matchAnswer('Ankara şehri', idxBaskent).label, 'Ankara');
+
+  var idxElement = matcher.createIndex({
+    rows: [['Demir', ['Fe'], null, 'Q677', 160, 0]]
+  }, { pool: 'element', subject: 'ELEMENT', closed: true });
+  assert.strictEqual(matcher.matchAnswer('demir elementi', idxElement).label, 'Demir');
+
+  var idxCorba = matcher.createIndex({
+    rows: [['Domates', [], null, 'm', 40, 0], ['Mercimek çorbası', [], null, 'm', 90, 0]]
+  }, { pool: 'corba', subject: 'ÇORBA', closed: false });
+  assert.strictEqual(matcher.matchAnswer('Domates Çorbası', idxCorba).label, 'Domates');
+
+  var idxFilm = matcher.createIndex({
+    rows: [['Matrix', ['The Matrix'], 1999, 'Q83495', 140, 0]]
+  }, { pool: 'film', subject: 'FİLM', closed: false });
+  assert.strictEqual(matcher.matchAnswer('Matrix filmi', idxFilm).label, 'Matrix');
+});
+
+// 10. Ek testler (10 adet): önek, parantez, opts, yanlış pozitif koruması
+test('Ek: önek soyma (İstanbul Kadıköy -> Kadıköy)', function () {
+  assert.strictEqual(matcher.matchAnswer('İstanbul Kadıköy', idxIlce).label, 'Kadıköy');
+});
+
+test('Ek: parantez içeriği atma (Kadıköy (İstanbul) -> Kadıköy)', function () {
+  assert.strictEqual(matcher.matchAnswer('Kadıköy (İstanbul)', idxIlce).label, 'Kadıköy');
+});
+
+test('Ek: parantez + konu eki birlikte (Chrome (web) tarayıcısı -> Chrome)', function () {
+  assert.strictEqual(matcher.matchAnswer('Chrome (web) tarayıcısı', idxTarayici).label, 'Chrome');
+});
+
+test('Ek: cüce gezegeni çoklu son ek (Plüton cüce gezegeni)', function () {
+  var idxG = matcher.createIndex({
+    rows: [['Plüton', [], 1930, 'Q339', 150, 0]]
+  }, { pool: 'gezegen', subject: 'GEZEGEN', closed: true });
+  assert.strictEqual(matcher.matchAnswer('Plüton cüce gezegeni', idxG).label, 'Plüton');
+});
+
+test('Ek: tarayıcı eki (Opera tarayıcısı -> Opera)', function () {
+  assert.strictEqual(matcher.matchAnswer('Opera tarayıcısı', idxTarayici).label, 'Opera');
+});
+
+test('Ek: soyulmuş metin invalid ise gecersiz dönmeli (Taksim ilçesi -> gecersiz)', function () {
+  var res = matcher.matchAnswer('Taksim ilçesi', idxIlce);
+  assert.strictEqual(res.status, 'gecersiz');
+  assert.strictEqual(res.type, 'invalid');
+});
+
+test('Ek: kısa/anlamsız soyulmuş metin korunumu (a gezegeni -> yok)', function () {
+  var idxG = matcher.createIndex({
+    rows: [['A', [], 2000, 'm', 10, 0], ['Mars', [], -2000, 'Q111', 200, 0]]
+  }, { pool: 'gezegen', subject: 'GEZEGEN', closed: true });
+  assert.strictEqual(matcher.matchAnswer('a gezegeni', idxG).status, 'yok');
+});
+
+test('Ek: kapalı kümede yanlış kategori eki eşleşmemeli (Kadıköy filmi -> yok)', function () {
+  assert.strictEqual(matcher.matchAnswer('Kadıköy filmi', idxIlce).status, 'yok');
+});
+
+test('Ek: opts.subject / opts.poolId parametresi ile soyma', function () {
+  var idxPlain = matcher.createIndex({
+    rows: [['Python', [], 1991, 'Q28865', 200, 0]]
+  }, {});
+  var res = matcher.matchAnswer('Python programlama dili', idxPlain, { poolId: 'prog_dili', subject: 'PROGRAMLAMA DİLİ' });
+  assert.strictEqual(res.status, 'eslesti');
+  assert.strictEqual(res.label, 'Python');
+});
+
+test('Ek: tam eşleşen çok kelimeli ad ek soymadan önce kazanır (Mercimek çorbası)', function () {
+  var idxC = matcher.createIndex({
+    rows: [['Mercimek çorbası', [], null, 'm', 90, 0]]
+  }, { pool: 'corba', subject: 'ÇORBA', closed: false });
+  assert.strictEqual(matcher.matchAnswer('Mercimek çorbası', idxC).label, 'Mercimek çorbası');
+});
+
 console.log('match_test.js: ' + passed + '/' + total + ' test geçti.');
 if (passed !== total) {
   process.exit(1);

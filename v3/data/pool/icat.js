@@ -127,6 +127,9 @@
     ["lazer",[],1960,"m",0,6],
     ["internet (ARPANET)",["internet"],1969,"m",0,6],
     ["cep telefonu",["mobil telefon"],1973,"m",0,6],
-    ["World Wide Web",["WWW","web"],1989,"m",0,6]
+    ["World Wide Web",["WWW","web"],1989,"m",0,6],
+    ["Bilgisayar",[],1936,"m",0,7],
+    ["Çamaşır makinesi",[],1858,"m",150,6],
+    ["Saat",[],-1500,"m",150,7]
   ]
 }; })(typeof window!=='undefined'?window:globalThis);

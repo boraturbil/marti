@@ -4,7 +4,7 @@
   closed: false,
   expect: null,
   yearKind: null,
-  sources: ["trwiki"],
+  sources: ["trwiki","manual"],
   license: ["CC BY-SA 4.0"],
   cols: ["label","aliases","year","src","sl","f"],
   rows: [
@@ -279,7 +279,7 @@
     ["Lokum",["Türk lokumu","Turkish delight"],null,"tr:Lokum",0,0],
     ["Muhallebi",[],null,"tr:Muhallebi",0,0],
     ["Nukl",[],null,"tr:Nukl (şeker)",0,0],
-    ["Tulumba tatlısı",[],null,"tr:Tulumba tatlısı",0,0],
+    ["Tulumba tatlısı",["Tulumba"],null,"tr:Tulumba tatlısı",0,0],
     ["Zalabiya",[],null,"tr:Zalabiya",0,0],
     ["Elmalı strudel",[],null,"tr:Elmalı strudel",0,0],
     ["Kaiserschmarrn",[],null,"tr:Kaiserschmarrn",0,0],
@@ -716,6 +716,14 @@
     ["Danone",["Danissimo"],null,"tr:Danone",0,0],
     ["FrieslandCampina",[],null,"tr:FrieslandCampina",0,0],
     ["Nestlé",["Nestle"],null,"tr:Nestlé",0,0],
-    ["Zott",[],null,"tr:Zott",0,0]
+    ["Zott",[],null,"tr:Zott",0,0],
+    ["Kazandibi",[],null,"m",0,2],
+    ["Lokma",[],null,"m",0,2],
+    ["Revani",[],null,"m",0,2],
+    ["İrmik helvası",[],null,"m",0,2],
+    ["Magnolia",[],null,"m",0,2],
+    ["Şekerpare",[],null,"m",0,2],
+    ["Tavukgöğsü",["Tavuk göğsü"],null,"m",0,2],
+    ["Keşkül",[],null,"m",150,2]
   ]
 }; })(typeof window!=='undefined'?window:globalThis);

@@ -57,6 +57,9 @@
     ],
     "Amsterdam": [
       "Lahey (hukumet merkezi)"
+    ],
+    "Stockholm": [
+      "Stokholm"
     ]
   },
   "year": {}

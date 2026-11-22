@@ -13,7 +13,8 @@
   "add": [],
   "alias": {
     "Mustafa Kemal Atatürk": [
-      "Atatürk"
+      "Atatürk",
+      "Mustafa Kemal"
     ],
     "İsmet İnönü": [
       "İnönü"

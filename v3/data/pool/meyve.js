@@ -4,7 +4,7 @@
   closed: false,
   expect: null,
   yearKind: null,
-  sources: ["trwiki","wikidata"],
+  sources: ["trwiki","wikidata","manual"],
   license: ["CC BY-SA 4.0","CC0"],
   cols: ["label","aliases","year","src","sl","f"],
   rows: [
@@ -470,6 +470,7 @@
     ["Tbilisuri",[],null,"tr:Tbilisuri",0,0],
     ["Tolgomuri",[],null,"tr:Tolgomuri",0,0],
     ["Pasta Puttanesca",["Spaghetti alla puttanesca"],null,"tr:Pasta Puttanesca",0,0],
-    ["Kastilya sabunu",[],null,"tr:Kastilya sabunu",0,0]
+    ["Kastilya sabunu",[],null,"tr:Kastilya sabunu",0,0],
+    ["Dut",[],null,"m",150,2]
   ]
 }; })(typeof window!=='undefined'?window:globalThis);

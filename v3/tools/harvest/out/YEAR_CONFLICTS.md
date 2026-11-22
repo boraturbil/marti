@@ -2,6 +2,10 @@
 
 | Havuz | Etiket | Ham Yıl | Diğer / Manual Yıl | Not |
 |---|---|---|---|---|
+| ist_ilce | Kadıköy | 1930 | 1928 | genel bilgi - Vikipedi ile dogrulanacak |
+| ist_ilce | Fatih | 1930 | 1928 | genel bilgi - Vikipedi ile dogrulanacak |
+| ist_ilce | Kartal | 1928 | 1926 | genel bilgi - Vikipedi ile dogrulanacak |
+| ist_ilce | Beykoz | 1928 | 1930 | genel bilgi - Vikipedi ile dogrulanacak |
 | dunya_sehri | Cambridge | 1 | 1630 | Kaynaklar arasi yil farki (Q350 vs Q49111) |
 | dunya_sehri | Hamilton | 1846 | 1793 | Kaynaklar arasi yil farki (Q133116 vs Q30985) |
 | dunya_sehri | Kansas City | 1853 | 1868 | Kaynaklar arasi yil farki (Q41819 vs Q486472) |
@@ -292,3 +296,10 @@
 | olimpiyat_sehri | Berlin | 1916 | 1936 | Vikipedi Yaz Olimpiyat Oyunlari listesi - dogrulanacak |
 | olimpiyat_sehri | Helsinki | 1940 | 1952 | Vikipedi Yaz Olimpiyat Oyunlari listesi - dogrulanacak |
 | olimpiyat_sehri | Tokyo | 1940 | 1964 | Vikipedi Yaz Olimpiyat Oyunlari listesi - dogrulanacak |
+| uzay_sondasi | Venera-D | 2036 | — | ASOF (2026) disi yil null yapildi |
+| uzay_sondasi | Chinese Jupiter probe | 2029 | — | ASOF (2026) disi yil null yapildi |
+| uzay_sondasi | Space Reactor‑1 Freedom | 2028 | — | ASOF (2026) disi yil null yapildi |
+| sinan_yapisi | Süleymaniye Camii | 1550 | 1554 | Kaynaklar arasi yil farki (Q178643 vs Q715273) |
+| sinan_yapisi | Mihrimah Sultan Camii | 1562 | 1548 | Kaynaklar arasi yil farki (Q1581190 vs Q2537376) |
+| sinan_yapisi | Sokollu Mehmed Paşa Camii | 1665 | 1569 | Kaynaklar arasi yil farki (Q1572472 vs Q38174028) |
+| sinan_yapisi | Rüstem Paşa Camii | 1561 | 1551 | Kaynaklar arasi yil farki (Q1137511 vs Q126015581) |

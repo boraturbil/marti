@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["spor_dali_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["futbol",23.71],["basketbol",14.34],["voleybol",11.38],["tenis",7.42],["yüzme",6.43],["boks",4.45],["güreş",3.96],["atletizm",3.46],["satranç",2.97],["masa tenisi",2.57],["taekwondo",2.18],["karate",1.98],["judo",1.78],["hentbol",1.48],["golf",1.29],["badminton",1.09],["bisiklet sporu",0.99],["kayak",0.89],["jimnastik",0.84],["halter",0.79],["okçuluk",0.74],["kick boks",0.69],["buz hokeyi",0.59],["Eskrim",0.49],["yelken",0.45],["sörf",0.4],["sutopu",0.35],["kürek",0.3],["futsal",0.28],["Plaj voleybolu",0.25],["muay tay",0.22],["Vücut geliştirme",0.2],["kriket",0.18],["ragbi birliği",0.16],["artistik buz pateni",0.15],["Körling",0.14],["triatlon",0.12],["snowboarding",0.11],["Sekiz top bilardo",0.1],["alpinizm",0.08]]};
+})(typeof window !== 'undefined' ? window : globalThis);

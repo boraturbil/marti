@@ -1,0 +1,4 @@
+(function (r) {
+  'use strict';
+  (r.PUSULLA_SHARES = r.PUSULLA_SHARES || {})["meslek_01"] = {"estimated":true,"by":"agy-persona-2026-11","list":[["öğretmen",14.81],["mühendis",11.64],["polis memuru",8.99],["mimar",6.88],["pratisyen hekimlik",6.35],["oyuncu",5.29],["yazar",4.44],["şarkıcı",4.02],["Aşçı",3.7],["Muhasebeci",3.39],["garson",2.96],["Elektrikçi",2.65],["Marangoz",2.33],["gazeteci",2.12],["pilot",1.9],["Berber",1.69],["Terzi",1.59],["kasap",1.38],["fırıncı",1.27],["futbolcu",1.16],["itfaiye",1.06],["psikolog",1.01],["ekonomist",0.95],["siyasetçi",0.9],["bilim insanı",0.85],["fizikçi",0.79],["kimyager",0.74],["matematikçi",0.69],["tarihçi",0.63],["diplomat",0.58],["antrenör",0.53],["balıkçı",0.48],["denizci",0.42],["komedyen",0.37],["manken",0.32],["Kamyon şoförü",0.3],["Otobüs şoförü",0.26],["kütüphaneci",0.21],["mucit",0.19],["şair",0.16]]};
+})(typeof window !== 'undefined' ? window : globalThis);

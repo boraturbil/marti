@@ -175,15 +175,23 @@ function main() {
         if (!q.authority) err(`Soru ${q.id}: kapali kumede authority zorunlu`);
       }
 
-      // Yil kapsami
+      // Eksen ve yil kapsami (PLAN §3.5, engine.axesOf ile uyumlu)
+      const axes = engine.axesOf(q, pool);
+      if (!axes.axis) {
+        err(`Soru ${q.id}: gecerli eksen yok (ne zaman ne pay ekseni saglaniyor)`);
+      }
       const yearKind = q.yearKind || pool.yearKind;
       if (yearKind) {
         const withYear = rows.filter((r) => typeof r.year === 'number' && !isNaN(r.year));
         const ratio = rows.length > 0 ? (withYear.length / rows.length) : 0;
         if (q.closed && withYear.length !== rows.length) {
-          err(`Soru ${q.id}: kapali kumede yil kapsami %100 olmali (${withYear.length}/${rows.length})`);
+          const msg = `Soru ${q.id}: kapali kumede yil kapsami %100 olmali (${withYear.length}/${rows.length})`;
+          if (axes.pop) warn(msg + ' [P moduna dusuyor]');
+          else err(msg);
         } else if (!q.closed && ratio < 0.90) {
-          err(`Soru ${q.id}: acik kumede yil kapsami >= %90 olmali (${(ratio * 100).toFixed(1)}%)`);
+          const msg = `Soru ${q.id}: acik kumede yil kapsami >= %90 olmali (${(ratio * 100).toFixed(1)}%)`;
+          if (axes.pop) warn(msg + ' [P moduna dusuyor]');
+          else err(msg);
         }
 
         if (args.strict && withYear.length > 0) {

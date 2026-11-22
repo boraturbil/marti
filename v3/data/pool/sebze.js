@@ -4,7 +4,7 @@
   closed: false,
   expect: null,
   yearKind: null,
-  sources: ["trwiki","wikidata"],
+  sources: ["trwiki","wikidata","manual"],
   license: ["CC BY-SA 4.0","CC0"],
   cols: ["label","aliases","year","src","sl","f"],
   rows: [
@@ -165,7 +165,7 @@
     ["Hasır otu",["Phragamines","Typha","Hasırotu"],null,"tr:Hasır otu",0,0],
     ["Havuç",[],null,"tr:Havuç",0,0],
     ["Hedysarum alpinum",[],null,"tr:Hedysarum alpinum",0,0],
-    ["Kereviz kökü",[],null,"tr:Kereviz kökü",0,0],
+    ["Kereviz kökü",["Kereviz"],null,"tr:Kereviz kökü",0,0],
     ["Manyok",["Manihot esculenta","Cassava"],null,"tr:Manyok",0,0],
     ["Melocan",[],null,"tr:Melocan",0,0],
     ["Patates",["Solanum tuberosum","çisil"],null,"tr:Patates",0,0],
@@ -390,6 +390,12 @@
     ["Ajoblanco",[],null,"tr:Ajoblanco",0,0],
     ["Bagna càuda",["Bagna Cauda"],null,"tr:Bagna càuda",0,0],
     ["Gaspaço",[],null,"tr:Gaspaço",0,0],
-    ["Sarımsaklı ekmek",[],null,"tr:Sarımsaklı ekmek",0,0]
+    ["Sarımsaklı ekmek",[],null,"tr:Sarımsaklı ekmek",0,0],
+    ["Kabak",[],null,"m",0,2],
+    ["Ispanak",[],null,"m",0,2],
+    ["Kereviz",[],null,"m",0,2],
+    ["Bamya",[],null,"m",150,2],
+    ["Maydanoz",[],null,"m",150,2],
+    ["Dereotu",[],null,"m",150,2]
   ]
 }; })(typeof window!=='undefined'?window:globalThis);
