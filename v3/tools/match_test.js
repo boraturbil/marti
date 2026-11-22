@@ -1,0 +1,159 @@
+'use strict';
+
+var assert = require('assert');
+var matcher = require('../matcher.js');
+var ilceFx = require('./fixtures/ilce_39.js');
+var tarayiciFx = require('./fixtures/tarayici.js');
+
+var passed = 0;
+var total = 0;
+
+function test(name, fn) {
+  total++;
+  try {
+    fn();
+    passed++;
+  } catch (err) {
+    console.error('BAŞARISIZ:', name, '-', err.message);
+  }
+}
+
+var idxIlce = matcher.createIndex(ilceFx.pool, ilceFx.question);
+var idxTarayici = matcher.createIndex(tarayiciFx.pool, tarayiciFx.question);
+
+// 1. 39 İstanbul ilçesinin tamamı kendi satırına eşleşmeli
+test('39 İstanbul ilçesi tam eşleşme', function () {
+  assert.strictEqual(ilceFx.pool.rows.length, 39);
+  for (var i = 0; i < ilceFx.pool.rows.length; i++) {
+    var label = ilceFx.pool.rows[i][0];
+    var res = matcher.matchAnswer(label, idxIlce);
+    assert.strictEqual(res.status, 'eslesti', label + ' eşleşmeli');
+    assert.strictEqual(res.type, 'valid');
+    assert.strictEqual(res.label, label);
+  }
+});
+
+// 2. ASCII katlama ve büyük/küçük harf (İ/ı dahil)
+test('ASCII katlama ve Türkçe İ/ı', function () {
+  var cases = [
+    ['uskudar', 'Üsküdar'],
+    ['ÜSKÜDAR', 'Üsküdar'],
+    ['sile', 'Şile'],
+    ['catalca', 'Çatalca'],
+    ['kagithane', 'Kağıthane'],
+    ['kucukcekmece', 'Küçükçekmece'],
+    ['BESIKTAS', 'Beşiktaş']
+  ];
+  for (var i = 0; i < cases.length; i++) {
+    var res = matcher.matchAnswer(cases[i][0], idxIlce);
+    assert.strictEqual(res.status, 'eslesti', cases[i][0]);
+    assert.strictEqual(res.label, cases[i][1]);
+  }
+});
+
+// 3. Apostrof temizliği ve Türkçe ek soyma
+test('Apostrof temizliği ve ek soyma', function () {
+  var r1 = matcher.matchAnswer("Kadıköy'e", idxIlce);
+  assert.strictEqual(r1.status, 'eslesti');
+  assert.strictEqual(r1.label, 'Kadıköy');
+
+  var r2 = matcher.matchAnswer('Beşiktaş’ta', idxIlce);
+  assert.strictEqual(r2.status, 'eslesti');
+  assert.strictEqual(r2.label, 'Beşiktaş');
+
+  var r3 = matcher.matchAnswer('uskudardan', idxIlce);
+  assert.strictEqual(r3.status, 'eslesti');
+  assert.strictEqual(r3.label, 'Üsküdar');
+
+  var r4 = matcher.matchAnswer('adalarimizda', idxIlce);
+  assert.strictEqual(r4.status, 'eslesti');
+  assert.strictEqual(r4.label, 'Adalar');
+});
+
+// 4. Ünsüz yumuşaması geri alma
+test('Ünsüz yumuşaması geri alma (b->p, d->t, g->k)', function () {
+  var softPool = {
+    cols: ['label', 'aliases', 'year', 'src', 'sl', 'f'],
+    rows: [
+      ['Kitap', [], null, 'm', 10, 0],
+      ['Köpek', [], null, 'm', 10, 0],
+      ['Yoğurt', [], null, 'm', 10, 0]
+    ]
+  };
+  var idxSoft = matcher.createIndex(softPool, {});
+  assert.strictEqual(matcher.matchAnswer('kitabı', idxSoft).label, 'Kitap');
+  assert.strictEqual(matcher.matchAnswer('köpeği', idxSoft).label, 'Köpek');
+  assert.strictEqual(matcher.matchAnswer('yoğurdu', idxSoft).label, 'Yoğurt');
+});
+
+// 5. Tarayıcı fikstürü zorunlu kontroller ("chrome", "krom", "opera", "Mozilla")
+test('Tarayıcı fikstürü: chrome, krom, opera, Mozilla', function () {
+  var rChrome = matcher.matchAnswer('chrome', idxTarayici);
+  assert.strictEqual(rChrome.status, 'eslesti');
+  assert.strictEqual(rChrome.label, 'Chrome');
+
+  var rKrom = matcher.matchAnswer('krom', idxTarayici);
+  assert.strictEqual(rKrom.status, 'eslesti');
+  assert.strictEqual(rKrom.label, 'Chrome');
+
+  var rOpera = matcher.matchAnswer('opera', idxTarayici);
+  assert.strictEqual(rOpera.status, 'eslesti');
+  assert.strictEqual(rOpera.label, 'Opera');
+
+  var rMozilla = matcher.matchAnswer('Mozilla', idxTarayici);
+  assert.strictEqual(rMozilla.status, 'eslesti');
+  assert.strictEqual(rMozilla.label, 'Mozilla Firefox');
+});
+
+// 6. Üç durumlu sonuç: bulanık eşleşme "onay_iste" döner (otomatik kabul YOK)
+test('Bulanık eşleşme onay_iste döner, kısa adlarda bulanık yok', function () {
+  var typo = matcher.matchAnswer('firefoks', idxTarayici);
+  assert.strictEqual(typo.status, 'onay_iste');
+  assert.strictEqual(typo.type, 'confirm');
+  assert.strictEqual(typo.suggestion, 'Firefox');
+  assert.strictEqual(typo.fuzzy, true);
+
+  var typo2 = matcher.matchAnswer('kadioky', idxIlce);
+  assert.strictEqual(typo2.status, 'onay_iste');
+  assert.strictEqual(typo2.suggestion, 'Kadıköy');
+
+  // Kısa ad (<=4): bulanık eşleşme olmamalı
+  var shortTypo = matcher.matchAnswer('edg', idxTarayici);
+  assert.strictEqual(shortTypo.status, 'yok');
+});
+
+// 7. Invalid ve genel kelimeler + yok
+test('Invalid, genel kelimeler ve yok', function () {
+  var inv = matcher.matchAnswer('taksim', idxIlce);
+  assert.strictEqual(inv.status, 'gecersiz');
+  assert.strictEqual(inv.type, 'invalid');
+
+  var gen = matcher.matchAnswer('tarayıcı', idxTarayici);
+  assert.strictEqual(gen.status, 'gecersiz');
+  assert.strictEqual(gen.type, 'invalid');
+
+  var none = matcher.matchAnswer('bilinmeyenbirsey', idxIlce);
+  assert.strictEqual(none.status, 'yok');
+  assert.strictEqual(none.type, 'none');
+});
+
+// 8. Eşsesli (homonym) seçimi
+test('Eşsesli satırlarda tam label veya yüksek sl kazanır', function () {
+  var homPool = {
+    cols: ['label', 'aliases', 'year', 'src', 'sl', 'f'],
+    rows: [
+      ['Elma A', ['elma'], 1990, 'm', 10, 0],
+      ['Elma B', ['elma'], 2000, 'm', 80, 0]
+    ]
+  };
+  var idxHom = matcher.createIndex(homPool, {});
+  var res = matcher.matchAnswer('elma', idxHom);
+  assert.strictEqual(res.status, 'eslesti');
+  assert.strictEqual(res.label, 'Elma B');
+  assert.strictEqual(res.homonyms, 2);
+});
+
+console.log('match_test.js: ' + passed + '/' + total + ' test geçti.');
+if (passed !== total) {
+  process.exit(1);
+}

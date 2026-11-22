@@ -51,6 +51,9 @@
     stats: null
   };
 
+  var lastArrowKey = null;
+  var lastArrowTs = 0;
+
   function getKeymap() {
     if (P.config && P.config.KEYMAP && typeof P.config.KEYMAP === 'object') {
       return P.config.KEYMAP;
@@ -92,20 +95,18 @@
   }
 
   function renderMenu() {
-    var modes = viewState.modes && viewState.modes.length
-      ? viewState.modes
-      : [
-          { id: 'yaygin', label: 'YAYGIN', group: 'normal', dir: 'K ↑' },
-          { id: 'nadir', label: 'NADİR', group: 'normal', dir: 'G ↓' },
-          { id: 'eski', label: 'EN ESKİ', group: 'normal', dir: 'B ←' },
-          { id: 'yeni', label: 'EN YENİ', group: 'normal', dir: 'D →' },
-          { id: 'karma', label: 'KARMA', group: 'karma', dir: '✦' }
-        ];
+    var menuModes = [
+      { id: 'yaygin', label: 'YAYGIN', group: 'normal', dir: 'K ↑' },
+      { id: 'nadir', label: 'NADİR', group: 'normal', dir: 'G ↓' },
+      { id: 'eski', label: 'EN ESKİ', group: 'normal', dir: 'B ←' },
+      { id: 'yeni', label: 'EN YENİ', group: 'normal', dir: 'D →' },
+      { id: 'karma', label: 'KARMA', group: 'karma', dir: '✦' }
+    ];
 
     var normalHtml = '';
     var karmaHtml = '';
-    for (var i = 0; i < modes.length; i++) {
-      var m = modes[i];
+    for (var i = 0; i < menuModes.length; i++) {
+      var m = menuModes[i];
       var prog = viewState.dailyProgress && viewState.dailyProgress[m.id] !== undefined
         ? ' (' + escapeHtml(viewState.dailyProgress[m.id]) + '/5)'
         : '';
@@ -113,7 +114,7 @@
         'style="border-left: 4px solid ' + modeColorVar(m.id) + '; margin: 4px; padding: 8px 12px;">' +
         escapeHtml((m.dir ? m.dir + ' ' : '') + m.label) + prog +
         '</button>';
-      if (m.group === 'karma' || m.id === 'karma') {
+      if (m.group === 'karma') {
         karmaHtml += btn;
       } else {
         normalHtml += btn;
@@ -160,10 +161,11 @@
         '<div data-confirm="true" style="border: 1px solid #999; padding: 8px; margin: 8px 0;">' +
           '<p>Şunu mu demek istedin? <strong>' + escapeHtml(viewState.confirm.label || viewState.confirm.suggestion) + '</strong></p>' +
           '<button type="button" data-action="confirmYes">Evet, kabul et</button> ' +
-          '<button type="button" data-action="confirmNo">Hayır, tekrar yaz</button>' +
+          '<button type="button" data-action="confirmNo">Hayır (yanlış sayılır)</button>' +
         '</div>';
     }
 
+    var subLabel = q.subModeId && q.subModeId !== q.modeId ? ' (' + String(q.subModeId).toUpperCase() + ')' : '';
     var hintHtml = q.stubHint
       ? '<p><small>Stub ipucu: ' + escapeHtml(q.stubHint) + '</small></p>'
       : '';
@@ -171,9 +173,9 @@
     return '' +
       '<section data-screen="question">' +
         '<div>' +
-          '<strong style="color:' + modeColorVar(q.modeId) + ';">' + escapeHtml(String(q.modeId).toUpperCase()) + '</strong> | ' +
+          '<strong style="color:' + modeColorVar(q.modeId) + ';">' + escapeHtml(String(q.modeId).toUpperCase() + subLabel) + '</strong> | ' +
           'Soru ' + escapeHtml((q.index || 0) + 1) + '/' + escapeHtml(q.total || 5) + ' ' + boxes + ' | ' +
-          '<span style="' + warnStyle + '">Süre: ' + escapeHtml(Math.ceil(viewState.timer.left)) + ' sn</span>' +
+          '<span data-timer="true" style="' + warnStyle + '">Süre: ' + escapeHtml(Math.ceil(viewState.timer.left)) + ' sn</span>' +
         '</div>' +
         '<h2>' + escapeHtml(q.text) + '</h2>' +
         '<p><small>Kapsam: ' + escapeHtml(q.scope || '-') + ' | Havuz: ' + escapeHtml(q.poolSize || 0) + ' aday' + (q.closed ? ' (kapalı)' : ' (açık)') + '</small></p>' +
@@ -200,21 +202,37 @@
       for (var i = 0; i < r.best.length; i++) {
         var b = r.best[i];
         bestHtml += '<li>' + escapeHtml(b.label) +
-          (b.year ? ' (' + escapeHtml(b.year) + ')' : '') +
+          (b.year !== null && b.year !== undefined ? ' (' + escapeHtml(b.year) + ')' : '') +
           (b.share !== undefined && b.share !== null ? ' — %' + escapeHtml(b.share) : '') +
           '</li>';
       }
       bestHtml += '</ul>';
     }
 
-    var dotsHtml = '';
-    if (r.dots && r.dots.length) {
-      dotsHtml = '<p><small>Grafik noktaları (' + escapeHtml(r.dots.length) + ' / havuz ' + escapeHtml(r.poolSize) + '): ';
-      var names = [];
-      for (var j = 0; j < r.dots.length; j++) {
-        names.push(r.dots[j].label + (r.dots[j].isPlayer ? ' ★' : ''));
+    // Zaman şeridi metni ve pay listesi metni
+    var dots = r.dots || [];
+    var timeDots = dots.filter(function (d) { return d.year !== null && d.year !== undefined; })
+      .sort(function (a, b) { return a.year - b.year; });
+    var timelineHtml = '';
+    if (timeDots.length) {
+      var tParts = [];
+      for (var ti = 0; ti < Math.min(timeDots.length, 10); ti++) {
+        var td = timeDots[ti];
+        tParts.push(td.year + ': ' + td.label + (td.isPlayer ? ' ★' : ''));
       }
-      dotsHtml += escapeHtml(names.join(', ')) + '</small></p>';
+      timelineHtml = '<p><small><strong>Zaman Şeridi:</strong> ' + escapeHtml(tParts.join(' → ')) + '</small></p>';
+    }
+
+    var popDots = dots.filter(function (d) { return d.share !== null && d.share !== undefined; })
+      .sort(function (a, b) { return b.share - a.share; });
+    var shareListHtml = '';
+    if (popDots.length) {
+      var pParts = [];
+      for (var pi = 0; pi < Math.min(popDots.length, 10); pi++) {
+        var pd = popDots[pi];
+        pParts.push(pd.label + ' (%' + pd.share + ')' + (pd.isPlayer ? ' ★' : ''));
+      }
+      shareListHtml = '<p><small><strong>Pay Listesi:</strong> ' + escapeHtml(pParts.join(', ')) + '</small></p>';
     }
 
     var playerMeta = [];
@@ -230,12 +248,14 @@
         '<p>Senin cevabın: <strong>' + escapeHtml(p.label || '-') + '</strong>' +
           (playerMeta.length ? ' (' + escapeHtml(playerMeta.join(' · ')) + ')' : '') +
         '</p>' +
-        '<p><small>Dönem: ' + escapeHtml(viewState.era.eraId) + (viewState.era.year ? ' (' + escapeHtml(viewState.era.year) + ')' : '') + '</small></p>' +
+        '<p><small>Dönem: ' + escapeHtml(viewState.era.eraId) + (viewState.era.year !== null && viewState.era.year !== undefined ? ' (' + escapeHtml(viewState.era.year) + ')' : '') + ' | Havuz: ' + escapeHtml(r.poolSize || 0) + ' aday</small></p>' +
         '<h4>Hedef / En İyi Cevaplar</h4>' +
         bestHtml +
-        dotsHtml +
+        timelineHtml +
+        shareListHtml +
         '<div>' +
           '<button type="button" data-action="next" style="padding:8px 14px; font-weight:bold;">SONRAKİ</button> ' +
+          '<button type="button" data-action="report">YANLIŞ / EKSİK BİLDİR</button> ' +
           '<button type="button" data-action="toMenu">MENÜ</button>' +
         '</div>' +
       '</section>';
@@ -274,6 +294,12 @@
     return '' +
       '<section data-screen="stats">' +
         '<h2>İSTATİSTİKLER</h2>' +
+        '<ul>' +
+          '<li>Oynanan Gün: <strong>' + escapeHtml(s.playedDays || 0) + '</strong></li>' +
+          '<li>Güncel Seri: <strong>' + escapeHtml(s.streak || 0) + '</strong> (En İyi: ' + escapeHtml(s.bestStreak || 0) + ')</li>' +
+          '<li>En İyi Gün Puanı: <strong>' + escapeHtml(s.bestDayScore || 0) + '</strong></li>' +
+          '<li>Kaydedilen Bildirim: <strong>' + escapeHtml(s.reportsCount || 0) + '</strong></li>' +
+        '</ul>' +
         '<pre>' + escapeHtml(JSON.stringify(s, null, 2)) + '</pre>' +
         '<button type="button" data-action="toMenu">MENÜYE DÖN</button>' +
       '</section>';
@@ -381,8 +407,14 @@
       viewState.timer.left = d.left;
       viewState.timer.total = d.total;
       viewState.timer.warn = d.left <= 5;
-      var span = mainEl && mainEl.querySelector('[data-screen="question"] span[style]');
-      if (!span) render();
+      var span = mainEl && mainEl.querySelector('[data-timer="true"]');
+      if (span) {
+        span.textContent = 'Süre: ' + Math.ceil(d.left) + ' sn';
+        if (viewState.timer.warn) {
+          span.style.color = 'var(--bad, #e2685c)';
+          span.style.fontWeight = 'bold';
+        }
+      }
     });
 
     bus.on('timer:warn', function () {
@@ -503,12 +535,34 @@
         return;
       }
 
-      if (viewState.phase === 'menu' && km[ev.key]) {
-        var mapped = km[ev.key];
-        if (mapped === 'daily') {
-          callAction('startDaily');
-        } else {
-          callAction('focusMode', mapped);
+      if (viewState.phase === 'menu') {
+        var now = Date.now();
+        var mapped = null;
+        if (km.arrows && km.arrows[ev.key]) {
+          if (lastArrowKey && lastArrowKey !== ev.key && (now - lastArrowTs) <= (km.COMBO_MS || 250)) {
+            var comboKey = lastArrowKey + '+' + ev.key;
+            if (km.arrowCombos && km.arrowCombos[comboKey]) {
+              mapped = 'karma';
+            }
+          }
+          if (!mapped) mapped = km.arrows[ev.key];
+          lastArrowKey = ev.key;
+          lastArrowTs = now;
+        } else if (km.numpad && km.numpad[ev.code]) {
+          mapped = km.numpad[ev.code];
+        } else if (km.wasd && km.wasd[ev.code]) {
+          mapped = km.wasd[ev.code];
+        }
+
+        if (mapped) {
+          if (mapped === 'rota') {
+            callAction('startDaily');
+          } else {
+            if (mapped === 'klasik' || mapped === 'gundem' || mapped === 'antika' || mapped === 'kesif') {
+              mapped = 'karma';
+            }
+            callAction('focusMode', mapped);
+          }
         }
       }
     });

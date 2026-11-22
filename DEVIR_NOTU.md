@@ -43,3 +43,4 @@ Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine 
 
 ## Kim ne yapıyor
 - F1 agy (gemini-4-hydrogen-medium, İşçi A + B): tamam. Iskelet/sözleşme v3\ altında, node --check ve daily_sim PASS; tarayıcı (?mock) testi yapılmadı.
+- F2 agy (gemini-4-hydrogen-medium, İşçi A akış/UI + B motor/fikstür): tamam; score 8/8, match 8/8, bench indeks 48 ms (hedef 40), smoke A+B PASS; tarayıcı testi yapılmadı.
