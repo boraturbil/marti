@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PUSULLA — Yön B: Atlas baskısı</title>
+<style>
+:root{
+  --bg:#f2ede2; --ink:#1b2230; --ink-2:#4a5163; --ink-3:#868a93;
+  --line:rgba(27,34,48,.16); --line-2:rgba(27,34,48,.34);
+  --accent-red:#b4442b; --rose-a:#1b2230;
+  --mode-yaygin:#b07f0c; --mode-nadir:#6a4cc0; --mode-eski:#a0522a; --mode-yeni:#17807f;
+  --mode-klasik:#a8681b; --mode-gundem:#637f45; --mode-antika:#854f75; --mode-kesif:#40669f;
+  --tier-tam:#3f9a4a; --tier-cokyakin:#d3a72a; --tier-yakin:#cf7a3c; --tier-uzak:#9c5048; --tier-zayif:#b9b5aa;
+  --ok:#3f9a4a; --bad:#c0392b;
+  --serif:Georgia,"Times New Roman",serif; --sans:"Segoe UI",system-ui,sans-serif;
+  --accent:var(--mode-eski);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;font-variant-numeric:tabular-nums}
+canvas.bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.screen{position:relative;z-index:1;height:100vh;display:none;grid-template-rows:56px 1fr 46px}
+body[data-s="menu"] .screen--menu,body[data-s="soru"] .screen--soru{display:grid}
+.frame{position:fixed;inset:14px;border:1px solid var(--line-2);pointer-events:none;z-index:2}
+.frame::after{content:"";position:absolute;inset:4px;border:1px solid var(--line)}
+
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 44px;margin-top:14px}
+.top .l{font-size:13px;color:var(--ink-2);display:flex;gap:22px}
+.top .l b{color:var(--ink);font-weight:600}
+.nav{justify-self:end;display:flex;gap:26px;font-size:13.5px;color:var(--ink-2)}
+.nav a{color:inherit;text-decoration:none}
+.keys{display:flex;align-items:center;justify-content:center;gap:26px;font-size:12.5px;color:var(--ink-3);margin-bottom:14px}
+kbd{display:inline-block;min-width:22px;padding:2px 6px;margin-right:6px;border:1px solid var(--line-2);border-bottom-width:2px;border-radius:3px;
+  font:11.5px var(--sans);color:var(--ink-2);text-align:center;line-height:16px;background:rgba(255,255,255,.35)}
+
+/* --- gul (gravur) --- */
+.rose{display:block;width:100%;height:100%;overflow:visible}
+.rl{fill:none;stroke:var(--ink);stroke-opacity:.75;stroke-width:1}
+.rl-strong{stroke-width:2.2;stroke-opacity:.9}
+.rl-tick{stroke-opacity:.55}
+.rl-faint{stroke-opacity:.3}
+.rl-hatch{stroke-opacity:.35}
+.rose-bezel{animation:spin 360s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rose-deg{font:italic 11px var(--serif);fill:var(--ink-2);text-anchor:middle;dominant-baseline:middle}
+.rose-mark{fill:var(--accent-red)}
+.rose-label--main{font:17px var(--serif);letter-spacing:.24em}
+.rose-label--mix{font:italic 12px var(--serif);letter-spacing:.12em}
+.rose-half{stroke:var(--ink);stroke-width:1;stroke-linejoin:round}
+.rose-half--a{fill:var(--ink)}
+.rose-half--b{fill:var(--bg)}
+.rose-pt--mix .rose-half--a{fill:var(--ink-2)}
+.rose-pt.is-focus .rose-half--b{fill:color-mix(in srgb,var(--c) 16%,var(--bg))}
+.rose-needle{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.needle-n{fill:var(--c);stroke:var(--bg);stroke-width:2.5;stroke-linejoin:round}
+.needle-s{fill:var(--bg);stroke:var(--ink);stroke-width:1.2}
+@media (prefers-reduced-motion:reduce){.rose-needle{transition:none}}
+.seg{fill:none;stroke:var(--ink);stroke-opacity:.15;stroke-width:6}
+.seg--done{stroke-opacity:1}
+.rose-cap{fill:var(--bg);stroke:var(--ink);stroke-width:1.5}
+.cap-over{font:600 8.5px var(--sans);letter-spacing:.24em;fill:var(--ink-2);text-anchor:middle}
+.cap-num{font:30px var(--serif);fill:var(--ink);text-anchor:middle}
+.cap-of{font-size:15px;fill:var(--ink-3)}
+.rose--badge .rl{stroke-width:6}
+.rose--badge .rl-tick{display:none}
+.rose--badge .rose-half{stroke-width:4}
+@media (prefers-reduced-motion:reduce){.rose-bezel{animation:none}}
+
+/* --- menu --- */
+.menu{display:grid;grid-template-columns:470px 1fr;gap:56px;align-items:center;padding:0 96px 0 110px}
+.mast .over{font-size:11.5px;letter-spacing:.24em;color:var(--ink-2)}
+.mast h1{font:normal 78px/1 var(--serif);letter-spacing:.13em;margin:14px 0 0;padding-bottom:16px;border-bottom:3px double var(--ink)}
+.dek{font:italic 19px/1.5 var(--serif);color:var(--ink-2);margin:16px 0 30px}
+.sec{display:flex;align-items:baseline;gap:12px;font-size:11.5px;letter-spacing:.22em;color:var(--ink-2)}
+.sec::after{content:"";flex:1;border-bottom:1px dotted var(--line-2)}
+.legs{margin:8px 0 0}
+.leg{display:grid;grid-template-columns:22px 110px 1fr 48px;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.leg .ar{font:19px var(--serif)}
+.leg .nm{font-size:12.5px;letter-spacing:.18em}
+.sq{display:flex;gap:4px}
+.sq i{width:14px;height:14px;border:1px solid var(--line-2);display:block}
+.sq i[data-t]{border:0}
+.leg .pt{font:17px var(--serif);text-align:right}
+.leg .pt.none{color:var(--ink-3)}
+.total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 0}
+.total span{font:italic 15px var(--serif);color:var(--ink-2)}
+.total b{font:normal 30px var(--serif)}
+.total b small{font-size:15px;color:var(--ink-3)}
+.cta{display:flex;align-items:center;gap:24px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:14px;font:600 13.5px var(--sans);letter-spacing:.18em;border-radius:2px;cursor:pointer}
+.btn-ink{background:var(--ink);color:var(--bg);border:0;padding:14px 18px 14px 22px}
+.btn-ink kbd{margin:0;background:transparent;color:var(--bg);border-color:rgba(242,237,226,.45)}
+.btn:focus-visible,.answer input:focus-visible{outline:2px solid var(--accent-red);outline-offset:3px}
+.link{font:italic 15px var(--serif);color:var(--ink-2);border-bottom:1px solid var(--line-2)}
+.chart{justify-self:center;display:flex;flex-direction:column;align-items:center}
+.rose-wrap{width:min(73vh,780px);height:min(73vh,780px)}
+.caption{margin-top:6px;text-align:center;max-width:460px}
+.caption .k{font-size:11.5px;letter-spacing:.24em;color:var(--accent)}
+.caption p{font:italic 17px/1.45 var(--serif);color:var(--ink-2);margin:6px 0 0}
+.cap2{margin-top:8px;font-size:12.5px;color:var(--ink-3);letter-spacing:.04em}
+.caption p b{font-style:normal;font-weight:normal;color:var(--accent);letter-spacing:.06em}
+
+/* --- soru --- */
+.qhead{display:flex;align-items:center;gap:14px;justify-self:center}
+.qhead .mini{width:40px;height:40px}
+.qhead b{font:normal 19px var(--serif);letter-spacing:.14em;color:var(--accent)}
+.qhead span{font:italic 15px var(--serif);color:var(--ink-2)}
+.brand{font:19px var(--serif);letter-spacing:.3em}
+.qstats{justify-self:end;font-size:13px;color:var(--ink-2);display:flex;gap:22px}
+.qstats b{font:normal 19px var(--serif);color:var(--ink);margin-left:6px}
+.qmain{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:10px}
+.over-q{font-size:11.5px;letter-spacing:.26em;color:var(--accent)}
+.qtext{font:normal 60px/1.15 var(--serif);text-align:center;margin:18px 0 10px}
+.qtext em{font-style:italic;color:var(--ink-2);font-size:44px}
+.qtext .subj{letter-spacing:.05em;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:12px}
+.scope{font:italic 16px var(--serif);color:var(--ink-3)}
+.prog{display:flex;align-items:center;gap:18px;margin:30px 0 0;width:720px}
+.pips{display:flex;gap:6px}
+.pip{width:22px;height:22px;border:1px solid var(--line-2);display:block}
+.pip.now{border:2px solid var(--accent)}
+.timeline{flex:1;position:relative;height:22px}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:10px;border-top:1px solid var(--line-2)}
+.timeline .fill{position:absolute;left:0;top:8px;height:5px;background:var(--accent)}
+.timeline .tk{position:absolute;inset:4px 0 auto 0;height:13px;background:repeating-linear-gradient(90deg,var(--line-2) 0 1px,transparent 1px calc(100%/6))}
+.secs{font:normal 24px var(--serif);min-width:60px;text-align:right}
+.secs small{font:italic 14px var(--serif);color:var(--ink-3);margin-left:3px}
+.answer{width:720px;margin-top:18px;display:flex;border:1.5px solid var(--ink);background:rgba(255,255,255,.45)}
+.answer input{flex:1;border:0;background:transparent;font:30px var(--serif);color:var(--ink);padding:14px 20px;caret-color:var(--accent)}
+.answer .btn{border-radius:0}
+.aux{width:720px;display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:var(--ink-3)}
+.fbs{width:720px;margin-top:22px;min-height:120px}
+.fb{display:flex;align-items:center;gap:18px;padding:14px 18px;border:1px solid var(--line-2);border-top:3px solid var(--ink);background:rgba(255,255,255,.5)}
+.fb .tx{flex:1;font:italic 17px/1.4 var(--serif);color:var(--ink-2)}
+.fb .tx small{display:block;font:12.5px var(--sans);color:var(--ink-3);margin-bottom:2px}
+.fb .tx b{font-style:normal;font-weight:normal;color:var(--ink);font-size:20px}
+.fb .acts{display:flex;gap:10px}
+.fb .acts .btn{font-size:12px;padding:7px 10px}
+.btn-line{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+.btn-line kbd{margin:0}
+.bad{margin-top:10px;font-size:14px;color:var(--ink-2);display:flex;gap:10px}
+.bad .x{color:var(--bad);font-weight:700}
+</style>
+</head>
+<body data-s="menu">
+<canvas class="bg" id="bg"></canvas>
+<div class="frame"></div>
+
+<!-- ================= MENU ================= -->
+<section class="screen screen--menu">
+  <header class="top">
+    <div class="l"><span>Seri <b>4 gün</b></span><span>En iyi <b>1720</b></span></div>
+    <div></div>
+    <nav class="nav"><a href="#">İstatistik</a><a href="#">Nasıl oynanır</a><a href="#">Hakkında</a></nav>
+  </header>
+
+  <main class="menu">
+    <section class="mast">
+      <div class="over">PAZAR · 22 KASIM 2026 · GÜNLÜK YÖN BULMACASI</div>
+      <h1>PUSULLA</h1>
+      <p class="dek">Herkesin aklına gelen mi, kimsenin bilmediği mi? Bir yön seç, bir tane söyle.</p>
+      <div class="sec">BUGÜNÜN ROTASI</div>
+      <div class="legs">
+        <div class="leg"><span class="ar" style="color:var(--mode-yaygin)">↑</span><span class="nm">YAYGIN</span><span class="sq"><i data-t="tam"></i><i data-t="yakin"></i><i data-t="cokyakin"></i><i></i><i></i></span><span class="pt">210</span></div>
+        <div class="leg"><span class="ar" style="color:var(--mode-yeni)">→</span><span class="nm">EN YENİ</span><span class="sq"><i data-t="tam"></i><i data-t="cokyakin"></i><i data-t="tam"></i><i data-t="uzak"></i><i data-t="tam"></i></span><span class="pt">400</span></div>
+        <div class="leg"><span class="ar" style="color:var(--mode-nadir)">↓</span><span class="nm">NADİR</span><span class="sq"><i></i><i></i><i></i><i></i><i></i></span><span class="pt none">—</span></div>
+        <div class="leg"><span class="ar" style="color:var(--mode-eski)">←</span><span class="nm">EN ESKİ</span><span class="sq"><i data-t="yakin"></i><i data-t="zayif"></i><i></i><i></i><i></i></span><span class="pt">130</span></div>
+      </div>
+      <div class="total"><span>8 / 20 soru</span><b>740<small> / 2000</small></b></div>
+      <div class="cta"><button class="btn btn-ink">ROTAYA DEVAM <kbd>S</kbd></button><span class="link">ya da pusuladan bir yön seç</span></div>
+    </section>
+
+    <section class="chart">
+      <div class="rose-wrap" id="rose-menu"></div>
+      <div class="caption"><div class="k">BATI · 270°</div><p><b>EN ESKİ</b> — en erken tarihli cevabı bul.</p><div class="cap2">Bu bacak 2 / 5 · <kbd>↵</kbd>başla</div></div>
+    </section>
+  </main>
+
+  <footer class="keys">
+    <span><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>yön seç</span>
+    <span>iki ok birlikte: çapraz (karma)</span>
+    <span><kbd>S</kbd>günün rotası</span>
+    <span><kbd>↵</kbd>başla</span>
+  </footer>
+</section>
+
+<!-- ================= SORU ================= -->
+<section class="screen screen--soru">
+  <header class="top">
+    <div class="brand">PUSULLA</div>
+    <div class="qhead"><div class="mini" id="rose-badge"></div><b>EN ESKİ</b><span>batıya doğru</span></div>
+    <div class="qstats"><span>Soru<b>3/5</b></span><span>Puan<b>170</b></span></div>
+  </header>
+
+  <main class="qmain">
+    <div class="over-q">EN ERKEN TARİHLİ OLANI SÖYLE</div>
+    <div class="qtext"><em>Bir tane</em> <span class="subj">TARAYICI</span> <em>söyle.</em></div>
+    <div class="scope">Açık küme — havuzda 152 aday, ilk genel sürüm yılına göre</div>
+    <div class="prog">
+      <span class="pips"><i class="pip" style="background:var(--tier-yakin);border:0"></i><i class="pip" style="background:var(--tier-tam);border:0"></i><i class="pip now"></i><i class="pip"></i><i class="pip"></i></span>
+      <span class="timeline"><span class="tk"></span><span class="fill" style="width:60%"></span></span>
+      <span class="secs">18<small>sn</small></span>
+    </div>
+    <label class="answer"><input type="text" value="Netscap" aria-label="Cevabın"><button class="btn btn-ink">GÖNDER <kbd>↵</kbd></button></label>
+    <div class="aux"><span>GEÇ <kbd>Tab</kbd> 10 sn sonra</span><span>Türkçe karakter şart değil</span></div>
+    <div class="fbs">
+      <div class="fb"><span class="tx"><small>“Netscap” yazdın</small>Şunu mu demek istedin: <b>Netscape Navigator</b>?</span>
+        <span class="acts"><button class="btn btn-ink">EVET <kbd>↵</kbd></button><button class="btn btn-line">HAYIR <kbd>Esc</kbd></button></span></div>
+      <div class="bad"><span class="x">×</span><span>“internet” geçersiz: belirli bir ad yazmalısın.</span></div>
+    </div>
+  </main>
+
+  <footer class="keys">
+    <span><kbd>↵</kbd>gönder</span><span><kbd>Tab</kbd>geç</span><span><kbd>Esc</kbd>menü</span>
+  </footer>
+</section>
+
+<script src="rose.js"></script>
+<script src="bg.js"></script>
+<script>
+(function () {
+  var s = (location.hash || '#menu').slice(1);
+  document.body.setAttribute('data-s', s === 'soru' ? 'soru' : 'menu');
+  var T = window.PUSULLA.taslak;
+  document.getElementById('rose-menu').innerHTML = T.rose({
+    uid: 'm', focus: 'eski', theme: 'atlas', done: 8,
+    legs: { yaygin: ['tam', 'yakin', 'cokyakin'], yeni: ['tam', 'cokyakin', 'tam', 'uzak', 'tam'], eski: ['yakin', 'zayif'] }
+  });
+  document.getElementById('rose-badge').innerHTML = T.rose({ uid: 'b', focus: 'eski', theme: 'atlas', badge: true });
+  document.querySelectorAll('.sq i[data-t]').forEach(function (i) { i.style.background = 'var(--tier-' + i.getAttribute('data-t') + ')'; });
+  function bg() {
+    window.PUSULLA.taslakBg(document.getElementById('bg'), {
+      seed: 5, grid: '27,34,48', gridA: 0.06, line: '27,34,48', lineA: 0.07, grain: '90,70,40', grainA: 0.09,
+      hills: [[0.04, 0.95, 12], [0.97, 0.05, 9]]
+    });
+  }
+  bg(); window.addEventListener('resize', bg);
+  window.addEventListener('hashchange', function () { location.reload(); });
+})();
+</script>
+</body>
+</html>
