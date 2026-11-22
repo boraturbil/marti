@@ -69,7 +69,7 @@
     },
     frame: function (c, G, t, st, u) {
       u.drawClouds(c, st.clouds, t * 0.6, G.W, ['#d88a7a', '#f0a888', '#ffcaa0', '#ffe6c8']);
-      var y = Math.round(G.H * 0.88), step = Math.floor(t * 3) % 2;
+      var y = Math.round(G.H * 0.78), step = Math.floor(t * 3) % 2;
       for (var i = 0; i < 3; i++) camel(u, c, Math.round(G.W - ((t * 4 + i * 18) % (G.W + 60))), y, (step + i) % 2, '#6a4430');
       u.birds(c, t, G.W, G.H, 2, '#5a3a4a', 0.3);
     }
@@ -143,7 +143,7 @@
       return {};
     },
     frame: function (c, G, t, st, u) {
-      var y = Math.round(G.H * 0.85), step = Math.floor(t * 3) % 2;
+      var y = Math.round(G.H * 0.78), step = Math.floor(t * 3) % 2;
       for (var i = 0; i < 4; i++) {
         var x = Math.round(((t * 5 + i * 17) % (G.W + 80)) - 40);
         camel(u, c, x, y, (step + i) % 2, '#4a3030');

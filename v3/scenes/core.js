@@ -156,34 +156,121 @@
   }
 
   /* ---------------- katmanlar ve döngü ---------------- */
-  var themes = {}, layers = [], front = 0, G = { W: 0, H: 0, S: 3 }, cache = {}, cur = 'bogaz', fading = false, fadeTimer = 0;
+  var themes = {}, layers = [], front = 0, G = { W: 0, H: 0, S: 3 }, G2 = { W: 0, H: 0, S: 3 }, PAD = 0;
+  var cache = {}, cur = 'bogaz', fading = false, fadeTimer = 0;
+  var walkerCv = null, walkerCtx = null;
   var raf = 0, last = 0, t0 = 0, reduced = false, running = false;
+  var isDebug = false, dbgLast = 0;
+  try { isDebug = /(?:^|[?&])debug(?:=|$)/.test((global.location && global.location.search) || ''); } catch (e) { isDebug = false; }
+
+  function asOfYear() {
+    var raw = P.config && P.config.ASOF;
+    var y = raw ? parseInt(String(raw).slice(0, 4), 10) : NaN;
+    return isNaN(y) ? new Date().getFullYear() : y;
+  }
+  var prevYear = asOfYear(), walkDir = 1, walk = null, roadOffset = 0, lastWalkTs = 0;
+  var MID = { misir: -2500, antik: -300, selcuklu: 1100, fetih: 1453, kesif: 1600, sanayi: 1850, cumhuriyet: 1930, uzay: 1970, dijital: 2000, metropol: 2020 };
 
   function now() { return global.performance ? global.performance.now() : Date.now(); }
   function staticFor(id) {
     if (cache[id]) return cache[id];
     var th = themes[id] || themes.bogaz;
     var cv = doc.createElement('canvas');
-    cv.width = G.W; cv.height = G.H;
+    cv.width = G2.W; cv.height = G2.H;
     var c = cv.getContext('2d');
     var st = {};
-    try { st = th.build(c, G, util) || {}; } catch (e) { if (global.console) global.console.error('[PUSULLA.scene] sahne çizilemedi:', id, e); }
+    try { st = th.build(c, G2, util) || {}; } catch (e) { if (global.console) global.console.error('[PUSULLA.scene] sahne çizilemedi:', id, e); }
     return (cache[id] = { cv: cv, st: st, th: th, id: id });
   }
   function paint(L, t) {
-    if (!L || !L.ctx || !L.s) return;
-    L.ctx.drawImage(L.s.cv, 0, 0);
-    if (L.s.th.frame) { try { L.s.th.frame(L.ctx, G, t, L.s.st, util); } catch (e) { /* tek kare hatası oyunu durdurmaz */ } }
+    if (!L || !L.ctx || !L.s || !L.offCtx) return;
+    L.offCtx.drawImage(L.s.cv, 0, 0);
+    if (L.s.th.frame) { try { L.s.th.frame(L.offCtx, G2, t, L.s.st, util); } catch (e) { /* tek kare hatası oyunu durdurmaz */ } }
+    var sOff = L.s_off || 0;
+    var y1 = Math.round(G.H * 0.45), y2 = Math.round(G.H * 0.70);
+    var bandsDef = [[0, y1, 0.15], [y1, y2 - y1, 0.4], [y2, G.H - y2, 0.8]];
+    for (var i = 0; i < bandsDef.length; i++) {
+      var by = bandsDef[i][0], bh = bandsDef[i][1], k = bandsDef[i][2];
+      if (bh <= 0) continue;
+      var sx = Math.max(0, Math.min(2 * PAD, PAD + Math.round(PAD * k * sOff)));
+      L.ctx.drawImage(L.off, sx, by, G.W, bh, 0, by, G.W, bh);
+    }
+  }
+  function ease(x) { x = x < 0 ? 0 : x > 1 ? 1 : x; return x * x * (3 - 2 * x); }
+  function phaseName() { return (doc.body && doc.body.dataset && doc.body.dataset.phase) || ''; }
+  function finishWalk() {
+    if (!walk) return;
+    if (fading) finishFade();
+    for (var i = 0; i < layers.length; i++) layers[i].s_off = 0;
+    prevYear = walk.target;
+    walk = null;
+    lastWalkTs = 0;
   }
   function frame() {
-    var t = reduced ? 20 : (now() - t0) / 1000;
+    var tMs = now();
+    var t = reduced ? 20 : (tMs - t0) / 1000;
+    var ph = phaseName();
+    var showWalker = (ph === 'question' || ph === 'result');
+    if (walk && !showWalker) finishWalk();
+
+    var p = 0, moving = false;
+    var mixFrom = cur, mixTo = null, mixT = 0;
+    if (walk) {
+      p = (tMs - walk.t0) / (walk.dur * 1000);
+      var dt = lastWalkTs ? Math.min(0.1, (tMs - lastWalkTs) / 1000) : 0;
+      lastWalkTs = tMs;
+      if (p >= 1) {
+        finishWalk();
+      } else {
+        moving = !reduced;
+        if (!walk.sameTheme) {
+          var f = 0.52 / walk.dur;
+          if (p >= 0.40 && !walk.faded) { walk.faded = true; show(walk.toId); }
+          var oldS = -walk.dir * ease(p / (0.4 + f));
+          var newS = walk.dir * (1 - ease((p - 0.4) / 0.6));
+          if (!walk.faded) {
+            layers[front].s_off = oldS;
+          } else if (fading) {
+            layers[front].s_off = oldS;
+            layers[1 - front].s_off = newS;
+          } else {
+            layers[front].s_off = newS;
+          }
+          mixFrom = walk.fromId;
+          mixTo = walk.toId;
+          mixT = Math.max(0, Math.min(1, (p - 0.4) / 0.4));
+        }
+        roadOffset -= walk.dir * 40 * dt;
+      }
+    } else {
+      lastWalkTs = 0;
+    }
+
     paint(layers[front], t);
     if (fading) paint(layers[1 - front], t);
+
+    if (walkerCtx) {
+      walkerCtx.clearRect(0, 0, G.W, G.H);
+      if (showWalker && P.scene && P.scene.walker) {
+        var feetY = G.H - Math.ceil(46 / G.S) - 4;
+        var cx = Math.floor(G.W / 2);
+        try {
+          P.scene.walker.road(walkerCtx, G, feetY, Math.round(roadOffset), mixFrom, mixTo, mixT);
+          P.scene.walker.draw(walkerCtx, cx, feetY, walk ? walk.dir : walkDir, reduced ? 0 : t, moving);
+        } catch (e) { /* walker hatası sahneyi durdurmaz */ }
+      }
+    }
+
+    if (isDebug && tMs - dbgLast >= 1000) {
+      dbgLast = tMs;
+      if (global.console) global.console.log('[PUSULLA.scene] kare: ' + (now() - tMs).toFixed(2) + ' ms (' + (walk ? '~30' : '~12') + ' fps)');
+    }
   }
   function loop(ts) {
     raf = 0;
     if (!running) return;
-    if (ts - last >= 83) { last = ts; frame(); }
+    var gate = walk ? 33 : 83;
+    if (ts - last >= gate) { last = ts; frame(); }
     raf = global.requestAnimationFrame(loop);
   }
   function start() {
@@ -199,14 +286,25 @@
     var vw = global.innerWidth, vh = global.innerHeight;
     G.S = Math.max(2, Math.round(vh / 250));
     G.W = Math.ceil(vw / G.S); G.H = Math.ceil(vh / G.S);
+    PAD = Math.ceil(G.W * 0.08);
+    G2 = { W: G.W + 2 * PAD, H: G.H, S: G.S };
     cache = {};
     layers.forEach(function (L) {
       L.cv.width = G.W; L.cv.height = G.H;
       L.cv.style.width = (G.W * G.S) + 'px'; L.cv.style.height = (G.H * G.S) + 'px';
       L.ctx = L.cv.getContext('2d'); L.ctx.imageSmoothingEnabled = false;
+      if (!L.off) L.off = doc.createElement('canvas');
+      L.off.width = G2.W; L.off.height = G2.H;
+      L.offCtx = L.off.getContext('2d'); L.offCtx.imageSmoothingEnabled = false;
       if (L.s) L.s = staticFor(L.s.id);
     });
+    if (walkerCv) {
+      walkerCv.width = G.W; walkerCv.height = G.H;
+      walkerCv.style.width = (G.W * G.S) + 'px'; walkerCv.style.height = (G.H * G.S) + 'px';
+      walkerCtx = walkerCv.getContext('2d'); walkerCtx.imageSmoothingEnabled = false;
+    }
     if (!layers[front].s) layers[front].s = staticFor(cur);
+    doc.documentElement.style.setProperty('--walker-h', ((24 + 10) * G.S) + 'px');
     frame();
   }
   function finishFade() {
@@ -226,6 +324,7 @@
     layers.forEach(function (L) { L.cv.setAttribute('data-scene', id); });
     if (reduced) {
       front = 1 - front;
+      layers[front].s_off = 0;
       layers[front].cv.style.opacity = '1'; layers[1 - front].cv.style.opacity = '0';
       frame(); return;
     }
@@ -236,6 +335,50 @@
     fadeTimer = global.setTimeout(finishFade, 520);
   }
 
+  function setScene(eraId, opts) {
+    var yr = opts && opts.year;
+    var id = pick(eraId, yr);
+    var hasYear = yr !== null && yr !== undefined && yr !== '' && !isNaN(+yr);
+    var target = hasYear ? +yr : (id === 'bogaz' ? asOfYear() : (MID[id] !== undefined ? MID[id] : asOfYear()));
+    var ph = phaseName();
+    var canWalk = !reduced && eraId !== 'simdi' && (ph === 'question' || ph === 'result') && layers.length;
+
+    if (!canWalk) {
+      if (walk) finishWalk();
+      for (var i = 0; i < layers.length; i++) layers[i].s_off = 0;
+      show(id);
+      prevYear = target;
+      return;
+    }
+
+    if (walk) finishWalk();
+    if (target === prevYear && id === cur) {
+      prevYear = target;
+      return;
+    }
+
+    var dir = target >= prevYear ? 1 : -1;
+    walkDir = dir;
+    var sameTheme = (id === cur);
+    var dur = sameTheme ? 0.6 : Math.max(0.8, Math.min(2.4, 0.8 + 0.5 * Math.log10(1 + Math.abs(target - prevYear))));
+    walk = { fromId: cur, toId: id, dir: dir, t0: now(), dur: dur, target: target, sameTheme: sameTheme, faded: false };
+    lastWalkTs = walk.t0;
+    last = 0;
+    if (!running && !doc.hidden) start();
+  }
+
+  function walkTo(year) {
+    var y = +year;
+    var eras = (P.config && P.config.ERAS) || [];
+    var eraId = 'simdi';
+    for (var i = 0; i < eras.length; i++) {
+      var e = eras[i];
+      if (e.min === null || e.max === null || e.min === undefined || e.max === undefined) continue;
+      if (y >= e.min && y <= e.max) { eraId = e.id; break; }
+    }
+    setScene(eraId, { year: y });
+  }
+
   function mount(root) {
     if (layers.length) return;
     for (var i = 0; i < 2; i++) {
@@ -244,13 +387,18 @@
       cv.setAttribute('aria-hidden', 'true');
       cv.style.opacity = i === 0 ? '1' : '0';
       root.insertBefore(cv, root.firstChild);
-      layers.push({ cv: cv, ctx: null, s: null });
+      layers.push({ cv: cv, ctx: null, s: null, off: null, offCtx: null, s_off: 0 });
     }
+    walkerCv = doc.createElement('canvas');
+    walkerCv.className = 'pu-scene pu-walker';
+    walkerCv.setAttribute('aria-hidden', 'true');
+    walkerCv.style.opacity = '1';
+    root.insertBefore(walkerCv, layers[0].cv.nextSibling);
     t0 = now();
     try {
       var mq = global.matchMedia('(prefers-reduced-motion: reduce)');
       reduced = mq.matches;
-      var onMq = function (e) { reduced = e.matches; if (reduced) { stop(); frame(); } else start(); };
+      var onMq = function (e) { reduced = e.matches; if (reduced) { if (walk) finishWalk(); stop(); frame(); } else start(); };
       if (mq.addEventListener) mq.addEventListener('change', onMq); else if (mq.addListener) mq.addListener(onMq);
     } catch (e) { reduced = false; }
     resize();
@@ -263,7 +411,8 @@
   P.scene = {
     name: 'pusulla-sahne',
     mount: mount,
-    setScene: function (eraId, opts) { show(pick(eraId, opts && opts.year)); },
+    setScene: setScene,
+    walkTo: walkTo,
     setMode: function () {},
     register: function (id, th) { if (id && th && typeof th.build === 'function') themes[id] = th; },
     pick: pick,
