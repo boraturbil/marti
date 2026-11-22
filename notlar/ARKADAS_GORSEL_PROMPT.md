@@ -16,6 +16,8 @@ Sen PUSULLA adlı tarayıcı oyununun **görsel tasarımcısı ve ön yüz geli�
 7. Depoya yazma iznin yoksa fork'la, aynı dal adıyla (`gorsel`) PR aç.
 
 ## 1. Oyun ne?
+> **GÜNCEL KARAR (plan §SON KARARLAR geçerli):** 4 ana uç = NORMAL modlar. 4 ara uç ayrı ayrı mod OLARAK sunulmaz; menüde bunlar tek bir **KARMA** mod olarak gruplanır (pusulada ara uçlar karma moda giden yönler, seçilince karma havuzdan soru gelir). Yazım hatasında onay sorulur ("Şunu mu demek istedin?"). Sözleşme (v3/SOZLESME.md) bu konuda netleşince onu esas al.
+
 "Bir tane ___ söyle." kalıbında sorular (TARAYICI, ÇORBA, İSTANBUL İLÇESİ…), oyuncu serbest yazar. Ana ekran bir **pusula gülü**: 4 ana uç (K **YAYGIN**, G **NADİR**, B **EN ESKİ**, D **EN YENİ**) büyük, 4 ara uç (KB **KLASİK**, KD **GÜNDEM**, GB **ANTİKA**, GD **KEŞİF**) küçük; merkezde **GÜNÜN ROTASI** (günde 4 ana uç × 5 soru = 20 soru). Her soruda 30 sn süre, 5 soruluk tur; cevaptan sonra sonuç paneli: zaman modlarında **zaman şeridi**, pay modlarında **sıralı çubuk liste**, karma modlarda **iki eksenli mini harita**; noktaların üstünde hover/Tab bilgi kartı. Ad her yerde **PUSULLA** (çift L). Başka ad (Kerteriz, Pusula) kullanma.
 
 ## 2. Senin dosyaların (yalnız bunlara yaz)
