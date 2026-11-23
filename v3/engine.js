@@ -531,7 +531,11 @@
         info: r.info || null,
         src: r.src || null,
         isPlayer: idx === playerIdx,
-        isBest: Boolean(bestLabels[r.label])
+        isBest: Boolean(bestLabels[r.label]),
+        // ekleme (geriye uyumlu): sonuç ekranında katman başına örnek cevap için
+        tierId: item.tierId || null,
+        points: typeof item.points === 'number' ? item.points : null,
+        sl: r.sl || 0
       };
     });
 
