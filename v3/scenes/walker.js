@@ -155,19 +155,55 @@
     ctx.drawImage(sprite, Math.round(cx - W / 2), Math.round(feetY - H));
   }
 
-  // 11 tema için yol paletleri: [ana, açık, koyu]
+  // 47 tema için yol paletleri: [ana, açık, koyu]
   var ROADS = {
-    bogaz:      ['#5a4a6e', '#7d6b94', '#392c4a'],
-    misir:      ['#c89c5a', '#e4bd7a', '#966c34'],
-    antik:      ['#cfc8be', '#ebe4da', '#968f86'],
-    selcuklu:   ['#a67c56', '#c69b72', '#755336'],
-    fetih:      ['#68626e', '#8c8694', '#443e4a'],
-    kesif:      ['#7a5236', '#9e6e4a', '#4e321e'],
-    sanayi:     ['#46424a', '#645e6a', '#28252c'],
-    cumhuriyet: ['#807672', '#a49a94', '#58504c'],
-    uzay:       ['#5c6674', '#7e8a9a', '#3a424e'],
-    dijital:    ['#1c2440', '#38d6e8', '#0e1326'],
-    metropol:   ['#363a46', '#d8dce6', '#1e2028']
+    bogaz:           ['#5a4a6e', '#7d6b94', '#392c4a'],
+    gobeklitepe:     ['#9a7a58', '#b89670', '#6a5038'],
+    ur_ziggurat:     ['#b48a5a', '#d2aa78', '#7e5e3a'],
+    misir:           ['#c89c5a', '#e4bd7a', '#966c34'],
+    hattusa:         ['#a08866', '#c0a882', '#6e5c44'],
+    truva:           ['#a8906c', '#c8b08a', '#76603e'],
+    babil:           ['#b89a64', '#d8ba84', '#84683e'],
+    atina:           ['#d8d0c0', '#f0ead8', '#a09886'],
+    antik:           ['#cfc8be', '#ebe4da', '#968f86'],
+    cin_seddi:       ['#8e7a66', '#ae9a84', '#5e5040'],
+    roma:            ['#8a8478', '#aaa496', '#5c574e'],
+    maya:            ['#9a8a6a', '#bcac88', '#6a5c44'],
+    ayasofya:        ['#a89a88', '#c8baa6', '#766a5c'],
+    bagdat:          ['#a8865a', '#c8a678', '#765a3a'],
+    viking:          ['#6a6e72', '#8a8e92', '#44474a'],
+    hacli:           ['#b0946a', '#d0b48a', '#7c6646'],
+    selcuklu:        ['#a67c56', '#c69b72', '#755336'],
+    mogol:           ['#9a9a6a', '#baba88', '#6a6a44'],
+    bursa:           ['#9a8a74', '#bcaa92', '#6a5c4c'],
+    yasak_sehir:     ['#a0786a', '#c09888', '#704e44'],
+    fetih:           ['#68626e', '#8c8694', '#443e4a'],
+    ronesans:        ['#a8987e', '#c8b89c', '#786a56'],
+    suleymaniye:     ['#9a8c86', '#bcaea6', '#6a5e5a'],
+    kesif:           ['#7a5236', '#9e6e4a', '#4e321e'],
+    tac_mahal:       ['#c0806a', '#e0a08a', '#8a5444'],
+    lale_devri:      ['#a8907a', '#c8b09a', '#786652'],
+    abd_bagimsizlik: ['#8a6a5a', '#aa8a78', '#5a443a'],
+    fransiz_devrimi: ['#7a7470', '#9a9490', '#4e4a46'],
+    sanayi:          ['#46424a', '#645e6a', '#28252c'],
+    tanzimat:        ['#8e8a86', '#aeaaa6', '#5e5a56'],
+    londra:          ['#5e5a5a', '#7e7a7a', '#3a3838'],
+    eyfel:           ['#76706a', '#96908a', '#4c4844'],
+    canakkale:       ['#8a7a5e', '#aa9a7c', '#5a4e3c'],
+    cumhuriyet:      ['#807672', '#a49a94', '#58504c'],
+    ikinci_dunya:    ['#3e4048', '#5e6068', '#24262c'],
+    bm_newyork:      ['#56585e', '#76787e', '#36383c'],
+    uzay:            ['#5c6674', '#7e8a9a', '#3a424e'],
+    ay_inisi:        ['#7a7a80', '#9a9aa0', '#4e4e54'],
+    tokyo_80:        ['#2e2a44', '#e05aa8', '#1a1828'],
+    berlin_duvari:   ['#5a5e66', '#7a7e86', '#3a3d42'],
+    dijital:         ['#1c2440', '#38d6e8', '#0e1326'],
+    silikon:         ['#4a4e58', '#6a6e78', '#2e3036'],
+    kus_yuvasi:      ['#3a3c4a', '#5a5c6a', '#22232c'],
+    dubai:           ['#b8a07a', '#d8c09a', '#88704e'],
+    yeni_istanbul:   ['#5e6068', '#7e8088', '#3c3e44'],
+    mars:            ['#9a4e36', '#ba6e52', '#6a3222'],
+    metropol:        ['#363a46', '#d8dce6', '#1e2028']
   };
 
   function road(ctx, G, y, offset, themeId, mixToId, mixT) {
@@ -215,6 +251,7 @@
     W: W,
     H: H,
     draw: draw,
-    road: road
+    road: road,
+    ROADS: ROADS
   };
 })(typeof window !== 'undefined' ? window : globalThis);

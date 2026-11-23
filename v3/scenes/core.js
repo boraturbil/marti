@@ -1,7 +1,7 @@
 /* PUSULLA — sahne yöneticisi. PUSULLA.scene sözleşmesini uygular: setScene(eraId, {year, modeId}), setMode(modeId).
  * Tek düşük çözünürlüklü piksel canvas (tam sayı ölçek), iki katmanlı çapraz solma (≤ 600 ms), ~12 kare/sn.
  * Temalar PUSULLA.scene.register(id, {build, frame}) ile kaydolur (scenes/bosphorus.js, scenes/themes.js).
- * Sahne seçimi: menü ('simdi') → Boğaz; cevap yılı varsa yıla göre tarih sahnesi, yoksa dönem kimliğine göre. */
+ * Sahne seçimi: menü ('simdi') → Boğaz; cevap yılı varsa yıl → PICK_BY_YEAR tablosu (46 sahne), yoksa dönem kimliğine göre. */
 (function (global) {
   'use strict';
   var P = (global.PUSULLA = global.PUSULLA || {});
@@ -137,27 +137,28 @@
 
   /* ---------------- sahne seçimi ---------------- */
   var BY_ERA = { simdi: 'bogaz', antik: 'antik', ortacag: 'selcuklu', erken_modern: 'kesif', sanayi: 'sanayi', yy20_basi: 'cumhuriyet', elektronik: 'uzay', dijital: 'dijital', akilli: 'metropol' };
+  var PICK_BY_YEAR = [
+    [-3500,'gobeklitepe'],[-2600,'ur_ziggurat'],[-1600,'misir'],[-1200,'hattusa'],[-800,'truva'],[-500,'babil'],
+    [-330,'atina'],[-220,'antik'],[-27,'cin_seddi'],[200,'roma'],[500,'maya'],[750,'ayasofya'],[900,'bagdat'],
+    [1066,'viking'],[1200,'hacli'],[1243,'selcuklu'],[1299,'mogol'],[1406,'bursa'],[1440,'yasak_sehir'],[1482,'fetih'],
+    [1520,'ronesans'],[1600,'suleymaniye'],[1630,'kesif'],[1680,'tac_mahal'],[1750,'lale_devri'],[1789,'abd_bagimsizlik'],
+    [1815,'fransiz_devrimi'],[1839,'sanayi'],[1876,'tanzimat'],[1889,'londra'],[1914,'eyfel'],[1919,'canakkale'],
+    [1939,'cumhuriyet'],[1946,'ikinci_dunya'],[1957,'bm_newyork'],[1969,'uzay'],[1976,'ay_inisi'],[1985,'tokyo_80'],
+    [1992,'berlin_duvari'],[2001,'dijital'],[2007,'silikon'],[2010,'kus_yuvasi'],[2015,'dubai'],[2020,'yeni_istanbul'],
+    [2024,'mars'],[Infinity,'metropol']
+  ];
   function pick(eraId, year) {
     if (eraId === 'simdi' || eraId == null) return 'bogaz';
     var y = (year === null || year === undefined || year === '') ? null : +year;
     if (y !== null && !isNaN(y)) {
-      if (y < -1000) return 'misir';
-      if (y < 500) return 'antik';
-      if (y < 1300) return 'selcuklu';
-      if (y < 1500) return 'fetih';
-      if (y < 1800) return 'kesif';
-      if (y < 1900) return 'sanayi';
-      if (y < 1950) return 'cumhuriyet';
-      if (y < 1990) return 'uzay';
-      if (y < 2010) return 'dijital';
-      return 'metropol';
+      for (var i = 0; i < PICK_BY_YEAR.length; i++) if (y < PICK_BY_YEAR[i][0]) { var id = PICK_BY_YEAR[i][1]; return themes[id] ? id : (BY_ERA[eraId] || 'bogaz'); }
     }
     return BY_ERA[eraId] || 'bogaz';
   }
 
   /* ---------------- katmanlar ve döngü ---------------- */
   var themes = {}, layers = [], front = 0, G = { W: 0, H: 0, S: 3 }, G2 = { W: 0, H: 0, S: 3 }, PAD = 0;
-  var cache = {}, cur = 'bogaz', fading = false, fadeTimer = 0;
+  var cache = {}, cur = 'bogaz', forced = null, fading = false, fadeTimer = 0;
   var walkerCv = null, walkerCtx = null;
   var raf = 0, last = 0, t0 = 0, reduced = false, running = false;
   var isDebug = false, dbgLast = 0;
@@ -169,7 +170,12 @@
     return isNaN(y) ? new Date().getFullYear() : y;
   }
   var prevYear = asOfYear(), walkDir = 1, walk = null, settle = null, roadOffset = 0, lastWalkTs = 0;
-  var MID = { misir: -2500, antik: -300, selcuklu: 1100, fetih: 1453, kesif: 1600, sanayi: 1850, cumhuriyet: 1930, uzay: 1970, dijital: 2000, metropol: 2020 };
+  var MID = { gobeklitepe:-9600, ur_ziggurat:-2900, misir:-2560, hattusa:-1350, truva:-1180, babil:-575, atina:-440, antik:-250,
+    cin_seddi:-210, roma:80, maya:350, ayasofya:537, bagdat:830, viking:980, hacli:1099, selcuklu:1229, mogol:1260, bursa:1399,
+    yasak_sehir:1420, fetih:1453, ronesans:1504, suleymaniye:1557, kesif:1610, tac_mahal:1653, lale_devri:1728, abd_bagimsizlik:1776,
+    fransiz_devrimi:1789, sanayi:1830, tanzimat:1856, londra:1886, eyfel:1889, canakkale:1915, cumhuriyet:1923, ikinci_dunya:1941,
+    bm_newyork:1952, uzay:1961, ay_inisi:1969, tokyo_80:1980, berlin_duvari:1989, dijital:1996, silikon:2004, kus_yuvasi:2008,
+    dubai:2010, yeni_istanbul:2017, mars:2021, metropol:2025 };
 
   function now() { return global.performance ? global.performance.now() : Date.now(); }
   function staticFor(id) {
@@ -376,8 +382,9 @@
   }
 
   function setScene(eraId, opts) {
+    if (forced) { show(forced); return; }
     var yr = opts && opts.year;
-    var id = pick(eraId, yr);
+    var id = (opts && opts.scene && themes[opts.scene]) ? opts.scene : pick(eraId, yr);
     var hasYear = yr !== null && yr !== undefined && yr !== '' && !isNaN(+yr);
     var target = hasYear ? +yr : (id === 'bogaz' ? asOfYear() : (MID[id] !== undefined ? MID[id] : asOfYear()));
     var ph = phaseName();
@@ -456,6 +463,8 @@
     } catch (e) { reduced = false; }
     resize();
     start();
+    var m = /[?&]scene=([a-z0-9_]+)/.exec((global.location && global.location.search) || '');
+    if (m && themes[m[1]]) { forced = m[1]; show(forced); }
     (function bindStroll() {
       var tries = 0;
       (function tryBind() {
@@ -477,8 +486,17 @@
     setMode: function () {},
     register: function (id, th) { if (id && th && typeof th.build === 'function') themes[id] = th; },
     pick: pick,
-    labels: { bogaz: 'BOĞAZ', misir: 'ESKİ MISIR', antik: 'ANTİK ÇAĞ', selcuklu: 'SELÇUKLU DÖNEMİ', fetih: 'FETİH DÖNEMİ', kesif: 'KEŞİFLER ÇAĞI',
-      sanayi: 'SANAYİ DEVRİMİ', cumhuriyet: 'CUMHURİYET DÖNEMİ', uzay: 'UZAY ÇAĞI', dijital: 'DİJİTAL ÇAĞ', metropol: 'AKILLI ÇAĞ' },
+    PICK_BY_YEAR: PICK_BY_YEAR,
+    labels: { bogaz:'BOĞAZ', gobeklitepe:'GÖBEKLİTEPE', ur_ziggurat:'SÜMER UR', misir:'ESKİ MISIR', hattusa:'HİTİT HATTUŞA',
+      truva:'TRUVA', babil:'BABİL', atina:'ATİNA AKROPOLİS', antik:'HELENİSTİK ÇAĞ', cin_seddi:'ÇİN SEDDİ', roma:'ROMA KOLEZYUM',
+      maya:'MAYA TİKAL', ayasofya:'BİZANS AYASOFYA', bagdat:'ABBASİ BAĞDAT', viking:'VİKİNG FİYORDU', hacli:'HAÇLI SEFERLERİ',
+      selcuklu:'SELÇUKLU DÖNEMİ', mogol:'MOĞOL BOZKIRI', bursa:'OSMANLI KURULUŞU', yasak_sehir:'MİNG YASAK ŞEHİR', fetih:'FETİH DÖNEMİ',
+      ronesans:'RÖNESANS FLORANSA', suleymaniye:'OSMANLI KLASİK', kesif:'KEŞİFLER ÇAĞI', tac_mahal:'BABÜR TAC MAHAL',
+      lale_devri:'LALE DEVRİ', abd_bagimsizlik:'ABD BAĞIMSIZLIĞI', fransiz_devrimi:'FRANSIZ DEVRİMİ', sanayi:'SANAYİ DEVRİMİ',
+      tanzimat:'TANZİMAT', londra:'VİKTORYA LONDRASI', eyfel:'BELLE ÉPOQUE PARİS', canakkale:'ÇANAKKALE 1915',
+      cumhuriyet:'CUMHURİYET DÖNEMİ', ikinci_dunya:'II. DÜNYA SAVAŞI', bm_newyork:'SAVAŞ SONRASI NEW YORK', uzay:'UZAY ÇAĞI',
+      ay_inisi:"AY'A İNİŞ", tokyo_80:"TOKYO 80'LER", berlin_duvari:'BERLİN DUVARI', dijital:'DİJİTAL ÇAĞ', silikon:'WEB 2.0',
+      kus_yuvasi:'PEKİN 2008', dubai:'DUBAİ', yeni_istanbul:'YENİ İSTANBUL', mars:'MARS ÇAĞI', metropol:'AKILLI ÇAĞ' },
     show: show,
     themes: themes,
     util: util

@@ -287,6 +287,16 @@ kbd {
 .result { width: 100%; margin-top: 18px; animation: pu-rise .25s steps(5, end) both; }
 .res-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 10px; border-bottom: 2px dashed var(--line); }
 .res-tier { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 700; letter-spacing: .08em; text-shadow: var(--outline-sm); }
+/* TAM İSABET: arkasında altın shimmer plaka */
+.res-tier-tam { position: relative; overflow: hidden; padding: 4px 14px 4px 10px; color: var(--ink) !important; text-shadow: none;
+  background: linear-gradient(100deg, #e0a526 0%, #ffd166 35%, #fff3c2 50%, #ffd166 65%, #e0a526 100%); background-size: 220% 100%;
+  box-shadow: 3px 3px 0 var(--ink), 0 0 14px rgba(255, 209, 102, .55); animation: pu-shimmer 2.2s linear infinite; }
+.res-tier-tam::after { content: ''; position: absolute; top: 0; bottom: 0; width: 28%; left: -40%; pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .75), transparent); transform: skewX(-18deg); animation: pu-sweep 2.2s ease-in-out infinite; }
+.res-tier-tam .res-dot { background: var(--ink) !important; }
+@keyframes pu-shimmer { from { background-position: 0 0; } to { background-position: -220% 0; } }
+@keyframes pu-sweep { 0% { left: -40%; } 60%, 100% { left: 130%; } }
+@media (prefers-reduced-motion: reduce) { .res-tier-tam, .res-tier-tam::after { animation: none; } }
 .res-dot { width: 14px; height: 14px; display: inline-block; box-shadow: 2px 2px 0 var(--ink); }
 .era-chip { margin-left: auto; margin-right: 18px; padding: 2px 8px; font-size: 11px; font-weight: 700; letter-spacing: .14em; color: var(--ink); background: var(--cream); box-shadow: 2px 2px 0 var(--ink); }
 .res-pts { font-size: 30px; font-weight: 700; color: var(--cream-hi); text-shadow: var(--outline); }
