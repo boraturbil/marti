@@ -496,6 +496,69 @@ kbd {
 .rep-q { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .rep--head { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; color: var(--dim); }
 
+/* ============ küçük sonuç paneli + katman örnekleri ============ */
+.qmain.res-compact[data-sub="result"] { justify-content: flex-start; padding-top: 18px; }
+.qmain.res-compact[data-sub="result"] .timer { display: none; }
+.qmain.res-compact[data-sub="result"] .qbody { width: 640px; padding: 12px 22px 14px; }
+.qmain.res-compact[data-sub="result"] .scope { display: none; }
+.qmain.res-compact .result { margin-top: 10px; }
+.qmain.res-compact .res-head { padding-bottom: 6px; }
+.qmain.res-compact .res-tier { font-size: 21px; }
+.qmain.res-compact .res-pts { font-size: 24px; }
+.qmain.res-compact .res-line { margin: 8px 0 2px; }
+.qmain.res-compact .res-ans { font-size: 18px; }
+.qmain.res-compact .res-chart:not(:empty) { margin-top: 10px; }
+.qmain.res-compact .res-acts { margin-top: 12px; }
+.qmain.res-compact .res-acts .btn { padding: 7px 12px; font-size: 13px; }
+.tex { display: grid; gap: 2px; border-top: 2px dashed var(--line); padding-top: 4px; }
+.tex-row { display: grid; grid-template-columns: 128px 42px 1fr auto; align-items: center; gap: 10px; padding: 4px 6px; font-size: 13px; }
+.tex-row.is-you { background: color-mix(in srgb, var(--accent) 20%, transparent); }
+.tex-row.is-empty { opacity: .55; }
+.tex-tier { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-shadow: var(--outline-sm); }
+.tex-tier i { width: 10px; height: 10px; display: inline-block; box-shadow: 1px 1px 0 var(--ink); }
+.tex-pts { font-size: 12px; font-weight: 700; color: var(--dim); text-align: right; }
+.tex-ans { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.tex-ans b { color: var(--cream-hi); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tex-ans em { font-style: normal; font-size: 12px; color: var(--dim); }
+.tex-meta { font-size: 12px; font-weight: 700; color: var(--gold); white-space: nowrap; }
+.res-pool kbd { margin-right: 4px; }
+
+/* ============ alt şerit: dönem zaman çizelgesi ============ */
+.keys.keys--tl { display: block; padding: 0 22px; }
+.tl { position: relative; height: 100%; }
+.tl-seg { position: absolute; top: 3px; height: 17px; border-left: 2px solid var(--line); display: flex; align-items: center; justify-content: center; }
+.tl-seg.is-cur { background: rgba(255, 210, 122, .16); border-left-color: var(--gold); }
+.tl-seg:first-child { border-left: 0; }
+.tl-line { position: absolute; left: 0; right: 0; top: 22px; height: 3px; background: var(--cream); box-shadow: 0 2px 0 var(--ink); }
+.tl-yr { position: absolute; top: 28px; transform: translateX(-50%); font-size: 10px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.tl-mk { position: absolute; top: 19px; width: 9px; height: 9px; transform: translateX(-50%); background: var(--c); border: 2px solid var(--ink); }
+.tl-mk.is-you { top: 16px; width: 15px; height: 15px; background: var(--panel-solid); border: 3px solid var(--c); box-shadow: 0 0 0 2px var(--ink); z-index: 2; }
+
+/* ---- alt çizelge: sahneyle bütünleşik (renkler sahnedeki yoldan: --rd ana, --rl açık, --rk koyu) ---- */
+.keys.keys--tl.tl-v-a { border-top: 0; box-shadow: none; }
+
+/* A · kilometre taşları: yolun kenarındaki toprak, yıllar taşlara kazınmış */
+.keys.tl-v-a {
+  background:
+    repeating-linear-gradient(90deg, rgba(26, 17, 40, .16) 0 2px, transparent 2px 9px),
+    linear-gradient(var(--rk), color-mix(in srgb, var(--rk) 55%, #1a1128));
+}
+.tl-v-a .tl-line { top: 0; height: 2px; background: color-mix(in srgb, var(--rl) 55%, transparent); box-shadow: none; }
+.tl-v-a .tl-seg { top: 2px; height: 42px; border-left: 0; }
+.tl-v-a .tl-seg.is-cur { background: linear-gradient(color-mix(in srgb, var(--rl) 30%, transparent), transparent); }
+.tl-v-a .tl-yr {
+  top: 18px; padding: 3px 7px 2px; font-size: 10px; color: #3a2c2a; background: #dccfb8;
+  border: 2px solid #1a1128; box-shadow: inset 0 -3px 0 #a99a82, 2px 2px 0 rgba(0, 0, 0, .35);
+  clip-path: polygon(0 3px, 3px 3px, 3px 0, calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px, 100% 100%, 0 100%);
+}
+.tl-v-a .tl-mk { top: -4px; width: 10px; height: 8px; border-width: 2px; box-shadow: 1px 1px 0 rgba(0, 0, 0, .45);
+  clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 2px) 0, calc(100% - 2px) 2px, 100% 2px, 100% 100%, 0 100%); }
+.tl-v-a .tl-mk.is-you { display: none; }
+.tl-flag { position: absolute; top: 1px; z-index: 3; }
+.tl-flag i { position: absolute; left: -1px; top: 0; width: 2px; height: 40px; background: #e8dcc4; box-shadow: 1px 0 0 #1a1128; }
+.tl-flag b { position: absolute; left: 2px; top: 2px; padding: 1px 6px 1px 4px; font-size: 10px; color: var(--ink); background: var(--accent);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 50%, 100% 100%, 0 100%); white-space: nowrap; box-shadow: none; }
+
 /* büyük ekran */
 @media (min-height: 960px) {
   .logo { width: 396px; height: 120px; }

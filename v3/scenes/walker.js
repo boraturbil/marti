@@ -252,6 +252,7 @@
     H: H,
     draw: draw,
     road: road,
-    ROADS: ROADS
+    ROADS: ROADS,
+    roads: ROADS // alt zaman çizelgesi de yol rengini kullanır
   };
 })(typeof window !== 'undefined' ? window : globalThis);

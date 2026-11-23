@@ -137,6 +137,8 @@
 
   function setSub(sub) {
     st.sub = sub;
+    // öneri ekrandayken kutu kilitli: motor bekleyen öneri varken gönderimleri yok sayar, EVET/HAYIR ile cevaplanmalı
+    if (els.input) els.input.readOnly = (sub === 'confirm');
     els.main.setAttribute('data-sub', sub);
     renderKeys();
   }
@@ -150,6 +152,7 @@
 
   function renderKeys() {
     U.clear(els.keys);
+    els.keys.classList.remove('keys--tl');
     var items;
     if (st.sub === 'confirm') items = [[['↵'], 'evet'], [['Esc'], 'hayır, düzelt']];
     else if (st.sub === 'result') items = [[['↵'], st.index + 1 >= st.total ? 'turu bitir' : 'sonraki soru'], [['Esc'], 'menü']];
@@ -185,7 +188,6 @@
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
         timedOut ? 'SÜRE DOLDU' : (passed ? 'GEÇİLDİ' : U.tierLabel(tier))
       ]),
-      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era, st.eraYear, d.scene || st.scene) }) : null,
       h('div', { class: 'res-pts' }, ['+' + pts, h('small', { text: ' puan' })])
     ]);
     R.appendChild(head);
@@ -207,27 +209,43 @@
     if (lv && lv.fuzzy && lv.raw) {
       R.appendChild(h('p', { class: 'res-note' }, [q(lv.raw), ' → ', h('b', { text: lv.label }), ' olarak sayıldı.']));
     }
+    var tlist = ui.parts.tiers ? ui.parts.tiers.pick(d) : null; // katman başına örnek (varsa)
+    // oyuncunun cevabı tabloda "SEN" olarak duruyorsa üstteki tekrar satırını kaldır (panel kısalsın)
+    if (tlist && tlist.some(function (it) { return it.ex && it.ex.isPlayer; }) && line.parentNode === R) R.removeChild(line);
+    // GEÇ / süre: oyuncunun yılı yok → arka planı hedef cevabın dönemine getir (cetvel de onu vurgular)
+    if (tlist && (timedOut || passed) && tlist[0].ex && tlist[0].ex.year !== null && tlist[0].ex.year !== undefined) {
+      var ty = +tlist[0].ex.year, eng = global.PUSULLA.engine, sc = global.PUSULLA.scene;
+      var tEra = eng && eng.eraOf ? eng.eraOf(ty) : null;
+      if (tEra && !isNaN(ty)) {
+        st.era = tEra; st.eraYear = ty; updateEraTag(tEra, ty);
+        if (sc && sc.setScene) { try { sc.setScene(tEra, { year: ty, modeId: st.modeId }); } catch (e) { /* sahne hatası sonucu bozmaz */ } }
+      }
+    }
     var best = (d.best && d.best[0]) || null;
-    if (best && best.label && best.label !== player.label) {
+    if (!tlist && best && best.label && best.label !== player.label) {
       R.appendChild(h('p', { class: 'res-note' }, ['Hedefteki cevap: ', h('b', { text: best.label }), best.year !== null && best.year !== undefined ? ' (' + fy(best.year, best.approx) + ')' : '']));
     }
-    // sonuçta grafiğe yer aç: konu yazısını en çok 3 kata indir
+    // sonuçta arka plan görünsün: konu yazısını küçült (katman örneklerinde 2, grafikte 3 kat)
     var scv = els.qline.querySelector('.subj-cv');
     if (scv) {
-      var k = Math.min(3, +scv.getAttribute('data-scale') || 3);
+      var k = Math.min(tlist ? 2 : 3, +scv.getAttribute('data-scale') || 3);
       scv.style.width = (scv.width * k) + 'px';
       scv.style.height = (scv.height * k) + 'px';
     }
     els.chart = h('div', { class: 'res-chart', 'data-kind': d.kind || '' });
     R.appendChild(els.chart);
-    if (ui.parts.charts && typeof ui.parts.charts.render === 'function') ui.parts.charts.render(els.chart, d);
+    if (tlist) ui.parts.tiers.examples(els.chart, d, tlist);
+    else if (ui.parts.charts && typeof ui.parts.charts.render === 'function') ui.parts.charts.render(els.chart, d);
+    els.main.classList.toggle('res-compact', !!tlist);
     var last = st.index + 1 >= st.total;
     var nextBtn = h('button', { class: 'btn btn-primary', type: 'button', onclick: function () { U.act('next'); } }, [last ? 'TURU BİTİR' : 'SONRAKİ', U.kbd('↵')]);
     R.appendChild(h('div', { class: 'res-acts' }, [
       nextBtn,
-      d.poolSize ? h('span', { class: 'res-pool', text: 'havuzda ' + d.poolSize + ' aday' }) : null
+      !tlist && d.poolSize ? h('span', { class: 'res-pool', text: 'havuzda ' + d.poolSize + ' aday' }) : null,
+      tlist ? h('span', { class: 'res-pool' }, [U.kbd('Esc'), 'menü']) : null
     ]));
     setSub('result');
+    if (tlist) ui.parts.tiers.timeline(els.keys, d, tlist, st.era, st.eraYear);
     try { nextBtn.focus({ preventScroll: true }); } catch (e) { nextBtn.focus(); }
   }
 
