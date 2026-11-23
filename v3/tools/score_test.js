@@ -165,6 +165,33 @@ test('Karma modlarda her alt mod için >=1 satır 100 ve Dmin tutarlılığı', 
   }
 });
 
+// 6b. Karma yuzdelik puan: en iyi 100, en kotu 0, arasi dogrusal tam sayi
+test('Karma yüzdelik puan: min 100, max 0, tam sayı, D ile azalan', function () {
+  var karmaModes = ['klasik', 'gundem', 'antika', 'kesif'];
+  var fxs = [tarayiciFx, ilceFx];
+  for (var f = 0; f < fxs.length; f++) {
+    for (var m = 0; m < karmaModes.length; m++) {
+      var all = engine.scoreAllRows(karmaModes[m], fxs[f].question, fxs[f].pool, true);
+      var pts = all.results.map(function (r) { return r.points; });
+      assert.ok(pts.every(function (p) { return Number.isInteger(p) && p >= 0 && p <= 100; }), 'tam sayı 0-100');
+      assert.strictEqual(Math.max.apply(null, pts), 100);
+      assert.strictEqual(Math.min.apply(null, pts), 0);
+      var distinct = {};
+      pts.forEach(function (p) { distinct[p] = 1; });
+      assert.ok(Object.keys(distinct).length > 5, 'sürekli dağılım');
+      for (var i = 0; i < all.results.length; i++) {
+        for (var j = 0; j < all.results.length; j++) {
+          if (all.results[i].D < all.results[j].D) assert.ok(all.results[i].points >= all.results[j].points);
+        }
+      }
+    }
+  }
+  var one = engine.scoreAnswer({ modeId: 'klasik', question: tarayiciFx.question, pool: tarayiciFx.pool, rowIndex: 3, percent: true });
+  assert.ok(Number.isInteger(one.points));
+  var old = engine.scoreAllRows('klasik', tarayiciFx.question, tarayiciFx.pool);
+  assert.ok(old.results.every(function (r) { return [100, 70, 50, 30, 10].indexOf(r.points) >= 0; }));
+});
+
 // 7. PAS ve SÜRE DOLDU
 test('PAS ve SÜRE DOLDU 0 puan', function () {
   var pas = engine.scoreAnswer({ modeId: 'pas', pass: true });

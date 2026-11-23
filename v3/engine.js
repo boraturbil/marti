@@ -391,6 +391,7 @@
 
     var ds = new Array(n);
     var dMin = Infinity;
+    var dMax = -Infinity;
 
     for (var idx = 0; idx < n; idx++) {
       var row = rows[idx];
@@ -408,14 +409,43 @@
       var D = Math.sqrt(dt * dt + dp * dp) / Math.SQRT2;
       ds[idx] = { D: D, dt: dt, dp: dp, rankT: rt, entry: getShareEntry(shareLookup, row) };
       if (D < dMin) dMin = D;
+      if (D > dMax) dMax = D;
     }
 
-    return { items: ds, dMin: dMin };
+    return { items: ds, dMin: dMin, dMax: dMax };
   }
 
-  function scoreComboRow(rowIndex, comboData) {
+  // KARMA modu: surekli yuzdelik puan. En iyi satir (dMin) = 100, en kotu satir (dMax) = 0, arasi dogrusal, tam sayi.
+  function comboPercentPoints(D, dMin, dMax) {
+    var span = dMax - dMin;
+    if (span <= 1e-12) return 100;
+    var pts = Math.round(100 * (dMax - D) / span);
+    return Math.max(0, Math.min(100, pts));
+  }
+
+  function percentTierId(points) {
+    if (points >= 100) return 'tam';
+    if (points >= 70) return 'cokyakin';
+    if (points >= 50) return 'yakin';
+    if (points >= 30) return 'uzak';
+    return 'zayif';
+  }
+
+  function scoreComboRow(rowIndex, comboData, percent) {
     var item = comboData.items[rowIndex];
     var delta = item.D - comboData.dMin;
+    if (percent) {
+      var pp = comboPercentPoints(item.D, comboData.dMin, comboData.dMax);
+      return {
+        points: pp,
+        tierId: percentTierId(pp),
+        D: item.D,
+        dMin: comboData.dMin,
+        rankT: item.rankT,
+        rankP: item.entry ? item.entry.rankP : null,
+        share: item.entry ? item.entry.share : null
+      };
+    }
     var cb = THRESH.combo;
     var tid;
     if (delta <= 1e-9) {
@@ -440,7 +470,7 @@
     };
   }
 
-  function scoreAllRows(modeId, q, pool) {
+  function scoreAllRows(modeId, q, pool, percent) {
     var rows = filterPool(pool, q);
     var shareLookup = buildShareLookup(q);
     var timeStats = computeTimeStats(rows, q, pool);
@@ -456,7 +486,7 @@
       } else if (isPop) {
         res = scorePopRow(rows[i], modeId, shareLookup);
       } else {
-        res = scoreComboRow(i, comboData);
+        res = scoreComboRow(i, comboData, percent);
       }
       res.row = rows[i];
       res.rowIndex = i;
@@ -482,7 +512,7 @@
 
     var q = opts.question || {};
     var pool = opts.pool;
-    var all = scoreAllRows(modeId, q, pool);
+    var all = scoreAllRows(modeId, q, pool, Boolean(opts.percent));
     var rows = all.rows;
 
     var playerIdx = typeof opts.rowIndex === 'number' ? opts.rowIndex : -1;

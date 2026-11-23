@@ -8,7 +8,7 @@
   var U = ui.util, h = U.h, doc = global.document;
 
   var back = null, win = null, openName = null, returnTo = null, asOf = null, sessionReports = 0;
-  var FALLBACK_ATTR = 'Soru adayları Vikiveri (CC0), Vikipedi (CC BY-SA 4.0) ve GeoNames (CC BY 4.0) verilerinden derlenmiştir. Paylar yapay zekâ tahminidir.';
+  var FALLBACK_ATTR = 'Soru adayları Vikiveri (CC0), Vikipedi (CC BY-SA 4.0) ve GeoNames (CC BY 4.0) verilerinden derlenmiştir. KARMA modunda soru puanı 0–100 arası sürekli yüzdeliktir (en iyi cevap 100, en kötü 0). Paylar yapay zekâ tahminidir.';
   var KIND = { none: 'havuzda yok', fuzzy: 'yanlış eşleşme şüphesi', wrong: 'yanlış eşleşti' };
 
   function metaAttribution() {
@@ -81,7 +81,7 @@
           h('div', { class: 'ov-tiers' }, tiers.map(function (t) {
             return h('div', null, [h('i', { style: 'background:var(--tier-' + t.id + ')' }), h('span', { text: t.label }), h('b', { text: String(t.points) })]);
           })),
-          h('p', { class: 'ov-small', text: 'Tur 5 soru, en çok 500 puan; günün rotası en çok 2000 puan. Paylar yapay zekâ tahminidir.' })
+          h('p', { class: 'ov-small', text: 'Tur 5 soru, en çok 500 puan; günün rotası en çok 2000 puan. KARMA modunda soru puanı 0–100 arası sürekli yüzdeliktir (en iyi cevap 100, en kötü 0). Paylar yapay zekâ tahminidir.' })
         ])
       ]),
       h('div', { class: 'over', text: 'KLAVYE' }),

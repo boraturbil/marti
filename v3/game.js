@@ -777,7 +777,8 @@
           question: q,
           pool: rawPool || items,
           rowIndex: item && typeof item._rowIndex === 'number' ? item._rowIndex : -1,
-          row: item
+          row: item,
+          percent: state.modeId === 'karma'
         });
         if (eRes && typeof eRes.points === 'number') {
           return eRes;

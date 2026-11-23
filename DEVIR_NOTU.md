@@ -18,6 +18,7 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 - Kullanıcı isteği: sonuç paneli açılınca yazma bölümü (soru ekranı) gizlenir, SONRAKİ SORU'da geri gelir (`game.js` setPhase).
 - Esnek eşleştirme: `sular kesikti` ↔ `elektrikler kesildi` gibi çekim/fiil kökü/içerik örtüşmesi (`matcher.js`); alias'lar ~6 → 16-24/cevap (check.js tavanı 15→40). Yanlış pozitif 1.051 → 18 (fp.js).
 - Kontrol: `node tools/check.js` → 868/868 test, takvim ok. `node --check` hepsi temiz.
+- KARMA puanlama (2026-11-23): yalnız Karma modunda soru puanı sürekli yüzdelik: en iyi cevap 100, havuzdaki en kötü 0, arası doğrusal yuvarlanmış tam sayı (combo mesafesi D; `engine.scoreAllRows(..., percent)` / `scoreAnswer({percent})`, game.js `state.modeId==='karma'` iken geçirir). Diğer 3 mod kademeli (100/70/50/30/10) aynen. Pas/süre 0, tur 5x100=500. Etiketler (TAM/ÇOK YAKIN…) puandan türetilir (>=100/70/50/30/else zayıf). score_test 9/9.
 
 ## Açık işler / riskler
 1. **Cevap payları (%) YAPAY ZEKA TAHMİNİ** (README'de yazıyor); gerçek veri değil. Karar: önce **simüle anket** (çok kişilikli çoklu örnekleme + varlık sorularında Wikipedia görüntüleme/Google Trends), sonra gerçek oyuncu verisi (başlangıç tahmini + gerçek sayım; sunucu/form gerekir). Google otomatik tamamlama pilotu işe yaramadı (`v2/rev/SINYAL_PILOT.md`). Tek net bulgu: q09 `Kadayıf` payı Revani/Lokma/Tulumba üstüne çıkmalı (uygulanmadı).
