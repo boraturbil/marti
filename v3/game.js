@@ -1098,7 +1098,24 @@
       tierId: tierId
     });
 
-    var resultPayload = buildResultPayload(null, 0, 'zayif', q, effectiveModeId);
+    // Cevap yokken (GEÇ / süre) de hedef ve örnek cevaplar modun ölçütüne göre gelsin:
+    // motor puanlamasını herhangi bir satırla çalıştır, sonra "oyuncu" işaretini kaldır.
+    var zeroScored = null;
+    try {
+      if (P.engine && typeof P.engine.scoreAnswer === 'function') {
+        var zPool = typeof q.pool === 'string' ? getRawPool(q.pool) : q.pool;
+        var eRes = P.engine.scoreAnswer({ modeId: effectiveModeId, question: q, pool: zPool || normalizePoolItems(q), rowIndex: 0 });
+        if (eRes && Array.isArray(eRes.dots) && eRes.dots.length) {
+          zeroScored = Object.assign({}, eRes, {
+            player: { label: '—', year: null, share: null, rankT: null, rankP: null },
+            dots: eRes.dots.map(function (d) { var o = Object.assign({}, d); o.isPlayer = false; return o; })
+          });
+        }
+      }
+    } catch (e) {
+      zeroScored = null;
+    }
+    var resultPayload = buildResultPayload(null, 0, 'zayif', q, effectiveModeId, zeroScored);
     state.phase = 'result';
     state.lastResult = resultPayload;
     state.locked = false;
@@ -1433,14 +1450,8 @@
       state.locked = true;
       stopTimer();
       bus.emit('answer:pass', {});
-      var q = state.question;
-      state.rows.push({ qId: q.id, subject: q.subject, answer: '(geçildi)', points: 0, tierId: 'pas' });
-      state.index += 1;
-      if (state.index >= state.total) {
-        finishRound();
-      } else {
-        showQuestion();
-      }
+      // Geçen oyuncu da örnek cevapları görsün: süre dolması gibi 0 puanlı sonuç paneli, SONRAKİ ile devam
+      recordZeroResult('(geçildi)', 'pas');
     },
     next: function () {
       if (state.phase !== 'result' || state.locked) return;

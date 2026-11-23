@@ -176,11 +176,11 @@
     var tier = d.tierId || 'zayif';
     var pts = +d.points || 0;
     var player = d.player || {};
-    var timedOut = st.lastTimeout;
+    var timedOut = st.lastTimeout, passed = st.lastPass;
     var head = h('div', { class: 'res-head' }, [
       h('div', { class: 'res-tier', style: 'color:var(--tier-' + tier + ')' }, [
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
-        timedOut ? 'SÜRE DOLDU' : U.tierLabel(tier)
+        timedOut ? 'SÜRE DOLDU' : (passed ? 'GEÇİLDİ' : U.tierLabel(tier))
       ]),
       st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era, st.eraYear) }) : null,
       h('div', { class: 'res-pts' }, ['+' + pts, h('small', { text: ' puan' })])
@@ -188,8 +188,9 @@
     R.appendChild(head);
 
     var line = h('p', { class: 'res-line' });
-    if (timedOut || !player.label || player.label === '—') {
-      line.appendChild(h('span', { text: 'Bu soruda cevap yok.' }));
+    if (timedOut || passed || !player.label || player.label === '—') {
+      var hasDots = d.dots && d.dots.length;
+      line.appendChild(h('span', { text: (passed ? 'Geçtin' : (timedOut ? 'Süre doldu' : 'Bu soruda cevap yok')) + (hasDots ? ' — örnek cevaplar aşağıda.' : '.') }));
     } else {
       line.appendChild(h('span', { class: 'res-ans', text: player.label }));
       var meta = [];
@@ -375,6 +376,7 @@
         st.passOpen = false;
         st.lastValid = null;
         st.lastTimeout = false;
+        st.lastPass = false;
         st.era = null;
         els.pass.disabled = true;
         els.passNote.textContent = cfgNum('SKIP_AFTER', 10) + ' sn sonra açılır';
@@ -439,12 +441,12 @@
         st.eraYear = d ? d.year : null;
         updateEraTag(st.era, st.eraYear);
       },
-      'answer:pass': function () { st.tiers[st.index] = 'pas'; renderPips(); },
+      'answer:pass': function () { st.lastPass = true; st.tiers[st.index] = 'pas'; renderPips(); },
       'answer:timeout': function () { st.lastTimeout = true; st.tiers[st.index] = 'sure'; renderPips(); },
       'result:show': function (d) {
         d = d || {};
         if (ui.screen !== 'question') return;
-        if (!st.lastTimeout) st.tiers[st.index] = d.tierId || 'zayif';
+        if (!st.lastTimeout && !st.lastPass) st.tiers[st.index] = d.tierId || 'zayif';
         renderPips();
         renderScore();
         renderResult(d);

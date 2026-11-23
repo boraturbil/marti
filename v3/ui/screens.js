@@ -204,12 +204,12 @@
         cur.modeId = d.modeId; cur.daily = !!d.daily; cur.idx = 0; cur.timeout = false;
         if (cur.daily && d.modeId) day.legs[d.modeId] = [];
       },
-      'question:show': function (d) { cur.idx = (d && d.index) || 0; cur.timeout = false; },
-      'answer:pass': function () { if (cur.daily && day.legs[cur.modeId]) day.legs[cur.modeId][cur.idx] = 'pas'; },
+      'question:show': function (d) { cur.idx = (d && d.index) || 0; cur.timeout = false; cur.pass = false; },
+      'answer:pass': function () { cur.pass = true; if (cur.daily && day.legs[cur.modeId]) day.legs[cur.modeId][cur.idx] = 'pas'; },
       'answer:timeout': function () { cur.timeout = true; },
       'result:show': function (d) {
         if (!cur.daily || !day.legs[cur.modeId]) return;
-        day.legs[cur.modeId][cur.idx] = cur.timeout ? 'sure' : ((d && d.tierId) || 'zayif');
+        day.legs[cur.modeId][cur.idx] = cur.pass ? 'pas' : (cur.timeout ? 'sure' : ((d && d.tierId) || 'zayif'));
       },
       'round:end': function (d) {
         d = d || {};
