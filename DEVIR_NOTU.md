@@ -42,6 +42,8 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine göre en çok 3 paralel işçi) → Opus kontrol. DERS: paralel agy işçileri birbirinin dosyasını yedekten geri yüklememeli; brief'te dosya sahipliği ve "geri yükleme yok" yazılmalı, brief dosyaları benzersiz adlı olmalı.
 
 ## Kim ne yapıyor
+- `agy arkaplan`: bg_a..bg_f (İşçi A–F, her biri kendi dosyası) — dal: `agy/arkaplan`. Adım 0 altyapısı tamam; kalibre edilen bütçe: `BUILD_MAX = 30 ms` (en yavaş mevcut: `misir` 12.66 ms), `RECT_MAX = 3940` (en yüksek mevcut: `dijital` 3152 rect).
+- `entegrasyon`: core.js/walker.js/index.html (tek kişi, işçiler bitince).
 - F1 agy (gemini-4-hydrogen-medium, İşçi A + B): tamam. Iskelet/sözleşme v3\ altında, node --check ve daily_sim PASS; tarayıcı (?mock) testi yapılmadı.
 - F2 agy (gemini-4-hydrogen-medium, İşçi A akış/UI + B motor/fikstür): tamam; score 8/8, match 8/8, bench indeks 48 ms (hedef 40), smoke A+B PASS; tarayıcı testi yapılmadı.
 - F3/F4 veri hattı (ana oturum + agy C/D/E/G/H): bitti (2026-11-23 00:30); 42 havuz (24978 satır, 1,32 MB ham), q_demo.js 42 soru, check --demo 0 HATA/0 UYARI, kör test %96,7 (kalanı matcher eki/yazım hatası). Yıllar/paylar AI tahmini ve "genel bilgi" notlu; Haiku yıl doğrulaması (rev/YIL_DOGRULAMA.md) YAPILMADI. Üniversite sorusu BM Genel Sekreteri ile değişti. Rapor: v3/rev/DEMO_SORULAR.md.
