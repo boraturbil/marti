@@ -68,6 +68,57 @@
     'cumhurbaskani', 'genel sekreteri'
   ];
 
+  // Havuz adının sonundaki TÜR kelimesi (katlanmış). Oyuncu yalnız adı yazınca da eşleşsin:
+  // "Muradiye Camii" ← "muradiye", "Klasik müzik" ← "klasik", "Sokollu Mehmed Paşa Köprüsü" ← "sokollu mehmed pasa".
+  // İndekste ek anahtar olarak eklenir (label/alias'tan); uzundan kısaya, tek katman.
+  var HEAD_WORDS = [
+    // yapı ve yer
+    'camii', 'camisi', 'cami', 'mescidi', 'kulliyesi', 'kulliye', 'medresesi', 'medrese', 'hamami', 'hamam',
+    'koprusu', 'kopru', 'kervansarayi', 'kervansaray', 'turbesi', 'turbe', 'sarayi', 'saray', 'kasri', 'kosku',
+    'kalesi', 'kale', 'kulesi', 'kule', 'cesmesi', 'sebili', 'imareti', 'darussifasi', 'bedesteni', 'carsisi',
+    'kilisesi', 'kilise', 'sinagogu', 'katedrali', 'bazilikasi', 'manastiri', 'muzesi', 'muze', 'parki', 'meydani',
+    'milli parki', 'tabiat parki', 'adasi', 'golu', 'dagi', 'nehri', 'irmagi', 'bogazi', 'korfezi', 'stadyumu', 'stadi', 'universitesi',
+    'kutuphanesi', 'tiyatrosu', 'istasyonu', 'havalimani', 'limani',
+    // kültür, yemek, kurum
+    'muzigi', 'muzik', 'muzikleri', 'dansi', 'corbasi', 'tatlisi', 'kebabi', 'boregi', 'pilavi', 'salatasi',
+    'dolmasi', 'sarmasi', 'helvasi', 'peyniri', 'ekmegi', 'spor kulubu', 'futbol kulubu', 'kulubu', 'partisi',
+    'gazetesi', 'bankasi', 'holding', 'isletim sistemi', 'programlama dili'
+  ].sort(function (a, b) { return b.length - a.length; });
+  var HEAD_NATIONAL_PREFIXES = ['turk'];
+  // Eser adlarında (film, dizi, şarkı, oyun, kitap) baştaki kelime adın parçasıdır: tür/virgül kısaltması YAPILMAZ.
+  var NO_HEAD_POOL_RE = /(film|dizi|sarki|oyun|pixar|kitap|album|roman)/;
+
+  // Bir indeks anahtarından "tür kelimesi atılmış" ek anahtarlar üretir.
+  function headStrippedKeys(key) {
+    var out = [];
+    if (!key) return out;
+    var bases = [key];
+    var comma = key.indexOf(',');
+    if (comma > 0) bases.push(key.slice(0, comma).trim());
+    var paren = key.indexOf('(');
+    if (paren > 0) bases.push(key.slice(0, paren).trim());
+    for (var b = 0; b < bases.length; b++) {
+      var base = bases[b].replace(/[,()]/g, ' ').replace(/\s+/g, ' ').trim();
+      if (base !== key && out.indexOf(base) === -1) out.push(base);
+      for (var h = 0; h < HEAD_WORDS.length; h++) {
+        var needle = ' ' + HEAD_WORDS[h];
+        if (base.length > needle.length && base.slice(-needle.length) === needle) {
+          var rest = base.slice(0, -needle.length).trim();
+          if (rest && out.indexOf(rest) === -1) out.push(rest);
+          for (var p = 0; p < HEAD_NATIONAL_PREFIXES.length; p++) {
+            var pre = HEAD_NATIONAL_PREFIXES[p] + ' ';
+            if (rest.length > pre.length && rest.slice(0, pre.length) === pre) {
+              var core = rest.slice(pre.length).trim();
+              if (core && out.indexOf(core) === -1) out.push(core);
+            }
+          }
+          break;
+        }
+      }
+    }
+    return out;
+  }
+
   var POOL_SUFFIXES = {
     gezegen: ['cuce gezegeni', 'cuce gezegen', 'gezegeni', 'gezegen'],
     baskent: ['baskenti', 'baskent', 'sehri', 'sehir'],
@@ -303,11 +354,12 @@
     var rows = new Array(rawRows.length);
 
     var exactMap = new Map();
+    var headMap = new Map(); // tür kelimesi atılmış kısa adlar (ek soymaya kapalı, < 5 harf)
     var invalidMap = new Map();
     var buckets = new Map(); // length -> [{ key, mask }]
     var seenFuzzyKey = new Set();
 
-    function addExactKey(key, rowIdx) {
+    function addExactKey(key, rowIdx, noFuzzy) {
       if (!key) return;
       var arr = exactMap.get(key);
       if (!arr) {
@@ -315,7 +367,7 @@
       } else if (arr.indexOf(rowIdx) === -1) {
         arr.push(rowIdx);
       }
-      if (!seenFuzzyKey.has(key) && key.length >= 4) {
+      if (!noFuzzy && !seenFuzzyKey.has(key) && key.length >= 4) {
         seenFuzzyKey.add(key);
         var b = buckets.get(key.length);
         if (!b) {
@@ -324,6 +376,26 @@
         }
         b.push({ key: key, mask: charMask(key) });
       }
+    }
+
+    function addHeadKey(key, rowIdx, noFuzzy) {
+      if (!key || exactMap.has(key)) return; // gerçek ad/alias önceliklidir
+      var arr = headMap.get(key);
+      if (!arr) headMap.set(key, [rowIdx]); else if (arr.indexOf(rowIdx) === -1) arr.push(rowIdx);
+      if (!noFuzzy && !seenFuzzyKey.has(key) && key.length >= 4) {
+        seenFuzzyKey.add(key);
+        var hb = buckets.get(key.length);
+        if (!hb) { hb = []; buckets.set(key.length, hb); }
+        hb.push({ key: key, mask: charMask(key) });
+      }
+    }
+    var headPending = []; // [anahtar, satır] — tür kelimesi atılmış ek anahtarlar
+    var headPoolId = (question && question.pool) || (!Array.isArray(pool) && pool && pool.id) || '';
+    var headsOn = !NO_HEAD_POOL_RE.test(headPoolId);
+    function queueHeads(key, rowIdx) {
+      if (!headsOn) return;
+      var hs = headStrippedKeys(key);
+      for (var hh = 0; hh < hs.length; hh++) headPending.push([hs[hh], rowIdx]);
     }
 
     for (var i = 0; i < rawRows.length; i++) {
@@ -336,6 +408,13 @@
       addExactKey(lblKey, i);
       var lblCompact = compact(lblKey);
       if (lblCompact && lblCompact !== lblKey) addExactKey(lblCompact, i);
+      queueHeads(lblKey, i);
+      // "Osman Şah Camii, Tırhala" / "X (Y)": virgül/parantezden önceki ad da anahtar olsun (normalize virgülü siler)
+      var rawBase = String(r.label).split(/[,(]/)[0];
+      if (headsOn && rawBase !== r.label) {
+        var baseKey = normFold(rawBase);
+        if (baseKey && baseKey !== lblKey) { headPending.push([baseKey, i]); queueHeads(baseKey, i); }
+      }
 
       // f & 8 = alias incelemede (oyunda kullanılmaz)
       if (!(r.f & 8)) {
@@ -345,6 +424,7 @@
           addExactKey(aKey, i);
           var aCompact = compact(aKey);
           if (aCompact && aCompact !== aKey) addExactKey(aCompact, i);
+          queueHeads(aKey, i);
         }
       }
     }
@@ -369,9 +449,20 @@
       }
     }
 
+    // Tür kelimesi atılmış anahtarlar: geçersiz/genel kelimeyi ezmez, en az 3 harf, kısa olanlar bulanığa girmez
+    for (var hp = 0; hp < headPending.length; hp++) {
+      var hk = headPending[hp][0];
+      var hkc = compact(hk);
+      if (hkc.length < 3 || !/[a-z]{3,}/.test(hkc)) continue;
+      if (GENERIC_WORDS.indexOf(hk) !== -1 || invalidMap.has(hk) || invalidMap.has(hkc)) continue;
+      addHeadKey(hk, headPending[hp][1], hk.length < 6);
+      if (hkc !== hk) addHeadKey(hkc, headPending[hp][1], true);
+    }
+
     return {
       rows: rows,
       exactMap: exactMap,
+      headMap: headMap,
       invalidMap: invalidMap,
       buckets: buckets,
       size: rows.length,
@@ -526,7 +617,9 @@
     var comp = compact(key);
 
     // 1. Tam anahtar (boşluklu / boşluksuz)
-    var exactHits = index.exactMap.get(key) || (comp !== key ? index.exactMap.get(comp) : null);
+    var hm = index.headMap;
+    var exactHits = index.exactMap.get(key) || (comp !== key ? index.exactMap.get(comp) : null) ||
+      (hm ? (hm.get(key) || (comp !== key ? hm.get(comp) : null)) : null);
     if (exactHits && exactHits.length > 0) {
       var picked = pickHomonym(exactHits, index.rows, key);
       var row = index.rows[picked.index];
@@ -558,7 +651,8 @@
     for (var s = 0; s < stems.length; s++) {
       var st = stems[s];
       var stComp = compact(st);
-      var stemHits = index.exactMap.get(st) || (stComp !== st ? index.exactMap.get(stComp) : null);
+      var stemHits = index.exactMap.get(st) || (stComp !== st ? index.exactMap.get(stComp) : null) ||
+        (hm && stComp.length >= 5 ? (hm.get(st) || (stComp !== st ? hm.get(stComp) : null)) : null);
       if (stemHits && stemHits.length > 0) {
         var sPicked = pickHomonym(stemHits, index.rows, st);
         var sRow = index.rows[sPicked.index];
@@ -605,7 +699,7 @@
         var dist = boundedLevenshtein(qFold, cand.key, maxDist);
         if (dist > maxDist) continue;
 
-        var candRows = index.exactMap.get(cand.key);
+        var candRows = index.exactMap.get(cand.key) || (index.headMap ? index.headMap.get(cand.key) : null);
         var candRowIdx = candRows && candRows.length > 0 ? candRows[0] : -1;
         if (candRowIdx < 0) continue;
 
