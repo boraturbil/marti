@@ -137,6 +137,8 @@
 
   function setSub(sub) {
     st.sub = sub;
+    // öneri ekrandayken kutu kilitli: motor bekleyen öneri varken gönderimleri yok sayar, EVET/HAYIR ile cevaplanmalı
+    if (els.input) els.input.readOnly = (sub === 'confirm');
     els.main.setAttribute('data-sub', sub);
     renderKeys();
   }
