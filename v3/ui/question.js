@@ -181,7 +181,7 @@
     var player = d.player || {};
     var timedOut = st.lastTimeout;
     var head = h('div', { class: 'res-head' }, [
-      h('div', { class: 'res-tier', style: 'color:var(--tier-' + tier + ')' }, [
+      h('div', { class: 'res-tier' + (tier === 'tam' && !timedOut ? ' res-tier-tam' : ''), style:'color:var(--tier-' + tier + ')' }, [
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
         timedOut ? 'SÜRE DOLDU' : U.tierLabel(tier)
       ]),
