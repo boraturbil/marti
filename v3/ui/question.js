@@ -54,10 +54,10 @@
     }
   }
 
-  function updateEraTag(eraId, year) {
+  function updateEraTag(eraId, year, scene) {
     if (!els.eraTag) return;
     if (!eraId || eraId === 'simdi') { els.eraTag.textContent = 'BOĞAZ · ŞİMDİ'; return; }
-    var lbl = eraName(eraId, year);
+    var lbl = eraName(eraId, year, scene);
     var hasYear = year !== null && year !== undefined && year !== '' && !isNaN(+year);
     els.eraTag.textContent = hasYear ? (fy(+year) + ' · ' + lbl) : lbl;
   }
@@ -160,9 +160,12 @@
   }
 
   /* ---------- sonuç ---------- */
-  function eraName(id, year) {
+  function eraName(id, year, scene) {
     var sc = global.PUSULLA.scene;
-    if (sc && sc.pick && sc.labels) { var th = sc.pick(id, year); if (sc.labels[th]) return sc.labels[th]; }
+    if (sc && sc.labels) {
+      if (scene && sc.labels[scene]) return sc.labels[scene];
+      if (sc.pick) { var th = sc.pick(id, year); if (sc.labels[th]) return sc.labels[th]; }
+    }
     var list = U.cfg().ERAS || [];
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return U.upper(list[i].name);
     return U.upper(String(id).replace(/_/g, ' '));
@@ -178,11 +181,11 @@
     var player = d.player || {};
     var timedOut = st.lastTimeout, passed = st.lastPass;
     var head = h('div', { class: 'res-head' }, [
-      h('div', { class: 'res-tier', style: 'color:var(--tier-' + tier + ')' }, [
+      h('div', { class: 'res-tier' + (tier === 'tam' && !timedOut ? ' res-tier-tam' : ''), style:'color:var(--tier-' + tier + ')' }, [
         h('span', { class: 'res-dot', style: 'background:var(--tier-' + tier + ')' }),
         timedOut ? 'SÜRE DOLDU' : (passed ? 'GEÇİLDİ' : U.tierLabel(tier))
       ]),
-      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era, st.eraYear) }) : null,
+      st.era && st.era !== 'simdi' ? h('span', { class: 'era-chip', text: eraName(st.era, st.eraYear, d.scene || st.scene) }) : null,
       h('div', { class: 'res-pts' }, ['+' + pts, h('small', { text: ' puan' })])
     ]);
     R.appendChild(head);
@@ -378,6 +381,7 @@
         st.lastTimeout = false;
         st.lastPass = false;
         st.era = null;
+        st.scene = null;
         els.pass.disabled = true;
         els.passNote.textContent = cfgNum('SKIP_AFTER', 10) + ' sn sonra açılır';
         U.clear(els.fbs);
@@ -439,7 +443,8 @@
       'era:change': function (d) {
         st.era = (d && d.eraId) || null;
         st.eraYear = d ? d.year : null;
-        updateEraTag(st.era, st.eraYear);
+        st.scene = (d && d.scene) || null;
+        updateEraTag(st.era, st.eraYear, st.scene);
       },
       'answer:pass': function () { st.lastPass = true; st.tiers[st.index] = 'pas'; renderPips(); },
       'answer:timeout': function () { st.lastTimeout = true; st.tiers[st.index] = 'sure'; renderPips(); },

@@ -43,6 +43,10 @@ klasik script (file:// açılır), harici kütüphane/API yok (tarandı: http/fe
 Opus kontrol/plan (alt ajan) → agy hydrogen/argon uygular (dosya sahipliğine göre en çok 3 paralel işçi) → Opus kontrol. DERS: paralel agy işçileri birbirinin dosyasını yedekten geri yüklememeli; brief'te dosya sahipliği ve "geri yükleme yok" yazılmalı, brief dosyaları benzersiz adlı olmalı.
 
 ## Kim ne yapıyor
+- `agy arkaplan` + `entegrasyon`: TAMAM (2026-11-23, dal `agy/arkaplan`). 36 yeni sahne (`v3/scenes/bg_a.js..bg_f.js`) + `PICK_BY_YEAR` (46 yıl sahnesi + `bogaz` = 47 tema), `walker.js` `ROADS` (47 palet), `index.html`, `game.js`/`ui/question.js` isteğe bağlı `scene` alanı, `q_demo.js`/`q_demo2.js` 4 soru `scene` etiketi, `v3/tools/scene_pick_test.js` eklendi.
+  - Kontroller: `node --check` PASS, `scene_smoke.js --year-table` 47/47, `scene_pick_test.js` 46/46 PASS, `check.js --demo` 0 HATA, `match_test.js` 19/19, `score_test.js` 8/8, `v2/tools/check.js` 868/868, `shot_scenes.js --all --check` 12/12 sheet OK.
+  - Tarayıcı duman testi (Edge headless + yerel HTTP 8123): `?scene=<id>` 36/36, `walkTo(-9000/537/1566/1915/2022)` 5/5, soru→sonuç turu (1988 → `berlin_duvari` / `BERLİN DUVARI`), 375×812 kare, 0 konsol/sayfa hatası.
+  - Kalan işler: `agy/arkaplan` henüz push ve `entegrasyon`'a merge edilmedi.
 - F1 agy (gemini-4-hydrogen-medium, İşçi A + B): tamam. Iskelet/sözleşme v3\ altında, node --check ve daily_sim PASS; tarayıcı (?mock) testi yapılmadı.
 - F2 agy (gemini-4-hydrogen-medium, İşçi A akış/UI + B motor/fikstür): tamam; score 8/8, match 8/8, bench indeks 48 ms (hedef 40), smoke A+B PASS; tarayıcı testi yapılmadı.
 - F3/F4 veri hattı (ana oturum + agy C/D/E/G/H): bitti (2026-11-23 00:30); 42 havuz (24978 satır, 1,32 MB ham), q_demo.js 42 soru, check --demo 0 HATA/0 UYARI, kör test %96,7 (kalanı matcher eki/yazım hatası). Yıllar/paylar AI tahmini ve "genel bilgi" notlu; Haiku yıl doğrulaması (rev/YIL_DOGRULAMA.md) YAPILMADI. Üniversite sorusu BM Genel Sekreteri ile değişti. Rapor: v3/rev/DEMO_SORULAR.md.

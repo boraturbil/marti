@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>PUSULLA Sahne Önizleme</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #0d0c14;
+      color: #f4efe6;
+      font-family: Consolas, Monaco, monospace;
+      overflow: hidden;
+    }
+    #err {
+      position: fixed;
+      left: 8px;
+      bottom: 8px;
+      z-index: 9999;
+      background: rgba(140, 20, 20, 0.92);
+      color: #ffdede;
+      padding: 8px 12px;
+      font-size: 13px;
+      max-width: 90vw;
+      white-space: pre-wrap;
+      border: 1px solid #ff6b6b;
+      display: none;
+    }
+    #err:not(:empty) { display: block; }
+
+    #single-wrap {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #single-wrap canvas {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      display: block;
+    }
+
+    #grid-wrap {
+      display: grid;
+      grid-template-columns: 960px 960px;
+      grid-template-rows: 540px 540px;
+      width: 1920px;
+      height: 1080px;
+    }
+    .tile {
+      position: relative;
+      width: 960px;
+      height: 540px;
+      background: #14121d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .tile canvas {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      display: block;
+    }
+    .tile-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 20;
+      background: rgba(10, 8, 18, 0.78);
+      color: #fff4d8;
+      padding: 4px 8px;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      pointer-events: none;
+    }
+    .panel-mock {
+      position: absolute;
+      left: 35%;
+      width: 30%;
+      top: 12%;
+      height: 56%;
+      background: rgba(12, 10, 24, 0.52);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      z-index: 10;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <pre id="err"></pre>
+  <div id="root"></div>
+
+  <script src="../scenes/core.js"></script>
+  <script src="../scenes/bosphorus.js"></script>
+  <script src="../scenes/themes.js"></script>
+  <script src="../scenes/walker.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var errEl = document.getElementById('err');
+      var rootEl = document.getElementById('root');
+      var errors = [];
+
+      function pushErr(msg) {
+        errors.push(String(msg));
+        errEl.textContent = errors.join('\n');
+        document.title = 'ERR';
+      }
+
+      window.onerror = function (msg, src, line, col) {
+        pushErr((src || 'script') + ':' + line + ':' + col + ' ' + msg);
+      };
+
+      var qs = new URLSearchParams(window.location.search);
+      var sceneParam = qs.get('scene');
+      var gridParam = qs.get('grid');
+      var filesParam = qs.get('files');
+      var vw = parseInt(qs.get('vw') || '1920', 10);
+      var vh = parseInt(qs.get('vh') || '1080', 10);
+      var tVal = parseFloat(qs.get('t') || '2.0');
+      var showPanel = qs.get('panel') !== '0';
+      var showRoad = qs.get('road') !== '0';
+
+      var defaultBg = ['bg_a.js', 'bg_b.js', 'bg_c.js', 'bg_d.js', 'bg_e.js', 'bg_f.js'];
+      var files = filesParam
+        ? filesParam.split(',').map(function (s) { return s.trim(); }).filter(Boolean)
+        : defaultBg;
+
+      function loadScriptsSequentially(list, idx, done) {
+        if (idx >= list.length) { done(); return; }
+        var sc = document.createElement('script');
+        sc.src = '../scenes/' + list[idx];
+        sc.onload = function () { loadScriptsSequentially(list, idx + 1, done); };
+        sc.onerror = function () { loadScriptsSequentially(list, idx + 1, done); }; // Eksik bg_*.js atlanır
+        document.body.appendChild(sc);
+      }
+
+      function computeGrid(w, h) {
+        var S = Math.max(2, Math.round(h / 250));
+        var W = Math.ceil(w / S);
+        var H = Math.ceil(h / S);
+        var PAD = Math.ceil(0.08 * W);
+        return {
+          G: { W: W, H: H, S: S },
+          G2: { W: W + 2 * PAD, H: H, S: S },
+          PAD: PAD
+        };
+      }
+
+      function renderSceneToCanvas(id, targetCanvas, w, h) {
+        var Svc = window.PUSULLA && window.PUSULLA.scene;
+        if (!Svc || !Svc.themes) { pushErr('PUSULLA.scene yuklenemedi'); return; }
+        var th = Svc.themes[id];
+        if (!th) { pushErr('KAYITLI DEĞİL: ' + id); return; }
+
+        var dims = computeGrid(w, h);
+        var G = dims.G;
+        var G2 = dims.G2;
+        var PAD = dims.PAD;
+
+        var off = document.createElement('canvas');
+        off.width = G2.W;
+        off.height = G2.H;
+        var offCtx = off.getContext('2d');
+        offCtx.imageSmoothingEnabled = false;
+
+        var st = {};
+        try {
+          st = th.build(offCtx, G2, Svc.util) || {};
+        } catch (e) {
+          pushErr('build(' + id + '): ' + (e && e.message ? e.message : e));
+          return;
+        }
+        if (th.frame) {
+          try {
+            th.frame(offCtx, G2, tVal, st, Svc.util);
+          } catch (e) {
+            pushErr('frame(' + id + '): ' + (e && e.message ? e.message : e));
+            return;
+          }
+        }
+
+        targetCanvas.width = G.W;
+        targetCanvas.height = G.H;
+        var ctx = targetCanvas.getContext('2d');
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(off, PAD, 0, G.W, G.H, 0, 0, G.W, G.H);
+
+        if (showRoad && Svc.walker && Svc.walker.road) {
+          var feetY = G.H - Math.ceil(46 / G.S) - 4;
+          try {
+            Svc.walker.road(ctx, G, feetY, 0, id);
+          } catch (e) {
+            pushErr('road(' + id + '): ' + (e && e.message ? e.message : e));
+          }
+        }
+      }
+
+      function getRangeText(id) {
+        var Svc = window.PUSULLA && window.PUSULLA.scene;
+        if (!Svc || !Svc.PICK_BY_YEAR) return '';
+        var arr = Svc.PICK_BY_YEAR;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i][1] === id) {
+            var min = i === 0 ? '-∞' : String(arr[i - 1][0]);
+            var max = arr[i][0] === Infinity ? '+∞' : String(arr[i][0] - 1);
+            return '[' + min + ',' + max + ']';
+          }
+        }
+        return '';
+      }
+
+      function run() {
+        var Svc = window.PUSULLA && window.PUSULLA.scene;
+        if (gridParam !== null) {
+          var items = gridParam.split(',').map(function (s) { return s.trim(); });
+          while (items.length < 4) items.push('');
+          items = items.slice(0, 4);
+
+          var wrap = document.createElement('div');
+          wrap.id = 'grid-wrap';
+          items.forEach(function (id) {
+            var tile = document.createElement('div');
+            tile.className = 'tile';
+            if (id) {
+              var cv = document.createElement('canvas');
+              renderSceneToCanvas(id, cv, vw, vh);
+              tile.appendChild(cv);
+              if (showPanel) {
+                var pm = document.createElement('div');
+                pm.className = 'panel-mock';
+                tile.appendChild(pm);
+              }
+              var lbl = document.createElement('div');
+              lbl.className = 'tile-label';
+              var labelTxt = (Svc && Svc.labels && Svc.labels[id]) || id.toUpperCase();
+              var rangeTxt = getRangeText(id);
+              lbl.textContent = rangeTxt ? (id + ' · ' + rangeTxt + ' · ' + labelTxt) : (id + ' · ' + labelTxt);
+              tile.appendChild(lbl);
+            }
+            wrap.appendChild(tile);
+          });
+          rootEl.appendChild(wrap);
+        } else {
+          var id = sceneParam || 'bogaz';
+          var swrap = document.createElement('div');
+          swrap.id = 'single-wrap';
+          var cv = document.createElement('canvas');
+          renderSceneToCanvas(id, cv, vw, vh);
+          var dims = computeGrid(vw, vh);
+          cv.style.width = (dims.G.W * dims.G.S) + 'px';
+          cv.style.height = (dims.G.H * dims.G.S) + 'px';
+          swrap.appendChild(cv);
+          if (showPanel) {
+            var pm = document.createElement('div');
+            pm.className = 'panel-mock';
+            swrap.appendChild(pm);
+          }
+          rootEl.appendChild(swrap);
+        }
+        if (!errors.length) document.title = 'OK';
+      }
+
+      loadScriptsSequentially(files, 0, run);
+    })();
+  </script>
+</body>
+</html>

@@ -982,7 +982,8 @@
         player: scored.player,
         best: Array.isArray(scored.best) ? scored.best : [],
         dots: scored.dots,
-        poolSize: scored.poolSize || q.poolSize || scored.dots.length || 0
+        poolSize: scored.poolSize || q.poolSize || scored.dots.length || 0,
+        scene: (q && q.scene) || null
       };
     }
 
@@ -1037,7 +1038,8 @@
       } : { label: '—', year: null, share: null, rankT: null, rankP: null },
       best: items.length ? [items[0]] : [],
       dots: dots,
-      poolSize: q.poolSize || items.length || 0
+      poolSize: q.poolSize || items.length || 0,
+      scene: (q && q.scene) || null
     };
   }
 
@@ -1076,8 +1078,8 @@
 
     var eraId = item.era || eraOfYear(item.year);
     state.eraId = eraId;
-    bus.emit('era:change', { eraId: eraId, year: item.year !== undefined ? item.year : null });
-    safeSetScene(eraId, { year: item.year !== undefined ? item.year : null, modeId: state.modeId });
+    bus.emit('era:change', { eraId: eraId, year: item.year !== undefined ? item.year : null, scene: (q && q.scene) || null });
+    safeSetScene(eraId, { year: item.year !== undefined ? item.year : null, modeId: state.modeId, scene: q && q.scene });
 
     var resultPayload = buildResultPayload(item, points, tierId, q, effectiveModeId, scored);
     state.phase = 'result';
